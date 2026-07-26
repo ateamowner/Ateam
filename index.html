@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A-Team Contracting — 90-Day Plan Dashboard</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="hero">
+  <h1 id="hero-company">A-TEAM CONTRACTING</h1>
+  <div class="subtitle" id="hero-subtitle">90-Day Business &amp; Systems Plan</div>
+  <div class="tagline" id="hero-tagline">Workflow Optimization · Automation · Growth Timeline</div>
+  <div class="meta" id="hero-meta"></div>
+  <div class="quote" id="hero-quote"></div>
+</header>
+
+<div class="container">
+
+  <div class="phase-banner" id="phase-banner">
+    <div><span class="label">Current phase:</span> <span id="phase-name">—</span></div>
+    <div><span id="phase-day">—</span> · <span class="days-left" id="phase-days-left">—</span></div>
+  </div>
+
+  <section id="mission-section">
+    <h2>The 90-Day Mission</h2>
+    <ul class="mission-list" id="mission-list"></ul>
+  </section>
+
+  <section id="do-this-week-section">
+    <h2>Do This Week</h2>
+    <div class="progress-track"><div class="progress-fill" id="week-progress-fill" style="width:0%"></div></div>
+    <div class="progress-label" id="week-progress-label"></div>
+    <ul class="checklist" id="week-checklist"></ul>
+  </section>
+
+  <section id="ladder-section">
+    <h2>The Offer Ladder</h2>
+    <div class="ladder" id="ladder-list"></div>
+  </section>
+
+  <section id="state-section">
+    <h2>Current State Snapshot</h2>
+    <div class="state-grid">
+      <div class="state-col working">
+        <h3>What's Working</h3>
+        <ul id="state-working"></ul>
+      </div>
+      <div class="state-col broken">
+        <h3>What's Broken or Stalled</h3>
+        <ul id="state-broken"></ul>
+      </div>
+      <div class="state-col inprogress">
+        <h3>In Progress</h3>
+        <ul id="state-inprogress"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="workflow-section">
+    <h2>Workflow Optimization</h2>
+    <div class="table-wrap"><table id="workflow-table"></table></div>
+  </section>
+
+  <section id="automation-section">
+    <h2>Automation Plan</h2>
+    <div class="table-wrap"><table id="automation-table"></table></div>
+  </section>
+
+  <section id="timeline-section">
+    <h2>90-Day Timeline</h2>
+    <div id="timeline-list"></div>
+  </section>
+
+  <section id="kpi-section">
+    <h2>KPI Dashboard</h2>
+    <div class="table-wrap"><table id="kpi-table"></table></div>
+  </section>
+
+  <section id="risks-section">
+    <h2>Risks &amp; Watch-Outs</h2>
+    <ul class="risk-list" id="risks-list"></ul>
+  </section>
+
+</div>
+
+<footer id="footer-quote"></footer>
+
+<script src="plan-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
