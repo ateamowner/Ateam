@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Free Quote — A-Team Contracting | Window Cleaning &amp; Pressure Washing</title>
+<meta name="description" content="Get a free, no-obligation quote from A-Team Contracting — window cleaning, pressure washing, and Clean Club recurring memberships serving Tipp City and Greater Dayton." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="lp">
+
+<header class="hero lp-hero">
+  <h1>A-TEAM CONTRACTING</h1>
+  <div class="subtitle">Streak-Free Windows. Powerful Clean. One Call.</div>
+  <div class="tagline">Serving Tipp City &amp; Greater Dayton</div>
+  <div class="meta">BBB A+ Accredited · Locally Owned &amp; Operated</div>
+  <a class="lp-cta" href="#quote-form">Get My Free Quote</a>
+  <div class="lp-hero-phone">Or call/text now: <a href="tel:19379392936">(937) 939-2936</a></div>
+</header>
+
+<div class="container lp-container">
+
+  <section class="lp-trust">
+    <div class="lp-trust-item">✔ BBB A+ Accredited</div>
+    <div class="lp-trust-item">✔ Free, No-Obligation Estimates</div>
+    <div class="lp-trust-item">✔ Recurring Membership Available</div>
+  </section>
+
+  <section id="services-section">
+    <h2>Our Services</h2>
+    <div class="ladder">
+      <div class="rung">
+        <h3>Window Cleaning</h3>
+        <p>Streak-free interior and exterior window cleaning. Fast, affordable, and the easiest way to see what A-Team can do for your property.</p>
+      </div>
+      <div class="rung">
+        <h3>Windows + Wash Bundle</h3>
+        <p>Add driveway, walkway, siding, or roof pressure/soft-washing to your window job and get it all done in one visit — priced together at your estimate.</p>
+      </div>
+      <div class="rung">
+        <h3>Clean Club Membership</h3>
+        <p>Recurring windows + exterior wash on a set schedule, billed automatically every month. Set it and forget it — your property always looks its best.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote-form-section">
+    <h2 id="quote-form">Request Your Free Quote</h2>
+    <p class="lp-form-intro">Tell us a little about your property and what you need. We reply fast — most requests hear back the same day.</p>
+
+    <form name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="lp-form">
+      <input type="hidden" name="form-name" value="quote-request" />
+      <p class="lp-hidden-field">
+        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+      </p>
+
+      <div class="lp-field">
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" required autocomplete="name" />
+      </div>
+
+      <div class="lp-field-row">
+        <div class="lp-field">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" />
+        </div>
+        <div class="lp-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" />
+        </div>
+      </div>
+
+      <div class="lp-field">
+        <label for="address">Property Address / City *</label>
+        <input type="text" id="address" name="address" required autocomplete="street-address" />
+      </div>
+
+      <div class="lp-field-row">
+        <div class="lp-field">
+          <label for="service">Service Interested In *</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Choose one...</option>
+            <option value="Window Cleaning">Window Cleaning</option>
+            <option value="Pressure Washing / Softwashing">Pressure Washing / Softwashing</option>
+            <option value="Windows + Wash Bundle">Windows + Wash Bundle</option>
+            <option value="Clean Club Membership (Recurring)">Clean Club Membership (Recurring)</option>
+            <option value="Commercial Services">Commercial Services</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="lp-field">
+          <label for="hear_about">How Did You Hear About Us?</label>
+          <select id="hear_about" name="hear_about">
+            <option value="" disabled selected>Choose one...</option>
+            <option value="Google Search">Google Search</option>
+            <option value="Facebook / Instagram">Facebook / Instagram</option>
+            <option value="Referral / Word of Mouth">Referral / Word of Mouth</option>
+            <option value="Door Hanger / Flyer">Door Hanger / Flyer</option>
+            <option value="Vehicle Wrap">Vehicle Wrap</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="lp-field">
+        <label for="message">Tell Us About Your Project</label>
+        <textarea id="message" name="message" rows="4" placeholder="Number of windows, property type, preferred timing, anything else that helps us quote accurately."></textarea>
+      </div>
+
+      <button type="submit" class="lp-submit">Request My Free Quote</button>
+      <p class="lp-form-fineprint">No spam, no obligation — just a fast, honest quote.</p>
+    </form>
+  </section>
+
+</div>
+
+<footer>
+  “Jobs are done best when you work with A-Team!”
+  <div class="lp-footer-contact">Tipp City, Ohio · Serving Greater Dayton · (937) 939-2936 · Owner@ateamcontractings.com</div>
+</footer>
+
+</body>
+</html>
