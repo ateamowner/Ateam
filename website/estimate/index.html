@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Get an Instant Price | A-Team Contracting | Tipp City, Ohio</title>
+<meta name="description" content="Get a fast, honest estimate from A-Team Contracting. Send a photo of what needs to be done and get a real price same day. Serving Tipp City and the Dayton area.">
+<link rel="canonical" href="https://ateamcontractings.com/estimate">
+<meta name="theme-color" content="#08243f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#08243f;--navy-mid:#0d3358;--orange:#f05a22;--orange-dark:#c2491c;--border:#e0dbd3;--off-white:#f8f5f0;--radius:8px;--container:900px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;background:#fff;color:#1a1a1a;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{max-width:var(--container);margin:0 auto;padding:0 1.25rem}
+.topbar{background:var(--navy-mid);color:rgba(255,255,255,.85);font-size:.78rem;font-weight:600;text-align:center;padding:.45rem 1rem}
+.topbar a{color:rgba(255,255,255,.9);text-decoration:underline}
+header{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.header-inner{max-width:1100px;margin:0 auto;padding:0 1.25rem;display:flex;align-items:center;gap:1rem;height:64px}
+.logo{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.logo img{height:42px;width:auto}
+.logo-text{font-family:'Anton',sans-serif;font-size:1.5rem;color:#fff;letter-spacing:.02em;line-height:1}
+.logo-text span{color:var(--orange-dark)}
+nav{display:flex;align-items:center;gap:.15rem;flex:1;justify-content:center}
+nav a{color:rgba(255,255,255,.85);font-size:.82rem;font-weight:600;padding:.4rem .55rem;border-radius:4px;transition:color .15s}
+nav a:hover{color:#fff}
+.header-cta{background:var(--orange);color:#fff!important;font-size:.82rem;font-weight:700;padding:.55rem 1rem;border-radius:var(--radius);white-space:nowrap;flex-shrink:0}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:.5rem;margin-left:auto;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .2s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-drawer{display:none;background:var(--navy-mid);border-top:1px solid rgba(255,255,255,.1)}
+.mobile-drawer.open{display:block}
+.mobile-drawer a{display:block;color:rgba(255,255,255,.9);font-size:.95rem;font-weight:600;padding:.9rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.mobile-drawer .mob-cta{background:var(--orange);color:#fff;text-align:center;margin:.75rem 1.25rem;border-radius:var(--radius);padding:.85rem;font-weight:700;display:block}
+@media(max-width:768px){nav{display:none}.header-cta{display:none}.hamburger{display:flex}}
+
+/* PAGE */
+.page-hero{background:var(--navy);color:#fff;padding:3rem 0 2.5rem;text-align:center}
+.page-hero h1{font-family:'Anton',sans-serif;font-size:clamp(2rem,6vw,3rem);letter-spacing:.02em;margin-bottom:.75rem}
+.page-hero h1 em{font-style:normal;font-family:'Caveat',cursive;color:var(--orange-dark)}
+.page-hero p{color:rgba(255,255,255,.8);max-width:500px;margin:0 auto;font-size:.95rem}
+
+/* OPTIONS */
+.options-section{padding:3rem 0}
+.options-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
+.option-card{border:2px solid var(--border);border-radius:12px;padding:2rem;text-align:center;transition:border-color .2s,box-shadow .2s}
+.option-card:hover{border-color:var(--orange);box-shadow:0 4px 20px rgba(240,90,34,.15)}
+.option-icon{font-size:3rem;margin-bottom:.75rem}
+.option-card h2{font-family:'Anton',sans-serif;font-size:1.3rem;letter-spacing:.02em;color:var(--navy);margin-bottom:.5rem}
+.option-card p{font-size:.87rem;color:#666;line-height:1.6;margin-bottom:1.25rem}
+.option-btn{display:inline-block;padding:.8rem 1.5rem;border-radius:var(--radius);font-weight:700;font-size:.9rem;transition:all .15s}
+.option-btn-orange{background:var(--orange);color:#fff}
+.option-btn-orange:hover{background:var(--orange-dark)}
+.option-btn-navy{background:var(--navy);color:#fff}
+.option-btn-navy:hover{background:var(--navy-mid)}
+
+/* WHAT TO INCLUDE */
+.tips-section{background:var(--off-white);padding:3rem 0}
+.tips-section h2{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,3.5vw,2rem);color:var(--navy);margin-bottom:.5rem}
+.tips-section .sub{color:#666;margin-bottom:1.75rem;font-size:.92rem}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.tip-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem}
+.tip-card h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.tip-card p{font-size:.82rem;color:#666;line-height:1.55}
+
+/* WHAT HAPPENS NEXT */
+.next-section{padding:3rem 0;text-align:center}
+.next-section h2{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,3.5vw,2rem);color:var(--navy);margin-bottom:.5rem}
+.next-section .sub{color:#666;margin-bottom:2rem;font-size:.92rem}
+.next-steps{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.next-step{background:var(--off-white);border-radius:var(--radius);padding:1.4rem 1.6rem;max-width:220px;text-align:center}
+.next-step .num{font-family:'Anton',sans-serif;font-size:2rem;color:var(--orange-dark);line-height:1;margin-bottom:.4rem}
+.next-step p{font-size:.84rem;color:#555;line-height:1.5}
+
+footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:center}
+.footer-links{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-bottom:.65rem}
+.footer-links a{font-size:.82rem;color:rgba(255,255,255,.7)}
+.footer-links a:hover{color:#fff}
+.footer-bottom{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:.6rem}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  Serving Tipp City &amp; the Dayton Area &nbsp;&middot;&nbsp;
+  <a href="tel:+19379392936">(937) 939-2936</a>
+  &nbsp;&middot;&nbsp; Mon&ndash;Sat 7am&ndash;7pm
+</div>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="/">
+      <img src="/logo.webp" alt="A-Team Contracting" width="48" height="42">
+      <span class="logo-text">A-<span>TEAM</span></span>
+    </a>
+    <nav>
+      <a href="/pressure-washing-tipp-city-ohio">Pressure Washing</a>
+      <a href="/soft-washing-tipp-city-ohio">Soft Washing</a>
+      <a href="/gallery">Before &amp; After</a>
+      <a href="/#services">Services</a>
+    </nav>
+    <a class="header-cta" href="/estimate">&#128248; Get an Instant Price</a>
+    <button class="hamburger" aria-label="Open menu" onclick="toggleNav(this)">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <a href="/pressure-washing-tipp-city-ohio">Pressure Washing</a>
+    <a href="/soft-washing-tipp-city-ohio">Soft Washing</a>
+    <a href="/gallery">Before &amp; After</a>
+    <a href="/#services">Services</a>
+    <a href="/estimate" class="mob-cta">&#128248; Get an Instant Price</a>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="container">
+    <h1>Get Your <em>Instant Price</em></h1>
+    <p>Send a photo of what needs to be done. I'll get back to you with a real number &mdash; same day, no runaround.</p>
+  </div>
+</section>
+
+<section class="options-section">
+  <div class="container">
+    <p style="text-align:center;font-size:.95rem;color:#555;max-width:520px;margin:0 auto">Pick the fastest way to reach me. I answer every message personally &mdash; it's just me and my team, not a call center.</p>
+    <div class="options-grid">
+
+      <div class="option-card">
+        <div class="option-icon">&#128248;</div>
+        <h2>Text a Photo</h2>
+        <p>Snap a photo of your driveway, siding, windows &mdash; whatever needs work. Text it to me and I'll get back to you fast with a price.</p>
+        <a href="sms:+19379392936" class="option-btn option-btn-orange">Text (937) 939-2936</a>
+      </div>
+
+      <div class="option-card">
+        <div class="option-icon">&#128222;</div>
+        <h2>Call Me Direct</h2>
+        <p>Rather talk it through? Call me. I answer my own phone Mon&ndash;Sat 7am&ndash;7pm. If I'm on a job I'll call right back.</p>
+        <a href="tel:+19379392936" class="option-btn option-btn-navy">Call (937) 939-2936</a>
+      </div>
+
+      <div class="option-card">
+        <div class="option-icon">&#128231;</div>
+        <h2>Send an Email</h2>
+        <p>Prefer email? Send photos and a description of what you need. I check email daily and respond the same day.</p>
+        <a href="mailto:owner@ateamcontractings.com?subject=Estimate Request&body=Hi Anthony, I'd like a quote for..." class="option-btn option-btn-navy">Email Anthony</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="tips-section">
+  <div class="container">
+    <h2>What to Include in Your Message</h2>
+    <p class="sub">The more you can share, the faster I can get you a number. Here's what helps most:</p>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h3>&#128247; A Photo or Two</h3>
+        <p>Show me the area from the street and up close. One photo of the full exterior, one of the worst spots. That's usually enough.</p>
+      </div>
+      <div class="tip-card">
+        <h3>&#127968; What You Want Done</h3>
+        <p>Driveway? Siding? Windows? All of it? Tell me the surfaces and I'll match the right service to each one.</p>
+      </div>
+      <div class="tip-card">
+        <h3>&#128205; Your Location</h3>
+        <p>City or zip code is fine. I serve Tipp City and the greater Dayton area, so if you're nearby I'll confirm it right away.</p>
+      </div>
+      <div class="tip-card">
+        <h3>&#128197; When You Want It Done</h3>
+        <p>Flexible or have a deadline? Let me know. I'll tell you what's open on the schedule and we'll get you on it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="next-section">
+  <div class="container">
+    <h2>What Happens After You Reach Out</h2>
+    <p class="sub">Here's the whole process start to finish.</p>
+    <div class="next-steps">
+      <div class="next-step">
+        <div class="num">1</div>
+        <p>You text or call with photos and a description of the job.</p>
+      </div>
+      <div class="next-step">
+        <div class="num">2</div>
+        <p>I get back to you same day with a real price &mdash; no "someone will call you."</p>
+      </div>
+      <div class="next-step">
+        <div class="num">3</div>
+        <p>We pick a date that works. I confirm the day before.</p>
+      </div>
+      <div class="next-step">
+        <div class="num">4</div>
+        <p>We show up on time, do the job right, and send you before &amp; after photos.</p>
+      </div>
+      <div class="next-step">
+        <div class="num">5</div>
+        <p>You pay when it's done and you're happy. That's it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/pressure-washing-tipp-city-ohio">Pressure Washing</a>
+      <a href="/soft-washing-tipp-city-ohio">Soft Washing</a>
+      <a href="/gallery">Gallery</a>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 A-Team Contracting &mdash; Tipp City, Ohio &mdash; (937) 939-2936<br>
+      Jobs are done best when you work with A-Team!
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:1.25rem 0 .5rem">
+    <iframe title="A-Team Contracting BBB Accreditation Seal" border="0" frameborder="0" style="border:0;height:80px;width:280px" src="https://seal-dayton.bbb.org/frame/blue-seal-280-80-bbb-1440107933.png?chk=24DDBE2D4A"></iframe>
+  </div>
+</footer>
+
+<script>
+function toggleNav(btn){
+  btn.classList.toggle('open');
+  document.getElementById('mobile-drawer').classList.toggle('open');
+}
+</script>
+
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNmEzNThiNmUxYmU5NjA1MmZjZjg1MSIsImlzc3VlciI6Im5mc2VydmVyIn0._PWQ89AWXxGkKkQEcrxFQpPvqBiriXRhAlli0jacVao"></script>
+</body>
+</html>
