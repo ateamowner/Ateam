@@ -18,11 +18,15 @@
 <meta property="og:url" content="https://ateamcontractings.com/pressure-washing-tipp-city-ohio">
 <link rel="canonical" href="https://ateamcontractings.com/pressure-washing-tipp-city-ohio">
 <meta name="theme-color" content="#08243f">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/caveat-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--navy:#08243f;--navy-mid:#0d3358;--orange:#f05a22;--orange-dark:#d44d19;--white:#fff;--off-white:#f8f5f0;--border:#e0dbd3;--text:#1a1a1a;--text-muted:#666;--shadow:0 2px 12px rgba(0,0,0,.08);--radius:8px;--container:1100px}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/montserrat-var.woff2') format('woff2-variations'),url('/fonts/montserrat-var.woff2') format('woff2')}
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/anton-400.woff2') format('woff2')}
+@font-face{font-family:'Caveat';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/caveat-700.woff2') format('woff2')}
+
+:root{--navy:#08243f;--navy-mid:#0d3358;--orange:#f05a22;--orange-dark:#d44d19;--orange-darker:#a83f18;--white:#fff;--off-white:#f8f5f0;--border:#e0dbd3;--text:#1a1a1a;--text-muted:#666;--shadow:0 2px 12px rgba(0,0,0,.08);--radius:8px;--container:1100px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;color:var(--text);background:#fff;line-height:1.6}
@@ -101,9 +105,9 @@ section h2{font-family:'Anton',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);l
 .faq-item.open .faq-a{display:block}
 .faq-a a{color:var(--orange);font-weight:600}
 /* CTA BAND */
-.cta-band{background:var(--orange);color:#fff;padding:2.5rem 0;text-align:center}
+.cta-band{background:var(--orange-darker);color:#fff;padding:2.5rem 0;text-align:center}
 .cta-band h2{font-family:'Anton',sans-serif;font-size:clamp(1.3rem,3vw,1.8rem);margin-bottom:.5rem}
-.cta-band p{opacity:.9;margin-bottom:1.1rem;font-size:.92rem}
+.cta-band p{margin-bottom:1.1rem;font-size:.92rem}
 /* DIVIDER */
 .section-divider{border:none;border-top:1px solid var(--border);margin:0}
 /* FOOTER */
@@ -111,7 +115,7 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
 .footer-links{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-bottom:.65rem}
 .footer-links a{font-size:.82rem;color:rgba(255,255,255,.7)}
 .footer-links a:hover{color:#fff}
-.footer-bottom{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:.6rem}
+.footer-bottom{font-size:.72rem;color:rgba(255,255,255,.65);margin-top:.6rem}
 /* RESPONSIVE */
 @media(max-width:768px){
   nav{display:none}
