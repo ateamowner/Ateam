@@ -26,7 +26,7 @@
 @font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/anton-400.woff2') format('woff2')}
 @font-face{font-family:'Caveat';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/caveat-700-v2.woff2') format('woff2')}
 
-:root{--navy:#08243f;--navy-mid:#0d3358;--orange:#f05a22;--orange-dark:#d44d19;--orange-darker:#a83f18;--white:#fff;--off-white:#f8f5f0;--border:#e0dbd3;--text:#1a1a1a;--text-muted:#666;--shadow:0 2px 12px rgba(0,0,0,.08);--radius:8px;--container:1100px}
+:root{--navy:#08243f;--navy-mid:#0d3358;--orange:#f05a22;--orange-on-light:#c2491c;--orange-on-dark:#fa8c57;--orange-dark:#d44d19;--orange-darker:#a83f18;--white:#fff;--off-white:#f8f5f0;--border:#e0dbd3;--text:#1a1a1a;--text-muted:#666;--shadow:0 2px 12px rgba(0,0,0,.08);--radius:8px;--container:1100px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Montserrat',sans-serif;color:var(--text);background:#fff;line-height:1.6}
@@ -45,7 +45,7 @@ header{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px
 nav{display:flex;align-items:center;gap:.15rem;flex:1;justify-content:center}
 nav a{color:rgba(255,255,255,.85);font-size:.82rem;font-weight:600;padding:.4rem .55rem;border-radius:4px;transition:all .15s;white-space:nowrap}
 nav a:hover,nav a.active{color:#fff;background:rgba(255,255,255,.1)}
-.header-cta{background:var(--orange);color:#fff!important;font-size:.82rem;font-weight:700;padding:.55rem 1rem;border-radius:var(--radius);white-space:nowrap;flex-shrink:0;transition:background .15s}
+.header-cta{background:var(--orange-dark);color:#fff!important;font-size:.82rem;font-weight:700;padding:.55rem 1rem;border-radius:var(--radius);white-space:nowrap;flex-shrink:0;transition:background .15s}
 .header-cta:hover{background:var(--orange-dark)!important}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:.5rem;margin-left:auto;flex-direction:column;gap:5px}
 .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .2s}
@@ -55,16 +55,16 @@ nav a:hover,nav a.active{color:#fff;background:rgba(255,255,255,.1)}
 .mobile-drawer{display:none;background:var(--navy-mid);border-top:1px solid rgba(255,255,255,.1)}
 .mobile-drawer.open{display:block}
 .mobile-drawer a{display:block;color:rgba(255,255,255,.9);font-size:.95rem;font-weight:600;padding:.9rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.mobile-drawer .mob-cta{background:var(--orange);color:#fff;text-align:center;margin:.75rem 1.25rem;border-radius:var(--radius);border:none;padding:.85rem;font-weight:700;display:block}
+.mobile-drawer .mob-cta{background:var(--orange-dark);color:#fff;text-align:center;margin:.75rem 1.25rem;border-radius:var(--radius);border:none;padding:.85rem;font-weight:700;display:block}
 /* PAGE CONTENT */
 .page-hero{background:var(--navy);color:#fff;padding:3rem 0 2.5rem}
-.section-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:.4rem}
+.section-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-on-light);margin-bottom:.4rem}
 .page-hero h1{font-family:'Anton',sans-serif;font-size:clamp(1.9rem,5vw,2.8rem);letter-spacing:.01em;margin-bottom:.75rem}
 .page-hero h1 em{font-style:normal;font-family:'Caveat',cursive;color:var(--orange)}
 .page-hero p{color:rgba(255,255,255,.8);max-width:520px;margin-bottom:1.5rem;font-size:.95rem;line-height:1.65}
 .hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
 .btn{display:inline-block;padding:.8rem 1.6rem;border-radius:var(--radius);font-weight:700;font-size:.9rem;cursor:pointer;transition:all .15s}
-.btn-orange{background:var(--orange);color:#fff}
+.btn-orange{background:var(--orange-dark);color:#fff}
 .btn-orange:hover{background:var(--orange-dark)}
 .btn-outline{border:2px solid rgba(255,255,255,.65);color:#fff;background:transparent}
 .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
@@ -205,11 +205,11 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
     <h2>Simple. Honest. Done Right.</h2>
     <p class="section-sub">No mystery. Here's exactly what happens when you call A-Team:</p>
     <div class="steps-grid">
-      <div class="step"><div class="step-num">1</div><h3>You call or text — we pick up.</h3><p>We'll ask a few quick questions and give you a straight quote. No upsells, no runaround.</p></div>
-      <div class="step"><div class="step-num">2</div><h3>We show up on time.</h3><p>Seriously. We know "the contractor who shows up" is a low bar. We clear it every single time.</p></div>
-      <div class="step"><div class="step-num">3</div><h3>We assess the surface first.</h3><p>Not every surface takes the same pressure. Concrete can handle it. Painted wood can't. We know the difference.</p></div>
-      <div class="step"><div class="step-num">4</div><h3>We clean it right.</h3><p>Professional-grade equipment, the right detergents for the job, and we don't leave until it looks the way it should.</p></div>
-      <div class="step"><div class="step-num">5</div><h3>You do a walkthrough.</h3><p>Before we pack up, you check the work. If something didn't come out right, we fix it on the spot.</p></div>
+      <div class="step"><div class="step-num" aria-hidden="true">1</div><h3>You call or text — we pick up.</h3><p>We'll ask a few quick questions and give you a straight quote. No upsells, no runaround.</p></div>
+      <div class="step"><div class="step-num" aria-hidden="true">2</div><h3>We show up on time.</h3><p>Seriously. We know "the contractor who shows up" is a low bar. We clear it every single time.</p></div>
+      <div class="step"><div class="step-num" aria-hidden="true">3</div><h3>We assess the surface first.</h3><p>Not every surface takes the same pressure. Concrete can handle it. Painted wood can't. We know the difference.</p></div>
+      <div class="step"><div class="step-num" aria-hidden="true">4</div><h3>We clean it right.</h3><p>Professional-grade equipment, the right detergents for the job, and we don't leave until it looks the way it should.</p></div>
+      <div class="step"><div class="step-num" aria-hidden="true">5</div><h3>You do a walkthrough.</h3><p>Before we pack up, you check the work. If something didn't come out right, we fix it on the spot.</p></div>
     </div>
   </div>
 </section>
