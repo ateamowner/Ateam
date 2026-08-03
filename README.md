@@ -32,6 +32,37 @@ configured there to email/notify on new leads. Field values map directly to
 column names (`name`, `phone`, `email`, `address`, `service`, `hear_about`,
 `message`) for easy export or Zapier/automation hookup.
 
+## Text notifications via Zapier
+
+New leads text the owner's cell at (937) 270-2452. Netlify Forms remains the
+system of record; `lead-form.js` additionally POSTs each submission to a
+Zapier Catch Hook, so a webhook failure can never cost a lead.
+
+**One-time setup** (the webhook URL only exists once the Zap is created, so
+this step has to happen in the Zapier UI):
+
+1. In Zapier, create a Zap with trigger **Webhooks by Zapier → Catch Hook**.
+2. Copy the custom webhook URL Zapier generates.
+3. Paste it into `ZAPIER_WEBHOOK_URL` at the top of `lead-form.js`, then
+   deploy.
+4. Submit a test lead on `/quote.html` so Zapier can capture a sample and
+   learn the field names.
+5. Add action **SMS by Zapier → Send SMS**. That connection is already
+   verified to (937) 270-2452, so there is no "to" field to fill in — it
+   only takes the message body.
+6. Suggested message (SMS by Zapier truncates at 153 characters, so keep it
+   tight):
+
+   ```
+   New A-Team lead: {{name}} · {{phone}} · {{service}} · {{address}}
+   ```
+
+7. Turn the Zap on.
+
+Fields posted to the hook: `name`, `phone`, `email`, `address`, `service`,
+`hear_about`, `message`, plus `submitted_at` and `page`. The honeypot and
+Netlify's internal `form-name` field are stripped before sending.
+
 ## Updating the plan
 
 Edit the relevant array/object in `plan-data.js` (e.g. `PLAN.timeline`,
