@@ -25,6 +25,9 @@
     data.delete("bot-field");
     data.append("submitted_at", new Date().toISOString());
     data.append("page", window.location.href);
+    // "How did you hear about us" is optional, so derive a Source that is
+    // never blank — it maps straight into the Lead Tracker's Source column.
+    data.append("source", data.get("hear_about") || "Website — Quote Form");
 
     // Form-encoded + no-cors keeps this a "simple" request: no preflight, no
     // CORS error, and Zapier parses the body straight into Zap fields.

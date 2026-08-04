@@ -32,14 +32,15 @@ configured there to email/notify on new leads. Field values map directly to
 column names (`name`, `phone`, `email`, `address`, `service`, `hear_about`,
 `message`) for easy export or Zapier/automation hookup.
 
-## Text notifications via Zapier
+## Zapier: text alerts + Lead Tracker
 
-New leads text the owner's cell at (937) 270-2452. Netlify Forms remains the
-system of record; `lead-form.js` additionally POSTs each submission to a
-Zapier Catch Hook, so a webhook failure can never cost a lead.
+Every new lead texts the owner's cell at (937) 270-2452 and appends a row to
+the **A-Team Lead Tracker** sheet. Netlify Forms remains the system of
+record; `lead-form.js` additionally POSTs each submission to a Zapier Catch
+Hook, so a webhook failure can never cost a lead.
 
 **One-time setup** (the webhook URL only exists once the Zap is created, so
-this step has to happen in the Zapier UI):
+this has to happen in the Zapier UI):
 
 1. In Zapier, create a Zap with trigger **Webhooks by Zapier → Catch Hook**.
 2. Copy the custom webhook URL Zapier generates.
@@ -49,19 +50,45 @@ this step has to happen in the Zapier UI):
    learn the field names.
 5. Add action **SMS by Zapier → Send SMS**. That connection is already
    verified to (937) 270-2452, so there is no "to" field to fill in — it
-   only takes the message body.
-6. Suggested message (SMS by Zapier truncates at 153 characters, so keep it
-   tight):
+   only takes the message body. Suggested message (SMS by Zapier truncates
+   at 153 characters, so keep it tight):
 
    ```
    New A-Team lead: {{name}} · {{phone}} · {{service}} · {{address}}
    ```
 
+6. Add a second action, **Google Sheets → Create Spreadsheet Row**, on the
+   `owner@ateamcontractings.com` account. Spreadsheet **A-Team Lead
+   Tracker**, worksheet **Sheet1**, mapped as:
+
+   | Column | Header | Value |
+   | --- | --- | --- |
+   | A | Date Received | `{{submitted_at}}` |
+   | B | Name | `{{name}}` |
+   | C | Phone | `{{phone}}` |
+   | D | Email | `{{email}}` |
+   | E | Service Requested | `{{service}}` |
+   | F | Source | `{{source}}` |
+   | G | Status | `New Lead` |
+   | H | Notes | `{{address}} — {{message}}` |
+   | I–L | Estimate Sent / Job Booked / Review Requested? / Review Left? | leave blank; filled later in the pipeline |
+
+   Note the tracker has no dedicated Address column, so the property address
+   rides along in **Notes**. Add an Address column and remap `H` if it turns
+   out to be worth its own field.
+
 7. Turn the Zap on.
 
 Fields posted to the hook: `name`, `phone`, `email`, `address`, `service`,
-`hear_about`, `message`, plus `submitted_at` and `page`. The honeypot and
-Netlify's internal `form-name` field are stripped before sending.
+`hear_about`, `message`, plus `submitted_at`, `page`, and `source`. `source`
+is `hear_about` when the visitor answered it and "Website — Quote Form"
+otherwise, so Column F is never blank. The honeypot and Netlify's internal
+`form-name` field are stripped before sending.
+
+Writing **Status** into Column G keeps these leads consistent with Zap 5,
+which watches Column G for `Completed` to fire the review request. (Column J
+is `Job Booked` — the column Zap 5 was mistakenly watching, per the plan's
+Days 1–14 fix.)
 
 ## Updating the plan
 
