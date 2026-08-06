@@ -9,9 +9,16 @@ way that a bare five stars does not.
 **Your review link:**
 https://search.google.com/local/writereview?placeid=ChIJ9WZxhfcBzYoR2gQ4SyHDlVQ
 
-This is now linked from every page of the site (footer, plus a button under the
-testimonials on the homepage). Shorten it with your Bitly account if you want
-something readable on a printed invoice or yard sign.
+Copy it straight from here into the text or email below. Shorten it with your
+Bitly account if you want something readable on a printed invoice or yard sign.
+
+**This link is deliberately not on the website.** Site visitors are prospects —
+they haven't hired you yet, so they can't review you, and a "leave a review"
+button sitting next to "Get My Instant Price" only competes with the thing you
+actually want them to do. Review requests belong in the 1:1 ask below, where
+they're aimed at someone who just watched you finish the job. The homepage does
+link out to *read* your Google reviews, which is social proof pointed at
+prospects — a different job entirely.
 
 ---
 
