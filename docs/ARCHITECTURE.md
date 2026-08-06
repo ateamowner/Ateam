@@ -1,7 +1,16 @@
 # A-Team Social Autopilot — Architecture Preview
 
-**Status:** Step 1 of 9. No code written yet. Waiting on Ant's approval.
+**Status:** Step 1 of 9. No code written yet. Waiting on Ant's approval to start Step 2.
 **Date:** August 6, 2026
+
+**Decisions locked by Ant, Aug 6:**
+- **Approvals → link-to-tap (Option B).** Ships without new credentials. Twilio
+  text-back stays available as a later addition, not a rewrite.
+- **Instagram Stories → yes, set up the Meta app.** Stories are in scope for v1.
+  This adds one item to §8: Page ID, IG Business ID, and a long-lived token from
+  Meta Business Suite (~20 min, one time). With the Meta app in hand, Instagram
+  *feed* posts can also go through the Graph API directly, which makes the
+  Zapier Instagram connection optional rather than required.
 
 ---
 
@@ -104,8 +113,8 @@ input the system genuinely needs from him.
 |---|---|---|---|
 | **Facebook** | ✅ Fully automated | Zapier → Facebook Pages (connected today) | None |
 | **Google Business Profile** | ✅ Fully automated | Zapier → GBP Create Post (connected today) | None |
-| **Instagram feed** | ✅ Automated after one connect | Zapier → Instagram for Business *(needs enabling)* | One-time OAuth click |
-| **Instagram story** | ⚠️ Needs a Meta app | Graph API container with `media_type=STORIES` | One-time Meta setup, or drop stories |
+| **Instagram feed** | ✅ Fully automated | Meta Graph API *(decided Aug 6)*; Zapier IG is the backup path | One-time Meta setup |
+| **Instagram story** | ✅ Fully automated | Graph API container with `media_type=STORIES` | Same one-time Meta setup |
 | **Nextdoor** | 🖐 One-tap | Text/queue page with caption pre-copied | ~30 sec × 3/week |
 | **SMS approvals** | ⚠️ Depends on §7 decision | Twilio, or link-to-page | See §7 |
 | **Metrics: FB/IG** | ✅ Automated | Zapier Page Post Insights | None |
@@ -289,10 +298,10 @@ image full-screen instead of a compressed MMS thumbnail, and "approve all" is on
 tap instead of composing a reply. Option A is better when he's got one hand free
 on a roof.
 
-**My recommendation: build Option B first, because it ships without waiting on
-anything, and it is genuinely good.** Add Option A on top in Step 6 if Ant wants
-true SMS replies — the reply parser and the tap handler write to the same place,
-so adding Twilio later is a small addition, not a rework.
+**Decided: Option B.** The tap handler and the (future) SMS reply parser write to
+the same decision record in the `Queue` tab, so Option A remains a small addition
+later rather than a rework. SMS by Zapier sends the 7:00 AM / 6:00 PM nudge and
+the Friday report; the Netlify page does the approving.
 
 Everything else in §7 of the brief holds either way: two windows only (7:00 AM,
 6:00 PM — never 5–7 PM), 3-hour auto-approve fallback, offer/pricing posts always
@@ -309,11 +318,12 @@ Ordered by what blocks what. Nothing here takes more than a few minutes.
 |---|---|---|---|
 | 1 | **Share 3 things with a Google service account** (I'll generate the address) — the Job Photos folder, the Calendar Sheet, the Lead Tracker Sheet | Lets the unattended system read photos and write the queue | 3 share dialogs, ~2 min |
 | 2 | **Anthropic API key** | This is the copywriter. Without it there's no generation engine | Paste one key |
-| 3 | **Zapier: enable Instagram for Business + connect the IG account** | The only missing publishing path of the four | One OAuth click |
-| 4 | **Zapier: create 4 Catch Hook Zaps** and send me the webhook URLs (FB post, GBP post, IG post, send SMS) | How the cron job reaches the already-authorized publishers | ~15 min in Zapier, or I can write the exact steps |
-| 5 | **Decision on §7** — Option A (Twilio) or Option B (link-to-tap) | Determines the approval build | One answer |
-| 6 | **Decision on IG Stories** — worth a Meta developer app, or skip stories in v1? | Stories are the one thing Zapier can't do | One answer |
-| 7 | *(Optional)* Meta Page ID + IG Business ID + long-lived token | Only if #6 is yes | ~20 min in Meta Business Suite |
+| 3 | **Meta: Page ID, IG Business ID, long-lived token** | Instagram feed + stories, decided Aug 6 | ~20 min in Meta Business Suite, one time |
+| 4 | **Zapier: create 3 Catch Hook Zaps** and send me the webhook URLs (FB post, GBP post, send SMS) | How the cron job reaches the already-authorized publishers | ~10 min in Zapier; I'll write the exact steps |
+
+~~Decision on the approval loop~~ and ~~decision on IG Stories~~ — both answered
+Aug 6, see the header. The Zapier Instagram connection is no longer needed, since
+Instagram goes through the Meta app for both feed and stories.
 
 **What he does NOT need to do**, contrary to the brief: apply for Google Business
 Profile API access, create a Meta developer app for Facebook, or find a way to
