@@ -64,6 +64,88 @@ is exactly the case perceptual-hash dedup exists for.
 
 ---
 
+## 0b. What Ant uploaded Aug 6 — and what it changes
+
+Ant dropped 14 files into the Before-and-after folder at 2:41 AM on Aug 6. I
+pulled them, decoded them, and looked at every still. This changes Step 3 in
+three ways.
+
+**They are not raw job photos. They are finished, branded graphics.**
+Twelve of the fourteen are 1080×1350 composites that already have BEFORE/AFTER
+labels, the logo, the service name, the phone number and the website burned in.
+Two different templates are in play — a stacked layout with a black footer bar
+(`IMG_0228`–`IMG_0232`) and a side-by-side layout with a header bar
+(`IMG_0386`).
+
+**Consequence:** the pipeline cannot assume every incoming file is raw. If it
+brands one of these it produces a double logo. Step 3 needs a **composite
+detector** in front of the branding stage — checks for existing BEFORE/AFTER
+text, a letterboxed split seam, and logo template-match — that routes finished
+graphics straight to the publish queue and only sends true raw photos through
+normalize → pair → brand.
+
+**Confirmed duplicate, byte for byte.** `IMG_0385.PNG` and `Gutters Tipp city`
+are the same file — identical MD5 (`eaaf35ba2976…`), 1,497,027 bytes. `IMG_0383`
+and `IMG_0384` match the byte sizes of `Tipp city Carraige trails` and
+`Carraige trails Tipp city` exactly, so almost certainly the same. Ant re-uploaded
+photos already in the folder under camera-roll names. This is precisely what the
+perceptual-hash step is for, and it now has a verified test case.
+
+**Filenames carry no signal this time.** The July batch was self-documenting
+(`PW driveway Centerville`). This batch is `IMG_0228.PNG`. The filename-seeding
+shortcut helps when it's there and must never be depended on — vision
+classification has to stand on its own.
+
+**Two MP4 videos arrived (32 MB and 28 MB), which the plan doesn't cover.**
+Facebook Create Page Video is available on the Zapier connection today, and
+Instagram Reels are reachable through the Meta app we're now building. Video
+ingestion is genuine new scope: thumbnail extraction, duration and aspect checks,
+and a size ceiling. Flagged for Ant, not silently absorbed.
+
+### Content quality — the honest read
+
+| File | Service | Verdict |
+|---|---|---|
+| `IMG_0386` | Gable siding softwash | **Strongest.** Clear dirty-to-clean contrast, matched angle |
+| `IMG_0232` | Whole house wash | Good. Visible difference, though lighting shifts between shots |
+| `IMG_0230` | Gutter clean | Weak pair. Before is a tight crop, after is a wide shot with different sky — reads as two unrelated photos |
+| `IMG_0228`, `IMG_0229` | Softwash clean | Weak. Before and after look nearly identical at thumbnail size, which is how everyone sees them |
+
+The pairing rule earns its keep here: **a proof post whose transformation isn't
+visible at thumbnail size is a failed proof post.** The quality gate should score
+before/after *delta* — not just sharpness and exposure — and hold anything below
+threshold for review rather than publishing a non-transformation.
+
+### Two offer graphics that need Ant's attention before they run
+
+`IMG_0429` — **$99 whole property.** On-brand colors, and it uses Ant's own
+language ("A-Team Clean — No worries, let's get it done!"). Two problems. It
+doesn't follow the pricing rule in §12 of the brief: there's no retail value, no
+named A-Team Discount line, no orange YOUR PRICE box — just a headline number.
+And the offer itself is muddled: "$99 gets your whole property cleaned" sits next
+to "Low monthly starting at $69" and "we're back on the same day, every year,"
+which mixes a one-time price, a monthly subscription and an annual visit in one
+graphic. Clean Club is the monthly rung; this reads as three different offers.
+
+`IMG_0399` — **$599 roof softwash special.** This one I'd hold. The price is
+bright yellow, not A-Team orange, and the type isn't the brand stack — it looks
+like a generic ad template, not A-Team. "LIMITED TIME ONLY" carries no date,
+where the brief calls for a named, dated, scarce offer. Most importantly, **the
+house does not look like an A-Team job** — pine forest, architecture that isn't
+greater Dayton — and unlike the real job photos, the file carries a signature
+blob in its Drive description of the kind AI image tools write. Running stock or
+generated imagery under a BEFORE/AFTER label implies it's A-Team's work. That is
+a real trust risk on Nextdoor and in Google reviews, and it isn't worth it when
+`IMG_0386` shows the actual thing.
+
+**Consequence for Step 4:** the linter can't only check words. It needs an
+**offer-compliance check** — pricing displayed in the retail → discount → YOUR
+PRICE structure, every scarcity claim carrying a real end date, brand colors
+verified on generated graphics, and any image not traceable to a job in the
+archive blocked from proof and offer posts.
+
+---
+
 ## 1. The honest cadence math
 
 The brief says "19 posts (14 FB/IG + 3 GBP + 3 Nextdoor)." The stated cadence
