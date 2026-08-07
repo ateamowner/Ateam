@@ -159,6 +159,7 @@ footer{background:#08243f;color:#8ea8c0;padding:40px 20px}
     <button class="filter-btn" onclick="filterGallery(this,'pressure')">Pressure Washing</button>
     <button class="filter-btn" onclick="filterGallery(this,'soft')">Soft Washing</button>
     <button class="filter-btn" onclick="filterGallery(this,'window')">Window Cleaning</button>
+    <button class="filter-btn" onclick="filterGallery(this,'gutter')">Gutter Cleaning</button>
     <button class="filter-btn" onclick="filterGallery(this,'other')">Other Services</button>
   </div>
 </div>
@@ -740,6 +741,20 @@ footer{background:#08243f;color:#8ea8c0;padding:40px 20px}
           <span class="gallery-location">&#128205; Tipp City, Ohio</span>
         </div>
       </div>
+
+      <div class="gallery-card" data-cat="gutter" data-idx="41" onclick="openLightbox(41)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-gutter-1.webp" width="900" height="1018" alt="Gutter face, soffit and fascia cleaning before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Gutter Cleaning</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Gutter Face &amp; Soffit Brightening</h2>
+          <p>Oxidation and road film lifted off the gutter face, soffit &amp; fascia</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -860,7 +875,8 @@ var galleryImgs = [
     "/images/gallery/gallery-j8-5.webp",
     "/images/gallery/gallery-j8-6.webp",
     "/images/gallery/gallery-j8-7.webp",
-    "/images/gallery/gallery-j8-8.webp"
+    "/images/gallery/gallery-j8-8.webp",
+    "/images/gallery/gallery-gutter-1.webp"
 ];
 var galleryCaps = [
     "Walkway &amp; Steps — Tipp City, Ohio",
@@ -903,7 +919,8 @@ var galleryCaps = [
     "Basketball Court Driveway — Centerville, Ohio",
     "Front Walkway Wash — Huber Heights, Ohio",
     "Decorative Walkway Clean — Centerville, Ohio",
-    "House Siding Softwash — Tipp City, Ohio"
+    "House Siding Softwash — Tipp City, Ohio",
+    "Gutter Face &amp; Soffit Brightening — Tipp City, Ohio"
 ];
 var currentIdx = 0;
 var visibleCards = [];
