@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Before &amp; After Gallery | A-Team Contracting | Tipp City, Ohio</title>
+<meta name="description" content="See real before and after results from A-Team Contracting — pressure washing, soft washing, and window cleaning jobs across Tipp City, Dayton, and surrounding Ohio communities.">
+<link rel="preload" href="/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/caveat-700-v2.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/montserrat-var.woff2') format('woff2-variations'),url('/fonts/montserrat-var.woff2') format('woff2')}
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/anton-400.woff2') format('woff2')}
+@font-face{font-family:'Caveat';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/caveat-700-v2.woff2') format('woff2')}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;background:#f8f8f8;color:#1a1a1a}
+a{text-decoration:none;color:inherit}
+header{background:#08243f;padding:0 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo-wrap{display:flex;align-items:center;gap:12px}
+.logo-wrap img{height:48px;width:48px;object-fit:contain;border-radius:50%}
+.logo-text{color:#fff;font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:.04em;line-height:1.1}
+.logo-text span{display:block;font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.12em;color:#f05a22;text-transform:uppercase}
+nav{display:flex;gap:6px;align-items:center}
+nav a{color:#ccc;font-size:.75rem;font-weight:600;padding:6px 10px;border-radius:4px;transition:color .2s}
+nav a:hover,nav a.active{color:#fff}
+.header-cta{background:#f05a22;color:#fff!important;padding:8px 16px!important;border-radius:6px!important;font-weight:700!important;font-size:.8rem!important}
+.header-cta:hover{background:#d44e1a!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-drawer{display:none;flex-direction:column;background:#0d3358;padding:16px 20px 20px}
+.mobile-drawer.open{display:flex}
+.mobile-drawer a{color:#ccc;font-size:.9rem;font-weight:600;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.mobile-drawer a:last-child{border-bottom:none}
+.mob-cta{background:#f05a22;color:#fff!important;text-align:center;border-radius:8px;margin-top:10px;padding:14px!important;border:none!important;font-size:1rem!important}
+@media(max-width:768px){nav{display:none}.header-cta{display:none}.hamburger{display:flex}}
+.page-hero{background:linear-gradient(135deg,#08243f 0%,#0d3358 100%);color:#fff;padding:60px 20px 50px;text-align:center}
+.page-hero h1{font-family:'Anton',sans-serif;font-size:clamp(2rem,6vw,3.5rem);letter-spacing:.03em;line-height:1.1}
+.page-hero h1 span{color:#f05a22}
+.page-hero p{margin-top:14px;font-size:1.05rem;color:#b0c8e0;max-width:600px;margin-left:auto;margin-right:auto}
+.hero-count{display:inline-block;margin-top:18px;background:rgba(240,90,34,.15);border:1px solid #f05a22;color:#f05a22;padding:8px 20px;border-radius:100px;font-weight:700;font-size:.9rem}
+.filter-bar{background:#fff;border-bottom:1px solid #e5e5e5;padding:16px 20px;position:sticky;top:70px;z-index:90}
+.filter-bar-inner{max-width:1200px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filter-label{font-size:.75rem;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:.08em;margin-right:4px}
+.filter-btn{background:#f0f0f0;color:#555;border:2px solid transparent;padding:8px 18px;border-radius:100px;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Montserrat',sans-serif}
+.filter-btn:hover{background:#e0e0e0;color:#1a1a1a}
+.filter-btn.active{background:#08243f;color:#fff;border-color:#08243f}
+.gallery-section{padding:40px 20px 60px}
+.gallery-inner{max-width:1200px;margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.gallery-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.gallery-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.14)}
+.gallery-img{position:relative;overflow:hidden;aspect-ratio:1/1}
+.gallery-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.gallery-card:hover .gallery-img img{transform:scale(1.05)}
+.gallery-cat-badge{position:absolute;top:10px;left:10px;background:rgba(8,36,63,.82);color:#fff;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:100px}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,36,63,.7) 0%,transparent 50%);opacity:0;transition:opacity .25s}
+.gallery-card:hover .gallery-overlay{opacity:1}
+.gallery-zoom{position:absolute;bottom:12px;right:12px;background:#f05a22;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;opacity:0;transform:scale(.8);transition:all .25s}
+.gallery-card:hover .gallery-zoom{opacity:1;transform:scale(1)}
+.gallery-body{padding:14px 16px 16px}
+.gallery-body h2{font-size:.9rem;font-weight:700;color:#08243f;margin-bottom:4px}
+.gallery-body p{font-size:.78rem;color:#666;line-height:1.5;margin-bottom:8px}
+.gallery-location{font-size:.72rem;color:#f05a22;font-weight:600}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lightbox-inner{position:relative;max-width:95vw;max-height:95vh;display:flex;flex-direction:column;align-items:center}
+.lightbox-img{max-width:95vw;max-height:80vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.6)}
+.lightbox-caption{color:#fff;font-size:.85rem;margin-top:14px;text-align:center;padding:0 20px;opacity:.85}
+.lightbox-close{position:fixed;top:20px;right:24px;color:#fff;font-size:2rem;cursor:pointer;line-height:1;z-index:10000;opacity:.8;transition:opacity .2s}
+.lightbox-close:hover{opacity:1}
+.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.8rem;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10000}
+.lightbox-nav:hover{background:rgba(255,255,255,.25)}
+.lightbox-prev{left:16px}
+.lightbox-next{right:16px}
+.lightbox-counter{position:fixed;top:22px;left:50%;transform:translateX(-50%);color:#fff;font-size:.8rem;opacity:.6;font-weight:600}
+.cta-strip{background:linear-gradient(135deg,#f05a22,#c94510);color:#fff;padding:56px 20px;text-align:center}
+.cta-strip h2{font-family:'Anton',sans-serif;font-size:clamp(1.8rem,5vw,2.8rem);letter-spacing:.03em;margin-bottom:10px}
+.cta-strip p{font-size:1.05rem;opacity:.9;max-width:500px;margin:0 auto 28px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-white{background:#fff;color:#f05a22;padding:14px 28px;border-radius:8px;font-weight:700;font-size:1rem;transition:transform .2s}
+.btn-white:hover{transform:scale(1.03)}
+.btn-outline-white{border:2px solid rgba(255,255,255,.6);color:#fff;padding:14px 28px;border-radius:8px;font-weight:700;font-size:1rem;transition:all .2s}
+.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.faq-section{background:#fff;padding:60px 20px}
+.faq-inner{max-width:760px;margin:0 auto}
+.faq-inner h2{font-family:'Anton',sans-serif;font-size:clamp(1.6rem,4vw,2.2rem);color:#08243f;text-align:center;margin-bottom:8px}
+.faq-inner .sub{text-align:center;color:#666;margin-bottom:36px;font-size:.95rem}
+.faq-item{border:1px solid #e5e5e5;border-radius:10px;margin-bottom:12px;overflow:hidden}
+.faq-q{width:100%;background:#fff;border:none;text-align:left;padding:18px 20px;font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:700;color:#08243f;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .2s}
+.faq-q:hover{background:#f8f8f8}
+.faq-item.open .faq-q{background:#f0f5fa;color:#f05a22}
+.faq-icon{font-size:1.3rem;transition:transform .3s;flex-shrink:0;color:#f05a22}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a p{padding:0 20px 18px;color:#444;line-height:1.7;font-size:.9rem}
+footer{background:#08243f;color:#8ea8c0;padding:40px 20px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px}
+.footer-brand .logo-text{color:#fff}
+.footer-brand p{margin-top:10px;font-size:.82rem;line-height:1.6;color:#7090a8}
+.footer-col h3{color:#fff;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.footer-col a{display:block;color:#7090a8;font-size:.83rem;margin-bottom:8px;transition:color .2s}
+.footer-col a:hover{color:#f05a22}
+.footer-col p{font-size:.83rem;line-height:1.7;color:#7090a8}
+.footer-bottom{max-width:1200px;margin:30px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.75rem;color:#7c93a8}
+</style>
+<link rel="canonical" href="https://ateamcontractings.com/gallery/">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo-wrap">
+      <img src="/logo.webp" alt="A-Team Contracting logo" width="48" height="42">
+      <div class="logo-text">A-TEAM<span>Contracting</span></div>
+    </a>
+    <nav>
+      <a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a>
+      <a href="/soft-washing-tipp-city-ohio/">Soft Washing</a>
+      <a href="/window-cleaning-tipp-city-ohio/">Window Cleaning</a>
+      <a href="/gutter-cleaning-tipp-city-ohio/">Gutter Cleaning</a>
+      <a href="/roof-cleaning-tipp-city-ohio/">Roof Cleaning</a>
+      <a href="/concrete-cleaning-tipp-city-ohio/">Concrete Cleaning</a>
+      <a href="/gallery/" class="active">Gallery</a>
+      <a href="/estimate/" class="header-cta">&#128248; Get an Instant Price</a>
+    </nav>
+    <button class="hamburger" aria-label="Open menu" onclick="toggleNav(this)">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a>
+    <a href="/soft-washing-tipp-city-ohio/">Soft Washing</a>
+    <a href="/window-cleaning-tipp-city-ohio/">Window Cleaning</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/estimate/" class="mob-cta">&#128248; Get an Instant Price</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>Before &amp; <span>After</span> Gallery</h1>
+  <p>Real jobs. Real results. Every photo was taken by Anthony on a real job site &mdash; no stock photos, no tricks.</p>
+  <span class="hero-count">41 Completed Jobs</span>
+</section>
+
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" onclick="filterGallery(this,'all')">All Jobs</button>
+    <button class="filter-btn" onclick="filterGallery(this,'pressure')">Pressure Washing</button>
+    <button class="filter-btn" onclick="filterGallery(this,'soft')">Soft Washing</button>
+    <button class="filter-btn" onclick="filterGallery(this,'window')">Window Cleaning</button>
+    <button class="filter-btn" onclick="filterGallery(this,'gutter')">Gutter Cleaning</button>
+    <button class="filter-btn" onclick="filterGallery(this,'other')">Other Services</button>
+  </div>
+</div>
+
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <div class="gallery-grid" id="gallery-grid">
+
+      <div class="gallery-card" data-cat="pressure" data-idx="0" onclick="openLightbox(0)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-pressure-wash-1.webp" width="900" height="617" alt="Walkway &amp; Steps before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Walkway &amp; Steps</h2>
+          <p>Concrete walkway &amp; steps — algae &amp; grime removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="1" onclick="openLightbox(1)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-pressure-wash-2.webp" width="900" height="617" alt="Driveway Pressure Wash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Driveway Pressure Wash</h2>
+          <p>Driveway pressure wash — grime &amp; weeds removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="2" onclick="openLightbox(2)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-pressure-wash-3.webp" width="900" height="617" alt="Concrete Patio Clean before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Concrete Patio Clean</h2>
+          <p>Concrete patio pressure wash — algae removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="3" onclick="openLightbox(3)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-pressure-wash-4.webp" width="900" height="617" alt="Sidewalk Pressure Wash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Sidewalk Pressure Wash</h2>
+          <p>Sidewalk pressure wash — spots &amp; algae removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="4" onclick="openLightbox(4)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-softwash-1.webp" width="900" height="617" alt="Vinyl Siding Softwash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Vinyl Siding Softwash</h2>
+          <p>Vinyl siding softwash — mold &amp; mildew removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="5" onclick="openLightbox(5)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-softwash-2.webp" width="900" height="617" alt="Siding Softwash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Siding Softwash</h2>
+          <p>Vinyl siding softwash — mold &amp; mildew removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="6" onclick="openLightbox(6)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-softwash-3.webp" width="900" height="617" alt="Under-Deck Softwash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Under-Deck Softwash</h2>
+          <p>Under-deck siding softwash — mold &amp; moss removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="7" onclick="openLightbox(7)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-softwash-4.webp" width="900" height="617" alt="Full House Softwash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Full House Softwash</h2>
+          <p>Full siding softwash — years of grime removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="8" onclick="openLightbox(8)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-softwash-5.webp" width="900" height="617" alt="Roofline &amp; Panel Softwash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Roofline &amp; Panel Softwash</h2>
+          <p>Roofline &amp; panel softwash — algae &amp; staining removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="9" onclick="openLightbox(9)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-softwash-6.webp" width="900" height="617" alt="Eave &amp; Soffit Softwash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Eave &amp; Soffit Softwash</h2>
+          <p>Eave &amp; soffit softwash — buildup removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="10" onclick="openLightbox(10)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-softwash-7.webp" width="900" height="617" alt="Siding Softwash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Siding Softwash</h2>
+          <p>Siding softwash — staining removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="window" data-idx="11" onclick="openLightbox(11)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-window-cleaning-1.webp" width="768" height="1431" alt="Window Cleaning before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Window Cleaning</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Window Cleaning</h2>
+          <p>Streak-free exterior window clean</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="12" onclick="openLightbox(12)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-1.webp" width="900" height="900" alt="Landscaping Area Wash before and after — Centerville, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Landscaping Area Wash</h2>
+          <p>Rocks &amp; surface cleaned — debris &amp; algae removed</p>
+          <span class="gallery-location">&#128205; Centerville, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="13" onclick="openLightbox(13)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-2.webp" width="900" height="900" alt="Driveway Transformation before and after — Dayton, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Driveway Transformation</h2>
+          <p>Driveway pressure wash — years of buildup removed</p>
+          <span class="gallery-location">&#128205; Dayton, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="14" onclick="openLightbox(14)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-3.webp" width="900" height="900" alt="Garage Driveway Clean before and after — Huber Heights, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Garage Driveway Clean</h2>
+          <p>Garage &amp; driveway pressure wash — grime cleared</p>
+          <span class="gallery-location">&#128205; Huber Heights, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="15" onclick="openLightbox(15)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-4.webp" width="900" height="900" alt="Curved Walkway Clean before and after — Beavercreek, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Curved Walkway Clean</h2>
+          <p>Curved concrete walkway — algae &amp; staining removed</p>
+          <span class="gallery-location">&#128205; Beavercreek, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="16" onclick="openLightbox(16)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-5.webp" width="900" height="900" alt="Pool Deck Pressure Wash before and after — Fairborn, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Pool Deck Pressure Wash</h2>
+          <p>Tile pool deck — algae &amp; slippery buildup removed</p>
+          <span class="gallery-location">&#128205; Fairborn, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="17" onclick="openLightbox(17)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-6.webp" width="900" height="900" alt="Brick Paver Patio before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Brick Paver Patio</h2>
+          <p>Brick paver patio — grime &amp; weed residue removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="18" onclick="openLightbox(18)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-7.webp" width="900" height="900" alt="Side Walkway Clean before and after — Troy, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Side Walkway Clean</h2>
+          <p>Side walkway pressure wash — dirt &amp; algae removed</p>
+          <span class="gallery-location">&#128205; Troy, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="19" onclick="openLightbox(19)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-8.webp" width="900" height="900" alt="Driveway Full Clean before and after — Vandalia, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Driveway Full Clean</h2>
+          <p>Full driveway pressure wash — oil &amp; grime removed</p>
+          <span class="gallery-location">&#128205; Vandalia, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="20" onclick="openLightbox(20)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-9.webp" width="900" height="900" alt="Two-Story Siding Softwash before and after — Springboro, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Two-Story Siding Softwash</h2>
+          <p>Two-story vinyl siding — mold &amp; algae removed safely</p>
+          <span class="gallery-location">&#128205; Springboro, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="21" onclick="openLightbox(21)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-10.webp" width="900" height="900" alt="Concrete Patio Wash before and after — Miamisburg, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Concrete Patio Wash</h2>
+          <p>Backyard concrete patio — algae &amp; grime removed</p>
+          <span class="gallery-location">&#128205; Miamisburg, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="22" onclick="openLightbox(22)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-11.webp" width="900" height="900" alt="Stone Pool Deck Clean before and after — Centerville, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Stone Pool Deck Clean</h2>
+          <p>Stone pool deck — algae &amp; slippery buildup cleared</p>
+          <span class="gallery-location">&#128205; Centerville, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="23" onclick="openLightbox(23)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-12.webp" width="900" height="900" alt="Brick House Driveway before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Brick House Driveway</h2>
+          <p>Brick home driveway — staining &amp; grime removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="24" onclick="openLightbox(24)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-13.webp" width="900" height="900" alt="Neighborhood Driveway Wash before and after — Dayton, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Neighborhood Driveway Wash</h2>
+          <p>Driveway &amp; sidewalk — algae &amp; curb appeal restored</p>
+          <span class="gallery-location">&#128205; Dayton, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="25" onclick="openLightbox(25)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-14.webp" width="900" height="900" alt="Large Concrete Driveway before and after — Beavercreek, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Large Concrete Driveway</h2>
+          <p>Wide concrete driveway — full surface cleaned</p>
+          <span class="gallery-location">&#128205; Beavercreek, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="26" onclick="openLightbox(26)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-15.webp" width="900" height="900" alt="Commercial Siding Softwash before and after — Huber Heights, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Commercial Siding Softwash</h2>
+          <p>Large building vinyl siding — mold &amp; algae removed</p>
+          <span class="gallery-location">&#128205; Huber Heights, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="27" onclick="openLightbox(27)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-16.webp" width="900" height="900" alt="Vinyl Siding Close-Up before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Vinyl Siding Close-Up</h2>
+          <p>Vinyl siding softwash — oxidation &amp; mildew removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="28" onclick="openLightbox(28)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-17.webp" width="900" height="900" alt="Brick Home Driveway Wash before and after — Fairborn, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Brick Home Driveway Wash</h2>
+          <p>Brick house driveway — grime &amp; staining cleared</p>
+          <span class="gallery-location">&#128205; Fairborn, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="29" onclick="openLightbox(29)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-18.webp" width="900" height="900" alt="Driveway Pressure Wash before and after — Troy, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Driveway Pressure Wash</h2>
+          <p>Concrete driveway — buildup &amp; staining removed</p>
+          <span class="gallery-location">&#128205; Troy, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="30" onclick="openLightbox(30)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-19.webp" width="900" height="900" alt="Full Driveway Transformation before and after — Centerville, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Full Driveway Transformation</h2>
+          <p>Complete driveway clean — before &amp; after speaks for itself</p>
+          <span class="gallery-location">&#128205; Centerville, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="31" onclick="openLightbox(31)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-20.webp" width="900" height="900" alt="Long Driveway Clean before and after — Vandalia, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Long Driveway Clean</h2>
+          <p>Long residential driveway — algae &amp; dirt removed</p>
+          <span class="gallery-location">&#128205; Vandalia, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="other" data-idx="32" onclick="openLightbox(32)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-tt-21.webp" width="900" height="900" alt="Putting Green Pressure Wash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Other Services</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Putting Green Pressure Wash</h2>
+          <p>Artificial turf putting green — mold &amp; grime removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="33" onclick="openLightbox(33)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-j8-1.webp" width="900" height="900" alt="Outdoor Kitchen Pavers before and after — Centerville, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Outdoor Kitchen Pavers</h2>
+          <p>Paver patio &amp; outdoor kitchen — grime &amp; algae removed</p>
+          <span class="gallery-location">&#128205; Centerville, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="34" onclick="openLightbox(34)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-j8-2.webp" width="900" height="900" alt="Siding Softwash Transform before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Siding Softwash Transform</h2>
+          <p>Vinyl siding softwash — mold &amp; staining removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="35" onclick="openLightbox(35)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-j8-3.webp" width="900" height="900" alt="Driveway Clean Centerville before and after — Centerville, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Driveway Clean Centerville</h2>
+          <p>Concrete driveway — before &amp; after transformation</p>
+          <span class="gallery-location">&#128205; Centerville, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="36" onclick="openLightbox(36)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-j8-4.webp" width="900" height="900" alt="Sidewalk Pressure Wash before and after — Centerville, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Sidewalk Pressure Wash</h2>
+          <p>Long neighborhood sidewalk — algae &amp; grime removed</p>
+          <span class="gallery-location">&#128205; Centerville, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="37" onclick="openLightbox(37)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-j8-5.webp" width="900" height="900" alt="Basketball Court Driveway before and after — Centerville, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Basketball Court Driveway</h2>
+          <p>Concrete driveway full clean — impressive transformation</p>
+          <span class="gallery-location">&#128205; Centerville, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="38" onclick="openLightbox(38)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-j8-6.webp" width="900" height="900" alt="Front Walkway Wash before and after — Huber Heights, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Front Walkway Wash</h2>
+          <p>Front entry walkway — staining &amp; algae cleared</p>
+          <span class="gallery-location">&#128205; Huber Heights, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="pressure" data-idx="39" onclick="openLightbox(39)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-j8-7.webp" width="900" height="900" alt="Decorative Walkway Clean before and after — Centerville, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Pressure Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Decorative Walkway Clean</h2>
+          <p>Landscaped walkway — algae &amp; dirt removed</p>
+          <span class="gallery-location">&#128205; Centerville, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="soft" data-idx="40" onclick="openLightbox(40)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-j8-8.webp" width="900" height="900" alt="House Siding Softwash before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Soft Washing</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>House Siding Softwash</h2>
+          <p>Full house siding softwash — mold &amp; algae removed</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+
+      <div class="gallery-card" data-cat="gutter" data-idx="41" onclick="openLightbox(41)">
+        <div class="gallery-img">
+          <img src="/images/gallery/gallery-gutter-1.webp" width="900" height="1018" alt="Gutter face, soffit and fascia cleaning before and after — Tipp City, Ohio" loading="lazy">
+          <span class="gallery-cat-badge">Gutter Cleaning</span>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-zoom">&#128269;</div>
+        </div>
+        <div class="gallery-body">
+          <h2>Gutter Face &amp; Soffit Brightening</h2>
+          <p>Oxidation and road film lifted off the gutter face, soffit &amp; fascia</p>
+          <span class="gallery-location">&#128205; Tipp City, Ohio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+  <button class="lightbox-nav lightbox-prev" onclick="prevPhoto(event)" aria-label="Previous">&#8249;</button>
+  <button class="lightbox-nav lightbox-next" onclick="nextPhoto(event)" aria-label="Next">&#8250;</button>
+  <div class="lightbox-inner">
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
+<section class="cta-strip">
+  <h2>Ready to See Your Results?</h2>
+  <p>Every job in this gallery started with a free estimate. Text or call today &mdash; I answer my own phone.</p>
+  <div class="cta-btns">
+    <a href="/estimate/" class="btn-white">&#128248; Get an Instant Price</a>
+    <a href="tel:9379392936" class="btn-outline-white">&#128222; (937) 939-2936</a>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-inner">
+    <h2>Questions About Our Work</h2>
+    <p class="sub">Real answers &mdash; no fluff.</p>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What's the difference between pressure washing and soft washing?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Pressure washing uses high-force water to blast off tough grime from hard surfaces like concrete, brick, and stone. Soft washing uses low pressure plus cleaning solutions to safely remove mold, algae, and buildup from siding, roofs, and other delicate surfaces. We use whichever method is right for the surface &mdash; no one-size-fits-all here.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How long does a typical job take?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Most residential driveways and walkways take 1&ndash;2 hours. Full house soft washes run 2&ndash;4 hours depending on size. Window cleaning jobs are typically under 2 hours for most homes. We move fast but never cut corners.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do I need to be home during the job?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Our work is all exterior &mdash; driveways, siding, walkways, windows &mdash; so you don't need to be home. Just make sure we can reach the area and a water spigot. I'll text you before and after so you're never in the dark.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Will you damage my landscaping or plants?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>We always pre-wet plants and bushes before starting and rinse them after. Soft washing solutions are diluted to be safe for landscaping when applied correctly &mdash; and we've been doing this long enough to know how to protect what matters.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do you serve areas outside Tipp City?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Yes &mdash; we serve the entire Dayton metro area including Centerville, Huber Heights, Beavercreek, Fairborn, Troy, Vandalia, Springboro, and Miamisburg. If you're unsure if we come to your area, just call or text.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-text">A-TEAM<span>Contracting</span></div>
+      <p>Family-owned exterior cleaning serving Tipp City &amp; the Dayton area. Pressure washing, soft washing, and window cleaning done right.</p>
+      <div style="margin-top:.75rem"><iframe title="A-Team Contracting BBB Accreditation Seal" border="0" frameborder="0" style="border:0;height:80px;width:280px" src="https://seal-dayton.bbb.org/frame/blue-seal-280-80-bbb-1440107933.png?chk=24DDBE2D4A"></iframe></div>
+    </div>
+    <div class="footer-col">
+      <h3>Services</h3>
+      <a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a>
+      <a href="/soft-washing-tipp-city-ohio/">Soft Washing</a>
+      <a href="/window-cleaning-tipp-city-ohio/">Window Cleaning</a>
+      <a href="/gallery/">Before &amp; After Gallery</a>
+    </div>
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <a href="tel:9379392936">(937) 939-2936</a>
+      <a href="mailto:owner@ateamcontractings.com">owner@ateamcontractings.com</a>
+      <p>Tipp City, Ohio 45371</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 A-Team Contracting. All rights reserved.</span>
+    <span>Jobs are done best when you work with A-Team!</span>
+  </div>
+</footer>
+
+<script>
+var galleryImgs = [
+    "/images/gallery/gallery-pressure-wash-1.webp",
+    "/images/gallery/gallery-pressure-wash-2.webp",
+    "/images/gallery/gallery-pressure-wash-3.webp",
+    "/images/gallery/gallery-pressure-wash-4.webp",
+    "/images/gallery/gallery-softwash-1.webp",
+    "/images/gallery/gallery-softwash-2.webp",
+    "/images/gallery/gallery-softwash-3.webp",
+    "/images/gallery/gallery-softwash-4.webp",
+    "/images/gallery/gallery-softwash-5.webp",
+    "/images/gallery/gallery-softwash-6.webp",
+    "/images/gallery/gallery-softwash-7.webp",
+    "/images/gallery/gallery-window-cleaning-1.webp",
+    "/images/gallery/gallery-tt-1.webp",
+    "/images/gallery/gallery-tt-2.webp",
+    "/images/gallery/gallery-tt-3.webp",
+    "/images/gallery/gallery-tt-4.webp",
+    "/images/gallery/gallery-tt-5.webp",
+    "/images/gallery/gallery-tt-6.webp",
+    "/images/gallery/gallery-tt-7.webp",
+    "/images/gallery/gallery-tt-8.webp",
+    "/images/gallery/gallery-tt-9.webp",
+    "/images/gallery/gallery-tt-10.webp",
+    "/images/gallery/gallery-tt-11.webp",
+    "/images/gallery/gallery-tt-12.webp",
+    "/images/gallery/gallery-tt-13.webp",
+    "/images/gallery/gallery-tt-14.webp",
+    "/images/gallery/gallery-tt-15.webp",
+    "/images/gallery/gallery-tt-16.webp",
+    "/images/gallery/gallery-tt-17.webp",
+    "/images/gallery/gallery-tt-18.webp",
+    "/images/gallery/gallery-tt-19.webp",
+    "/images/gallery/gallery-tt-20.webp",
+    "/images/gallery/gallery-tt-21.webp",
+    "/images/gallery/gallery-j8-1.webp",
+    "/images/gallery/gallery-j8-2.webp",
+    "/images/gallery/gallery-j8-3.webp",
+    "/images/gallery/gallery-j8-4.webp",
+    "/images/gallery/gallery-j8-5.webp",
+    "/images/gallery/gallery-j8-6.webp",
+    "/images/gallery/gallery-j8-7.webp",
+    "/images/gallery/gallery-j8-8.webp",
+    "/images/gallery/gallery-gutter-1.webp"
+];
+var galleryCaps = [
+    "Walkway &amp; Steps — Tipp City, Ohio",
+    "Driveway Pressure Wash — Tipp City, Ohio",
+    "Concrete Patio Clean — Tipp City, Ohio",
+    "Sidewalk Pressure Wash — Tipp City, Ohio",
+    "Vinyl Siding Softwash — Tipp City, Ohio",
+    "Siding Softwash — Tipp City, Ohio",
+    "Under-Deck Softwash — Tipp City, Ohio",
+    "Full House Softwash — Tipp City, Ohio",
+    "Roofline &amp; Panel Softwash — Tipp City, Ohio",
+    "Eave &amp; Soffit Softwash — Tipp City, Ohio",
+    "Siding Softwash — Tipp City, Ohio",
+    "Window Cleaning — Tipp City, Ohio",
+    "Landscaping Area Wash — Centerville, Ohio",
+    "Driveway Transformation — Dayton, Ohio",
+    "Garage Driveway Clean — Huber Heights, Ohio",
+    "Curved Walkway Clean — Beavercreek, Ohio",
+    "Pool Deck Pressure Wash — Fairborn, Ohio",
+    "Brick Paver Patio — Tipp City, Ohio",
+    "Side Walkway Clean — Troy, Ohio",
+    "Driveway Full Clean — Vandalia, Ohio",
+    "Two-Story Siding Softwash — Springboro, Ohio",
+    "Concrete Patio Wash — Miamisburg, Ohio",
+    "Stone Pool Deck Clean — Centerville, Ohio",
+    "Brick House Driveway — Tipp City, Ohio",
+    "Neighborhood Driveway Wash — Dayton, Ohio",
+    "Large Concrete Driveway — Beavercreek, Ohio",
+    "Commercial Siding Softwash — Huber Heights, Ohio",
+    "Vinyl Siding Close-Up — Tipp City, Ohio",
+    "Brick Home Driveway Wash — Fairborn, Ohio",
+    "Driveway Pressure Wash — Troy, Ohio",
+    "Full Driveway Transformation — Centerville, Ohio",
+    "Long Driveway Clean — Vandalia, Ohio",
+    "Putting Green Pressure Wash — Tipp City, Ohio",
+    "Outdoor Kitchen Pavers — Centerville, Ohio",
+    "Siding Softwash Transform — Tipp City, Ohio",
+    "Driveway Clean Centerville — Centerville, Ohio",
+    "Sidewalk Pressure Wash — Centerville, Ohio",
+    "Basketball Court Driveway — Centerville, Ohio",
+    "Front Walkway Wash — Huber Heights, Ohio",
+    "Decorative Walkway Clean — Centerville, Ohio",
+    "House Siding Softwash — Tipp City, Ohio",
+    "Gutter Face &amp; Soffit Brightening — Tipp City, Ohio"
+];
+var currentIdx = 0;
+var visibleCards = [];
+
+function openLightbox(idx) {
+  visibleCards = Array.from(document.querySelectorAll('.gallery-card')).filter(c => c.style.display !== 'none');
+  var pos = visibleCards.findIndex(c => parseInt(c.dataset.idx) === idx);
+  currentIdx = pos >= 0 ? pos : 0;
+  showLightboxPhoto();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function showLightboxPhoto() {
+  var card = visibleCards[currentIdx];
+  var gi = parseInt(card.dataset.idx);
+  document.getElementById('lightbox-img').src = galleryImgs[gi];
+  document.getElementById('lightbox-caption').textContent = galleryCaps[gi];
+  document.getElementById('lightbox-counter').textContent = (currentIdx + 1) + ' / ' + visibleCards.length;
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeLightboxOutside(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+}
+function prevPhoto(e) {
+  e.stopPropagation();
+  currentIdx = (currentIdx - 1 + visibleCards.length) % visibleCards.length;
+  showLightboxPhoto();
+}
+function nextPhoto(e) {
+  e.stopPropagation();
+  currentIdx = (currentIdx + 1) % visibleCards.length;
+  showLightboxPhoto();
+}
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') nextPhoto(e);
+  if (e.key === 'ArrowLeft') prevPhoto(e);
+  if (e.key === 'Escape') closeLightbox();
+});
+function filterGallery(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+}
+function toggleNav(btn) {
+  btn.classList.toggle('open');
+  document.getElementById('mobile-drawer').classList.toggle('open');
+}
+function toggleFaq(btn) {
+  btn.closest('.faq-item').classList.toggle('open');
+}
+</script>
+
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNmEzNThiNmUxYmU5NjA1MmZjZjg1MSIsImlzc3VlciI6Im5mc2VydmVyIn0._PWQ89AWXxGkKkQEcrxFQpPvqBiriXRhAlli0jacVao"></script>
+</body>
+</html>
