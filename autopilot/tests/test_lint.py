@@ -97,6 +97,36 @@ def run() -> int:
             failures += 1
             print(f"  FAIL  {label}: expected {expected!r}, got {sorted(rules) or 'nothing'}")
 
+    # Ant's own constructions must survive. These are the false-positive cases
+    # that matter most, because breaking them means the system stops sounding
+    # like him.
+    ant_voice = [
+        (
+            "?!? is his, not a violation",
+            "Since when do gas stations charge $3 for air to fill tires?!? "
+            "Just wasted $7.50 in Centerville on machines that were broken.",
+            "nextdoor",
+        ),
+        (
+            "facepalm counts as one emoji, not two",
+            "A pressure washer alone doesn't kill mold \U0001F926‍♂️ "
+            "and it's back in a season \U0001F9FC",
+            "facebook",
+        ),
+        (
+            "ellipses are his pause, not a rule break",
+            "Is that just dirt on your siding?… or is mold eating away at it?",
+            "facebook",
+        ),
+    ]
+    for label, text, platform in ant_voice:
+        noise = lint(text, platform, SETTINGS)
+        if noise:
+            failures += 1
+            print(f"  FAIL  {label}: {[str(v) for v in noise]}")
+        else:
+            print(f"  ok    {label}")
+
     # A clean post must stay clean, or the rules are too eager to fire.
     clean = (
         "Washed a driveway over in Centerville today. Twelve years of tire marks "
@@ -109,7 +139,7 @@ def run() -> int:
     else:
         print("  ok    clean copy passes untouched")
 
-    print(f"\n{'FAIL' if failures else 'OK'}  {len(CASES) + 1} cases, {failures} failed")
+    print(f"\n{'FAIL' if failures else 'OK'}  {len(CASES) + len(ant_voice) + 1} cases, {failures} failed")
     return 1 if failures else 0
 
 

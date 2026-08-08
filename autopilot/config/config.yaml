@@ -32,6 +32,8 @@ business:
 links:
   review: https://bit.ly/4fRa2B5
   booking: https://calendly.com/owner-ateamcontractings
+  # Ant's own primary CTA. Most posts should point here.
+  instant_quote: https://www.ateamcontractings.com
   gbp_place_id: ChIJ9WZxhfcBzYoR2gQ4SyHDlVQ
 
 google:
@@ -151,11 +153,18 @@ credentials:
   zapier_hook_sms: env:ZAPIER_HOOK_SMS
   approval_base_url: env:APPROVAL_BASE_URL
 
+# Assets that must never be published. Checked before anything enters the queue.
+blocklist:
+  - drive_file_id: 1YpkONPbt01ZuGYw7Mi_pU-d7Ax2FbT1v
+    name: IMG_0399.JPG
+    reason: >
+      The $599 roof softwash graphic. Ant confirmed Aug 6 that it is not a real
+      A-Team job. Running stock or generated imagery under a BEFORE/AFTER label
+      claims work that was not done, so it is blocked from every bucket, not
+      just proof and offer.
+
 open_questions:
-  # Raised Aug 6, not yet answered. Recorded here so they cannot be silently assumed.
+  # Raised Aug 6. Recorded here so nothing gets silently assumed.
   - id: video_in_v1
     question: Publish the MP4s to Facebook video and Reels in v1, or park video?
     default_until_answered: park
-  - id: img_0399_provenance
-    question: Is the $599 roof softwash graphic an actual A-Team job?
-    default_until_answered: blocked_from_proof_and_offer

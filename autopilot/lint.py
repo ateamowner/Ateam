@@ -29,19 +29,26 @@ SERVICE_WORDS = (
     "concrete", "house wash", "wash", "cleaning", "clean",
 )
 
-# Broad emoji ranges. Deliberately excludes the variation selector and ZWJ so a
-# multi-codepoint emoji counts once, not three times.
-_EMOJI = re.compile(
+# Broad emoji ranges.
+_EMOJI_CHAR = (
     "[\U0001F300-\U0001FAFF"   # pictographs, symbols, supplemental
     "\U0001F1E6-\U0001F1FF"    # regional indicators
     "☀-➿"            # misc symbols and dingbats
     "]"
+)
+# A whole grapheme cluster counts as one emoji. Ant's facepalm is
+# U+1F926 + ZWJ + U+2642 + VS16, which is one emoji to a reader and would
+# otherwise be counted as two and trip the ceiling on its own.
+_EMOJI = re.compile(
+    rf"{_EMOJI_CHAR}️?(?:‍{_EMOJI_CHAR}️?)*"
 )
 
 _HASHTAG = re.compile(r"(?<!\w)#\w+")
 # 10-digit US numbers in any common shape: 9379392936, 937-939-2936, (937) 939-2936
 _PHONE = re.compile(r"(?<!\d)(?:\(\d{3}\)\s*|\d{3}[-.\s])\d{3}[-.\s]?\d{4}(?!\d)")
 _EM_DASH = re.compile(r"[—–]")
+# Only consecutive exclamation points. Ant genuinely writes "?!?" and that is
+# his voice, not a violation, so the pattern deliberately does not match it.
 _STACKED_BANG = re.compile(r"!{2,}")
 # "leverage" as a verb. The noun ("financial leverage") is allowed.
 _LEVERAGE_VERB = re.compile(r"\b(?:to\s+)?leverag(?:e|es|ed|ing)\b", re.IGNORECASE)

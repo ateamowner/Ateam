@@ -61,6 +61,12 @@ def main() -> int:
         print(f"\ncredentials    {len(missing)} not yet set: {', '.join(missing)}")
         print("               expected at this stage, publishing is not wired up yet")
 
+    blocked = settings.data.get("blocklist", [])
+    if blocked:
+        print(f"\nblocklist      {len(blocked)} asset(s) barred from publishing:")
+        for b in blocked:
+            print(f"  - {b['name']}  ({b['reason'].strip().splitlines()[0]}...)")
+
     open_qs = settings.data.get("open_questions", [])
     if open_qs:
         print("\nopen questions awaiting Ant:")
