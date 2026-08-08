@@ -67,12 +67,20 @@ def main() -> int:
         for b in blocked:
             print(f"  - {b['name']}  ({b['reason'].strip().splitlines()[0]}...)")
 
+    decisions = settings.data.get("decisions", [])
+    if decisions:
+        print("\ndecisions on record:")
+        for d in decisions:
+            print(f"  {d['id']:<20} {d['choice']}   ({d['decided']})")
+
     open_qs = settings.data.get("open_questions", [])
     if open_qs:
         print("\nopen questions awaiting Ant:")
         for q in open_qs:
             print(f"  - {q['question']}")
             print(f"    default until answered: {q['default_until_answered']}")
+    else:
+        print("\nno open questions")
 
     if failures:
         print(f"\nFAIL  {failures} example post(s) break a rule")

@@ -163,8 +163,36 @@ blocklist:
       claims work that was not done, so it is blocked from every bucket, not
       just proof and offer.
 
-open_questions:
-  # Raised Aug 6. Recorded here so nothing gets silently assumed.
+# Answered by Ant. Kept rather than deleted so the reasoning stays with the code.
+decisions:
+  - id: approvals_mode
+    decided: 2026-08-06
+    choice: tap_link
+    note: >
+      Link to a mobile approval page rather than Twilio text-back. Ships with no
+      new credentials. Twilio remains a later addition against the same decision
+      record, not a rewrite.
+
+  - id: instagram_stories
+    decided: 2026-08-06
+    choice: build
+    note: >
+      Stories are in scope for v1, which means a Meta app. That also makes the
+      Graph API the primary path for Instagram feed posts, so the Zapier
+      Instagram connection is not needed.
+
   - id: video_in_v1
-    question: Publish the MP4s to Facebook video and Reels in v1, or park video?
-    default_until_answered: park
+    decided: 2026-08-06
+    choice: park
+    note: >
+      Photos only for v1. MP4s in the watch folder are catalogued and skipped,
+      never published and never counted toward a scheduled slot. Facebook video
+      is already available through the Zapier connection and Reels come with the
+      Meta app, so turning this on later is additive.
+
+video:
+  enabled: false                      # decisions.video_in_v1
+  # Even parked, videos are recorded in the manifest so they are not re-examined
+  # on every poll and are ready the day this flips to true.
+  catalogue_when_disabled: true
+  extensions: [mp4, mov, m4v]
