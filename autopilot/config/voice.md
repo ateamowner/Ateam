@@ -3,9 +3,42 @@
 Every generation pass loads this file first. The linter enforces the hard rules
 below and regenerates on a violation, so Ant never sees one.
 
-**Status: examples rewritten Aug 6 against Ant's own writing samples.** The first
-draft was too polished. He writes looser than that. Round two is below and still
-needs his eye.
+**Status: Ant approved 1, 3, 8 and 10 as sounding most like him.** Those four are
+canonical. The other six were rewritten against what those four have in common,
+which is the single most important thing in this file:
+
+## The pattern
+
+All four are **concrete**. None of them is about a category of thing. And there
+are two different ways they get there.
+
+**Three of them report a specific job.** They open on a place or a day and carry
+a detail you could only have if you were standing there.
+
+    1   "Carriage Trails on Tuesday."          she said "that's the same house?"
+    3   "Gutter cleaning in Huber Heights"     shingle grit and maple seeds
+    8   "Spent Thursday on a driveway off      twelve years of tire marks,
+         Far Hills in Centerville."             three people asked what we were using
+
+**The fourth reports no job at all.** Example 10 works because it spells out
+exactly how the thing operates: we pick your months, same crew, same time of
+year, you don't have to call, starts after your first job. Mechanics are as
+concrete as a place name.
+
+The six he passed over were hypothetical, sales-forward, or abstract. They
+described a category of homeowner rather than a homeowner. They invented
+scarcity instead of reporting demand. They explained a fact instead of
+recounting the job where he ran into it.
+
+**So: either report a real job, or say exactly how it works. Never neither.**
+Education posts lead with the roof he was standing on, not the biology. Offer
+posts point at the job that proves the bundle, not at a made-up spot count.
+Family posts start with something that actually happened this morning.
+
+`lint.specificity()` scores this and the generator rewrites anything below two
+anchors. It is a heuristic fitted to ten examples, so its job is catching
+obviously abstract drafts, not grading good ones. Ant's approved four score 2,
+4, 4 and 4. Generic marketing filler scores 0 or 1.
 
 ---
 
@@ -167,19 +200,21 @@ Rewritten against the samples above. Every one passes the linter as written.
 
 ### 2. Proof · Instagram feed
 
-> Is that just "dirt" on your siding?… or is mold quietly eating away at it? 🤦‍♂️
+> Gable end over in Tipp City. Before on the left, after on the right. Ninety
+> minutes, same wall.
 >
-> A pressure washer alone doesn't kill mold, algae or organic growth. It blasts
-> the top layer off and it's back in a season.
+> That gray film isn't dirt 🤦‍♂️ it's algae holding moisture against your siding.
+> A pressure washer takes the top layer off and it's back by spring… a proper
+> softwash solution kills it at the root.
 >
-> A proper softwash solution kills it at the root. That's the whole difference.
+> Night and day.
 >
-> Support local, and use the instant quote tool on the website. Takes about a
-> minute.
+> Instant quote tool is on the website if you want a number on yours.
 >
 > #TippCityOhio #DaytonOhio #SoftWash #PressureWashing #CurbAppeal
 
-*Rung 1 entry. CTA: instant quote tool. 5 hashtags, 1 emoji.*
+*Rewritten Aug 6. Anchored to the gable siding job, the strongest asset in the
+folder. Rung 1 entry. CTA: instant quote tool.*
 
 ---
 
@@ -202,32 +237,33 @@ Rewritten against the samples above. Every one passes the linter as written.
 
 ### 4. Education · Facebook
 
-> Those black streaks on your roof aren't dirt.
+> Was up on a roof in Fairborn last week and the homeowner asked me why the north
+> side was black and the south side was fine.
 >
-> That's Gloeocapsa magma. It's a bacteria and it eats the limestone filler right
-> out of your shingles. Holds moisture against the roof and takes years off it.
+> That black isn't dirt. It's Gloeocapsa magma, a bacteria that eats the
+> limestone filler in your shingles. It likes the shady side because that's where
+> the moisture sits. That's why it's always the north face that goes first.
 >
-> Here's the part that costs people real money… pressure washing it strips the
-> granules off. Now you've got a clean roof and a dead one.
+> Here's the part that costs money… pressure washing it strips the granules off.
+> Clean roof, dead roof.
 >
-> Softwash is the answer. Low pressure, the solution does the work, bacteria dies
-> at the root. Shingles never get touched.
+> Softwash. Low pressure, the solution does the work, shingles never get touched.
 >
-> Got streaks? Comment ROOF and send me a photo. I'll tell you straight whether
-> you need us or not. If I wouldn't recommend the job to my own mom, I'm not
-> pitching it.
+> Got a black north side? Comment ROOF and send me a photo. If I wouldn't
+> recommend the job to my own mom, I'm not pitching it.
 
-*Seeds the problem, then the standard. CTA: comment ROOF.*
+*Rewritten Aug 6. Leads with the roof he was standing on, not the biology.
+CTA: comment ROOF.*
 
 ---
 
 ### 5. Education · Nextdoor
 
-> Neighbors, quick one if you're painting this summer.
+> Neighbors, one for anybody painting this summer.
 >
-> Had a homeowner over in Carriage Trails last week about to paint straight over
-> siding that still had mildew on it. You can't always see it. It's alive under
-> there.
+> Was out in Carriage Trails last week and a homeowner was two days from painting
+> over siding that still had mildew on it. Couldn't see it standing back. It's
+> alive under there.
 >
 > Paint over that and you're bubbling in two years instead of eight.
 >
@@ -239,43 +275,47 @@ Rewritten against the samples above. Every one passes the linter as written.
 >
 > Anthony, A-Team Contracting, Tipp City
 
-*Tip first, service second, no phone number, signed like a person.*
+*Rewritten Aug 6. A specific homeowner two days out, not a category of
+homeowner. No phone number, signed like a person.*
 
 ---
 
 ### 6. Offer · Facebook
 
-> Window cleaning, inside and out, booked before August 22.
+> Did a whole house wash over in Huber Heights Tuesday. Homeowner booked us for
+> the windows, then walked me around back and pointed at the siding.
 >
-> Most houses around Tipp City run 20 to 30 windows. We do the glass, the sills
-> and the screens. Half a day, and you get that first morning where the light
-> comes in different and you actually notice it.
+> That's how most of these go. You get the glass done and then you notice
+> everything else.
 >
-> Holding 8 spots before Labor Day weekend. That's the real number, not a sales
-> thing.
+> So we bundle it. Windows plus a wash, one trip, one setup, one price. Costs
+> less than having us out twice and it's one day instead of two.
 >
 > Instant quote tool is on the website, or comment WINDOWS and I'll get you a
-> price today.
+> number today.
 
-*Rung 1, dated, honest scarcity. CTA: instant quote or comment WINDOWS.*
+*Rewritten Aug 6. The invented "8 spots before August 22" is gone. Real
+scarcity needs Ant's real numbers, and until we have them an offer post proves
+itself with the job rather than with a countdown. Rung 1 into 2.*
 
 ---
 
 ### 7. Offer · Google Business Profile
 
-> Window cleaning in Tipp City, and while we're out there we can wash the
-> driveway too.
+> Window cleaning in Tipp City, plus a driveway wash while we're on site.
 >
-> Most folks book us for the glass, then look at the concrete and go… well, now
-> that looks bad. So we bundle it. Windows plus a driveway or walkway wash, one
-> trip, one setup, one price.
+> Did exactly that over in Centerville last week. Booked for the glass, then the
+> homeowner looked at the concrete on the shady end and told me it had looked
+> like that for twelve years. It didn't have to.
 >
-> One crew, one day, and you stop looking at the thing that's bugged you since
-> spring.
+> One crew, one day, one setup. Windows plus a driveway or walkway wash costs
+> less than bringing us out twice.
 >
-> Family owned. Tipp City, Troy, Vandalia and all over greater Dayton.
+> Family owned, out of Tipp City, working all over greater Dayton.
 
-*Rung 2, the bundle. Service and city first. No phone. CTA button: Book.*
+*Rewritten Aug 6. Proves the bundle with the Centerville job instead of
+describing a hypothetical homeowner. Service and city in the first seven words.
+No phone. CTA button: Book.*
 
 ---
 
@@ -302,20 +342,20 @@ Rewritten against the samples above. Every one passes the linter as written.
 
 ### 9. Family · Facebook
 
-> Sunday at the Leonard house. Phone's in a drawer, grill's going, kids are loud.
+> Kid asked me this morning why we go back to the same houses every year.
 >
-> People ask how we keep the quality up when we get busy. It's because this is a
-> family business, not a machine. My name's on the truck. My kids know our
-> customers by name.
+> Told him it's because we did it right the first time.
 >
-> Honestly it's simpler than that… if I wouldn't recommend the job to my own mom,
-> I don't pitch it. That's the whole standard.
+> That's the whole business. My name's on the truck, my kids know our customers
+> by name, and if I wouldn't recommend the job to my own mom I don't pitch it.
 >
-> Six days a week we go hard. Today we don't.
+> Phone's in a drawer today. Grill's going. Back at it Monday.
 >
 > What's everybody grilling?
 
-*The moat. Family owned, never "one-man operation." CTA: an actual question.*
+*Rewritten Aug 6. Opens on something that actually happened this morning
+instead of a general observation about family businesses. Never "one-man
+operation." CTA: an actual question.*
 
 ---
 

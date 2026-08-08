@@ -127,6 +127,40 @@ def run() -> int:
         else:
             print(f"  ok    {label}")
 
+    # Specificity: the advisory scorer that keeps drafts concrete.
+    from autopilot.lint import specificity
+
+    for ex in SETTINGS.voice.examples:
+        sp = specificity(ex.body, SETTINGS)
+        if sp.grounded:
+            print(f"  ok    example {ex.index} is grounded ({sp.score} anchors)")
+        else:
+            failures += 1
+            print(f"  FAIL  example {ex.index} scored {sp.score}, needs 2")
+
+    filler = [
+        "Your siding deserves the best care possible. Contact us today for a "
+        "free estimate on all your exterior cleaning needs.",
+        "Spring is here and that means it is time to think about your home's "
+        "exterior. We are ready to help.",
+    ]
+    for text in filler:
+        sp = specificity(text, SETTINGS)
+        if sp.grounded:
+            failures += 1
+            print(f"  FAIL  generic filler scored {sp.score} and passed")
+        else:
+            print(f"  ok    generic filler rejected ({sp.score} anchors)")
+
+    # An apostrophe is not a quotation. This scored every contraction as
+    # reported speech until the pattern was narrowed to double quotes.
+    contractions = "You don't have to call and we won't forget, that's the point."
+    if "quote" in specificity(contractions, SETTINGS).anchors:
+        failures += 1
+        print("  FAIL  contractions counted as a quotation")
+    else:
+        print("  ok    contractions are not counted as a quotation")
+
     # A clean post must stay clean, or the rules are too eager to fire.
     clean = (
         "Washed a driveway over in Centerville today. Twelve years of tire marks "
@@ -139,7 +173,14 @@ def run() -> int:
     else:
         print("  ok    clean copy passes untouched")
 
-    print(f"\n{'FAIL' if failures else 'OK'}  {len(CASES) + len(ant_voice) + 1} cases, {failures} failed")
+    checks = (
+        len(CASES)
+        + len(ant_voice)
+        + len(SETTINGS.voice.examples)
+        + len(filler)
+        + 2  # contractions, clean copy
+    )
+    print(f"\n{'FAIL' if failures else 'OK'}  {checks} cases, {failures} failed")
     return 1 if failures else 0
 
 

@@ -172,6 +172,87 @@ def _lint_offer(text: str) -> list[Violation]:
     return problems
 
 
+# --- specificity -----------------------------------------------------------
+#
+# Ant picked examples 1, 3, 8 and 10 as sounding most like him. What those four
+# share is that each reports a specific real job: a place, a day, and a detail
+# you could only have if you were standing there. The six he passed over
+# described a category of homeowner instead of a homeowner.
+#
+# This is advisory rather than blocking. It is the generator's own quality bar,
+# used to reject and rewrite its drafts before Ant ever sees them, because a
+# post can satisfy every hard rule and still be the wrong post.
+
+_DAY = re.compile(
+    r"\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday|"
+    r"this morning|last week|yesterday|today|last month)\b",
+    re.IGNORECASE,
+)
+_NUMBER = re.compile(
+    r"\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|twelve|twenty|"
+    r"thirty|ninety|once|twice|first|second)\b",
+    re.IGNORECASE,
+)
+# Double quotes only. An apostrophe is not a quotation, and including one made
+# every contraction look like reported speech.
+_QUOTE = re.compile(r"[\"“][^\"“”]{6,}[\"”]")
+_PERSON = re.compile(
+    r"\b(homeowner|neighbou?r|customer|she|he|they|kid|my son|my daughter|guy|lady)\b",
+    re.IGNORECASE,
+)
+# The second kind of concrete. Example 10 reports no job at all and Ant still
+# picked it, because it spells out exactly how the thing works: we pick your
+# months, same crew, you don't have to call. Mechanics are as concrete as a
+# place name, and a scorer that only counted job anchors called that post thin.
+_MECHANICS = re.compile(
+    r"\b(we pick|we just show up|same crew|same time of year|one trip|one setup|"
+    r"one price|one crew|one day|starts after|you don't have to|"
+    r"tell us to|no games|inside and out|costs less than)\b",
+    re.IGNORECASE,
+)
+
+
+@dataclass(frozen=True)
+class Specificity:
+    score: int
+    anchors: list[str]
+    missing: list[str]
+
+    @property
+    def grounded(self) -> bool:
+        """Two anchors is the floor. Every approved example clears it."""
+        return self.score >= 2
+
+
+def specificity(text: str, settings: Settings) -> Specificity:
+    """How concretely a draft is grounded.
+
+    Two ways to be concrete, and a post needs two anchors from either family:
+    report a real job, or spell out exactly how the thing works.
+    """
+    anchors, missing = [], []
+
+    def note(hit: bool, name: str) -> None:
+        (anchors if hit else missing).append(name)
+
+    note(any(n.lower() in text.lower() for n in settings.neighborhoods), "place")
+    note(bool(_DAY.search(text)), "when")
+    note(bool(_NUMBER.search(text)), "number")
+    note(bool(_PERSON.search(text)), "person")
+    note(bool(_QUOTE.search(text)), "quote")
+
+    # Mechanics count individually rather than as one yes/no. Example 10 is
+    # built from four separate ones and nothing else, and collapsing them to a
+    # single anchor scored Ant's own approved post as the thinnest in the file.
+    mechanics = {m.group(0).lower() for m in _MECHANICS.finditer(text)}
+    if mechanics:
+        anchors.extend(f"mechanics:{m}" for m in sorted(mechanics)[:3])
+    else:
+        missing.append("mechanics")
+
+    return Specificity(len(anchors), anchors, missing)
+
+
 def carries_price(text: str) -> bool:
     """True if the copy quotes a figure, which forces explicit approval.
 
