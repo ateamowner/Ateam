@@ -2,8 +2,8 @@
 
 Plan and per-platform automation status: [`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md).
 
-**Step 2 of 9.** Configuration, voice and brand rules, and the rule engine that
-enforces them. Nothing publishes yet.
+**Steps 2 and 3 of 9.** Configuration, voice and brand rules, the rule engine
+that enforces them, and the photo pipeline. Nothing publishes yet.
 
 ## What is here
 
@@ -13,14 +13,34 @@ enforces them. Nothing publishes yet.
     config/banned.txt    phrases that block a draft and trigger a rewrite
     config.py            loads and validates all of the above
     lint.py              the voice and platform rules, as blocking checks
+    state.py             used_photos.json, perceptual hashes, per-platform cooldown
+    pipeline.py          watch, sniff, normalize, dedupe, gate, classify
+    images/load.py       magic-byte sniffing, HEIF, exif_transpose at the boundary
+    images/quality.py    perceptual hash, blur and exposure gate, composite detection
+    images/compose.py    logo transparency, pairing, letterboxing
     check.py             Step 2 verification
-    tests/test_lint.py   negative tests, so the linter is known to actually fire
+    tests/                negative tests for the linter, pixel tests for the pipeline
 
 ## Running it
 
     pip install -r autopilot/requirements.txt
-    python -m autopilot.check          # validate config, lint the 10 examples
-    python autopilot/tests/test_lint.py # prove the rules catch violations
+    python -m autopilot.check              # validate config, lint the 10 examples
+    python -m autopilot.pipeline <dir>     # run the photo pipeline over a folder
+    python autopilot/tests/test_lint.py    # prove the rules catch violations
+    python autopilot/tests/test_images.py  # prove the pipeline handles the real failures
+
+## The photo pipeline
+
+    sniff      magic bytes decide, never the extension
+    normalize  exif_transpose runs inside load(), so no caller sees a sideways pixel
+    dedupe     difference hash, catches re-uploads under a new name
+    composite  finished branded graphics route around the branding stage
+    gate       blur, exposure, and before/after delta at thumbnail scale
+    classify   filename seeds it when Ant names the file, vision covers the rest
+
+Verified against Ant's real folder: 8 of 10 files correctly identified as
+already-branded composites, one confirmed duplicate caught, one blocklisted
+asset stopped even though its extension had changed.
 
 `check.py` exits non-zero if the content mix does not sum to 1.0, the Nextdoor
 cadence exceeds its hard cap, a platform is configured to allow a phone number
