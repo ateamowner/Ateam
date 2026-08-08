@@ -47,6 +47,16 @@ _HASHTAG = re.compile(r"(?<!\w)#\w+")
 # 10-digit US numbers in any common shape: 9379392936, 937-939-2936, (937) 939-2936
 _PHONE = re.compile(r"(?<!\d)(?:\(\d{3}\)\s*|\d{3}[-.\s])\d{3}[-.\s]?\d{4}(?!\d)")
 _EM_DASH = re.compile(r"[—–]")
+# Narrating the picture. Ant's note on example 2: he does not want the obvious
+# stated. The image already carries BEFORE and AFTER labels, so telling the
+# reader which side is which spends a line and gives nothing back.
+_IMAGE_NARRATION = re.compile(
+    r"\b(before on the (left|top)|after on the (right|bottom)|"
+    r"on the left|on the right|swipe (to see|right|through)|as you can see|"
+    r"in (the|this) (photo|picture|image)|pictured (above|below)|"
+    r"check out (this|these) (photo|pic|picture))\b",
+    re.IGNORECASE,
+)
 # Only consecutive exclamation points. Ant genuinely writes "?!?" and that is
 # his voice, not a violation, so the pattern deliberately does not match it.
 _STACKED_BANG = re.compile(r"!{2,}")
@@ -85,6 +95,14 @@ def lint(text: str, platform: str, settings: Settings, bucket: str = "") -> list
 
     if _STACKED_BANG.search(text):
         problems.append(Violation("stacked-exclamation", "one is plenty"))
+
+    if _IMAGE_NARRATION.search(text):
+        problems.append(
+            Violation(
+                "narrates-the-image",
+                "the photo already says this, use the line for what it cannot show",
+            )
+        )
 
     max_emoji = rules.get("max_emoji", 2)
     emoji_count = len(_EMOJI.findall(text))

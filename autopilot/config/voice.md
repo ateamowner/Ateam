@@ -132,6 +132,9 @@ These block publishing. They are not style suggestions.
 - More than 5 hashtags, and hashtags only on Instagram.
 - Consecutive exclamation points. `?!?` is fine, `!!` is not.
 - Any sentence that could caption a stock photo.
+- **Narrating the image.** "Before on the left, after on the right." "Swipe to
+  see." "As you can see." The photo already did that job. Copy is for what the
+  photo cannot say: how long it took, what the homeowner said, why it came back.
 
 **Never in Google Business Profile or Nextdoor body text**
 
@@ -200,8 +203,7 @@ Rewritten against the samples above. Every one passes the linter as written.
 
 ### 2. Proof · Instagram feed
 
-> Gable end over in Tipp City. Before on the left, after on the right. Ninety
-> minutes, same wall.
+> Gable end over in Tipp City. Ninety minutes, start to finish.
 >
 > That gray film isn't dirt 🤦‍♂️ it's algae holding moisture against your siding.
 > A pressure washer takes the top layer off and it's back by spring… a proper
@@ -213,8 +215,9 @@ Rewritten against the samples above. Every one passes the linter as written.
 >
 > #TippCityOhio #DaytonOhio #SoftWash #PressureWashing #CurbAppeal
 
-*Rewritten Aug 6. Anchored to the gable siding job, the strongest asset in the
-folder. Rung 1 entry. CTA: instant quote tool.*
+*Rewritten twice. The second pass cut "before on the left, after on the right,
+same wall" because it narrated what the picture already showed. Rung 1 entry.
+CTA: instant quote tool.*
 
 ---
 

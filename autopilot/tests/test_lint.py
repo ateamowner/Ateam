@@ -84,6 +84,16 @@ CASES = [
         "Roof softwash special, limited time only. Send us a message.",
         "facebook", "Offer", "undated-scarcity",
     ),
+    (
+        "narrating the image",
+        "Gable end in Tipp City. Before on the left, after on the right.",
+        "facebook", "", "narrates-the-image",
+    ),
+    (
+        "swipe to see",
+        "Driveway in Centerville came back white. Swipe to see the difference.",
+        "instagram feed", "", "narrates-the-image",
+    ),
 ]
 
 
