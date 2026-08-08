@@ -1,0 +1,161 @@
+# A-Team Social Autopilot — single source of configuration.
+# Every ID here was verified against the live account, not copied from the brief.
+# Anything still unverified is marked TODO and fails validation until filled.
+
+business:
+  name: A-Team Contracting
+  legal_name: Anthony Leonard LLC
+  city: Tipp City
+  state: OH
+  service_area: greater Dayton
+  website: ateamcontractings.com
+  email: Owner@ateamcontractings.com
+  # Graphics only. Never in Google Business Profile or Nextdoor body text.
+  public_phone: "(937) 939-2936"
+  # Approval texts and the Friday report go here.
+  sms_to: "+19372702452"
+  timezone: America/New_York
+
+  neighborhoods:
+    - Tipp City
+    - Troy
+    - Vandalia
+    - Huber Heights
+    - Kettering
+    - Centerville
+    - Beavercreek
+    - Fairborn
+    - Oakwood
+    - Bellbrook
+    - Piqua
+
+links:
+  review: https://bit.ly/4fRa2B5
+  booking: https://calendly.com/owner-ateamcontractings
+  gbp_place_id: ChIJ9WZxhfcBzYoR2gQ4SyHDlVQ
+
+google:
+  drive_root_id: 1bIDNkVZynxlZYqWrE4uN35_ovxnP2j7O
+  job_photos_folder_id: 17fWnFBBh778RsyR20SUcO0y-GPlNaYlN
+  # Photos live one level down, not in the parent. The watcher recurses.
+  watch_recursive: true
+  archive_folder_name: Posted          # created under Job Photos as Posted/YYYY-MM/
+  calendar_sheet_id: 1-08uFsmCoVkFKXRRnCLTN5V9XOB9VpZouiuoPErDY2I
+  # Ant's weekday matrix stays untouched as the human view. The system owns this tab.
+  calendar_queue_tab: Queue
+  lead_tracker_sheet_id: 1N0EJy6H7k7MYxL__QmeGkvvD5Iw1bCUOMoNOde7iepw
+  lead_tracker_worksheet: "0"
+
+assets:
+  # Matched by file ID, never by name. There is a loose copy of the gray-background
+  # master in the Drive root, and the brief's filename (underscores) does not match
+  # the real one (spaces).
+  logo_web_1200_id: 1Np9lmVCrhkWjz7LvmkcYRqVuujYpooiY
+  logo_small_512_id: 1fJKT2oLr3toC6eniEK1bBqRjJI_erDYs
+  logo_master_id_DO_NOT_USE: 16Si8XHB0suSv9shflBkYjsoiDVx4gGHu
+
+offer_ladder:
+  rung_1:
+    name: Window Cleaning
+    role: The front door. Low friction, fast job, high repeat frequency.
+  rung_2:
+    name: Windows + Wash bundle
+    role: "\"While we're here\" pricing. Adds driveway, walkway, siding or roof."
+  rung_3:
+    name: Clean Club
+    role: Recurring windows and exterior wash on a schedule. Monthly, ongoing.
+    # Language guards enforced by the linter.
+    never_call_it: [contract, subscription trap]
+    never_say: ["cancel anytime"]
+
+cadence:
+  facebook:
+    posts_per_day: 2
+    times: ["09:00", "17:30"]
+  instagram_feed:
+    posts_per_day: 1
+    times: ["12:00"]
+  instagram_story:
+    posts_per_day: 1
+    times: ["19:00"]
+    derived_from: instagram_feed      # built from that day's feed post, not written fresh
+  google_business:
+    days: [mon, wed, fri]
+    times: ["10:00"]
+  nextdoor:
+    days: [tue, thu, sat]
+    times: ["18:00"]
+    hard_cap_per_week: 3              # never exceed, enforced in the scheduler
+
+# Applied to the 27 original posts per week. Stories are derived and excluded.
+content_mix:
+  proof: 0.40
+  education: 0.20
+  offer: 0.20
+  local: 0.10
+  family: 0.10
+
+approvals:
+  mode: tap_link                      # decided Aug 6. twilio_sms is the later addition.
+  batch_times: ["07:00", "18:00"]
+  # Protected family time. The system exists to defend this, not interrupt it.
+  quiet_hours: ["17:00", "19:00"]
+  auto_approve_after_hours: 3
+  always_require_explicit_approval: [offer]
+
+photos:
+  min_unused_pairs_before_fallback: 3
+  # Per platform, not global. One job can serve Facebook, Instagram and Google
+  # in the same week with different copy.
+  no_reuse_days_per_platform: 90
+  blur_laplacian_min: 100.0
+  # A proof post nobody can see the transformation in is a failed proof post.
+  min_before_after_delta: 0.18
+  reject_on: [readable_plate, readable_house_number]
+  hold_for_review_on: [face_detected, composite_detected, low_before_after_delta]
+
+output_sizes:
+  facebook_instagram: [1080, 1350]
+  google_business: [1080, 1080]
+  instagram_story: [1080, 1920]
+  # Matches the convention already in use in the Drive folder.
+  filename_pattern: "ATeam-{kind}-{topic}-{w}x{h}-{platform}.jpg"
+
+platform_rules:
+  google_business:
+    max_chars: 1500
+    # Only the first 100 render before truncation. Front-load the hook.
+    visible_chars: 100
+    allow_phone_in_body: false
+    require_cta_button: true
+    require_service_and_city_in_first_sentence: true
+  nextdoor:
+    allow_phone_in_body: false
+    tone: neighbor
+    require_neighborhood_mention: true
+  facebook:
+    max_emoji: 2
+  instagram:
+    max_hashtags: 5
+    max_emoji: 2
+
+# Filled in by Ant. Validation fails loudly rather than posting to the wrong place.
+credentials:
+  anthropic_api_key: env:ANTHROPIC_API_KEY
+  google_service_account: env:GOOGLE_SERVICE_ACCOUNT_JSON
+  meta_page_id: env:META_PAGE_ID
+  meta_ig_business_id: env:META_IG_BUSINESS_ID
+  meta_access_token: env:META_ACCESS_TOKEN
+  zapier_hook_facebook: env:ZAPIER_HOOK_FACEBOOK
+  zapier_hook_gbp: env:ZAPIER_HOOK_GBP
+  zapier_hook_sms: env:ZAPIER_HOOK_SMS
+  approval_base_url: env:APPROVAL_BASE_URL
+
+open_questions:
+  # Raised Aug 6, not yet answered. Recorded here so they cannot be silently assumed.
+  - id: video_in_v1
+    question: Publish the MP4s to Facebook video and Reels in v1, or park video?
+    default_until_answered: park
+  - id: img_0399_provenance
+    question: Is the $599 roof softwash graphic an actual A-Team job?
+    default_until_answered: blocked_from_proof_and_offer
