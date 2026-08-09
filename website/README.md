@@ -37,6 +37,56 @@ After linking, every push to the connected branch redeploys automatically.
 - `_headers` reconstructed from the security headers observed identically on
   every live page/asset (X-Frame-Options, HSTS, etc.).
 
+## Site structure
+
+```
+/                                          homepage
+/pressure-washing-tipp-city-ohio/          service pages (6)
+/soft-washing-tipp-city-ohio/
+/window-cleaning-tipp-city-ohio/
+/gutter-cleaning-tipp-city-ohio/
+/roof-cleaning-tipp-city-ohio/
+/concrete-cleaning-tipp-city-ohio/
+/exterior-painting-tipp-city-ohio/         adjacent service
+/commercial-pressure-washing-dayton-ohio/  commercial
+
+/pressure-washing-troy-ohio/               city landing pages (5)
+/pressure-washing-vandalia-ohio/
+/pressure-washing-huber-heights-ohio/
+/house-washing-dayton-ohio/
+/pressure-washing-piqua-ohio/
+
+/pressure-washing-cost-ohio/               price guide
+/soft-washing-vs-pressure-washing/         comparison / snippet target
+/blog/                                     blog index + 4 posts
+
+/estimate/                                 instant estimator
+/gallery/                                  before & after photos
+```
+
+The six original service pages, `/gallery/` and `/estimate/` keep their inline
+`<style>` blocks. Pages added in the August 2026 SEO pass link the shared
+`/css/site.css` instead — same design tokens, one cached request.
+
+### Conventions to keep
+
+- **One phone number sitewide: (937) 939-2936.** NAP consistency is a local
+  ranking signal; a second number anywhere (site, GBP, Nextdoor, Facebook,
+  BBB, Yelp, invoices) actively suppresses Map Pack position.
+- **Trailing slashes on every internal link** (`/estimate/`, not `/estimate`).
+- **`<title>` and `og:title` must match**, and meta descriptions stay under
+  160 characters or they truncate in search results.
+- **Every page carries JSON-LD**: a `Service`/`Article` block, `FAQPage`
+  where there's an FAQ, and `BreadcrumbList` on everything below the
+  homepage.
+- **Add new URLs to `sitemap.xml`** and to the footer columns, which are
+  duplicated across pages.
+- **City pages must stay genuinely different from each other.** Five
+  templated pages with the city name swapped is doorway-page territory and
+  Google filters them. Each one leads with real local specifics (housing
+  stock, neighborhoods, local conditions) and uses photos actually shot in
+  that city where we have them.
+
 ## Known gap
 
 The live site's deploy log shows exactly one custom **redirect** rule that

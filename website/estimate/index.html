@@ -99,8 +99,32 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
 .footer-links a{font-size:.82rem;color:rgba(255,255,255,.7)}
 .footer-links a:hover{color:#fff}
 .footer-bottom{font-size:.72rem;color:rgba(255,255,255,.65);margin-top:.6rem}
+
+/* BREADCRUMBS */
+.breadcrumb{background:var(--off-white);border-bottom:1px solid var(--border)}
+.breadcrumb ol{max-width:var(--container);margin:0 auto;padding:.6rem 1.25rem;list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:.78rem;color:var(--text-muted)}
+.breadcrumb li{display:flex;align-items:center;gap:.4rem}
+.breadcrumb li+li::before{content:'\203A';color:var(--text-muted);opacity:.6}
+.breadcrumb a{color:var(--navy);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb [aria-current='page']{color:var(--text-muted);font-weight:600}
+
+/* FOOTER COLUMNS */
+.footer-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;text-align:left;margin-bottom:1.25rem}
+.footer-cols h3{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.6rem}
+.footer-cols ul{list-style:none}
+.footer-cols li{margin-bottom:.35rem}
+.footer-cols a,.footer-cols span{font-size:.83rem;color:rgba(255,255,255,.7)}
+.footer-cols a:hover{color:#fff}
+
+@media(min-width:769px) and (max-width:1150px){nav a{font-size:.74rem;padding:.4rem .38rem}.header-cta{font-size:.75rem;padding:.5rem .7rem}}
+
+@media(max-width:960px){nav{display:none}.header-cta{display:none}.hamburger{display:flex}}
+
+.footer-cols a,.footer-cols span,.footer-col a{overflow-wrap:anywhere}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Instant Price Estimate","name":"Instant Exterior Cleaning Estimate","description":"Get a fast, honest estimate from A-Team Contracting. Send a photo of what needs to be done and get a real price same day. Serving Tipp City and the Dayton area.","url":"https://ateamcontractings.com/estimate/","areaServed":["Tipp City OH","Dayton OH","Troy OH","Vandalia OH","Huber Heights OH"],"provider":{"@type":"LocalBusiness","name":"A-Team Contracting","telephone":"(937) 939-2936","url":"https://ateamcontractings.com","address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","addressCountry":"US"},"priceRange":"$"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ateamcontractings.com/"},{"@type":"ListItem","position":2,"name":"Get an Instant Price","item":"https://ateamcontractings.com/estimate/"}]}</script>
 </head>
 <body>
 
@@ -119,11 +143,11 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
     <nav>
       <a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a>
       <a href="/soft-washing-tipp-city-ohio/">Soft Washing</a>
-      <a href="/gutter-cleaning-tipp-city-ohio/">Gutter Cleaning</a>
+      <a href="/window-cleaning-tipp-city-ohio/">Window Cleaning</a>
       <a href="/roof-cleaning-tipp-city-ohio/">Roof Cleaning</a>
-      <a href="/concrete-cleaning-tipp-city-ohio/">Concrete Cleaning</a>
-      <a href="/gallery/">Before &amp; After</a>
-      <a href="/#services">Services</a>
+      <a href="/pressure-washing-cost-ohio/">Pricing</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/blog/">Blog</a>
     </nav>
     <a class="header-cta" href="/estimate/">&#128248; Get an Instant Price</a>
     <button class="hamburger" aria-label="Open menu" onclick="toggleNav(this)">
@@ -133,11 +157,23 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
   <div class="mobile-drawer" id="mobile-drawer">
     <a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a>
     <a href="/soft-washing-tipp-city-ohio/">Soft Washing</a>
+    <a href="/window-cleaning-tipp-city-ohio/">Window Cleaning</a>
+    <a href="/roof-cleaning-tipp-city-ohio/">Roof Cleaning</a>
+    <a href="/gutter-cleaning-tipp-city-ohio/">Gutter Cleaning</a>
+    <a href="/concrete-cleaning-tipp-city-ohio/">Concrete Cleaning</a>
+    <a href="/pressure-washing-cost-ohio/">Pricing Guide</a>
     <a href="/gallery/">Before &amp; After</a>
-    <a href="/#services">Services</a>
+    <a href="/blog/">Blog</a>
     <a href="/estimate/" class="mob-cta">&#128248; Get an Instant Price</a>
   </div>
 </header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><span aria-current="page">Get an Instant Price</span></li>
+  </ol>
+</nav>
 
 <main>
 <section class="page-hero">
@@ -234,11 +270,50 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
 
 <footer>
   <div class="container">
-    <div class="footer-links">
-      <a href="/">Home</a>
-      <a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a>
-      <a href="/soft-washing-tipp-city-ohio/">Soft Washing</a>
-      <a href="/gallery/">Gallery</a>
+    <div class="footer-cols">
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a></li>
+          <li><a href="/soft-washing-tipp-city-ohio/">Soft Washing</a></li>
+          <li><a href="/window-cleaning-tipp-city-ohio/">Window Cleaning</a></li>
+          <li><a href="/roof-cleaning-tipp-city-ohio/">Roof Cleaning</a></li>
+          <li><a href="/gutter-cleaning-tipp-city-ohio/">Gutter Cleaning</a></li>
+          <li><a href="/concrete-cleaning-tipp-city-ohio/">Concrete Cleaning</a></li>
+          <li><a href="/exterior-painting-tipp-city-ohio/">Exterior Painting</a></li>
+          <li><a href="/commercial-pressure-washing-dayton-ohio/">Commercial</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Service Areas</h3>
+        <ul>
+          <li><a href="/pressure-washing-tipp-city-ohio/">Tipp City, OH</a></li>
+          <li><a href="/pressure-washing-troy-ohio/">Troy, OH</a></li>
+          <li><a href="/pressure-washing-vandalia-ohio/">Vandalia, OH</a></li>
+          <li><a href="/pressure-washing-huber-heights-ohio/">Huber Heights, OH</a></li>
+          <li><a href="/house-washing-dayton-ohio/">Dayton, OH</a></li>
+          <li><a href="/pressure-washing-piqua-ohio/">Piqua, OH</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="/pressure-washing-cost-ohio/">Pressure Washing Prices</a></li>
+          <li><a href="/soft-washing-vs-pressure-washing/">Soft Wash vs. Pressure Wash</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/gallery/">Before &amp; After Gallery</a></li>
+          <li><a href="/estimate/">Get an Instant Price</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Get In Touch</h3>
+        <ul>
+          <li><a href="tel:+19379392936">(937) 939-2936</a></li>
+          <li><a href="mailto:Owner@ateamcontractings.com">Owner@ateamcontractings.com</a></li>
+          <li><span>Mon–Sat: 7am – 7pm</span></li>
+          <li><span>Tipp City, Ohio</span></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
       &copy; 2026 A-Team Contracting &mdash; Tipp City, Ohio &mdash; (937) 939-2936<br>
