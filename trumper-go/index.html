@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>trumper.go — for the ones who show up</title>
+  <meta name="description" content="Straight talk on Trump, crypto, and the fights that actually matter. No token. Nothing for sale.">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+
+  <meta property="og:title" content="trumper.go">
+  <meta property="og:description" content="Straight talk on Trump, crypto, and the fights that actually matter.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Web3 domain · onchain identity</p>
+    <h1 id="domain">trumper.go</h1>
+    <p class="tagline" id="tagline"></p>
+    <p class="bio" id="bio"></p>
+    <nav class="hero-nav">
+      <a href="#takes">Latest</a>
+      <a href="#story">What this is</a>
+      <a href="#domain-info">The domain</a>
+      <a href="#standing">Where we stand</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="takes">
+    <h2>Latest</h2>
+    <div id="posts" class="posts"></div>
+  </section>
+
+  <section id="story">
+    <h2>What this is</h2>
+    <div id="story-body" class="prose"></div>
+  </section>
+
+  <section id="domain-info">
+    <h2>The domain</h2>
+    <div class="prose">
+      <p>
+        <strong>trumper.go</strong> is a Web3 domain, not a rented web address.
+        It is a record on a blockchain. No registrar, no renewal invoice, no
+        company that can take it back.
+      </p>
+      <p>Two things that buys you:</p>
+      <ul>
+        <li>
+          <strong>One name instead of a wallet address.</strong> Wallet records
+          can be attached to the domain, so people send to a name they can read
+          rather than a 44-character string they have to trust.
+        </li>
+        <li>
+          <strong>Hosting nobody can pull.</strong> This page is built to be
+          pinned to IPFS and served from the domain itself. There is no server
+          to take down.
+        </li>
+      </ul>
+    </div>
+
+    <div id="wallets" class="wallets" hidden>
+      <h3>Wallet records</h3>
+      <p class="note" id="wallet-note"></p>
+      <ul id="wallet-list" class="wallet-list"></ul>
+    </div>
+  </section>
+
+  <section id="follow">
+    <h2>Where the community is</h2>
+    <ul id="links" class="links"></ul>
+  </section>
+
+  <section id="standing">
+    <h2>Where we stand</h2>
+    <ul id="standing-list" class="standing"></ul>
+  </section>
+
+</main>
+
+<footer>
+  <p class="footer-domain">trumper.go</p>
+  <p class="footer-note">Last updated <span id="updated"></span>.</p>
+</footer>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

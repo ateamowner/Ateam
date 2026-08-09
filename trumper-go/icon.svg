@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="trumper.go">
+  <rect width="64" height="64" rx="12" fill="#0B1119"/>
+  <rect x="4" y="4" width="56" height="56" rx="9" fill="none" stroke="#FF6A13" stroke-width="3"/>
+  <path d="M16 20h32v9H38v25h-12V29H16z" fill="#FF6A13"/>
+</svg>
