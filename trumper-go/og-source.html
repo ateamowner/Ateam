@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>og-source</title>
+  <!--
+    Source template for og.png (the social preview card). This file is not
+    part of the site — it exists so the image can be regenerated instead of
+    being an opaque binary. See README.md for the one-line render command.
+
+    Body is exactly 1200x630 so a screenshot of it is the finished card.
+  -->
+  <style>
+    @font-face {
+      font-family: 'Anton';
+      src: url('fonts/anton-400.woff2') format('woff2');
+      font-weight: 400;
+      font-display: block;
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: radial-gradient(110% 120% at 22% 0%, #1B2838 0%, #0B1119 68%);
+      color: #E8ECF1;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                   Helvetica, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      padding: 0 88px;
+      border-bottom: 14px solid #FF6A13;
+    }
+
+    /* The mark's finger separations are painted in the page background
+       colour, so it needs a flat #0B1119 ground. Over the gradient they
+       read as a dark halo — hence the tile, which matches the favicon. */
+    .mark-tile {
+      width: 268px;
+      height: 268px;
+      flex-shrink: 0;
+      background: #0B1119;
+      border: 5px solid #FF6A13;
+      border-radius: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mark { width: 196px; height: 196px; }
+
+    .eyebrow {
+      font-size: 22px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #98A5B5;
+      margin-bottom: 18px;
+    }
+
+    .wordmark {
+      font-family: 'Anton', sans-serif;
+      font-size: 132px;
+      line-height: 0.92;
+      letter-spacing: 0.005em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .wordmark .tld { color: #FF6A13; }
+
+    .tagline {
+      font-family: 'Anton', sans-serif;
+      font-size: 44px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #FF6A13;
+      margin-top: 20px;
+    }
+
+    .bio {
+      font-size: 27px;
+      line-height: 1.4;
+      color: #98A5B5;
+      margin-top: 16px;
+      max-width: 20ch;
+    }
+  </style>
+</head>
+<body>
+  <div class="mark-tile"><img class="mark" src="mark.svg" alt=""></div>
+  <div>
+    <p class="eyebrow">Web3 domain · onchain identity</p>
+    <p class="wordmark">trumper<span class="tld">.go</span></p>
+    <p class="tagline">For the ones who show up.</p>
+    <p class="bio">Straight talk on Trump, crypto, and the fights that actually matter.</p>
+  </div>
+</body>
+</html>

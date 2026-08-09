@@ -32,7 +32,19 @@
 
   function renderHeader(meta) {
     document.title = meta.domain + ' — ' + meta.tagline.replace(/\.$/, '');
-    $('domain').textContent = meta.domain;
+
+    // Wordmark: name in white, TLD in orange. Split on the last dot so the
+    // domain stays a single string in content.js. Uppercasing is done in CSS,
+    // so the underlying text is still the real lowercase domain.
+    const dot = meta.domain.lastIndexOf('.');
+    const name = dot === -1 ? meta.domain : meta.domain.slice(0, dot);
+    const tld = dot === -1 ? '' : meta.domain.slice(dot);
+
+    const wordmark = $('domain');
+    wordmark.textContent = '';
+    wordmark.appendChild(el('span', 'w-name', name));
+    if (tld) wordmark.appendChild(el('span', 'w-tld', tld));
+
     $('tagline').textContent = meta.tagline;
     $('bio').textContent = meta.bio;
     $('updated').textContent = meta.updated;

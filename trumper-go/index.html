@@ -11,14 +11,22 @@
   <meta property="og:title" content="trumper.go">
   <meta property="og:description" content="Straight talk on Trump, crypto, and the fights that actually matter.">
   <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
+  <!-- Relative so the folder stays portable across gateways. Swap for an
+       absolute URL once there is a canonical host: most scrapers will not
+       resolve a relative og:image. -->
+  <meta property="og:image" content="og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="og.png">
 </head>
 <body>
 
 <header class="hero">
   <div class="wrap">
+    <div class="mark-tile"><img class="mark" src="mark.svg" alt="" width="72" height="72"></div>
     <p class="eyebrow">Web3 domain · onchain identity</p>
-    <h1 id="domain">trumper.go</h1>
+    <h1 id="domain" class="wordmark">trumper.go</h1>
     <p class="tagline" id="tagline"></p>
     <p class="bio" id="bio"></p>
     <nav class="hero-nav">
@@ -44,6 +52,7 @@
 
   <section id="domain-info">
     <h2>The domain</h2>
+    <p class="kicker">Own it. Link it. Send to it. Forever.</p>
     <div class="prose">
       <p>
         <strong>trumper.go</strong> is a Web3 domain, not a rented web address.

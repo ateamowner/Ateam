@@ -15,9 +15,50 @@ server to keep running.
 - `app.js` — renders `content.js` into `index.html`. No framework, no build
   step, no network calls.
 - `styles.css` — brand system (Orange `#FF6A13`, Blue `#3D8BD4`, dark
-  `#0B1119`). System fonts only, so nothing has to download from a CDN that an
-  IPFS gateway may not reach.
-- `icon.svg` — favicon.
+  `#0B1119`).
+- `mark.svg` — the fist mark.
+- `icon.svg` — favicon: the mark on a bordered tile.
+- `og.png` — 1200×630 social preview card.
+- `og-source.html` — the template `og.png` is rendered from, so the card can
+  be regenerated rather than being an opaque binary.
+- `fonts/anton-400.woff2` — display face for the wordmark.
+
+Nothing is fetched from a CDN, so an IPFS gateway with no outside network
+still renders the page exactly as intended.
+
+## Brand assets
+
+**The mark** is drawn as overlapping rounded shapes, not one silhouette. The
+separations between the knuckles and the thumb are strokes painted in the page
+background colour (`#0B1119`). That keeps the file about 1KB and crisp at any
+size, with one consequence worth knowing: **the mark only works on the dark
+ground.** On a light background the separations vanish and it collapses into a
+blob. Anywhere the mark sits on something other than flat `#0B1119` — the hero
+gradient, the social card — it goes inside a tile that gives it that ground
+back. That is what `.mark-tile` is for.
+
+**The wordmark** is the domain in Anton, uppercase, with the TLD in orange.
+`app.js` splits `SITE.meta.domain` at the last dot to colour it, so the
+underlying text is still the real lowercase domain — the uppercasing is CSS.
+Change the domain in `content.js` and the wordmark follows.
+
+**Type** is system fonts for body copy plus Anton (9KB, SIL Open Font License)
+for the wordmark and display lines, self-hosted in `fonts/`.
+
+### Regenerating the social card
+
+`og-source.html` is exactly 1200×630, so a full-page screenshot of it is the
+finished card. With the folder being served locally:
+
+```
+npx playwright screenshot --viewport-size=1200,630 \
+  http://localhost:8000/og-source.html og.png
+```
+
+Note that `index.html` points `og:image` at a **relative** path, which keeps
+the folder portable across gateways. Most scrapers will not resolve a relative
+`og:image` — swap it for an absolute URL once there is a canonical host, or
+link previews will come through without the card.
 
 Everything is referenced with relative paths, which is what makes the folder
 work unchanged from a local disk, a normal web host, or an IPFS CID.
