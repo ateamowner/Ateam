@@ -185,6 +185,107 @@ footer {
   color: var(--blue);
 }
 
+/* ---------- Lead form landing page ---------- */
+
+.lp-hero .lp-cta {
+  display: inline-block;
+  margin-top: 1.25rem;
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.lp-hero .lp-cta:hover { background: #E0730F; transform: translateY(-1px); }
+
+.lp-hero-phone { margin-top: 0.9rem; font-size: 0.95rem; opacity: 0.9; }
+.lp-hero-phone a { color: var(--white); font-weight: 700; text-decoration: underline; }
+
+.lp-container { max-width: 800px; }
+
+.lp-trust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
+  background: var(--accent-bg);
+  border: 2px solid var(--orange);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-align: center;
+}
+
+.lp-form-intro { margin-top: -0.25rem; margin-bottom: 1.25rem; opacity: 0.85; }
+
+.lp-form { display: flex; flex-direction: column; gap: 1rem; }
+
+.lp-field { display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+.lp-field label { font-weight: 600; font-size: 0.9rem; color: var(--blue); }
+.lp-field input,
+.lp-field select,
+.lp-field textarea {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--charcoal);
+}
+.lp-field input:focus,
+.lp-field select:focus,
+.lp-field textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+}
+
+.lp-field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.lp-field-row .lp-field { min-width: 220px; }
+
+.lp-hidden-field { position: absolute; left: -9999px; top: -9999px; }
+
+.lp-submit {
+  align-self: flex-start;
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  transition: background 0.15s ease;
+}
+.lp-submit:hover { background: #E0730F; }
+
+.lp-form-fineprint { font-size: 0.8rem; opacity: 0.65; margin: 0; }
+
+.lp-footer-contact { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; opacity: 0.8; margin-top: 0.5rem; }
+
+.lp-thanks { text-align: center; }
+.lp-thanks .lp-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--orange);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #14171C;
