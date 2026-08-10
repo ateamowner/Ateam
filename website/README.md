@@ -68,6 +68,56 @@ The six original service pages, `/gallery/` and `/estimate/` keep their inline
 `<style>` blocks. Pages added in the August 2026 SEO pass link the shared
 `/css/site.css` instead — same design tokens, one cached request.
 
+### The instant estimator (`/estimate/`)
+
+The multi-step quote tool: home size → stories → wash add-ons → optional photo
+→ itemised ballpark → contact details. Restored from the original that was
+lost when a drag-and-drop deploy dropped the file on 2026-07-12; see
+`docs/recovered/` for the recovered source and the full post-mortem.
+
+**The pricing engine lives at the top of `assets/estimator.js`** and nowhere
+else. Edit those constants to reprice; nothing else needs touching.
+
+```
+WINDOW_BASE      small $143   medium $186   large $244   xl $330
+TWO_STORY_MULT   1.45
+driveway         $143 / $215 / $287 / $388
+siding           $287 / $402 / $532 / $719
+roof             $431 / $575 / $791 / $1079
+BUNDLE_DISCOUNT  0.12          RANGE  x0.90 – x1.12
+```
+
+#### How it submits
+
+The page is **one real `<form>` wrapping every step.** The script only toggles
+which step is visible and writes the answers into hidden fields; the final
+button is an ordinary submit, so the POST is plain multipart that Netlify
+Forms captures with the photo attached.
+
+This matters. The original tool did its only send inside
+`if (ZAPIER_WEBHOOK_URL) { ... }` with that constant left as `""`, so every
+customer saw a success screen and **no lead was ever sent anywhere**. There is
+deliberately no code path here that can do that: if `estimator.js` fails to
+load entirely, the form degrades to a working contact form rather than a
+silent hole.
+
+Leads arrive as the `estimate-request` form in Netlify, alongside `ad-quote`
+from `/free-quote/`. **Both need the same one-time notification setup** — see
+"Where the leads go" below.
+
+#### The photo AI ("What we noticed")
+
+Not rebuilt. The original called the Anthropic API directly from the browser
+with no API key, so it never worked in production — it always failed into its
+catch block and showed a fallback line claiming Anthony had the photo, which
+he did not.
+
+To add it properly you need a **Netlify Function** holding the key as an
+environment variable, called from the page instead of calling Anthropic
+directly. Never put an API key in client-side JavaScript: the page source is
+public, so the key would be readable and usable by anyone. Step 4 of the quiz
+is where the result would render.
+
 ### The ads lead form (`/free-quote/`)
 
 A standalone landing page for paid traffic — Google Ads, Meta, Nextdoor,

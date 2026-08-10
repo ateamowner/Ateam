@@ -2,136 +2,92 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <title>Get an Instant Price | A-Team Contracting | Tipp City, Ohio</title>
-<meta name="description" content="Get a fast, honest estimate from A-Team Contracting. Send a photo of what needs to be done and get a real price same day. Serving Tipp City and the Dayton area.">
+<meta name="description" content="Answer a few questions, send a photo, and see a real ballpark price for window cleaning, pressure washing and soft washing in under a minute.">
+<meta name="author" content="Anthony Leonard, A-Team Contracting">
+<meta name="geo.placename" content="Tipp City, Ohio">
+<meta name="geo.region" content="US-OH">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:title" content="Get an Instant Price | A-Team Contracting | Tipp City, Ohio">
-<meta property="og:description" content="Get a fast, honest estimate from A-Team Contracting. Send a photo of what needs to be done and get a real price same day. Serving Tipp City and the Dayton area.">
+<meta property="og:description" content="Answer a few questions, send a photo, and see a real ballpark price for window cleaning, pressure washing and soft washing in under a minute.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ateamcontractings.com/estimate/">
 <meta property="og:image" content="https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Get an Instant Price | A-Team Contracting | Tipp City, Ohio">
-<meta name="twitter:description" content="Get a fast, honest estimate from A-Team Contracting. Send a photo of what needs to be done and get a real price same day. Serving Tipp City and the Dayton area.">
+<meta name="twitter:description" content="Answer a few questions, send a photo, and see a real ballpark price for window cleaning, pressure washing and soft washing in under a minute.">
 <meta name="twitter:image" content="https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp">
 <link rel="canonical" href="https://ateamcontractings.com/estimate/">
 <meta name="theme-color" content="#08243f">
 <link rel="preload" href="/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/caveat-700-v2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
 <style>
-@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/montserrat-var.woff2') format('woff2-variations'),url('/fonts/montserrat-var.woff2') format('woff2')}
-@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/anton-400.woff2') format('woff2')}
-@font-face{font-family:'Caveat';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/caveat-700-v2.woff2') format('woff2')}
-
-:root{--navy:#08243f;--navy-mid:#0d3358;--orange:#f05a22;--orange-on-light:#c2491c;--orange-on-dark:#fa8c57;--orange-dark:#c2491c;--border:#e0dbd3;--off-white:#f8f5f0;--radius:8px;--container:900px}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Montserrat',sans-serif;background:#fff;color:#1a1a1a;line-height:1.6}
-a{text-decoration:none;color:inherit}
-.container{max-width:var(--container);margin:0 auto;padding:0 1.25rem}
-.topbar{background:var(--navy-mid);color:rgba(255,255,255,.85);font-size:.78rem;font-weight:600;text-align:center;padding:.45rem 1rem}
-.topbar a{color:rgba(255,255,255,.9);text-decoration:underline}
-header{background:var(--navy);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
-.header-inner{max-width:1100px;margin:0 auto;padding:0 1.25rem;display:flex;align-items:center;gap:1rem;height:64px}
-.logo{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
-.logo img{height:42px;width:auto}
-.logo-text{font-family:'Anton',sans-serif;font-size:1.5rem;color:#fff;letter-spacing:.02em;line-height:1}
-.logo-text span{color:var(--orange-dark)}
-nav{display:flex;align-items:center;gap:.15rem;flex:1;justify-content:center}
-nav a{color:rgba(255,255,255,.85);font-size:.82rem;font-weight:600;padding:.4rem .55rem;border-radius:4px;transition:color .15s}
-nav a:hover{color:#fff}
-.header-cta{background:var(--orange-dark);color:#fff!important;font-size:.82rem;font-weight:700;padding:.55rem 1rem;border-radius:var(--radius);white-space:nowrap;flex-shrink:0}
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:.5rem;margin-left:auto;flex-direction:column;gap:5px}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .2s}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-drawer{display:none;background:var(--navy-mid);border-top:1px solid rgba(255,255,255,.1)}
-.mobile-drawer.open{display:block}
-.mobile-drawer a{display:block;color:rgba(255,255,255,.9);font-size:.95rem;font-weight:600;padding:.9rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
-.mobile-drawer .mob-cta{background:var(--orange-dark);color:#fff;text-align:center;margin:.75rem 1.25rem;border-radius:var(--radius);padding:.85rem;font-weight:700;display:block}
-@media(max-width:768px){nav{display:none}.header-cta{display:none}.hamburger{display:flex}}
-
-/* PAGE */
-.page-hero{background:var(--navy);color:#fff;padding:3rem 0 2.5rem;text-align:center}
-.page-hero h1{font-family:'Anton',sans-serif;font-size:clamp(2rem,6vw,3rem);letter-spacing:.02em;margin-bottom:.75rem}
-.page-hero h1 em{font-style:normal;font-family:'Caveat',cursive;color:var(--orange-dark)}
-.page-hero p{color:rgba(255,255,255,.8);max-width:500px;margin:0 auto;font-size:.95rem}
-
-/* OPTIONS */
-.options-section{padding:3rem 0}
-.options-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
-.option-card{border:2px solid var(--border);border-radius:12px;padding:2rem;text-align:center;transition:border-color .2s,box-shadow .2s}
-.option-card:hover{border-color:var(--orange);box-shadow:0 4px 20px rgba(240,90,34,.15)}
-.option-icon{font-size:3rem;margin-bottom:.75rem}
-.option-card h2{font-family:'Anton',sans-serif;font-size:1.3rem;letter-spacing:.02em;color:var(--navy);margin-bottom:.5rem}
-.option-card p{font-size:.87rem;color:#666;line-height:1.6;margin-bottom:1.25rem}
-.option-btn{display:inline-block;padding:.8rem 1.5rem;border-radius:var(--radius);font-weight:700;font-size:.9rem;transition:all .15s}
-.option-btn-orange{background:var(--orange-dark);color:#fff}
-.option-btn-orange:hover{background:var(--orange-dark)}
-.option-btn-navy{background:var(--navy);color:#fff}
-.option-btn-navy:hover{background:var(--navy-mid)}
-
-/* WHAT TO INCLUDE */
-.tips-section{background:var(--off-white);padding:3rem 0}
-.tips-section h2{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,3.5vw,2rem);color:var(--navy);margin-bottom:.5rem}
-.tips-section .sub{color:#666;margin-bottom:1.75rem;font-size:.92rem}
-.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-.tip-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem}
-.tip-card h3{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
-.tip-card p{font-size:.82rem;color:#666;line-height:1.55}
-
-/* WHAT HAPPENS NEXT */
-.next-section{padding:3rem 0;text-align:center}
-.next-section h2{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,3.5vw,2rem);color:var(--navy);margin-bottom:.5rem}
-.next-section .sub{color:#666;margin-bottom:2rem;font-size:.92rem}
-.next-steps{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.next-step{background:var(--off-white);border-radius:var(--radius);padding:1.4rem 1.6rem;max-width:220px;text-align:center}
-.next-step .num{font-family:'Anton',sans-serif;font-size:2rem;color:var(--orange-dark);line-height:1;margin-bottom:.4rem}
-.next-step p{font-size:.84rem;color:#555;line-height:1.5}
-
-footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:center}
-.footer-links{display:flex;gap:1.25rem;justify-content:center;flex-wrap:wrap;margin-bottom:.65rem}
-.footer-links a{font-size:.82rem;color:rgba(255,255,255,.7)}
-.footer-links a:hover{color:#fff}
-.footer-bottom{font-size:.72rem;color:rgba(255,255,255,.65);margin-top:.6rem}
-
-/* BREADCRUMBS */
-.breadcrumb{background:var(--off-white);border-bottom:1px solid var(--border)}
-.breadcrumb ol{max-width:var(--container);margin:0 auto;padding:.6rem 1.25rem;list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:.78rem;color:var(--text-muted)}
-.breadcrumb li{display:flex;align-items:center;gap:.4rem}
-.breadcrumb li+li::before{content:'\203A';color:var(--text-muted);opacity:.6}
-.breadcrumb a{color:var(--navy);font-weight:600}
-.breadcrumb a:hover{text-decoration:underline}
-.breadcrumb [aria-current='page']{color:var(--text-muted);font-weight:600}
-
-/* FOOTER COLUMNS */
-.footer-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;text-align:left;margin-bottom:1.25rem}
-.footer-cols h3{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:.6rem}
-.footer-cols ul{list-style:none}
-.footer-cols li{margin-bottom:.35rem}
-.footer-cols a,.footer-cols span{font-size:.83rem;color:rgba(255,255,255,.7)}
-.footer-cols a:hover{color:#fff}
-
-@media(min-width:769px) and (max-width:1150px){nav a{font-size:.74rem;padding:.4rem .38rem}.header-cta{font-size:.75rem;padding:.5rem .7rem}}
-
-@media(max-width:960px){nav{display:none}.header-cta{display:none}.hamburger{display:flex}}
-
-.footer-cols a,.footer-cols span,.footer-col a{overflow-wrap:anywhere}
+/* ---- INSTANT ESTIMATOR ---- */
+.est-wrap{max-width:640px;margin:0 auto}
+.est-prog{height:6px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:1.5rem}
+.est-prog i{display:block;height:100%;background:var(--orange-dark);border-radius:99px;width:0;transition:width .3s ease}
+.est-step{display:none}
+.est-step.active{display:block;animation:estIn .25s ease}
+@keyframes estIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.est-step.active{animation:none}.est-prog i{transition:none}}
+.est-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.6rem;box-shadow:var(--shadow)}
+.est-label{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-on-light);margin-bottom:.4rem}
+.est-card h2{font-family:'Anton',sans-serif;font-size:clamp(1.35rem,3.2vw,1.75rem);margin-bottom:.4rem}
+.est-card p.est-hint{font-size:.88rem;color:var(--text-muted);line-height:1.6;margin-bottom:1.1rem}
+.est-opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:.95rem;font-weight:700;color:var(--navy);background:#fff;border:2px solid var(--border);border-radius:10px;padding:.9rem 1.1rem;margin-bottom:.6rem;cursor:pointer;transition:border-color .15s,background .15s,transform .1s}
+.est-opt:hover{border-color:var(--orange-dark);background:var(--off-white)}
+.est-opt:active{transform:scale(.995)}
+.est-opt[aria-pressed=true],.est-opt.active{border-color:var(--orange-dark);background:#fff5f0}
+.est-opt .est-row{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.est-opt .est-price{font-family:'Anton',sans-serif;font-size:1.05rem;color:var(--orange-on-light)}
+.est-go{width:100%;background:var(--orange-dark);color:#fff;font-family:inherit;font-size:1rem;font-weight:800;padding:.95rem;border:none;border-radius:var(--radius);cursor:pointer;margin-top:.5rem;transition:background .15s}
+.est-go:hover{background:var(--orange-darker)}
+.est-go[disabled]{opacity:.5;cursor:not-allowed}
+.est-back{width:100%;background:none;border:none;font-family:inherit;font-size:.85rem;font-weight:700;color:var(--text-muted);padding:.7rem;cursor:pointer;margin-top:.25rem}
+.est-back:hover{color:var(--navy);text-decoration:underline}
+.est-drop{border:2px dashed var(--border);border-radius:12px;padding:2rem 1rem;text-align:center;cursor:pointer;background:var(--off-white);transition:border-color .15s}
+.est-drop:hover{border-color:var(--orange-dark)}
+.est-drop .ico{font-size:2.4rem}
+.est-drop b{display:block;margin-top:.5rem;font-size:.95rem;color:var(--navy)}
+.est-drop span{display:block;font-size:.8rem;color:var(--text-muted);margin-top:.2rem}
+.est-preview{width:100%;border-radius:12px;border:2px solid var(--orange-dark);margin-bottom:.75rem}
+.est-field{margin-bottom:.9rem}
+.est-field label{display:block;font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.est-field input{width:100%;font-family:inherit;font-size:.95rem;padding:.75rem .85rem;border:1.5px solid var(--border);border-radius:6px}
+.est-field input:focus{outline:none;border-color:var(--orange-dark);box-shadow:0 0 0 3px rgba(194,73,28,.15)}
+.est-line{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-top:.5rem}
+.est-line.total{border-top:1px solid var(--border);margin-top:1rem;padding-top:.85rem;font-weight:700}
+.est-strike{text-decoration:line-through;opacity:.6}
+.est-disc{color:var(--orange-on-light);font-weight:700}
+.est-ball{background:var(--navy);color:#fff;border-radius:12px;padding:1.4rem;text-align:center;margin-top:1.25rem}
+.est-ball .cap{font-size:.7rem;letter-spacing:.14em;font-weight:800;opacity:.8}
+.est-ball .big{font-family:'Anton',sans-serif;font-size:clamp(2rem,6vw,2.8rem);color:var(--orange-on-dark);line-height:1.1;margin:.25rem 0}
+.est-ball .fine{font-size:.76rem;opacity:.8}
+.est-club{background:linear-gradient(135deg,rgba(240,90,34,.12),rgba(8,36,63,.1));border:1px solid var(--orange-dark);border-radius:12px;padding:1.25rem;margin-top:1rem}
+.est-club h3{font-family:'Anton',sans-serif;font-size:1.15rem;color:var(--navy);margin-bottom:.4rem}
+.est-club p{font-size:.87rem;color:var(--text-muted);line-height:1.6}
+.est-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.est-fine{font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:.75rem;line-height:1.5}
+/* Shown only if JS is unavailable — the form still works, just without the quiz. */
+.est-nojs{background:var(--off-white);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:1.25rem}
+.est-nojs p{font-size:.9rem;color:var(--text-muted)}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Instant Price Estimate","name":"Instant Exterior Cleaning Estimate","description":"Get a fast, honest estimate from A-Team Contracting. Send a photo of what needs to be done and get a real price same day. Serving Tipp City and the Dayton area.","url":"https://ateamcontractings.com/estimate/","areaServed":["Tipp City OH","Dayton OH","Troy OH","Vandalia OH","Huber Heights OH"],"provider":{"@type":"LocalBusiness","name":"A-Team Contracting","telephone":"(937) 939-2936","url":"https://ateamcontractings.com","address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","addressCountry":"US"},"priceRange":"$"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Get an Instant Price","url":"https://ateamcontractings.com/estimate/","description":"Instant ballpark pricing for window cleaning, pressure washing and soft washing in Tipp City and the Dayton area.","provider":{"@type":"LocalBusiness","name":"A-Team Contracting","telephone":"(937) 939-2936","url":"https://ateamcontractings.com","address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","addressCountry":"US"},"priceRange":"$"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ateamcontractings.com/"},{"@type":"ListItem","position":2,"name":"Get an Instant Price","item":"https://ateamcontractings.com/estimate/"}]}</script>
 </head>
 <body>
 
 <div class="topbar">
-  Serving Tipp City &amp; the Dayton Area &nbsp;&middot;&nbsp;
+  Serving Tipp City &amp; the Dayton Area &nbsp;·&nbsp;
   <a href="tel:+19379392936">(937) 939-2936</a>
-  &nbsp;&middot;&nbsp; Mon&ndash;Sat 7am&ndash;7pm
+  &nbsp;·&nbsp; Mon–Sat 7am–7pm
 </div>
 
 <header>
@@ -149,7 +105,7 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
       <a href="/gallery/">Gallery</a>
       <a href="/blog/">Blog</a>
     </nav>
-    <a class="header-cta" href="/estimate/">&#128248; Get an Instant Price</a>
+    <a class="header-cta" href="tel:+19379392936">📞 (937) 939-2936</a>
     <button class="hamburger" aria-label="Open menu" onclick="toggleNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -164,7 +120,7 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
     <a href="/pressure-washing-cost-ohio/">Pricing Guide</a>
     <a href="/gallery/">Before &amp; After</a>
     <a href="/blog/">Blog</a>
-    <a href="/estimate/" class="mob-cta">&#128248; Get an Instant Price</a>
+    <a href="tel:+19379392936" class="mob-cta">📞 Call (937) 939-2936</a>
   </div>
 </header>
 
@@ -178,91 +134,204 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
 <main>
 <section class="page-hero">
   <div class="container">
-    <h1>Get Your <em>Instant Price</em></h1>
-    <p>Send a photo of what needs to be done. I'll get back to you with a real number &mdash; same day, no runaround.</p>
+    <div class="section-label">Tipp City, Ohio · Instant Estimate</div>
+    <h1>Snap a Pic. <em>Get a Price.</em></h1>
+    <p>Answer a few quick questions, send a photo of your place, and get a real ballpark from A-Team in under a minute. No waiting on a callback.</p>
   </div>
 </section>
 
-<section class="options-section">
+<section>
   <div class="container">
-    <p style="text-align:center;font-size:.95rem;color:#555;max-width:520px;margin:0 auto">Pick the fastest way to reach me. I answer every message personally &mdash; it's just me and my team, not a call center.</p>
-    <div class="options-grid">
+    <div class="est-wrap">
 
-      <div class="option-card">
-        <div class="option-icon">&#128248;</div>
-        <h2>Text a Photo</h2>
-        <p>Snap a photo of your driveway, siding, windows &mdash; whatever needs work. Text it to me and I'll get back to you fast with a price.</p>
-        <a href="sms:+19379392936" class="option-btn option-btn-orange">Text (937) 939-2936</a>
-      </div>
+      <noscript>
+        <div class="est-nojs">
+          <p><strong>The instant estimator needs JavaScript.</strong> No problem — fill in your details below and Anthony will price it for you the same day, or call <a href="tel:+19379392936">(937) 939-2936</a>.</p>
+        </div>
+      </noscript>
 
-      <div class="option-card">
-        <div class="option-icon">&#128222;</div>
-        <h2>Call Me Direct</h2>
-        <p>Rather talk it through? Call me. I answer my own phone Mon&ndash;Sat 7am&ndash;7pm. If I'm on a job I'll call right back.</p>
-        <a href="tel:+19379392936" class="option-btn option-btn-navy">Call (937) 939-2936</a>
-      </div>
+      <div class="est-prog" id="est-prog" hidden><i id="est-prog-bar"></i></div>
 
-      <div class="option-card">
-        <div class="option-icon">&#128231;</div>
-        <h2>Send an Email</h2>
-        <p>Prefer email? Send photos and a description of what you need. I check email daily and respond the same day.</p>
-        <a href="mailto:owner@ateamcontractings.com?subject=Estimate Request&body=Hi Anthony, I'd like a quote for..." class="option-btn option-btn-navy">Email Anthony</a>
-      </div>
+      <!--
+        One real HTML form wrapping every step.
 
+        The quiz drives visibility and writes its answers into the hidden
+        fields below; the final button is a plain submit. That means the
+        submission is an ordinary multipart POST that Netlify Forms captures
+        with the photo attached — no fetch(), no JSON, and nothing that breaks
+        if the script fails to load. The previous version of this page gated
+        its only send on an empty webhook constant and silently dropped every
+        lead; there is no code path here that can do that.
+      -->
+      <form
+        name="estimate-request"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        enctype="multipart/form-data"
+        action="/estimate/thanks/"
+        id="est-form"
+        data-lead-form>
+
+        <input type="hidden" name="form-name" value="estimate-request">
+        <p class="est-hp" aria-hidden="true">
+          <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+
+        <!-- Quiz answers, written by the script before submit. -->
+        <input type="hidden" name="home_size" value="">
+        <input type="hidden" name="stories" value="">
+        <input type="hidden" name="services" value="Window cleaning">
+        <input type="hidden" name="retail_value" value="">
+        <input type="hidden" name="bundle_discount" value="">
+        <input type="hidden" name="ballpark" value="">
+
+        <!-- Ad attribution, written by /assets/lead-form.js. -->
+        <input type="hidden" name="source" value="">
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="click_id" value="">
+        <input type="hidden" name="landing_page" value="">
+        <input type="hidden" name="referrer" value="">
+
+        <!-- STEP 0 — intro -->
+        <div class="est-step active" data-step="0">
+          <div class="est-card" style="text-align:center">
+            <p style="font-family:'Caveat',cursive;font-size:1.6rem;color:var(--orange-on-light);margin-bottom:.25rem">Check this out 👋</p>
+            <h2 style="font-size:clamp(1.6rem,5vw,2.2rem)">Real pricing, right now</h2>
+            <p class="est-hint">Four quick taps and an optional photo. You'll see an itemised ballpark before you give us a single detail about yourself.</p>
+            <button type="button" class="est-go" data-go="1">START MY ESTIMATE →</button>
+            <p class="est-fine">Family-owned · We show up no matter what</p>
+          </div>
+        </div>
+
+        <!-- STEP 1 — home size -->
+        <div class="est-step" data-step="1">
+          <div class="est-card">
+            <div class="est-label">Step 1 — Your home</div>
+            <h2>How big is the place?</h2>
+            <p class="est-hint">Rough is fine. We confirm everything on site.</p>
+            <button type="button" class="est-opt" data-size="small">Small / ranch</button>
+            <button type="button" class="est-opt" data-size="medium">Average 2–3 bed</button>
+            <button type="button" class="est-opt" data-size="large">Large home</button>
+            <button type="button" class="est-opt" data-size="xl">Extra large / estate</button>
+          </div>
+        </div>
+
+        <!-- STEP 2 — stories -->
+        <div class="est-step" data-step="2">
+          <div class="est-card">
+            <div class="est-label">Step 2 — Stories</div>
+            <h2>One story or two?</h2>
+            <p class="est-hint">Two-storey glass takes longer and needs more kit, so it changes the number.</p>
+            <button type="button" class="est-opt" data-stories="1">Single story</button>
+            <button type="button" class="est-opt" data-stories="2">Two stories</button>
+            <button type="button" class="est-back" data-go="1">← Back</button>
+          </div>
+        </div>
+
+        <!-- STEP 3 — add-ons -->
+        <div class="est-step" data-step="3">
+          <div class="est-card">
+            <div class="est-label">Step 3 — While we're there</div>
+            <h2>Want the wash too?</h2>
+            <p class="est-hint">We're already on the property for windows. Add these now and save 12% — bundle pricing only.</p>
+            <button type="button" class="est-opt" data-addon="driveway" aria-pressed="false">
+              <span class="est-row"><span data-addon-label>+ Driveway / walkway pressure wash</span><span class="est-price" data-addon-price>—</span></span>
+            </button>
+            <button type="button" class="est-opt" data-addon="siding" aria-pressed="false">
+              <span class="est-row"><span data-addon-label>+ House siding softwash</span><span class="est-price" data-addon-price>—</span></span>
+            </button>
+            <button type="button" class="est-opt" data-addon="roof" aria-pressed="false">
+              <span class="est-row"><span data-addon-label>+ Roof softwash</span><span class="est-price" data-addon-price>—</span></span>
+            </button>
+            <button type="button" class="est-go" data-go="4" id="est-addon-next">JUST WINDOWS — NEXT →</button>
+            <button type="button" class="est-back" data-go="2">← Back</button>
+          </div>
+        </div>
+
+        <!-- STEP 4 — photo -->
+        <div class="est-step" data-step="4">
+          <div class="est-card">
+            <div class="est-label">Step 4 — Snap your place</div>
+            <h2>Send us a photo</h2>
+            <p class="est-hint">Stand back and grab the front of your house. Anthony sees it with your request, which usually means he can price it without coming out.</p>
+            <img class="est-preview" id="est-preview" alt="Your uploaded photo" hidden>
+            <div class="est-drop" id="est-drop">
+              <div class="ico" aria-hidden="true">📸</div>
+              <b>Tap to add a photo</b>
+              <span>Camera or photo library · optional</span>
+            </div>
+            <input type="file" id="est-file" name="photo" accept="image/*" capture="environment" style="position:absolute;left:-9999px">
+            <button type="button" class="est-go" data-go="5">SEE MY ESTIMATE →</button>
+            <button type="button" class="est-back" data-go="3">← Back</button>
+          </div>
+        </div>
+
+        <!-- STEP 5 — the estimate -->
+        <div class="est-step" data-step="5">
+          <div class="est-card">
+            <div class="est-label">Your A-Team Estimate</div>
+            <h2 style="margin-bottom:.75rem">Here's your ballpark</h2>
+            <div id="est-lines"></div>
+            <div class="est-ball">
+              <div class="cap">YOUR BALLPARK</div>
+              <div class="big" id="est-range">—</div>
+              <div class="fine">Final price confirmed at your free estimate</div>
+            </div>
+          </div>
+          <div class="est-club">
+            <h3>🛡️ Join the Clean Club</h3>
+            <p>Set it and forget it. We keep your windows and exterior clean all year on a schedule — you never call, we just show up. Ask Anthony about Club pricing at your estimate.</p>
+          </div>
+          <div style="margin-top:1rem">
+            <button type="button" class="est-go" data-go="6">BOOK MY FREE ESTIMATE →</button>
+            <button type="button" class="est-back" data-go="3">← Change my answers</button>
+          </div>
+        </div>
+
+        <!-- STEP 6 — contact -->
+        <div class="est-step" data-step="6">
+          <div class="est-card">
+            <div class="est-label">Last step — lock it in</div>
+            <h2>Where do we come?</h2>
+            <p class="est-hint">Your ballpark is saved. Anthony will confirm it and get you on the schedule.</p>
+            <div class="est-field">
+              <label for="est-name">Your name</label>
+              <input type="text" id="est-name" name="name" required autocomplete="name" placeholder="Jordan Smith">
+            </div>
+            <div class="est-field">
+              <label for="est-phone">Best phone number</label>
+              <input type="tel" id="est-phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(937) 555-0143">
+            </div>
+            <div class="est-field">
+              <label for="est-address">Service address</label>
+              <input type="text" id="est-address" name="address" autocomplete="street-address" placeholder="123 Main St, Tipp City, OH">
+            </div>
+            <button type="submit" class="est-go" data-submit>SEND TO A-TEAM →</button>
+            <button type="button" class="est-back" data-go="5">← Back to my price</button>
+            <p class="est-fine">We'll only use your number to quote this job. No spam, no selling your info, ever.</p>
+          </div>
+        </div>
+
+      </form>
     </div>
   </div>
 </section>
 
-<section class="tips-section">
+<section class="bg-off">
   <div class="container">
-    <h2>What to Include in Your Message</h2>
-    <p class="sub">The more you can share, the faster I can get you a number. Here's what helps most:</p>
-    <div class="tips-grid">
-      <div class="tip-card">
-        <h3>&#128247; A Photo or Two</h3>
-        <p>Show me the area from the street and up close. One photo of the full exterior, one of the worst spots. That's usually enough.</p>
-      </div>
-      <div class="tip-card">
-        <h3>&#127968; What You Want Done</h3>
-        <p>Driveway? Siding? Windows? All of it? Tell me the surfaces and I'll match the right service to each one.</p>
-      </div>
-      <div class="tip-card">
-        <h3>&#128205; Your Location</h3>
-        <p>City or zip code is fine. I serve Tipp City and the greater Dayton area, so if you're nearby I'll confirm it right away.</p>
-      </div>
-      <div class="tip-card">
-        <h3>&#128197; When You Want It Done</h3>
-        <p>Flexible or have a deadline? Let me know. I'll tell you what's open on the schedule and we'll get you on it.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="next-section">
-  <div class="container">
-    <h2>What Happens After You Reach Out</h2>
-    <p class="sub">Here's the whole process start to finish.</p>
-    <div class="next-steps">
-      <div class="next-step">
-        <div class="num">1</div>
-        <p>You text or call with photos and a description of the job.</p>
-      </div>
-      <div class="next-step">
-        <div class="num">2</div>
-        <p>I get back to you same day with a real price &mdash; no "someone will call you."</p>
-      </div>
-      <div class="next-step">
-        <div class="num">3</div>
-        <p>We pick a date that works. I confirm the day before.</p>
-      </div>
-      <div class="next-step">
-        <div class="num">4</div>
-        <p>We show up on time, do the job right, and send you before &amp; after photos.</p>
-      </div>
-      <div class="next-step">
-        <div class="num">5</div>
-        <p>You pay when it's done and you're happy. That's it.</p>
-      </div>
+    <div class="section-label">Prefer To Just Talk?</div>
+    <h2>Call or Text Anthony Direct</h2>
+    <p class="section-sub">The estimator is the fast way, but it's not the only way. I answer my own phone Mon–Sat, 7am–7pm.</p>
+    <div class="link-grid">
+      <a class="link-card" href="tel:+19379392936"><h3>📞 Call (937) 939-2936</h3><p>If I'm on a job I'll call you straight back.</p><span class="go">Tap to call →</span></a>
+      <a class="link-card" href="sms:+19379392936"><h3>💬 Text a photo</h3><p>Snap the driveway or the siding and send it over. Fastest way to a number.</p><span class="go">Tap to text →</span></a>
+      <a class="link-card" href="mailto:Owner@ateamcontractings.com?subject=Estimate%20Request"><h3>✉️ Email me</h3><p>Photos and a description. I check email daily and reply the same day.</p><span class="go">Send an email →</span></a>
+      <a class="link-card" href="/pressure-washing-cost-ohio/"><h3>📋 See published prices</h3><p>Our full price ranges by surface and square foot, so you can sanity-check any quote.</p><span class="go">Ohio price guide →</span></a>
     </div>
   </div>
 </section>
@@ -315,10 +384,8 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2026 A-Team Contracting &mdash; Tipp City, Ohio &mdash; (937) 939-2936<br>
-      Jobs are done best when you work with A-Team!
-    </div>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.65)">"Jobs are done best when you work with A-Team." — <strong>A-Team Contracting</strong> · Tipp City, OH</p>
+    <div class="footer-bottom">© 2026 A-Team Contracting. Built &amp; run by Anthony Leonard, Tipp City, OH</div>
   </div>
 
   <div style="text-align:center;padding:1.25rem 0 .5rem">
@@ -327,11 +394,10 @@ footer{background:var(--navy-mid);color:#fff;padding:1.75rem 0 1rem;text-align:c
 </footer>
 
 <script>
-function toggleNav(btn){
-  btn.classList.toggle('open');
-  document.getElementById('mobile-drawer').classList.toggle('open');
-}
+function toggleNav(btn){btn.classList.toggle('open');document.getElementById('mobile-drawer').classList.toggle('open')}
 </script>
+<script src="/assets/estimator.js" defer></script>
+<script src="/assets/lead-form.js" defer></script>
 
 <script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNmEzNThiNmUxYmU5NjA1MmZjZjg1MSIsImlzc3VlciI6Im5mc2VydmVyIn0._PWQ89AWXxGkKkQEcrxFQpPvqBiriXRhAlli0jacVao"></script>
 </body>
