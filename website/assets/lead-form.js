@@ -1,5 +1,6 @@
 /*
- * Lead form support for /free-quote/.
+ * Lead form support for any form marked with [data-lead-form]:
+ * /free-quote/ (ads landing page) and /estimate/ (instant estimator).
  *
  * Two jobs:
  *   1. Capture ad attribution (utm_*, gclid, fbclid, ...) into the form's
@@ -91,7 +92,7 @@
         if (host && host !== window.location.hostname) return "Referral — " + host;
       } catch (e) { /* malformed referrer, fall through */ }
     }
-    return "Website — Free Quote page";
+    return "Website — " + document.title.split("|")[0].trim();
   }
 
   function setField(form, name, value) {
@@ -99,11 +100,12 @@
     if (el && value) el.value = value;
   }
 
-  var form = document.getElementById("quote-form");
-  if (!form) return;
+  var forms = document.querySelectorAll("[data-lead-form]");
+  if (!forms.length) return;
 
   var attr = readAttribution();
 
+  Array.prototype.forEach.call(forms, function (form) {
   UTM_KEYS.forEach(function (k) { setField(form, k, attr[k]); });
   setField(form, "click_id", attr.click_id);
   setField(form, "source", describeSource(attr));
@@ -112,7 +114,7 @@
 
   form.addEventListener("submit", function () {
     // Guard against a double-tap producing two leads and two texts.
-    var btn = form.querySelector(".lp-submit");
+    var btn = form.querySelector("[data-submit]") || form.querySelector(".lp-submit");
     if (btn) {
       if (btn.dataset.sent === "1") return;
       btn.dataset.sent = "1";
@@ -157,5 +159,6 @@
     } catch (e) {
       /* Same — the Netlify submission proceeds regardless. */
     }
+  });
   });
 })();
