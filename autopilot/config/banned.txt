@@ -1,0 +1,50 @@
+# Banned phrases. One per line. Case insensitive, matched on word boundaries.
+# A draft containing any of these is rejected and regenerated. Ant never sees it.
+# Lines starting with # are comments.
+
+# --- corporate filler ---
+circle back
+synergy
+at the end of the day
+touch base
+unlock
+elevate
+game-changer
+game changer
+in today's world
+moving forward
+best-in-class
+best in class
+world-class
+cutting-edge
+state-of-the-art
+
+# --- AI tells ---
+look no further
+we've got you covered
+we have you covered
+rest assured
+nestled
+in the heart of
+when it comes to
+that's where we come in
+say goodbye to
+transform your home into
+dive in
+delve
+
+# --- wrong for this business ---
+one-man operation
+one man operation
+small operation
+just me
+mom and pop
+
+# --- Clean Club language guards ---
+cancel anytime
+no contract required
+sign a contract
+locked in
+
+# --- "leverage" as a verb is banned, the noun is not.
+# Handled by the regex rule in linter.py, not by this list.
