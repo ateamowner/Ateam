@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Thanks — Your Quote Request Is In | A-Team Contracting</title>
+<meta name="description" content="Your quote request has been received. Anthony will get back to you the same day with a real price.">
+<!-- Never index a thank-you page: it can otherwise surface in search results
+     and be counted as a conversion by visitors who never filled the form. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#08243f">
+<link rel="preload" href="/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/montserrat-var.woff2') format('woff2-variations'),url('/fonts/montserrat-var.woff2') format('woff2')}
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/anton-400.woff2') format('woff2')}
+:root{--navy:#08243f;--navy-mid:#0d3358;--orange:#f05a22;--orange-dark:#c2491c;--orange-darker:#a83f18;--orange-on-dark:#fa8c57;--off-white:#f8f5f0;--border:#e0dbd3;--text:#1a1a1a;--text-muted:#666;--green:#1a7a3c;--radius:8px;--container:1100px;--shadow:0 2px 12px rgba(0,0,0,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;color:var(--text);line-height:1.6;background:#fff}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3{line-height:1.15}
+.container{max-width:var(--container);margin:0 auto;padding:0 1.25rem}
+.lp-bar{background:var(--navy)}
+.lp-bar-inner{max-width:var(--container);margin:0 auto;padding:.6rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.lp-logo{display:flex;align-items:center;gap:.5rem}
+.lp-logo img{height:38px;width:auto}
+.lp-logo-text{font-family:'Anton',sans-serif;font-size:1.35rem;color:#fff;letter-spacing:.02em;line-height:1}
+.lp-logo-text span{color:var(--orange)}
+.lp-bar-call{background:var(--orange-dark);color:#fff;font-weight:700;font-size:.85rem;padding:.55rem 1rem;border-radius:var(--radius);white-space:nowrap}
+
+.ty{background:var(--navy);color:#fff;text-align:center;padding:3.5rem 0 3rem}
+.ty-check{width:72px;height:72px;margin:0 auto 1.25rem;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:#fff}
+.ty h1{font-family:'Anton',sans-serif;font-size:clamp(1.9rem,4.4vw,2.8rem);margin-bottom:.75rem}
+.ty h1 span{color:var(--orange-on-dark)}
+.ty p{color:rgba(255,255,255,.85);font-size:1.02rem;max-width:34em;margin:0 auto 1.5rem}
+.ty-call{display:inline-block;background:var(--orange-dark);color:#fff;font-weight:800;font-size:1rem;padding:.95rem 2rem;border-radius:var(--radius)}
+.ty-note{font-size:.85rem;color:rgba(255,255,255,.6);margin-top:1rem}
+
+.sec{padding:3rem 0}
+.sec h2{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,3.2vw,2rem);text-align:center;margin-bottom:.5rem}
+.sec .lead{text-align:center;color:var(--text-muted);max-width:36em;margin:0 auto 2rem;font-size:.95rem}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem}
+.step{padding:1.5rem 1.25rem;border:1px solid var(--border);border-radius:var(--radius);text-align:center}
+.step-n{font-family:'Anton',sans-serif;font-size:2.2rem;color:var(--orange);opacity:.3;line-height:1}
+.step h3{font-size:1rem;font-weight:700;margin:.3rem 0 .4rem;color:var(--navy)}
+.step p{font-size:.87rem;color:var(--text-muted)}
+.links{background:var(--off-white)}
+.link-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.5rem}
+.link-card{display:block;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem 1.25rem;transition:transform .15s,box-shadow .15s}
+.link-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.link-card h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.link-card p{font-size:.85rem;color:var(--text-muted);line-height:1.55}
+.link-card .go{display:inline-block;margin-top:.5rem;font-size:.82rem;font-weight:700;color:var(--orange-dark)}
+.lp-foot{background:var(--navy-mid);color:rgba(255,255,255,.65);text-align:center;padding:1.5rem 0;font-size:.78rem}
+.lp-foot a{color:rgba(255,255,255,.8);text-decoration:underline}
+@media(max-width:600px){.sec{padding:2.25rem 0}.ty{padding:2.5rem 0 2.25rem}}
+</style>
+
+<!-- =====================================================================
+     CONVERSION TRACKING
+     This page loading IS the conversion event. Paste the snippet for
+     whichever platform you advertise on; delete the ones you don't use.
+     Both blocks are inert until you fill in your own IDs.
+
+     GOOGLE ADS — Tools → Conversions → create a "Website" conversion,
+     then copy the Global Site Tag and the Event Snippet it gives you.
+
+       <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+       <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         gtag('config', 'AW-XXXXXXXXX');
+         gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/YYYYYYYYYYYYYYY'});
+       </script>
+
+     META (FACEBOOK/INSTAGRAM) — Events Manager → your pixel → base code,
+     then fire a Lead event on this page.
+
+       <script>
+         !function(f,b,e,v,n,t,s){...}  // paste Meta's base code here
+         fbq('init', 'YOUR_PIXEL_ID');
+         fbq('track', 'PageView');
+         fbq('track', 'Lead');
+       </script>
+
+     Note: the site's Content-Security-Policy is not currently restrictive,
+     so these load without further changes. If a CSP is added later, allow
+     googletagmanager.com and connect.facebook.net.
+     ===================================================================== -->
+
+</head>
+<body>
+
+<div class="lp-bar">
+  <div class="lp-bar-inner">
+    <a class="lp-logo" href="/">
+      <img src="/logo.webp" alt="A-Team Contracting" width="43" height="38">
+      <span class="lp-logo-text">A-<span>TEAM</span></span>
+    </a>
+    <a class="lp-bar-call" href="tel:+19379392936">📞 (937) 939-2936</a>
+  </div>
+</div>
+
+<main>
+<section class="ty">
+  <div class="container">
+    <div class="ty-check" aria-hidden="true">✓</div>
+    <h1>Got It — <span>You're On My List.</span></h1>
+    <p>Your request came straight through to me, not a call center. I'll get back to you <strong>the same day</strong> with a real number. If you sent a photo, that usually means I can price it without even coming out.</p>
+    <a href="tel:+19379392936" class="ty-call">📞 Need it sooner? Call (937) 939-2936</a>
+    <p class="ty-note">— Anthony Leonard, owner · Mon–Sat 7am–7pm</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <h2>What Happens Now</h2>
+    <p class="lead">So you're not sitting there wondering.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>I read it today</h3>
+        <p>Every request comes to my phone. No queue, no assistant, no ticket number.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>You get a price</h3>
+        <p>Usually by text, same day. If I need to see it in person first, I'll tell you that instead of guessing.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>We book a date</h3>
+        <p>Only if you want to. No follow-up pressure and no drip campaign.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec links">
+  <div class="container">
+    <h2>While You Wait</h2>
+    <p class="lead">A few things worth a look — especially the price guide, so you can sanity-check whatever number I send you.</p>
+    <div class="link-grid">
+      <a class="link-card" href="/pressure-washing-cost-ohio/">
+        <h3>What This Should Cost in Ohio</h3>
+        <p>Our actual price ranges by surface and square foot, published up front so you can compare.</p>
+        <span class="go">See the price guide →</span>
+      </a>
+      <a class="link-card" href="/gallery/">
+        <h3>Before &amp; After Gallery</h3>
+        <p>Forty-plus real jobs from around Tipp City, Troy, Vandalia and Dayton.</p>
+        <span class="go">See the photos →</span>
+      </a>
+      <a class="link-card" href="/soft-washing-vs-pressure-washing/">
+        <h3>Soft Wash vs. Pressure Wash</h3>
+        <p>Which one your siding, roof or driveway actually needs — and how to vet any contractor in two questions.</p>
+        <span class="go">Read the guide →</span>
+      </a>
+      <a class="link-card" href="/blog/">
+        <h3>Guides From the Truck</h3>
+        <p>Roof black streaks, driveway algae, and the best time of year to wash a house in Ohio.</p>
+        <span class="go">Read the blog →</span>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="lp-foot">
+  <div class="container">
+    &copy; 2026 A-Team Contracting · Tipp City, Ohio · <a href="tel:+19379392936">(937) 939-2936</a><br>
+    Jobs are done best when you work with A-Team!
+  </div>
+</footer>
+
+</body>
+</html>

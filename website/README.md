@@ -68,6 +68,81 @@ The six original service pages, `/gallery/` and `/estimate/` keep their inline
 `<style>` blocks. Pages added in the August 2026 SEO pass link the shared
 `/css/site.css` instead — same design tokens, one cached request.
 
+### The ads lead form (`/free-quote/`)
+
+A standalone landing page for paid traffic — Google Ads, Meta, Nextdoor,
+anything that needs a click to land somewhere that converts. Point the ad's
+destination URL straight at:
+
+```
+https://ateamcontractings.com/free-quote/
+```
+
+It is deliberately different from the rest of the site:
+
+- **No nav.** Every extra link is a way to leak a click you paid for. Logo,
+  form, tap-to-call, nothing else.
+- **`noindex, follow`** and **not in `sitemap.xml`**, so it never competes
+  with the organic service pages. It is *not* blocked in `robots.txt` — Google
+  Ads has to crawl the page to score it.
+- **Self-contained CSS.** Ad visitors always arrive with a cold cache, so the
+  page is one request instead of two. The trade-off: brand colours live both
+  here and in `/css/site.css`, so a palette change means editing both.
+- **Form above the fold on mobile**, where most ad clicks come from.
+
+Submissions land on `/free-quote/thanks/` — a separate URL, which is what ad
+platforms need to count a conversion.
+
+#### Where the leads go
+
+`Netlify Forms` is the system of record. The form is plain HTML with
+`data-netlify="true"`, so Netlify captures every submission on deploy with no
+server and no third-party dependency.
+
+**One-time setup in the Netlify dashboard:**
+
+1. Deploy this branch, then go to the site → **Forms**. A form named
+   `ad-quote` appears after the first deploy that includes the page.
+2. **Forms → Settings → Form notifications → Add notification → Email
+   notification.** Send to `Owner@ateamcontractings.com`. Without this step
+   submissions are still saved, but nothing tells you they arrived.
+3. Submit a test through the live form and confirm it shows up.
+
+Netlify's free tier covers 100 submissions/month including the photo uploads.
+Past that it needs a paid forms plan — worth watching if the ads scale.
+
+#### Text alerts (optional)
+
+Email is slow when someone is comparing three contractors. To get a text
+instead, open `assets/lead-form.js` and paste a Zapier **Catch Hook** URL into
+`ZAPIER_WEBHOOK_URL` at the top, then add an SMS action in Zapier pointing at
+(937) 939-2936. Useful fields: `name`, `phone`, `city`, `services`,
+`timeline`, `source`.
+
+This is strictly additive. If the webhook is never configured, fails, or is
+blocked, the lead is still captured by Netlify — a notification failure must
+never cost a lead.
+
+#### Conversion tracking
+
+`/free-quote/thanks/` has commented-out blocks for Google Ads and Meta Pixel
+near the end of `<head>`. Paste in whichever applies and delete the other;
+both are inert until real IDs are filled in.
+
+#### Attribution
+
+`assets/lead-form.js` reads `utm_*`, `gclid`, `gbraid`, `wbraid`, `fbclid`,
+`msclkid` and `ttclid` off the landing URL into hidden fields, and stashes
+them in `sessionStorage` so they survive a wander to the gallery and back.
+Every submission carries a readable `source` (e.g. `Ad — google /
+tippcity-pressure-washing`) so you can tell which campaign paid for it.
+
+Tag ad URLs like this and the campaign name flows through to the lead:
+
+```
+https://ateamcontractings.com/free-quote/?utm_source=google&utm_medium=cpc&utm_campaign=tippcity-pressure-washing
+```
+
 ### Conventions to keep
 
 - **One phone number sitewide: (937) 939-2936.** NAP consistency is a local
