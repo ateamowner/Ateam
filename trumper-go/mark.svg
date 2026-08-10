@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="mark-title">
+  <title id="mark-title">trumper.go</title>
+  <!--
+    Raised fist. Drawn as overlapping rounded shapes rather than one outline,
+    so the separations between the knuckles and the thumb are strokes in the
+    page's background colour. That means the mark is built for the dark ground
+    (#0B1119); on a light background the separations disappear.
+
+    Order matters: the knuckles are drawn before the fist mass so the mass
+    covers their lower halves and only the domes show above it — a scalloped
+    top edge. Curled fingers read as a solid mass, so there are no creases
+    below the knuckles; adding them makes the whole thing look like an open
+    hand. The thumb is a single stroke across the lower left, not an outlined
+    shape sitting on top.
+  -->
+  <g transform="translate(-1,-8)"
+     fill="#FF6A13" stroke="#0B1119" stroke-width="3.5" stroke-linejoin="round">
+    <rect x="34" y="76" width="36" height="18" rx="5" stroke="none"/>
+
+    <rect x="24" y="34" width="14" height="24" rx="7"/>
+    <rect x="38.5" y="31" width="14" height="27" rx="7"/>
+    <rect x="53" y="32" width="14" height="26" rx="7"/>
+    <rect x="67.5" y="35" width="12.5" height="23" rx="6.25"/>
+
+    <rect x="22" y="40" width="58" height="46" rx="13" stroke="none"/>
+
+    <path d="M21 67 C33 62 44 59.5 55 59"
+          fill="none" stroke-width="4" stroke-linecap="round"/>
+  </g>
+</svg>
