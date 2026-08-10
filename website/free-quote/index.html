@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<title>Free Pressure Washing Quote | Tipp City &amp; Dayton, OH</title>
+<meta name="description" content="Get a free exterior cleaning quote in Tipp City and the Dayton area. Send a photo, get a real price back the same day. Family-owned, fully insured.">
+<!-- Ad landing page: kept out of the index so it never competes with the
+     organic service pages. "follow" is deliberate so link equity still flows,
+     and no robots.txt Disallow is used — Google Ads must be able to crawl this
+     page to score it. It is also intentionally absent from sitemap.xml. -->
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#08243f">
+<link rel="canonical" href="https://ateamcontractings.com/free-quote/">
+<link rel="preload" href="/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Self-contained on purpose: paid traffic always arrives with a cold cache,
+   so this page costs one request instead of two. Caveat lector — the shared
+   tokens below are a copy of /css/site.css, so brand changes need making in
+   both places. */
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/montserrat-var.woff2') format('woff2-variations'),url('/fonts/montserrat-var.woff2') format('woff2')}
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/anton-400.woff2') format('woff2')}
+
+:root{--navy:#08243f;--navy-mid:#0d3358;--orange:#f05a22;--orange-dark:#c2491c;--orange-darker:#a83f18;--orange-on-dark:#fa8c57;--off-white:#f8f5f0;--border:#e0dbd3;--text:#1a1a1a;--text-muted:#666;--green:#1a7a3c;--radius:8px;--container:1100px;--shadow:0 2px 12px rgba(0,0,0,.08)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;color:var(--text);line-height:1.6;background:#fff;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3{line-height:1.15}
+.container{max-width:var(--container);margin:0 auto;padding:0 1.25rem}
+
+/* Trimmed header — logo and a tap-to-call only. An ad landing page has no
+   nav on purpose: every extra link is a way to leak a click you paid for. */
+.lp-bar{background:var(--navy);position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.lp-bar-inner{max-width:var(--container);margin:0 auto;padding:.6rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.lp-logo{display:flex;align-items:center;gap:.5rem}
+.lp-logo img{height:38px;width:auto}
+.lp-logo-text{font-family:'Anton',sans-serif;font-size:1.35rem;color:#fff;letter-spacing:.02em;line-height:1}
+.lp-logo-text span{color:var(--orange)}
+.lp-bar-call{background:var(--orange-dark);color:#fff;font-weight:700;font-size:.85rem;padding:.55rem 1rem;border-radius:var(--radius);white-space:nowrap;transition:background .15s}
+.lp-bar-call:hover{background:var(--orange-darker)}
+
+/* HERO + FORM */
+.lp-hero{background:var(--navy);color:#fff;padding:2.75rem 0 3rem}
+/* Named areas so the form can jump above the supporting copy on mobile
+   without duplicating any markup — see the 900px breakpoint. */
+/* rows: auto 1fr — without this the tall card, which spans both rows, has its
+   height distributed across them and pushes the supporting copy way down. */
+.lp-grid{display:grid;grid-template-columns:1fr 460px;grid-template-areas:"intro card" "support card";grid-template-rows:auto 1fr;gap:0 3rem;align-items:start}
+.lp-intro{grid-area:intro}
+.lp-support{grid-area:support;margin-top:1.5rem}
+.lp-eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--orange-on-dark);text-transform:uppercase;margin-bottom:.85rem}
+.lp-hero h1{font-family:'Anton',sans-serif;font-size:clamp(2rem,4.6vw,3rem);letter-spacing:.01em;margin-bottom:1rem}
+.lp-hero h1 span{color:var(--orange-on-dark)}
+.lp-sub{font-size:1.02rem;color:rgba(255,255,255,.85);margin-bottom:1.5rem;max-width:30em}
+.lp-ticks{list-style:none;margin-bottom:1.75rem}
+.lp-ticks li{position:relative;padding-left:1.9rem;margin-bottom:.6rem;font-size:.93rem;color:rgba(255,255,255,.9)}
+.lp-ticks li::before{content:'✓';position:absolute;left:0;top:-.1rem;width:1.35rem;height:1.35rem;background:var(--orange-dark);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.lp-proof{display:flex;gap:.6rem;flex-wrap:wrap}
+.lp-proof img{width:calc(33.333% - .4rem);aspect-ratio:1/1;object-fit:cover;border-radius:6px}
+.lp-proof-cap{font-size:.76rem;color:rgba(255,255,255,.6);margin-top:.6rem}
+
+/* FORM CARD */
+.lp-card{grid-area:card;background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.35);overflow:hidden;position:sticky;top:5.5rem}
+.lp-card-head{background:var(--orange-dark);color:#fff;padding:1.1rem 1.5rem}
+.lp-card-head h2{font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:.01em}
+.lp-card-head p{font-size:.84rem;opacity:.95;margin-top:.15rem}
+.lp-form{padding:1.5rem}
+.lp-field{margin-bottom:1rem}
+.lp-field label{display:block;font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.lp-field .opt{font-weight:600;color:var(--text-muted);text-transform:none}
+.lp-field input[type=text],.lp-field input[type=tel],.lp-field input[type=email],.lp-field select,.lp-field textarea{width:100%;font-family:inherit;font-size:.95rem;color:var(--text);padding:.7rem .8rem;border:1.5px solid var(--border);border-radius:6px;background:#fff;transition:border-color .15s,box-shadow .15s}
+.lp-field input:focus,.lp-field select:focus,.lp-field textarea:focus{outline:none;border-color:var(--orange-dark);box-shadow:0 0 0 3px rgba(194,73,28,.15)}
+.lp-field textarea{resize:vertical;min-height:80px}
+.lp-field input[type=file]{width:100%;font-family:inherit;font-size:.85rem;padding:.6rem;border:1.5px dashed var(--border);border-radius:6px;background:var(--off-white);cursor:pointer}
+.lp-hint{font-size:.76rem;color:var(--text-muted);margin-top:.3rem;line-height:1.45}
+.lp-checks{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.lp-check{display:flex;align-items:center;gap:.45rem;font-size:.85rem;font-weight:600;color:var(--text);padding:.5rem .6rem;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;transition:border-color .15s,background .15s}
+.lp-check:hover{border-color:var(--orange-dark);background:var(--off-white)}
+.lp-check input{width:1rem;height:1rem;accent-color:var(--orange-dark);flex-shrink:0;cursor:pointer}
+.lp-check:has(input:checked){border-color:var(--orange-dark);background:#fff5f0}
+.lp-submit{width:100%;background:var(--orange-dark);color:#fff;font-family:inherit;font-size:1.02rem;font-weight:800;padding:.95rem;border:none;border-radius:var(--radius);cursor:pointer;transition:background .15s;letter-spacing:.01em}
+.lp-submit:hover{background:var(--orange-darker)}
+.lp-fineprint{font-size:.74rem;color:var(--text-muted);text-align:center;margin-top:.75rem;line-height:1.5}
+/* Honeypot — visually gone but not display:none, which some bots detect. */
+.lp-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+
+/* TRUST STRIP */
+.lp-trust{background:var(--off-white);border-bottom:1px solid var(--border);padding:1.1rem 0}
+.lp-trust-inner{display:flex;justify-content:center;gap:2.25rem;flex-wrap:wrap;font-size:.85rem;font-weight:700;color:var(--navy)}
+.lp-trust-inner span::before{content:'✓ ';color:var(--green)}
+
+/* SECTIONS */
+.lp-section{padding:3rem 0}
+.lp-section h2{font-family:'Anton',sans-serif;font-size:clamp(1.6rem,3.4vw,2.2rem);margin-bottom:.5rem;text-align:center}
+.lp-section .lead{text-align:center;color:var(--text-muted);max-width:36em;margin:0 auto 2rem;font-size:.95rem}
+.lp-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem}
+.lp-step{text-align:center;padding:1.5rem 1.25rem;border:1px solid var(--border);border-radius:var(--radius);background:#fff}
+.lp-step-n{font-family:'Anton',sans-serif;font-size:2.2rem;color:var(--orange);opacity:.3;line-height:1}
+.lp-step h3{font-size:1rem;font-weight:700;margin:.3rem 0 .4rem;color:var(--navy)}
+.lp-step p{font-size:.87rem;color:var(--text-muted)}
+.lp-reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+.lp-review{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1.35rem;box-shadow:var(--shadow)}
+.lp-stars{color:#f5a623;letter-spacing:.05em;margin-bottom:.55rem;font-size:.95rem}
+.lp-review p{font-size:.88rem;font-style:italic;line-height:1.65;margin-bottom:.8rem}
+.lp-review cite{font-style:normal;font-weight:700;font-size:.86rem;color:var(--navy)}
+.lp-review cite span{display:block;font-weight:600;font-size:.78rem;color:var(--text-muted)}
+.lp-area{background:var(--off-white)}
+.lp-tags{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:1.25rem}
+.lp-tag{background:#fff;border:1px solid var(--border);border-radius:20px;padding:.4rem 1rem;font-size:.85rem;font-weight:600;color:var(--navy)}
+
+/* FINAL CTA + FOOTER */
+.lp-final{background:var(--navy);color:#fff;text-align:center;padding:3rem 0}
+.lp-final h2{font-family:'Anton',sans-serif;font-size:clamp(1.5rem,3.4vw,2.1rem);margin-bottom:.6rem}
+.lp-final p{color:rgba(255,255,255,.8);margin-bottom:1.5rem;font-size:.95rem}
+.lp-btn{display:inline-block;background:var(--orange-dark);color:#fff;font-weight:800;font-size:1rem;padding:.95rem 2rem;border-radius:var(--radius);transition:background .15s}
+.lp-btn:hover{background:var(--orange-darker)}
+.lp-btn-ghost{display:inline-block;border:2px solid rgba(255,255,255,.6);color:#fff;font-weight:700;font-size:.95rem;padding:.85rem 1.75rem;border-radius:var(--radius);margin-left:.6rem}
+.lp-foot{background:var(--navy-mid);color:rgba(255,255,255,.65);text-align:center;padding:1.5rem 0;font-size:.78rem}
+.lp-foot a{color:rgba(255,255,255,.8);text-decoration:underline}
+
+/* Sticky mobile call bar — the highest-converting element on a phone. */
+.lp-sticky{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--orange-dark);color:#fff;text-align:center;padding:.9rem;font-weight:800;font-size:1rem;box-shadow:0 -2px 12px rgba(0,0,0,.25)}
+
+@media(max-width:900px){
+  /* Form above the supporting bullets/photos: on a phone every pixel between
+     the ad click and the first field costs conversions. */
+  .lp-grid{grid-template-columns:1fr;grid-template-areas:"intro" "card" "support";gap:1.75rem}
+  .lp-card{position:static}
+  .lp-support{margin-top:0}
+  .lp-hero{padding:2rem 0 2.25rem}
+}
+@media(max-width:600px){
+  .lp-bar-call{display:none}
+  .lp-sticky{display:block}
+  body{padding-bottom:3.6rem}
+  .lp-checks{grid-template-columns:1fr}
+  .lp-trust-inner{gap:.5rem 1.25rem;font-size:.78rem}
+  .lp-section{padding:2.25rem 0}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"A-Team Contracting","url":"https://ateamcontractings.com","telephone":"(937) 939-2936","address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","addressCountry":"US"},"areaServed":["Tipp City OH","Troy OH","Vandalia OH","Huber Heights OH","Dayton OH","Piqua OH"],"priceRange":"$","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp"}</script>
+</head>
+<body>
+
+<div class="lp-bar">
+  <div class="lp-bar-inner">
+    <a class="lp-logo" href="/">
+      <img src="/logo.webp" alt="A-Team Contracting" width="43" height="38">
+      <span class="lp-logo-text">A-<span>TEAM</span></span>
+    </a>
+    <a class="lp-bar-call" href="tel:+19379392936">📞 (937) 939-2936</a>
+  </div>
+</div>
+
+<main>
+<section class="lp-hero">
+  <div class="container">
+    <div class="lp-grid">
+
+      <div class="lp-intro">
+        <span class="lp-eyebrow">Tipp City &amp; the Dayton Area · Family-Owned</span>
+        <h1>Send a Photo.<br>Get a Real Price <span>Today.</span></h1>
+        <p class="lp-sub">Driveways, siding, roofs and windows cleaned by a local crew that shows up when it says it will. Fill out the form and Anthony gets back to you personally — same day, with an actual number.</p>
+      </div>
+
+      <div class="lp-card">
+        <div class="lp-card-head">
+          <h2>Get My Free Quote</h2>
+          <p>Takes about 60 seconds. No obligation.</p>
+        </div>
+
+        <!-- Netlify Forms is the system of record: submissions are stored and
+             emailed by Netlify with no server and no third-party dependency.
+             assets/lead-form.js additionally POSTs a copy to Zapier for an SMS
+             alert, but that is strictly best-effort — if the webhook fails or
+             is never configured, the lead is still captured here. -->
+        <form
+          name="ad-quote"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          enctype="multipart/form-data"
+          action="/free-quote/thanks/"
+          class="lp-form"
+          id="quote-form">
+
+          <input type="hidden" name="form-name" value="ad-quote">
+
+          <p class="lp-hp" aria-hidden="true">
+            <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <!-- Populated by assets/lead-form.js so every lead carries its ad
+               attribution through to the Netlify submission. -->
+          <input type="hidden" name="source" value="">
+          <input type="hidden" name="utm_source" value="">
+          <input type="hidden" name="utm_medium" value="">
+          <input type="hidden" name="utm_campaign" value="">
+          <input type="hidden" name="utm_term" value="">
+          <input type="hidden" name="utm_content" value="">
+          <input type="hidden" name="click_id" value="">
+          <input type="hidden" name="landing_page" value="">
+          <input type="hidden" name="referrer" value="">
+
+          <div class="lp-field">
+            <label for="q-name">Your name</label>
+            <input type="text" id="q-name" name="name" required autocomplete="name" placeholder="Anthony Leonard">
+          </div>
+
+          <div class="lp-field">
+            <label for="q-phone">Cell phone</label>
+            <input type="tel" id="q-phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(937) 555-0143">
+            <p class="lp-hint">Best way to reach you — most quotes go out by text.</p>
+          </div>
+
+          <div class="lp-field">
+            <label for="q-email">Email <span class="opt">(optional)</span></label>
+            <input type="email" id="q-email" name="email" autocomplete="email" placeholder="you@example.com">
+          </div>
+
+          <div class="lp-field">
+            <label for="q-city">Address or city</label>
+            <input type="text" id="q-city" name="city" required autocomplete="address-level2" placeholder="Tipp City, OH 45371">
+            <p class="lp-hint">City or ZIP is enough — we just need to confirm you're in our area.</p>
+          </div>
+
+          <div class="lp-field">
+            <label>What needs cleaning?</label>
+            <div class="lp-checks">
+              <label class="lp-check"><input type="checkbox" name="services" value="Driveway / Concrete"> Driveway</label>
+              <label class="lp-check"><input type="checkbox" name="services" value="House / Siding"> House / siding</label>
+              <label class="lp-check"><input type="checkbox" name="services" value="Roof"> Roof</label>
+              <label class="lp-check"><input type="checkbox" name="services" value="Windows"> Windows</label>
+              <label class="lp-check"><input type="checkbox" name="services" value="Gutters"> Gutters</label>
+              <label class="lp-check"><input type="checkbox" name="services" value="Deck / Patio / Fence"> Deck / patio</label>
+            </div>
+          </div>
+
+          <div class="lp-field">
+            <label for="q-when">How soon?</label>
+            <select id="q-when" name="timeline">
+              <option value="As soon as possible">As soon as possible</option>
+              <option value="Within 2 weeks" selected>Within the next 2 weeks</option>
+              <option value="Within a month">Within a month</option>
+              <option value="Just getting a price">Just getting a price for now</option>
+            </select>
+          </div>
+
+          <div class="lp-field">
+            <label for="q-photo">Photo of the area <span class="opt">(optional, but it speeds things up)</span></label>
+            <input type="file" id="q-photo" name="photo" accept="image/*" multiple>
+            <p class="lp-hint">One shot from the street and one up close is usually all we need to price it.</p>
+          </div>
+
+          <div class="lp-field">
+            <label for="q-details">Anything else? <span class="opt">(optional)</span></label>
+            <textarea id="q-details" name="details" placeholder="Two-story vinyl siding, heavy green on the north side, plus a three-car driveway."></textarea>
+          </div>
+
+          <button type="submit" class="lp-submit">Get My Free Quote →</button>
+          <p class="lp-fineprint">We'll only use your number to quote this job. No spam, no selling your info, no automated sales calls — ever.</p>
+        </form>
+      </div>
+
+      <div class="lp-support">
+        <ul class="lp-ticks">
+          <li>Same-day response — not "someone will call you"</li>
+          <li>Fully insured, BBB accredited, family-owned</li>
+          <li>Free quote, no obligation, no pressure sales call</li>
+          <li>Before-and-after photos on every single job</li>
+        </ul>
+        <div class="lp-proof">
+          <img src="/images/gallery/gallery-pressure-wash-2.webp" alt="Driveway pressure washing before and after in Tipp City, Ohio" width="900" height="617" loading="lazy">
+          <img src="/images/gallery/gallery-softwash-4.webp" alt="Full house soft washing before and after in Tipp City, Ohio" width="900" height="617" loading="lazy">
+          <img src="/images/gallery/gallery-tt-18.webp" alt="Driveway pressure washing before and after in Troy, Ohio" width="900" height="900" loading="lazy">
+        </div>
+        <p class="lp-proof-cap">Real jobs, photographed the day we did them.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="lp-trust">
+  <div class="container lp-trust-inner">
+    <span>Fully insured</span>
+    <span>BBB accredited</span>
+    <span>Family-owned in Tipp City</span>
+    <span>Same-day response</span>
+    <span>Free, no-obligation quotes</span>
+  </div>
+</div>
+
+<section class="lp-section">
+  <div class="container">
+    <h2>What Happens Next</h2>
+    <p class="lead">No mystery, no waiting around wondering whether anyone got your message.</p>
+    <div class="lp-steps">
+      <div class="lp-step">
+        <div class="lp-step-n">1</div>
+        <h3>You send the form</h3>
+        <p>Sixty seconds. A photo helps but isn't required.</p>
+      </div>
+      <div class="lp-step">
+        <div class="lp-step-n">2</div>
+        <h3>Anthony texts you back</h3>
+        <p>Same day, with a real number — not a callback to schedule a callback.</p>
+      </div>
+      <div class="lp-step">
+        <div class="lp-step-n">3</div>
+        <h3>You pick a date</h3>
+        <p>We confirm the day before so nobody's guessing.</p>
+      </div>
+      <div class="lp-step">
+        <div class="lp-step-n">4</div>
+        <h3>We show up and do it</h3>
+        <p>On time, walked through with you at the end, before-and-after photos sent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section" style="background:var(--off-white)">
+  <div class="container">
+    <h2>What Neighbors Say</h2>
+    <p class="lead">Real customers around Tipp City, Troy and Vandalia.</p>
+    <div class="lp-reviews">
+      <div class="lp-review">
+        <div class="lp-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>"Anthony showed up exactly when he said he would. Our driveway looks brand new. He walked us through every step and answered all my questions. Easiest contractor I've ever worked with."</p>
+        <cite>Mike R.<span>Tipp City, OH</span></cite>
+      </div>
+      <div class="lp-review">
+        <div class="lp-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>"Found A-Team on Nextdoor and I'm so glad I did. They washed our whole driveway, sidewalk, and back patio in one afternoon. The neighbors keep asking who did it. Telling everyone."</p>
+        <cite>Jen K.<span>Vandalia, OH</span></cite>
+      </div>
+      <div class="lp-review">
+        <div class="lp-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>"Our siding was covered in green algae and I thought we'd need it replaced. The soft wash brought it right back. Clear pricing, clean work, stayed on schedule. Already booked the next job."</p>
+        <cite>Sarah T.<span>Troy, OH</span></cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section lp-area">
+  <div class="container">
+    <h2>Where We Work</h2>
+    <p class="lead">Based in Tipp City, serving the greater Dayton area. Not sure if you're in range? Ask — the answer is usually yes.</p>
+    <div class="lp-tags">
+      <span class="lp-tag">📍 Tipp City</span>
+      <span class="lp-tag">📍 Troy</span>
+      <span class="lp-tag">📍 Vandalia</span>
+      <span class="lp-tag">📍 Huber Heights</span>
+      <span class="lp-tag">📍 Dayton</span>
+      <span class="lp-tag">📍 Piqua</span>
+      <span class="lp-tag">📍 Englewood</span>
+      <span class="lp-tag">📍 Beavercreek</span>
+      <span class="lp-tag">📍 Fairborn</span>
+      <span class="lp-tag">📍 Centerville</span>
+    </div>
+  </div>
+</section>
+
+<section class="lp-final">
+  <div class="container">
+    <h2>Ready for a Real Number?</h2>
+    <p>Free quote, same-day answer, no pressure. Or skip the form and just call.</p>
+    <a href="#quote-form" class="lp-btn">Get My Free Quote →</a>
+    <a href="tel:+19379392936" class="lp-btn-ghost">Call (937) 939-2936</a>
+  </div>
+</section>
+</main>
+
+<footer class="lp-foot">
+  <div class="container">
+    &copy; 2026 A-Team Contracting · Tipp City, Ohio · <a href="tel:+19379392936">(937) 939-2936</a><br>
+    Jobs are done best when you work with A-Team!
+  </div>
+</footer>
+
+<a class="lp-sticky" href="tel:+19379392936">📞 Tap to Call (937) 939-2936</a>
+
+<script src="/assets/lead-form.js" defer></script>
+</body>
+</html>

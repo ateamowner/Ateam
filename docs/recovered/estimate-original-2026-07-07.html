@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Instant Estimate | A-Team Contracting</title>
+<meta name="description" content="Snap a pic, get a price. Instant ballpark estimates from A-Team Contracting — window cleaning, pressure washing, softwashing in Tipp City, OH." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&family=Caveat:wght@700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;800&family=Caveat:wght@700&display=swap"></noscript>
+<style>
+  :root { --orange:#F58220; --blue:#1B5B98; --charcoal:#2B2F33; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; margin:0; padding:0; }
+  body { font-family:'Montserrat',system-ui,sans-serif; background:#0f2a47; }
+  #app {
+    max-width:480px; margin:0 auto; min-height:100vh; color:#fff;
+    background:linear-gradient(170deg,#0f2a47 0%,#1B5B98 45%,#0f2a47 100%);
+    display:flex; flex-direction:column;
+  }
+  .hdr { display:flex; align-items:center; gap:12px; padding:18px 20px 12px; }
+  .hdr img { height:52px; width:auto; filter:drop-shadow(0 3px 8px rgba(0,0,0,.4)); }
+  .hdr .title { font-family:'Anton',sans-serif; font-size:20px; line-height:1; letter-spacing:.5px; }
+  .hdr .title span { color:var(--orange); }
+  .hdr .sub { font-size:10px; opacity:.8; letter-spacing:1px; margin-top:3px; }
+  .prog { height:4px; background:rgba(255,255,255,.12); margin:0 20px 18px; border-radius:4px; }
+  .prog > div { height:100%; background:var(--orange); border-radius:4px; transition:width .3s; }
+  .card {
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+    border-radius:18px; padding:20px; margin:0 16px 14px;
+  }
+  .label { font-size:13px; text-transform:uppercase; letter-spacing:1.5px; color:var(--orange); font-weight:800; margin-bottom:14px; }
+  h1 { font-family:'Anton',sans-serif; }
+  h2 { font-size:22px; font-weight:800; margin-bottom:16px; }
+  .opt {
+    width:100%; text-align:left; padding:16px 18px; margin-bottom:10px; border-radius:14px;
+    border:2px solid rgba(255,255,255,.18); background:rgba(255,255,255,.05);
+    color:#fff; font-size:16px; font-weight:600; cursor:pointer; transition:all .15s; font-family:inherit;
+  }
+  .opt.active { border-color:var(--orange); background:rgba(245,130,32,.18); }
+  .opt .row { display:flex; justify-content:space-between; align-items:center; }
+  .opt .price { color:var(--orange); font-weight:800; }
+  .primary {
+    width:100%; padding:17px; border-radius:14px; border:none; background:var(--orange);
+    color:#fff; font-size:18px; font-weight:800; cursor:pointer; font-family:inherit;
+    box-shadow:0 8px 20px rgba(245,130,32,.35); letter-spacing:.3px;
+  }
+  .ghost {
+    width:100%; padding:14px; border-radius:14px; border:1px solid rgba(255,255,255,.25);
+    background:transparent; color:#fff; font-size:15px; font-weight:600; cursor:pointer; margin-top:8px; font-family:inherit;
+  }
+  .center { flex:1; display:flex; flex-direction:column; justify-content:center; }
+  input {
+    width:100%; padding:15px 16px; margin-bottom:12px; border-radius:12px;
+    border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.08);
+    color:#fff; font-size:16px; font-family:inherit;
+  }
+  input::placeholder { color:rgba(255,255,255,.55); }
+  .drop { border:2px dashed rgba(255,255,255,.3); border-radius:14px; padding:40px 20px; text-align:center; cursor:pointer; margin-bottom:12px; }
+  .yourprice { background:var(--orange); border-radius:14px; padding:16px 18px; margin-top:16px; text-align:center; }
+  .yourprice .big { font-family:'Anton',sans-serif; font-size:36px; line-height:1.1; }
+  .foot { text-align:center; font-size:11px; opacity:.55; padding:10px 0 20px; }
+  .caveat { font-family:'Caveat',cursive; color:var(--orange); }
+  .dots { animation:blink 1.2s infinite; } @keyframes blink { 0%,100%{opacity:.3} 50%{opacity:1} }
+  .hidden { display:none; }
+  .strike { text-decoration:line-through; }
+</style>
+<link rel="canonical" href="https://ateamcontractings.com/estimate" />
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+// ===== PRICING ENGINE (edit anytime) =====
+const WINDOW_BASE = { small:143, medium:186, large:244, xl:330 };
+const TWO_STORY_MULT = 1.45;
+const WASH = {
+  driveway:{ label:"Driveway / walkway pressure wash", small:143, medium:215, large:287, xl:388 },
+  siding:  { label:"House siding softwash",            small:287, medium:402, large:532, xl:719 },
+  roof:    { label:"Roof softwash",                    small:431, medium:575, large:791, xl:1079 },
+};
+const SIZE_LABELS = { small:"Small / ranch", medium:"Average 2–3 bed", large:"Large home", xl:"Extra large / estate" };
+const ORANGE="#F58220", BLUE="#1B5B98";
+
+// ===== ZAPIER WEBHOOK (paste your catch-hook URL between the quotes) =====
+const ZAPIER_WEBHOOK_URL = "";
+
+// ===== STATE =====
+const S = { step:0, size:null, twoStory:null, addons:[], photo:null, photoB64:null, aiNote:null, aiLoading:false, lead:{name:"",phone:"",address:""} };
+
+const money = n => "$" + Math.round(n).toLocaleString();
+const range = n => money(n*0.9) + "–" + money(n*1.12);
+
+function calc() {
+  const windowPrice = S.size ? WINDOW_BASE[S.size]*(S.twoStory?TWO_STORY_MULT:1) : 0;
+  const washTotal = S.addons.reduce((s,k)=>s+WASH[k][S.size],0);
+  const retail = windowPrice + washTotal;
+  const discount = S.addons.length ? Math.round(retail*0.12) : 0;
+  return { windowPrice, washTotal, retail, discount, yourPrice:retail-discount };
+}
+
+function go(n){ S.step=n; render(); window.scrollTo(0,0); }
+function toggleAddon(k){ S.addons = S.addons.includes(k) ? S.addons.filter(x=>x!==k) : [...S.addons,k]; render(); }
+
+function handlePhoto(input){
+  const f = input.files && input.files[0]; if(!f) return;
+  S.photo = URL.createObjectURL(f);
+  const r = new FileReader();
+  r.onload = () => { S.photoB64 = { data:r.result.split(",")[1], media_type:f.type||"image/jpeg" }; render(); };
+  r.readAsDataURL(f);
+}
+
+async function runAI(){
+  if(!S.photoB64){ go(5); return; }
+  S.aiLoading = true; go(5);
+  try {
+    const addonTxt = S.addons.length ? " + " + S.addons.map(a=>WASH[a].label).join(" + ") : "";
+    const prompt = "You are an estimator for A-Team Contracting, a family-owned exterior cleaning company. Look at this home photo. The customer told us: home size = "+SIZE_LABELS[S.size]+", two-story = "+(S.twoStory?"yes":"no")+", services = window cleaning"+addonTxt+". In 2 short, warm, neighbor-next-door sentences (no corporate words), tell the homeowner what you notice that affects the quote (windows visible, driveway/siding condition, algae, stories) and whether our ballpark looks right. Be honest and specific. Do NOT give a dollar number. End confidently.";
+    const resp = await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({ model:"claude-sonnet-4-20250514", max_tokens:1000,
+        messages:[{ role:"user", content:[
+          { type:"image", source:{ type:"base64", media_type:S.photoB64.media_type, data:S.photoB64.data } },
+          { type:"text", text:prompt }
+        ]}]})
+    });
+    const data = await resp.json();
+    S.aiNote = data.content.filter(b=>b.type==="text").map(b=>b.text).join(" ").trim()
+      || "Got your photo — looks good. Anthony will confirm the exact number at your estimate.";
+  } catch(e){
+    S.aiNote = "Got your photo and saved it for Anthony. He'll confirm the exact number fast.";
+  }
+  S.aiLoading = false; render();
+}
+
+async function submitLead(){
+  go(7);
+  if(ZAPIER_WEBHOOK_URL){
+    const c = calc();
+    try {
+      await fetch(ZAPIER_WEBHOOK_URL,{ method:"POST", headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+          name:S.lead.name, phone:S.lead.phone, address:S.lead.address,
+          size:SIZE_LABELS[S.size], twoStory:S.twoStory?"Two-story":"Single",
+          services:["Window cleaning",...S.addons.map(a=>WASH[a].label)].join(", "),
+          ballpark:range(c.yourPrice), retail:money(c.retail), discount:money(c.discount),
+          source:"Instant Estimator", date:new Date().toLocaleString()
+        })});
+    } catch(e){}
+  }
+}
+
+function reset(){ S.step=0; S.size=null; S.twoStory=null; S.addons=[]; S.photo=null; S.photoB64=null; S.aiNote=null; render(); }
+
+// ===== RENDER =====
+function render(){
+  const c = calc();
+  const pct = [0,20,40,60,80,100,100,100][S.step];
+  let html = `
+    <div class="hdr">
+      <img src="logo.webp" alt="A-Team Contracting" onerror="this.style.display='none'" width="1176" height="1036" loading="lazy" />
+      <div>
+        <div class="title">A-TEAM <span>CONTRACTING</span></div>
+        <div class="sub">INSTANT ESTIMATE • TIPP CITY, OH</div>
+      </div>
+    </div>`;
+  if(S.step>0 && S.step<6) html += `<div class="prog"><div style="width:${pct}%"></div></div>`;
+
+  if(S.step===0){
+    html += `<div class="center" style="padding:0 8px 30px"><div style="padding:0 24px;text-align:center">
+      <div class="caveat" style="font-size:28px;margin-bottom:6px">Check this out 👋</div>
+      <h1 style="font-size:38px;line-height:1.05;margin-bottom:14px">SNAP A PIC.<br>GET A PRICE.</h1>
+      <p style="font-size:16px;opacity:.9;line-height:1.5;margin-bottom:28px">Answer a few quick questions, send a photo of your place, and get a real ballpark from A-Team in under a minute. No waiting on a callback.</p>
+      <button class="primary" onclick="go(1)">START MY ESTIMATE →</button>
+      <div style="font-size:13px;opacity:.7;margin-top:16px">Family-owned • We show up no matter what</div>
+    </div></div>`;
+  }
+
+  if(S.step===1){
+    html += `<div style="flex:1"><div class="card"><div class="label">Step 1 — Your home</div>
+      <h2>How big is the place?</h2>` +
+      Object.keys(SIZE_LABELS).map(k=>`<button class="opt ${S.size===k?'active':''}" onclick="S.size='${k}';go(2)">${SIZE_LABELS[k]}</button>`).join("") +
+      `</div></div>`;
+  }
+
+  if(S.step===2){
+    html += `<div style="flex:1"><div class="card"><div class="label">Step 2 — Stories</div>
+      <h2>One story or two?</h2>
+      <button class="opt ${S.twoStory===false?'active':''}" onclick="S.twoStory=false;go(3)">Single story</button>
+      <button class="opt ${S.twoStory===true?'active':''}" onclick="S.twoStory=true;go(3)">Two stories</button>
+      <button class="ghost" onclick="go(1)">← Back</button>
+    </div></div>`;
+  }
+
+  if(S.step===3){
+    html += `<div style="flex:1"><div class="card"><div class="label">Step 3 — While we're there</div>
+      <h2 style="margin-bottom:6px">Want the wash too?</h2>
+      <p style="margin-bottom:16px;font-size:14px;opacity:.85">We're already on the property for windows. Add these now and save — bundle pricing only.</p>` +
+      Object.keys(WASH).map(k=>`<button class="opt ${S.addons.includes(k)?'active':''}" onclick="toggleAddon('${k}')">
+        <div class="row"><span>${S.addons.includes(k)?'✓ ':'+ '}${WASH[k].label}</span><span class="price">${money(WASH[k][S.size])}</span></div>
+      </button>`).join("") +
+      `<button class="primary" style="margin-top:8px" onclick="go(4)">${S.addons.length?'NEXT — ADD A PHOTO →':'JUST WINDOWS — NEXT →'}</button>
+      <button class="ghost" onclick="go(2)">← Back</button>
+    </div></div>`;
+  }
+
+  if(S.step===4){
+    html += `<div style="flex:1"><div class="card"><div class="label">Step 4 — Snap your place</div>
+      <h2 style="margin-bottom:6px">Send us a photo</h2>
+      <p style="margin-bottom:16px;font-size:14px;opacity:.85">Stand back and grab the front of your house. Our system reads it to tighten your number — and Anthony sees it before your estimate.</p>` +
+      (S.photo
+        ? `<img src="${S.photo}" style="width:100%;border-radius:14px;margin-bottom:12px;border:2px solid ${ORANGE}" />`
+        : `<div class="drop" onclick="document.getElementById('file').click()"><div style="font-size:40px">📸</div><div style="font-weight:700;margin-top:8px">Tap to add a photo</div><div style="font-size:13px;opacity:.7;margin-top:4px">Camera or photo library</div></div>`) +
+      `<input id="file" type="file" accept="image/*" capture="environment" onchange="handlePhoto(this)" class="hidden" />` +
+      (S.photo?`<button class="ghost" onclick="document.getElementById('file').click()">Choose a different photo</button>`:``) +
+      `<button class="primary" style="margin-top:8px" onclick="runAI()">SEE MY ESTIMATE →</button>
+      <button class="ghost" onclick="go(5)">Skip photo</button>
+    </div></div>`;
+  }
+
+  if(S.step===5){
+    html += `<div style="flex:1;padding-bottom:20px"><div class="card"><div class="label">Your A-Team Estimate</div>
+      <div style="font-size:14px;opacity:.8">Window cleaning${S.twoStory?' (two-story)':''}</div>
+      <div class="row" style="display:flex;justify-content:space-between;margin-top:4px;font-weight:700"><span>${SIZE_LABELS[S.size]}</span><span>${money(c.windowPrice)}</span></div>` +
+      S.addons.map(k=>`<div style="display:flex;justify-content:space-between;margin-top:8px;font-size:14px"><span style="opacity:.9">${WASH[k].label}</span><span>${money(WASH[k][S.size])}</span></div>`).join("") +
+      `<div style="border-top:1px solid rgba(255,255,255,.15);margin-top:14px;padding-top:12px">
+        <div style="display:flex;justify-content:space-between;font-size:15px;opacity:.85"><span>Retail value</span><span class="${c.discount?'strike':''}">${money(c.retail)}</span></div>` +
+        (c.discount?`<div style="display:flex;justify-content:space-between;font-size:15px;color:${ORANGE};font-weight:700;margin-top:6px"><span>A-Team Bundle Discount</span><span>−${money(c.discount)}</span></div>`:``) +
+      `</div>
+      <div class="yourprice"><div style="font-size:12px;letter-spacing:1.5px;font-weight:800;opacity:.9">YOUR BALLPARK</div>
+        <div class="big">${range(c.yourPrice)}</div>
+        <div style="font-size:12px;opacity:.9">Final price confirmed at your free estimate</div>
+      </div></div>`;
+
+    if(S.photo || S.aiLoading){
+      html += `<div class="card" style="border-color:rgba(245,130,32,.4)"><div class="label" style="margin-bottom:8px">📸 What we noticed</div>` +
+        (S.aiLoading ? `<div style="font-size:15px;opacity:.85">Reading your photo<span class="dots">…</span></div>` : `<div style="font-size:15px;line-height:1.5">${S.aiNote||''}</div>`) +
+        `</div>`;
+    }
+
+    html += `<div class="card" style="background:linear-gradient(135deg,rgba(245,130,32,.18),rgba(27,91,152,.25));border-color:${ORANGE}">
+      <div style="font-family:'Anton',sans-serif;font-size:20px">🛡️ JOIN THE CLEAN CLUB</div>
+      <p style="font-size:14px;line-height:1.5;margin-top:8px;opacity:.92">Set it and forget it. We keep your windows and exterior clean all year on a schedule — you never call, we just show up. Ask Anthony about Club pricing at your estimate.</p>
+    </div>
+    <div style="padding:0 16px">
+      <button class="primary" onclick="go(6)">BOOK MY FREE ESTIMATE →</button>
+      <button class="ghost" onclick="reset()">Start over</button>
+    </div></div>`;
+  }
+
+  if(S.step===6){
+    html += `<div style="flex:1"><div class="card"><div class="label">Last step — lock it in</div>
+      <h2>Where do we come?</h2>
+      <input placeholder="Your name" value="${S.lead.name}" oninput="S.lead.name=this.value;syncBtn()" />
+      <input placeholder="Best phone number" value="${S.lead.phone}" oninput="S.lead.phone=this.value;syncBtn()" />
+      <input placeholder="Service address" value="${S.lead.address}" oninput="S.lead.address=this.value" />
+      <button id="sendBtn" class="primary" style="opacity:${S.lead.name&&S.lead.phone?1:.5}" ${S.lead.name&&S.lead.phone?'':'disabled'} onclick="submitLead()">SEND TO A-TEAM →</button>
+    </div></div>`;
+  }
+
+  if(S.step===7){
+    const first = (S.lead.name.split(" ")[0]||"FRIEND").toUpperCase();
+    html += `<div class="center" style="text-align:center;padding:0 30px 40px">
+      <div style="font-size:56px">✅</div>
+      <h1 style="font-size:30px;margin:10px 0">YOU'RE ON THE BOARD, ${first}!</h1>
+      <p style="font-size:16px;opacity:.9;line-height:1.5">We got your estimate and your photo. Anthony or the crew will reach out fast to lock your free estimate. I got you.</p>
+      <div class="caveat" style="font-size:30px;margin-top:18px">Jobs are done best when you work with A-Team!</div>
+    </div>`;
+  }
+
+  html += `<div class="foot">A-Team Contracting • Tipp City, OH • ateamcontractings.com</div>`;
+  document.getElementById("app").innerHTML = html;
+}
+
+function syncBtn(){
+  const b = document.getElementById("sendBtn");
+  if(b){ const ok = S.lead.name && S.lead.phone; b.style.opacity = ok?1:.5; b.disabled = !ok; }
+}
+
+render();
+</script>
+
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNDU1MDY1ODY0YzQxM2FmYzAzYWU3NiIsImlzc3VlciI6Im5mc2VydmVyIn0.76r9Vq5uL3J8rj-OodTChuRRFB6UoYZ79MNl3qVMGRQ"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNDlmNGMxOTZiNjBkYTY0NmRiNTJiOSIsImlzc3VlciI6Im5mc2VydmVyIn0.n4CNKHxkGJNgP9pJbyoey_3YSX3mK2rpttPn3apAo5Y"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNGQxYjI1YzhlNzQ1MDA3NmYyMzg2NiIsImlzc3VlciI6Im5mc2VydmVyIn0.WsfoJH52kzTjdxKMj0vq67Bg_YolWfAvyTyPsbOeIK8"></script>
+<script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNGQyMjRiZDRhMGFiZDFhN2U4YjlhNyIsImlzc3VlciI6Im5mc2VydmVyIn0._o-hLGWpWjZf0HtdWneLDXu_dy7mG3TP6K3WjRPFOpM"></script>
+</body>
+</html>
