@@ -183,6 +183,12 @@ kills the request and the card just stops appearing. If you want a bigger
 image or a longer note, move to a Netlify **background function** with a
 polling endpoint first — don't just raise the numbers.
 
+With all three set as above, five consecutive warm calls against a deploy
+preview measured 5.4s, 5.6s, 5.7s and 6.6s, all returning complete sentences.
+Expect the **first call after a deploy** (or after a long idle) to be slower
+or to fail outright on a cold start — that customer simply sees no card,
+which is the designed behaviour, and the next call is warm.
+
 The dependency (`@anthropic-ai/sdk`) is why `package.json` exists. There is
 still no build step; Netlify installs it so the function can be bundled.
 
