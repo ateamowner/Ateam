@@ -28,6 +28,13 @@
   var BUNDLE_DISCOUNT = 0.12;   // applied to retail when any wash is added
   var RANGE_LOW = 0.90, RANGE_HIGH = 1.12;
 
+  // "What we noticed" — see netlify/functions/photo-note.mjs. The key lives on
+  // the server; this page never sees it. If the function is missing, the key
+  // is unset, or anything at all goes wrong, the card simply never appears.
+  var PHOTO_NOTE_ENDPOINT = "/.netlify/functions/photo-note";
+  var PHOTO_MAX_EDGE = 1024;    // longest side sent to the API
+  var PHOTO_TIMEOUT_MS = 12000; // generous; the customer is never waiting on it
+
   var form = document.getElementById("est-form");
   if (!form) return;
 
@@ -184,6 +191,104 @@
       preview.hidden = false;
       drop.querySelector("b").textContent = "Photo added — tap to change";
       drop.querySelector("span").textContent = f.name;
+      requestNote(f);
+    });
+  }
+
+  // ---- "What we noticed" -------------------------------------------------
+  // Entirely optional colour on the estimate screen. It is deliberately
+  // impossible for this to hold up the estimate or the form: the note is
+  // fetched in the background the moment a photo is chosen, and every failure
+  // path just hides the card. The photo itself always rides along on the
+  // Netlify Forms POST whether or not any of this works.
+
+  var noteBox = document.getElementById("est-note");
+  var noteBody = document.getElementById("est-note-body");
+  var noteTitle = document.getElementById("est-note-title");
+  var noteState = "idle";   // idle | loading | done | none
+  var noteText = "";
+  var noteToken = 0;        // guards against a stale response for an old photo
+
+  function renderNote() {
+    if (!noteBox || !noteBody) return;
+    if (noteState === "loading") {
+      noteBox.hidden = false;
+      noteBox.classList.add("loading");
+      noteTitle.textContent = "Looking at your photo";
+      noteBody.textContent = "One moment…";
+    } else if (noteState === "done") {
+      noteBox.hidden = false;
+      noteBox.classList.remove("loading");
+      noteTitle.textContent = "What we noticed";
+      noteBody.textContent = noteText;
+    } else {
+      // idle or failed — no card, no error, no explanation owed to anyone.
+      noteBox.hidden = true;
+      noteBox.classList.remove("loading");
+      noteBody.textContent = "";
+    }
+  }
+
+  // Full-resolution phone photos are far larger than the model needs and slow
+  // the round trip badly. Shrink a copy for the API; the original file is
+  // untouched and is what actually gets submitted.
+  function downscale(f, cb) {
+    var url;
+    try { url = URL.createObjectURL(f); } catch (e) { cb(null); return; }
+    var img = new Image();
+    img.onload = function () {
+      try {
+        var scale = Math.min(1, PHOTO_MAX_EDGE / Math.max(img.width, img.height));
+        var canvas = document.createElement("canvas");
+        canvas.width = Math.max(1, Math.round(img.width * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+        cb(canvas.toDataURL("image/jpeg", 0.8));
+      } catch (e) {
+        cb(null);   // tainted canvas, out of memory, unsupported format
+      }
+      URL.revokeObjectURL(url);
+    };
+    img.onerror = function () { URL.revokeObjectURL(url); cb(null); };
+    img.src = url;
+  }
+
+  function requestNote(f) {
+    if (!noteBox || !window.fetch) return;
+    var token = ++noteToken;
+    noteState = "loading";
+    noteText = "";
+    set("photo_note", "");
+    renderNote();
+
+    downscale(f, function (dataUrl) {
+      if (token !== noteToken) return;
+      if (!dataUrl) { noteState = "none"; renderNote(); return; }
+
+      var ctrl = window.AbortController ? new AbortController() : null;
+      var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, PHOTO_TIMEOUT_MS) : null;
+
+      var done = function (state, text) {
+        if (timer) clearTimeout(timer);
+        if (token !== noteToken) return;
+        noteState = state;
+        noteText = text || "";
+        set("photo_note", noteText);
+        renderNote();
+      };
+
+      fetch(PHOTO_NOTE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image: dataUrl, services: serviceList(), home_size: S.size ? SIZE_LABELS[S.size] : "" }),
+        signal: ctrl ? ctrl.signal : undefined,
+      })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (d && d.note) done("done", d.note);
+          else done("none", "");           // { unavailable: true } lands here
+        })
+        ["catch"](function () { done("none", ""); });
     });
   }
 
