@@ -170,7 +170,13 @@ pointed at the same constraint:
 |---|---|---|
 | Image longest edge | `PHOTO_MAX_EDGE` in `assets/estimator.js` | 768px |
 | `max_tokens` | `photo-note.mjs` | 200 |
-| Extended thinking | `photo-note.mjs` | off |
+| Extended thinking | `photo-note.mjs` | off — `thinking: { type: "disabled" }` |
+
+**Thinking has to be turned off explicitly.** On Opus 5 it is on by default,
+and `max_tokens` caps thinking and visible text *together*. Leaving it
+implicit spent the budget on reasoning and truncated notes mid-sentence, so
+the function also treats `stop_reason: "max_tokens"` as unavailable — half a
+sentence in front of a customer is worse than no card.
 
 Turning any of them up costs latency directly, and past ~10s the platform
 kills the request and the card just stops appearing. If you want a bigger

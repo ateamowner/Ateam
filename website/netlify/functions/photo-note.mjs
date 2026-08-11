@@ -100,14 +100,15 @@ export default async (req) => {
   });
 
   try {
-    // No extended thinking here on purpose. This is a two-sentence observation,
-    // not a reasoning task, and the 10s function ceiling is a hard wall — the
-    // right trade is a fast answer or no card at all. max_tokens is 200 for
-    // the same reason: the note is capped at ~50 words, so anything more is
-    // latency we cannot afford.
+    // Thinking must be turned off EXPLICITLY. On Opus 5 it is on by default,
+    // and max_tokens caps thinking and visible text together — leaving it
+    // implicit silently spent the budget on reasoning and truncated the note
+    // mid-sentence. This is a two-sentence observation, not a reasoning task,
+    // and the 10s function ceiling is a hard wall.
     const message = await client.messages.create({
       model: "claude-opus-5",
       max_tokens: 200,
+      thinking: { type: "disabled" },
       system: SYSTEM_PROMPT,
       messages: [
         {
@@ -130,6 +131,10 @@ export default async (req) => {
     // Must be checked before touching content — on a refusal there is no text
     // block to read, and indexing content[0] would throw.
     if (message.stop_reason === "refusal") return unavailable();
+
+    // A note that ran out of budget ends mid-sentence. Showing a customer half
+    // a sentence is worse than showing them nothing.
+    if (message.stop_reason === "max_tokens") return unavailable();
 
     const note = message.content
       .filter((block) => block.type === "text")
