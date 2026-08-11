@@ -32,7 +32,11 @@
   // the server; this page never sees it. If the function is missing, the key
   // is unset, or anything at all goes wrong, the card simply never appears.
   var PHOTO_NOTE_ENDPOINT = "/.netlify/functions/photo-note";
-  var PHOTO_MAX_EDGE = 1024;    // longest side sent to the API
+  // 768, not the full photo: Netlify caps synchronous functions at 10s and a
+  // 1024px image measured 7.0–8.5s end to end against the live preview. Image
+  // tokens dominate that, so the smaller edge buys back most of the margin.
+  // The customer's original file is untouched and is what gets submitted.
+  var PHOTO_MAX_EDGE = 768;
   var PHOTO_TIMEOUT_MS = 12000; // generous; the customer is never waiting on it
 
   var form = document.getElementById("est-form");
@@ -243,7 +247,7 @@
         canvas.width = Math.max(1, Math.round(img.width * scale));
         canvas.height = Math.max(1, Math.round(img.height * scale));
         canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
-        cb(canvas.toDataURL("image/jpeg", 0.8));
+        cb(canvas.toDataURL("image/jpeg", 0.75));
       } catch (e) {
         cb(null);   // tainted canvas, out of memory, unsupported format
       }

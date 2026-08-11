@@ -136,7 +136,7 @@ looked at the photo, which he had not. The fix is not "put the key in the
 page": page source is public, so a key there is a key anyone can read and
 spend. It lives in the function, in `process.env`.
 
-How it runs: pick a photo at step 4 → the page shrinks a *copy* to 1024px and
+How it runs: pick a photo at step 4 → the page shrinks a *copy* to 768px and
 POSTs it to `/.netlify/functions/photo-note` → the function asks Claude what
 it can see → a short note renders under the ballpark at step 5 and is saved to
 a `photo_note` hidden field, so it arrives with the lead.
@@ -156,10 +156,26 @@ The prompt is deliberately fenced: describe only what is visible, never quote
 a price or a duration, never claim a human has reviewed the photo, and say so
 plainly when the photo is too dark or isn't a building.
 
-Model: `claude-opus-5`. Extended thinking is off on purpose — Netlify's
-synchronous functions are capped at 10 seconds, and for a two-sentence
-observation the right trade is a fast answer or no card at all. Changing that
-means moving to a background function first.
+Model: `claude-opus-5`.
+
+**Watch the clock if you change anything here.** Netlify caps synchronous
+functions at 10 seconds and this whole feature lives inside that wall.
+Measured against a deploy preview with a real job photo, 1024px images and
+`max_tokens: 300` came back in **7.0s and 8.5s** — working, but close enough
+to the ceiling to be unreliable. That is why the page sends 768px, the
+function asks for 200 tokens, and extended thinking is off. Three knobs, all
+pointed at the same constraint:
+
+| Knob | Where | Now |
+|---|---|---|
+| Image longest edge | `PHOTO_MAX_EDGE` in `assets/estimator.js` | 768px |
+| `max_tokens` | `photo-note.mjs` | 200 |
+| Extended thinking | `photo-note.mjs` | off |
+
+Turning any of them up costs latency directly, and past ~10s the platform
+kills the request and the card just stops appearing. If you want a bigger
+image or a longer note, move to a Netlify **background function** with a
+polling endpoint first — don't just raise the numbers.
 
 The dependency (`@anthropic-ai/sdk`) is why `package.json` exists. There is
 still no build step; Netlify installs it so the function can be bundled.

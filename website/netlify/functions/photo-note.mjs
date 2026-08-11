@@ -30,11 +30,19 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 
-// Netlify's synchronous functions are capped at 10s. Leave headroom to return
-// a clean "unavailable" instead of the platform timing us out with a 502.
-const CALL_TIMEOUT_MS = 8000;
+// Netlify's synchronous functions are capped at 10s, so this whole thing
+// lives inside a hard wall. Measured against the deploy preview with a real
+// job photo: 7.0s and 8.5s end to end at 1024px / 300 max_tokens — close
+// enough to the ceiling that responses were being thrown away. The page now
+// sends 768px and this asks for fewer tokens, which brings a typical call to
+// roughly half the budget.
+//
+// 9s, not 8s: at 8s we were aborting calls that would still have come back
+// inside Netlify's window. Better to let the platform draw the line than to
+// discard a good answer a fraction early.
+const CALL_TIMEOUT_MS = 9000;
 
-// The page downscales to ~1024px before sending. This is a backstop against a
+// The page downscales to ~768px before sending. This is a backstop against a
 // hand-crafted request, not the normal path.
 const MAX_BASE64_CHARS = 1_500_000; // ~1.1MB decoded
 const ALLOWED_MEDIA = ["image/jpeg", "image/png", "image/webp", "image/gif"];
@@ -94,10 +102,12 @@ export default async (req) => {
   try {
     // No extended thinking here on purpose. This is a two-sentence observation,
     // not a reasoning task, and the 10s function ceiling is a hard wall — the
-    // right trade is a fast answer or no card at all.
+    // right trade is a fast answer or no card at all. max_tokens is 200 for
+    // the same reason: the note is capped at ~50 words, so anything more is
+    // latency we cannot afford.
     const message = await client.messages.create({
       model: "claude-opus-5",
-      max_tokens: 300,
+      max_tokens: 200,
       system: SYSTEM_PROMPT,
       messages: [
         {
