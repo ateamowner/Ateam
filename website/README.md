@@ -61,8 +61,18 @@ After linking, every push to the connected branch redeploys automatically.
 /blog/                                     blog index + 4 posts
 
 /estimate/                                 instant estimator
+/estimate/thanks/                          ↳ its thank-you page
+/free-quote/                               ads landing page (noindex)
+/free-quote/thanks/                        ↳ its thank-you page
+/thanks/                                   homepage quick-quote thank-you
 /gallery/                                  before & after photos
+
+netlify/functions/photo-note.mjs           the only server-side code
 ```
+
+The three thank-you pages are all `noindex, nofollow` and none of them are in
+`sitemap.xml`. They stay separate URLs because that is how ad platforms count
+a conversion.
 
 The six original service pages, `/gallery/` and `/estimate/` keep their inline
 `<style>` blocks. Pages added in the August 2026 SEO pass link the shared
@@ -102,21 +112,85 @@ load entirely, the form degrades to a working contact form rather than a
 silent hole.
 
 Leads arrive as the `estimate-request` form in Netlify, alongside `ad-quote`
-from `/free-quote/`. **Both need the same one-time notification setup** — see
-"Where the leads go" below.
+from `/free-quote/` and `quick-quote` from the homepage. **All three need the
+same one-time notification setup** — see "Where the leads go" below.
+
+### The homepage quick-quote form
+
+Three fields — name, phone, what needs doing — in the closing CTA band on the
+homepage, sharing the row with the estimator button. The estimator is still
+the main event; this is for the people who won't tap through a quiz but will
+give you three boxes. Submits to `/thanks/` as the `quick-quote` form.
+
+Same construction as everything else here: plain Netlify Forms, no fetch, no
+JSON, nothing that can silently swallow a lead if a script fails to load.
 
 #### The photo AI ("What we noticed")
 
-Not rebuilt. The original called the Anthropic API directly from the browser
-with no API key, so it never worked in production — it always failed into its
-catch block and showed a fallback line claiming Anthony had the photo, which
-he did not.
+Rebuilt properly, behind `netlify/functions/photo-note.mjs`.
 
-To add it properly you need a **Netlify Function** holding the key as an
-environment variable, called from the page instead of calling Anthropic
-directly. Never put an API key in client-side JavaScript: the page source is
-public, so the key would be readable and usable by anyone. Step 4 of the quiz
-is where the result would render.
+The original called the Anthropic API directly from the browser **with no API
+key attached**, so it never worked in production — it fell into its catch
+block every time and printed a fallback line claiming Anthony had already
+looked at the photo, which he had not. The fix is not "put the key in the
+page": page source is public, so a key there is a key anyone can read and
+spend. It lives in the function, in `process.env`.
+
+How it runs: pick a photo at step 4 → the page shrinks a *copy* to 768px and
+POSTs it to `/.netlify/functions/photo-note` → the function asks Claude what
+it can see → a short note renders under the ballpark at step 5 and is saved to
+a `photo_note` hidden field, so it arrives with the lead.
+
+**To switch it on:** Netlify dashboard → Site configuration → Environment
+variables → add `ANTHROPIC_API_KEY` (get one at console.anthropic.com). Until
+then the card simply never appears — which is correct behaviour, not a bug.
+
+Everything about it is designed to fail invisibly. No API key, oversized
+photo, model refusal, timeout, upstream outage, function not deployed at all —
+every one of those returns HTTP 200 `{ unavailable: true }` and the card stays
+hidden. It cannot delay the estimate, block a submission, or show a customer
+an error, and the photo itself always rides along on the Netlify Forms POST
+regardless. All four failure paths are exercised in the browser, not assumed.
+
+The prompt is deliberately fenced: describe only what is visible, never quote
+a price or a duration, never claim a human has reviewed the photo, and say so
+plainly when the photo is too dark or isn't a building.
+
+Model: `claude-opus-5`.
+
+**Watch the clock if you change anything here.** Netlify caps synchronous
+functions at 10 seconds and this whole feature lives inside that wall.
+Measured against a deploy preview with a real job photo, 1024px images and
+`max_tokens: 300` came back in **7.0s and 8.5s** — working, but close enough
+to the ceiling to be unreliable. That is why the page sends 768px, the
+function asks for 200 tokens, and extended thinking is off. Three knobs, all
+pointed at the same constraint:
+
+| Knob | Where | Now |
+|---|---|---|
+| Image longest edge | `PHOTO_MAX_EDGE` in `assets/estimator.js` | 768px |
+| `max_tokens` | `photo-note.mjs` | 200 |
+| Extended thinking | `photo-note.mjs` | off — `thinking: { type: "disabled" }` |
+
+**Thinking has to be turned off explicitly.** On Opus 5 it is on by default,
+and `max_tokens` caps thinking and visible text *together*. Leaving it
+implicit spent the budget on reasoning and truncated notes mid-sentence, so
+the function also treats `stop_reason: "max_tokens"` as unavailable — half a
+sentence in front of a customer is worse than no card.
+
+Turning any of them up costs latency directly, and past ~10s the platform
+kills the request and the card just stops appearing. If you want a bigger
+image or a longer note, move to a Netlify **background function** with a
+polling endpoint first — don't just raise the numbers.
+
+With all three set as above, five consecutive warm calls against a deploy
+preview measured 5.4s, 5.6s, 5.7s and 6.6s, all returning complete sentences.
+Expect the **first call after a deploy** (or after a long idle) to be slower
+or to fail outright on a cold start — that customer simply sees no card,
+which is the designed behaviour, and the next call is warm.
+
+The dependency (`@anthropic-ai/sdk`) is why `package.json` exists. There is
+still no build step; Netlify installs it so the function can be bundled.
 
 ### The ads lead form (`/free-quote/`)
 
@@ -151,12 +225,22 @@ server and no third-party dependency.
 
 **One-time setup in the Netlify dashboard:**
 
-1. Deploy this branch, then go to the site → **Forms**. A form named
-   `ad-quote` appears after the first deploy that includes the page.
+1. Deploy this branch, then go to the site → **Forms**. Three forms appear
+   after the first deploy that includes the pages: `quick-quote` (homepage),
+   `estimate-request` (`/estimate/`) and `ad-quote` (`/free-quote/`).
 2. **Forms → Settings → Form notifications → Add notification → Email
-   notification.** Send to `Owner@ateamcontractings.com`. Without this step
-   submissions are still saved, but nothing tells you they arrived.
-3. Submit a test through the live form and confirm it shows up.
+   notification.** Send to `Owner@ateamcontractings.com`. Do this **for each
+   of the three forms.** Without it submissions are still saved, but nothing
+   tells you they arrived.
+3. Submit a test through each live form and confirm it shows up.
+
+Netlify strips `data-netlify` and `netlify-honeypot` from the served HTML once
+it has registered a form — their *absence* on the live page is the success
+signal, not a problem.
+
+**Environment variables** live next door under Site configuration →
+Environment variables. Only one is used: `ANTHROPIC_API_KEY`, for the photo
+note. Nothing else on the site needs one.
 
 Netlify's free tier covers 100 submissions/month including the photo uploads.
 Past that it needs a paid forms plan — worth watching if the ads scale.

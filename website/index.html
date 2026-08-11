@@ -184,6 +184,27 @@ a.work-also-item:hover{background:rgba(255,255,255,.2)}
 .final-cta p{color:rgba(255,255,255,.75);margin-bottom:1.75rem;font-size:.95rem}
 .final-cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 
+/* FINAL CTA — two columns: the estimator stays the headline act on the left,
+   the short form on the right catches everyone who won't do a quiz. */
+.cta-split{display:grid;grid-template-columns:1fr 400px;gap:3rem;align-items:center;text-align:left}
+.cta-split h2{margin-bottom:.65rem}
+.cta-split .final-cta-btns{justify-content:flex-start}
+.cta-or{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:1.5rem}
+.qq{background:#fff;border-radius:12px;padding:1.5rem;box-shadow:0 12px 34px rgba(0,0,0,.25);text-align:left}
+.qq h3{font-family:'Anton',sans-serif;font-size:1.3rem;color:var(--navy);margin-bottom:.3rem}
+.qq .qq-sub{font-size:.85rem;color:var(--text-muted);margin-bottom:1.1rem;line-height:1.55}
+.qq label{display:block;font-size:.8rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.qq input,.qq select{width:100%;font-family:inherit;font-size:.93rem;padding:.7rem .8rem;border:1.5px solid var(--border);border-radius:6px;margin-bottom:.8rem;background:#fff;color:var(--navy)}
+.qq input:focus,.qq select:focus{outline:none;border-color:var(--orange-dark);box-shadow:0 0 0 3px rgba(194,73,28,.15)}
+.qq button{width:100%;background:var(--orange-dark);color:#fff;font-family:inherit;font-size:.98rem;font-weight:800;padding:.9rem;border:none;border-radius:var(--radius);cursor:pointer;transition:background .15s}
+.qq button:hover{background:var(--orange-darker)}
+.qq .qq-fine{font-size:.74rem;color:var(--text-muted);text-align:center;margin-top:.7rem;line-height:1.5}
+.qq-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+@media(max-width:900px){
+  .cta-split{grid-template-columns:1fr;gap:2rem;text-align:center}
+  .cta-split .final-cta-btns{justify-content:center}
+}
+
 /* FOOTER */
 footer{background:var(--navy-mid);color:#fff;padding:2.75rem 0 1.25rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
@@ -611,11 +632,75 @@ footer ul li a:hover{color:#fff}
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="container">
-    <h2>Ready To See Your Home Brand New?</h2>
-    <p>Get your instant price in under a minute, or book a time that works for you. No high-pressure sales call. No waiting around. Just clear pricing and a crew that shows up.</p>
-    <div class="final-cta-btns">
-      <a href="/estimate/" class="btn btn-orange">📸 GET MY INSTANT PRICE →</a>
-      <a href="https://calendly.com/owner-ateamcontractings" class="btn btn-outline">Book a Time</a>
+    <div class="cta-split">
+      <div>
+        <h2>Ready To See Your Home Brand New?</h2>
+        <p>Get your instant price in under a minute, or book a time that works for you. No high-pressure sales call. No waiting around. Just clear pricing and a crew that shows up.</p>
+        <div class="final-cta-btns">
+          <a href="/estimate/" class="btn btn-orange">📸 GET MY INSTANT PRICE →</a>
+          <a href="https://calendly.com/owner-ateamcontractings" class="btn btn-outline">Book a Time</a>
+        </div>
+        <!-- No arrow: the form is beside this on desktop and below it on mobile. -->
+        <div class="cta-or">Or just leave your number</div>
+      </div>
+
+      <!--
+        Short capture form. The estimator is still the main event — this is
+        here for the people who won't tap through a quiz but will give you
+        three fields. Plain Netlify Forms, same as /estimate/ and
+        /free-quote/: no fetch, no JSON, nothing that can silently swallow a
+        lead if a script fails to load.
+      -->
+      <form
+        class="qq"
+        name="quick-quote"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/thanks/"
+        data-lead-form>
+
+        <input type="hidden" name="form-name" value="quick-quote">
+        <p class="qq-hp" aria-hidden="true">
+          <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+
+        <!-- Ad attribution, written by /assets/lead-form.js. -->
+        <input type="hidden" name="source" value="">
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="click_id" value="">
+        <input type="hidden" name="landing_page" value="">
+        <input type="hidden" name="referrer" value="">
+
+        <h3>Rather We Just Called You?</h3>
+        <p class="qq-sub">Three boxes and you're done. Anthony calls back the same day, Mon–Sat.</p>
+
+        <label for="qq-name">Your name</label>
+        <input type="text" id="qq-name" name="name" required autocomplete="name" placeholder="Jordan Smith">
+
+        <label for="qq-phone">Best phone number</label>
+        <input type="tel" id="qq-phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(937) 555-0143">
+
+        <label for="qq-service">What needs doing?</label>
+        <select id="qq-service" name="services" required>
+          <option value="">Choose one…</option>
+          <option>Window cleaning</option>
+          <option>Pressure washing (driveway, patio, concrete)</option>
+          <option>House washing / soft washing</option>
+          <option>Roof cleaning</option>
+          <option>Gutter cleaning</option>
+          <option>Exterior painting</option>
+          <option>Commercial property</option>
+          <option>Something else</option>
+        </select>
+
+        <button type="submit" data-submit>GET MY FREE QUOTE →</button>
+        <p class="qq-fine">We'll only use your number to quote this job. No spam, no selling your info, ever.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -696,6 +781,7 @@ document.querySelectorAll('.mobile-drawer a').forEach(a=>{
   });
 });
 </script>
+<script src="/assets/lead-form.js" defer></script>
 
 <script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNmEzNThiNmUxYmU5NjA1MmZjZjg1MSIsImlzc3VlciI6Im5mc2VydmVyIn0._PWQ89AWXxGkKkQEcrxFQpPvqBiriXRhAlli0jacVao"></script>
 </body>

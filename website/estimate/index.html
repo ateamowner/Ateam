@@ -70,6 +70,10 @@
 .est-ball .cap{font-size:.7rem;letter-spacing:.14em;font-weight:800;opacity:.8}
 .est-ball .big{font-family:'Anton',sans-serif;font-size:clamp(2rem,6vw,2.8rem);color:var(--orange-on-dark);line-height:1.1;margin:.25rem 0}
 .est-ball .fine{font-size:.76rem;opacity:.8}
+.est-note{background:var(--off-white);border:1px solid var(--border);border-left:4px solid var(--orange-dark);border-radius:8px;padding:1rem 1.1rem;margin-top:1.1rem}
+.est-note h3{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-on-light);margin-bottom:.4rem}
+.est-note p{font-size:.88rem;color:var(--text-muted);line-height:1.65;margin:0}
+.est-note.loading p{opacity:.6;font-style:italic}
 .est-club{background:linear-gradient(135deg,rgba(240,90,34,.12),rgba(8,36,63,.1));border:1px solid var(--orange-dark);border-radius:12px;padding:1.25rem;margin-top:1rem}
 .est-club h3{font-family:'Anton',sans-serif;font-size:1.15rem;color:var(--navy);margin-bottom:.4rem}
 .est-club p{font-size:.87rem;color:var(--text-muted);line-height:1.6}
@@ -185,6 +189,7 @@
         <input type="hidden" name="retail_value" value="">
         <input type="hidden" name="bundle_discount" value="">
         <input type="hidden" name="ballpark" value="">
+        <input type="hidden" name="photo_note" value="">
 
         <!-- Ad attribution, written by /assets/lead-form.js. -->
         <input type="hidden" name="source" value="">
@@ -281,6 +286,15 @@
               <div class="cap">YOUR BALLPARK</div>
               <div class="big" id="est-range">—</div>
               <div class="fine">Final price confirmed at your free estimate</div>
+            </div>
+            <!--
+              Filled in by /assets/estimator.js from the photo-note function,
+              and hidden unless a note actually comes back. Not a promise that
+              anybody has looked at the photo — see the function's prompt.
+            -->
+            <div class="est-note" id="est-note" hidden>
+              <h3 id="est-note-title">What we noticed</h3>
+              <p id="est-note-body"></p>
             </div>
           </div>
           <div class="est-club">
