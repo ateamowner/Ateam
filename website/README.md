@@ -339,8 +339,13 @@ any reviewer either — Google does not publish their town.
   deliberate and was changed sitewide on 2026-08-14; earlier drafts of the SEO
   brief specified a hyphen, so don't "fix" it back. It matches the BBB and Yelp
   listings. The name appears in `<title>`, `og:title`, `twitter:title`, the
-  `name` in the business schema, image alt text, the footer NAP, the copyright
-  line and the header logo lockup — all of them have to agree.
+  `name` in the business schema, image alt text, the footer NAP and the
+  copyright line — all of them have to agree.
+- **The header logo wordmark is the one exception: it stays "A-TEAM".** It's a
+  visual mark, not the name in prose, and it matches the logo graphic beside
+  it. Both lockups (`.logo-text` and the ads pages' `.lp-logo-text`) keep the
+  hyphen; the logo's `alt` text does not, because a screen reader should
+  announce the business name.
   **The profile URL slugs still contain `a-team-contracting`** (BBB, Yelp,
   Nextdoor). Those are their URLs, not our name; never rewrite them.
   If Google Business Profile still shows the hyphen, that is the one
