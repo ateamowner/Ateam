@@ -60,6 +60,7 @@ After linking, every push to the connected branch redeploys automatically.
 /soft-washing-vs-pressure-washing/         comparison / snippet target
 /blog/                                     blog index + 4 posts
 
+/reviews/                                  real Google reviews + rating schema
 /estimate/                                 instant estimator
 /estimate/thanks/                          ↳ its thank-you page
 /free-quote/                               ads landing page (noindex)
@@ -296,15 +297,41 @@ If you edit the business node, edit it everywhere — `docs/` has the script
 that generated it. The invariant worth keeping: exactly one definition per
 page, zero dangling references.
 
-**No `AggregateRating` or `Review` markup, deliberately.** Google only allows
-it where the reviews being described are visible on that same page. The real
-numbers are 32 reviews at 5.0, but until those reviews are rendered on a
-Reviews page, marking them up is a manual-action risk. Build the page first,
-then add the markup — in that order.
+**`AggregateRating` lives on `/reviews/` and nowhere else.** Google only allows
+it where the reviews being described are visible on the same page, and
+`/reviews/` is the only page that renders them. Do not copy that block onto
+other pages, however tempting — invisible review markup is a manual-action
+risk, and the site went months without it for exactly that reason.
+
+The script that adds it asserts every `reviewBody` is present in the rendered
+HTML before it will write anything. If you add a review to the schema without
+adding it to the page, the script fails rather than shipping the mismatch.
 
 `hasOfferCatalog` appears only on pages that visibly publish the price range
 it describes (`$150–$300` driveways, `$300–$600` full house exterior). Same
 rule, same reason: don't mark up a price the visitor can't read.
+
+### The reviews page (`/reviews/`)
+
+Five real Google reviews, quoted word for word, with Anthony's replies where
+they were legible in full. Two more exist (Shanna Sturgill, Mona Motekallem)
+whose text was cut off by Google's "View full review" — they are **omitted
+rather than paraphrased**, and should be added only once the full wording is
+to hand.
+
+**Quoted review text is off limits to find-and-replace.** Three customers
+wrote "A-Team" with a hyphen. The business name on this site has no hyphen,
+but a quotation is the customer's words, not ours. There is a comment saying
+so in the markup; heed it before running any sitewide text pass.
+
+No dates are shown on the reviews. Google publishes them as "3 days ago", not
+as a date, and an approximate `datePublished` would be a fabrication. Reviewer
+names are shown exactly as Google shows them, `havok smith` included.
+
+The same real reviews replaced the invented "Mike R. / Jen K. / Sarah T."
+testimonials that used to appear on the homepage, `/free-quote/` and two city
+pages. **Never put an unverifiable testimonial back.** No city is claimed for
+any reviewer either — Google does not publish their town.
 
 ### Conventions to keep
 
