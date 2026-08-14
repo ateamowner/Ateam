@@ -313,11 +313,10 @@ rule, same reason: don't mark up a price the visitor can't read.
 
 ### The reviews page (`/reviews/`)
 
-Five real Google reviews, quoted word for word, with Anthony's replies where
-they were legible in full. Two more exist (Shanna Sturgill, Mona Motekallem)
-whose text was cut off by Google's "View full review" — they are **omitted
-rather than paraphrased**, and should be added only once the full wording is
-to hand.
+Six real Google reviews, quoted word for word, each with Anthony's reply. One
+more exists (Shanna Sturgill) whose text is still cut off by Google's "View
+full review" — it is **omitted rather than paraphrased**, and should be added
+only once the full wording is to hand.
 
 **Quoted review text is off limits to find-and-replace.** Three customers
 wrote "A-Team" with a hyphen. The business name on this site has no hyphen,
