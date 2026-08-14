@@ -47,7 +47,7 @@ const CALL_TIMEOUT_MS = 9000;
 const MAX_BASE64_CHARS = 1_500_000; // ~1.1MB decoded
 const ALLOWED_MEDIA = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 
-const SYSTEM_PROMPT = `You are looking at a photo a homeowner just uploaded to A-Team Contracting, an exterior cleaning company in Tipp City, Ohio. They do window cleaning, pressure washing, soft washing, roof cleaning, gutter cleaning and concrete cleaning.
+const SYSTEM_PROMPT = `You are looking at a photo a homeowner just uploaded to A Team Contracting, an exterior cleaning company in Tipp City, Ohio. They do window cleaning, pressure washing, soft washing, roof cleaning, gutter cleaning and concrete cleaning.
 
 Write 2-3 short sentences, under 50 words total, describing what you can actually see on this property that relates to exterior cleaning: siding condition, roof streaking, driveway or walkway staining, gutter grime, window count or accessibility, landscaping that affects access.
 

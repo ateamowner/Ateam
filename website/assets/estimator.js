@@ -142,7 +142,7 @@
     var retail = line("Retail value", money(c.retail), "total");
     if (c.discount) {
       retail.querySelector("span:last-child").classList.add("est-strike");
-      line("A-Team bundle discount (12%)", "−" + money(c.discount), "disc");
+      line("A Team bundle discount (12%)", "−" + money(c.discount), "disc");
     }
     document.getElementById("est-range").textContent = rangeText(c.yourPrice);
   }
