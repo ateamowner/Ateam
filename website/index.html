@@ -205,6 +205,25 @@ a.work-also-item:hover{background:rgba(255,255,255,.2)}
   .cta-split .final-cta-btns{justify-content:center}
 }
 
+/* FOOTER TRUST — NAP, profile links and the BBB seal. Identical sitewide.
+   No street address: A-Team is a service-area business, so the visible NAP
+   matches the schema, which carries locality/region/postal only. */
+.footer-trust{border-top:1px solid rgba(255,255,255,.12);margin-top:1.5rem;padding-top:1.5rem;text-align:center}
+.footer-nap{font-size:.86rem;color:rgba(255,255,255,.8);margin-bottom:1rem;line-height:1.7}
+.footer-nap strong{color:#fff}
+/* Keep the phone number on one line — a number broken across two lines
+   is hard to read and impossible to tap cleanly. */
+.footer-nap a{color:var(--orange-on-dark);font-weight:700;white-space:nowrap}
+.footer-nap strong{white-space:nowrap}
+.footer-social{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:0 0 1.25rem;padding:0}
+.footer-social li{margin:0}
+.footer-social a{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:.4rem .9rem;transition:background .15s,border-color .15s,color .15s}
+.footer-social a:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.55);color:#fff}
+/* The seal is a 293x61 white-text PNG, sized down for a footer. width/height
+   are on the img so it reserves space and does not shift layout on load. */
+.footer-seal{display:inline-block;line-height:0}
+.footer-seal img{width:200px;height:auto;max-width:100%}
+
 /* FOOTER */
 footer{background:var(--navy-mid);color:#fff;padding:2.75rem 0 1.25rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
@@ -247,8 +266,8 @@ footer ul li a:hover{color:#fff}
 
 .footer-cols a,.footer-cols span,.footer-col a{overflow-wrap:anywhere}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"A-Team Contracting","url":"https://ateamcontractings.com","telephone":"(937) 939-2936","address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","addressCountry":"US"},"areaServed":["Tipp City OH","Dayton OH","Troy OH","Vandalia OH","Huber Heights OH"],"description":"Family-owned exterior cleaning in Tipp City, OH. Pressure washing, soft washing, and window cleaning.","priceRange":"$","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp","sameAs":["https://www.bbb.org/us/oh/tipp-city/profile/contractor/a-team-contracting-0322-1440107933"]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I get a price from A-Team?","acceptedAnswer":{"@type":"Answer","text":"Use our instant estimator at ateamcontractings.com/estimate \u2014 answer a few questions, snap a photo of the area you need cleaned, and you'll see a ballpark price right away. No callback required. Or text Anthony directly at (937) 939-2936 and he'll get right back to you."}},{"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We're based in Tipp City, Ohio and serve the greater Dayton area including Troy, Vandalia, Huber Heights, Englewood, Fairborn, Beavercreek, Piqua, Covington, and surrounding communities. If you're not sure whether we come to you \u2014 just ask."}},{"@type":"Question","name":"What's the difference between pressure washing and soft washing?","acceptedAnswer":{"@type":"Answer","text":"Pressure washing uses high-force water to blast concrete, driveways, patios, and sidewalks clean. Soft washing uses low-pressure water plus a biodegradable cleaning solution to safely clean siding, roofs, and delicate surfaces. Using the wrong method can cause real damage \u2014 we use the right one for every surface. Learn more about soft washing \u2192"}},{"@type":"Question","name":"Do I need to be home during the job?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. As long as we have access to a water spigot and the areas that need cleaning, we can complete most jobs while you're at work or out for the day. We'll send you before-and-after photos when we're done and check in before we leave."}},{"@type":"Question","name":"Are you insured?","acceptedAnswer":{"@type":"Answer","text":"Yes. A-Team Contracting is fully insured. You can ask for proof of insurance any time \u2014 we're happy to provide it before the job starts. Peace of mind is part of what you're paying for."}},{"@type":"Question","name":"How quickly can you get out here?","acceptedAnswer":{"@type":"Answer","text":"Usually within a few days. In our busy season (spring and summer) we book up fast, so the sooner you reach out the better. Call or text (937) 939-2936 and we'll get you on the schedule."}},{"@type":"Question","name":"Do you offer discounts for bundling services?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 bundling is the best deal we offer. Add window cleaning to a pressure wash or soft wash while we're already on-site and you'll save vs. booking each separately. We'll show you the full value and your A-Team discount when we give you the price."}},{"@type":"Question","name":"What payment methods do you accept?","acceptedAnswer":{"@type":"Answer","text":"We accept cash, check, Venmo, Zelle, and card. Payment is due when the job is complete and you've done the walkthrough and are happy with the results. No payment upfront required."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I get a price from A-Team?","acceptedAnswer":{"@type":"Answer","text":"Use our instant estimator at ateamcontractings.com/estimate — answer a few questions, snap a photo of the area you need cleaned, and you'll see a ballpark price right away. No callback required. Or text Anthony directly at (937) 939-2936 and he'll get right back to you."}},{"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We're based in Tipp City, Ohio and serve the greater Dayton area including Troy, Vandalia, Huber Heights, Englewood, Fairborn, Beavercreek, Piqua, Covington, and surrounding communities. If you're not sure whether we come to you — just ask."}},{"@type":"Question","name":"What's the difference between pressure washing and soft washing?","acceptedAnswer":{"@type":"Answer","text":"Pressure washing uses high-force water to blast concrete, driveways, patios, and sidewalks clean. Soft washing uses low-pressure water plus a biodegradable cleaning solution to safely clean siding, roofs, and delicate surfaces. Using the wrong method can cause real damage — we use the right one for every surface. Learn more about soft washing →"}},{"@type":"Question","name":"Do I need to be home during the job?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. As long as we have access to a water spigot and the areas that need cleaning, we can complete most jobs while you're at work or out for the day. We'll send you before-and-after photos when we're done and check in before we leave."}},{"@type":"Question","name":"Are you insured?","acceptedAnswer":{"@type":"Answer","text":"Yes. A-Team Contracting is fully insured. You can ask for proof of insurance any time — we're happy to provide it before the job starts. Peace of mind is part of what you're paying for."}},{"@type":"Question","name":"How quickly can you get out here?","acceptedAnswer":{"@type":"Answer","text":"Usually within a few days. In our busy season (spring and summer) we book up fast, so the sooner you reach out the better. Call or text (937) 939-2936 and we'll get you on the schedule."}},{"@type":"Question","name":"Do you offer discounts for bundling services?","acceptedAnswer":{"@type":"Answer","text":"Yes — bundling is the best deal we offer. Add window cleaning to a pressure wash or soft wash while we're already on-site and you'll save vs. booking each separately. We'll show you the full value and your A-Team discount when we give you the price."}},{"@type":"Question","name":"What payment methods do you accept?","acceptedAnswer":{"@type":"Answer","text":"We accept cash, check, Venmo, Zelle, and card. Payment is due when the job is complete and you've done the walkthrough and are happy with the results. No payment upfront required."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://ateamcontractings.com/#business","name":"A-Team Contracting","url":"https://ateamcontractings.com/","telephone":"(937) 939-2936","email":"Owner@ateamcontractings.com","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp","logo":"https://ateamcontractings.com/logo.webp","priceRange":"$","foundingDate":"2023-01-01","founder":{"@type":"Person","name":"Anthony Leonard"},"employee":{"@type":"Person","name":"Anthony Leonard"},"address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","postalCode":"45371","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.9581,"longitude":-84.1733},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"19:00"}],"areaServed":[{"@type":"City","name":"Tipp City","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Troy","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Vandalia","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Huber Heights","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Piqua","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Dayton","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Englewood","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Fairborn","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Beavercreek","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Covington","addressRegion":"OH","addressCountry":"US"}],"sameAs":["https://g.page/r/CdoEOEshw5VUEAE/","https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933","https://www.facebook.com/Ateamcontractings/","https://nextdoor.com/page/a-team-contracting-services","https://www.yelp.com/biz/a-team-contracting-tipp-city"]}</script>
 </head>
 <body>
 
@@ -714,9 +733,6 @@ footer ul li a:hover{color:#fff}
         <img class="footer-logo" src="/logo.webp" alt="A-Team Contracting" width="52" height="46">
         <p>Family-owned exterior cleaning &amp; contracting in Tipp City, Ohio. Window cleaning, pressure washing, and soft washing — done right by Anthony Leonard and the A-Team crew.</p>
         <span class="footer-tagline">Jobs are done best with A-Team!</span>
-        <a href="https://www.bbb.org/us/oh/tipp-city/profile/contractor/a-team-contracting-0322-1440107933" target="_blank" rel="noopener" style="display:inline-block;margin-top:.75rem" aria-label="View A-Team Contracting BBB Accredited Business Profile">
-          <iframe title="A-Team Contracting BBB Accreditation Seal" border="0" frameborder="0" style="border: 0; height: 80px; width: 280px;" src="https://seal-dayton.bbb.org/frame/blue-seal-280-80-bbb-1440107933.png?chk=24DDBE2D4A"></iframe>
-        </a>
       </div>
       <div>
         <h3>Services</h3>
@@ -759,6 +775,21 @@ footer ul li a:hover{color:#fff}
     </div>
     <p style="font-size:.82rem;color:rgba(255,255,255,.6);margin-bottom:1rem">Bathroom remodels, hardwood refinishing, fence work, paver edging, shed restoration and other odd jobs — <a href="/estimate/" style="color:var(--orange-on-dark);font-weight:700">just ask</a>.</p>
     <div class="footer-bottom">© 2026 A-Team Contracting. All rights reserved. Built &amp; run by Anthony Leonard, Tipp City, OH</div>
+  </div>
+  <div class="container">
+    <div class="footer-trust">
+      <p class="footer-nap"><strong>A-Team Contracting</strong> &middot; Tipp City, OH &middot; <a href="tel:+19379392936">(937) 939-2936</a></p>
+      <ul class="footer-social">
+        <li><a href="https://g.page/r/CdoEOEshw5VUEAE/" target="_blank" rel="noopener" aria-label="A-Team Contracting on Google">Google</a></li>
+        <li><a href="https://www.facebook.com/Ateamcontractings/" target="_blank" rel="noopener" aria-label="A-Team Contracting on Facebook">Facebook</a></li>
+        <li><a href="https://nextdoor.com/page/a-team-contracting-services" target="_blank" rel="noopener" aria-label="A-Team Contracting on Nextdoor">Nextdoor</a></li>
+        <li><a href="https://www.yelp.com/biz/a-team-contracting-tipp-city" target="_blank" rel="noopener" aria-label="A-Team Contracting on Yelp">Yelp</a></li>
+        <li><a href="https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933" target="_blank" rel="noopener" aria-label="A-Team Contracting on BBB">BBB</a></li>
+      </ul>
+      <a class="footer-seal" href="https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933/#sealclick" target="_blank" rel="noopener nofollow">
+        <img src="https://seal-dayton.bbb.org/seals/blue-seal-293-61-whitetxt-bbb-1440107933.png" width="293" height="61" loading="lazy" alt="A-Team Contracting is BBB Accredited with an A+ Rating">
+      </a>
+    </div>
   </div>
 </footer>
 

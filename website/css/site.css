@@ -188,3 +188,22 @@ td strong{color:var(--navy)}
 @media(max-width:960px){nav{display:none}.header-cta{display:none}.hamburger{display:flex}}
 
 .footer-cols a,.footer-cols span,.footer-col a{overflow-wrap:anywhere}
+
+/* FOOTER TRUST — NAP, profile links and the BBB seal. Identical sitewide.
+   No street address: A-Team is a service-area business, so the visible NAP
+   matches the schema, which carries locality/region/postal only. */
+.footer-trust{border-top:1px solid rgba(255,255,255,.12);margin-top:1.5rem;padding-top:1.5rem;text-align:center}
+.footer-nap{font-size:.86rem;color:rgba(255,255,255,.8);margin-bottom:1rem;line-height:1.7}
+.footer-nap strong{color:#fff}
+/* Keep the phone number on one line — a number broken across two lines
+   is hard to read and impossible to tap cleanly. */
+.footer-nap a{color:var(--orange-on-dark);font-weight:700;white-space:nowrap}
+.footer-nap strong{white-space:nowrap}
+.footer-social{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:0 0 1.25rem;padding:0}
+.footer-social li{margin:0}
+.footer-social a{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:.4rem .9rem;transition:background .15s,border-color .15s,color .15s}
+.footer-social a:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.55);color:#fff}
+/* The seal is a 293x61 white-text PNG, sized down for a footer. width/height
+   are on the img so it reserves space and does not shift layout on load. */
+.footer-seal{display:inline-block;line-height:0}
+.footer-seal img{width:200px;height:auto;max-width:100%}

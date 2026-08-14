@@ -277,11 +277,47 @@ Tag ad URLs like this and the campaign name flows through to the lead:
 https://ateamcontractings.com/free-quote/?utm_source=google&utm_medium=cpc&utm_campaign=tippcity-pressure-washing
 ```
 
+### Structured data
+
+Every page defines the business **once**, as a `HomeAndConstructionBusiness`
+node with `@id` `https://ateamcontractings.com/#business`. Everything else on
+the page — a `Service`'s `provider`, a `BlogPosting`'s `publisher` — points at
+that id with a bare `{"@id": "..."}` reference instead of repeating the
+business inline. Before this, 14 pages each carried their own slightly
+different copy of the business, which is exactly how a phone number or a name
+ends up disagreeing with itself across the site.
+
+**A-Team is a service-area business. There is no `streetAddress` property
+anywhere, and there must never be one.** The address in schema is locality,
+region, postal code and country only; `geo` is the Tipp City centroid, not a
+premises. The visible footer NAP matches: name, city, phone.
+
+If you edit the business node, edit it everywhere — `docs/` has the script
+that generated it. The invariant worth keeping: exactly one definition per
+page, zero dangling references.
+
+**No `AggregateRating` or `Review` markup, deliberately.** Google only allows
+it where the reviews being described are visible on that same page. The real
+numbers are 32 reviews at 5.0, but until those reviews are rendered on a
+Reviews page, marking them up is a manual-action risk. Build the page first,
+then add the markup — in that order.
+
+`hasOfferCatalog` appears only on pages that visibly publish the price range
+it describes (`$150–$300` driveways, `$300–$600` full house exterior). Same
+rule, same reason: don't mark up a price the visitor can't read.
+
 ### Conventions to keep
 
 - **One phone number sitewide: (937) 939-2936.** NAP consistency is a local
   ranking signal; a second number anywhere (site, GBP, Nextdoor, Facebook,
   BBB, Yelp, invoices) actively suppresses Map Pack position.
+- **Profile URLs live in two places that must agree**: the `sameAs` array in
+  the business node, and the footer trust block. Both currently point at
+  Google (`g.page/r/CdoEOEshw5VUEAE/`), the BBB profile under the
+  `window-cleaning` slug, Facebook, Nextdoor and Yelp.
+- **The BBB seal is a static PNG in a real link**, not the dynamic JS seal and
+  not an iframe. It carries `width`/`height` so it reserves space instead of
+  shifting the footer on load, and `rel="noopener nofollow"`.
 - **Trailing slashes on every internal link** (`/estimate/`, not `/estimate`).
 - **`<title>` and `og:title` must match**, and meta descriptions stay under
   160 characters or they truncate in search results.
