@@ -1,4 +1,4 @@
-# A-Team Contracting website (ateamcontractings.com)
+# A Team Contracting website (ateamcontractings.com)
 
 This folder is the full source for the live marketing site, reconstructed from
 a crawl of the production site (which was previously deployed via drag-and-drop
@@ -287,7 +287,7 @@ business inline. Before this, 14 pages each carried their own slightly
 different copy of the business, which is exactly how a phone number or a name
 ends up disagreeing with itself across the site.
 
-**A-Team is a service-area business. There is no `streetAddress` property
+**A Team is a service-area business. There is no `streetAddress` property
 anywhere, and there must never be one.** The address in schema is locality,
 region, postal code and country only; `geo` is the Tipp City centroid, not a
 premises. The visible footer NAP matches: name, city, phone.
@@ -308,6 +308,16 @@ rule, same reason: don't mark up a price the visitor can't read.
 
 ### Conventions to keep
 
+- **The business name is "A Team Contracting" — no hyphen.** This is
+  deliberate and was changed sitewide on 2026-08-14; earlier drafts of the SEO
+  brief specified a hyphen, so don't "fix" it back. It matches the BBB and Yelp
+  listings. The name appears in `<title>`, `og:title`, `twitter:title`, the
+  `name` in the business schema, image alt text, the footer NAP, the copyright
+  line and the header logo lockup — all of them have to agree.
+  **The profile URL slugs still contain `a-team-contracting`** (BBB, Yelp,
+  Nextdoor). Those are their URLs, not our name; never rewrite them.
+  If Google Business Profile still shows the hyphen, that is the one
+  remaining NAP mismatch and it needs changing there, not here.
 - **One phone number sitewide: (937) 939-2936.** NAP consistency is a local
   ranking signal; a second number anywhere (site, GBP, Nextdoor, Facebook,
   BBB, Yelp, invoices) actively suppresses Map Pack position.

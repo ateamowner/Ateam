@@ -32,7 +32,7 @@ BUSINESS = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "@id": BUSINESS_ID,
-    "name": "A-Team Contracting",
+    "name": "A Team Contracting",
     "url": "https://ateamcontractings.com/",
     "telephone": "(937) 939-2936",
     "email": "Owner@ateamcontractings.com",

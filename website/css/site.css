@@ -190,7 +190,7 @@ td strong{color:var(--navy)}
 .footer-cols a,.footer-cols span,.footer-col a{overflow-wrap:anywhere}
 
 /* FOOTER TRUST — NAP, profile links and the BBB seal. Identical sitewide.
-   No street address: A-Team is a service-area business, so the visible NAP
+   No street address: A Team is a service-area business, so the visible NAP
    matches the schema, which carries locality/region/postal only. */
 .footer-trust{border-top:1px solid rgba(255,255,255,.12);margin-top:1.5rem;padding-top:1.5rem;text-align:center}
 .footer-nap{font-size:.86rem;color:rgba(255,255,255,.8);margin-bottom:1rem;line-height:1.7}

@@ -34,17 +34,17 @@ PROFILES = [
 ]
 
 TRUST = """  <div class="footer-trust">
-    <p class="footer-nap"><strong>A-Team Contracting</strong> &middot; Tipp City, OH &middot; <a href="tel:+19379392936">(937) 939-2936</a></p>
+    <p class="footer-nap"><strong>A Team Contracting</strong> &middot; Tipp City, OH &middot; <a href="tel:+19379392936">(937) 939-2936</a></p>
     <ul class="footer-social">
 %s
     </ul>
     <a class="footer-seal" href="%s/#sealclick" target="_blank" rel="noopener nofollow">
-      <img src="https://seal-dayton.bbb.org/seals/blue-seal-293-61-whitetxt-bbb-1440107933.png" width="293" height="61" loading="lazy" alt="A-Team Contracting is BBB Accredited with an A+ Rating">
+      <img src="https://seal-dayton.bbb.org/seals/blue-seal-293-61-whitetxt-bbb-1440107933.png" width="293" height="61" loading="lazy" alt="A Team Contracting is BBB Accredited with an A+ Rating">
     </a>
   </div>
 """ % (
     "\n".join(
-        '      <li><a href="%s" target="_blank" rel="noopener" aria-label="A-Team Contracting on %s">%s</a></li>'
+        '      <li><a href="%s" target="_blank" rel="noopener" aria-label="A Team Contracting on %s">%s</a></li>'
         % (url, name, name)
         for name, url in PROFILES
     ),
@@ -53,7 +53,7 @@ TRUST = """  <div class="footer-trust">
 
 CSS = """
 /* FOOTER TRUST — NAP, profile links and the BBB seal. Identical sitewide.
-   No street address: A-Team is a service-area business, so the visible NAP
+   No street address: A Team is a service-area business, so the visible NAP
    matches the schema, which carries locality/region/postal only. */
 .footer-trust{border-top:1px solid rgba(255,255,255,.12);margin-top:1.5rem;padding-top:1.5rem;text-align:center}
 .footer-nap{font-size:.86rem;color:rgba(255,255,255,.8);margin-bottom:1rem;line-height:1.7}

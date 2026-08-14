@@ -36,7 +36,7 @@ months of silence looks unnatural. A steady trickle is worth more.
 
 ## Text message — send same day
 
-> Hey [Name], Anthony with A-Team. Really glad the [driveway] turned out well
+> Hey [Name], Anthony with A Team. Really glad the [driveway] turned out well
 > today. If you've got 30 seconds, would you mind leaving us a quick Google
 > review? It genuinely helps a small local business like ours get found.
 >
@@ -56,7 +56,7 @@ point of the message.
 
 > Hi [Name],
 >
-> Thanks again for having A-Team out to [Tipp City] today for the
+> Thanks again for having A Team out to [Tipp City] today for the
 > [soft washing]. It was a pleasure working on the property.
 >
 > If you were happy with how it turned out, a short Google review would mean a
@@ -69,7 +69,7 @@ point of the message.
 >
 > Thanks,
 > Anthony Leonard
-> A-Team Contracting · (937) 939-2936
+> A Team Contracting · (937) 939-2936
 
 ---
 
