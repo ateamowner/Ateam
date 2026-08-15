@@ -50,8 +50,12 @@ After linking, every push to the connected branch redeploys automatically.
 /exterior-painting-tipp-city-ohio/         adjacent service
 /commercial-pressure-washing-dayton-ohio/  commercial
 
-/pressure-washing-troy-ohio/               city landing pages (5)
-/pressure-washing-vandalia-ohio/
+/troy-ohio/                                Troy hub  (service x city set)
+/pressure-washing-troy-ohio/
+/soft-washing-troy-ohio/
+/window-cleaning-troy-ohio/
+
+/pressure-washing-vandalia-ohio/           city landing pages
 /pressure-washing-huber-heights-ohio/
 /house-washing-dayton-ohio/
 /pressure-washing-piqua-ohio/
@@ -82,7 +86,7 @@ The six original service pages, `/gallery/` and `/estimate/` keep their inline
 ### The instant estimator (`/estimate/`)
 
 The multi-step quote tool: home size → stories → wash add-ons → optional photo
-→ itemised ballpark → contact details. Restored from the original that was
+→ itemized ballpark → contact details. Restored from the original that was
 lost when a drag-and-drop deploy dropped the file on 2026-07-12; see
 `docs/recovered/` for the recovered source and the full post-mortem.
 
@@ -144,7 +148,7 @@ a `photo_note` hidden field, so it arrives with the lead.
 
 **To switch it on:** Netlify dashboard → Site configuration → Environment
 variables → add `ANTHROPIC_API_KEY` (get one at console.anthropic.com). Until
-then the card simply never appears — which is correct behaviour, not a bug.
+then the card simply never appears — which is correct behavior, not a bug.
 
 Everything about it is designed to fail invisibly. No API key, oversized
 photo, model refusal, timeout, upstream outage, function not deployed at all —
@@ -188,7 +192,7 @@ With all three set as above, five consecutive warm calls against a deploy
 preview measured 5.4s, 5.6s, 5.7s and 6.6s, all returning complete sentences.
 Expect the **first call after a deploy** (or after a long idle) to be slower
 or to fail outright on a cold start — that customer simply sees no card,
-which is the designed behaviour, and the next call is warm.
+which is the designed behavior, and the next call is warm.
 
 The dependency (`@anthropic-ai/sdk`) is why `package.json` exists. There is
 still no build step; Netlify installs it so the function can be bundled.
@@ -211,7 +215,7 @@ It is deliberately different from the rest of the site:
   with the organic service pages. It is *not* blocked in `robots.txt` — Google
   Ads has to crawl the page to score it.
 - **Self-contained CSS.** Ad visitors always arrive with a cold cache, so the
-  page is one request instead of two. The trade-off: brand colours live both
+  page is one request instead of two. The trade-off: brand colors live both
   here and in `/css/site.css`, so a palette change means editing both.
 - **Form above the fold on mobile**, where most ad clicks come from.
 
@@ -331,6 +335,45 @@ The same real reviews replaced the invented "Mike R. / Jen K. / Sarah T."
 testimonials that used to appear on the homepage, `/free-quote/` and two city
 pages. **Never put an unverifiable testimonial back.** No city is claimed for
 any reviewer either — Google does not publish their town.
+
+### The city pages
+
+Troy is the first city built out as a full **service x city set**: a hub at
+`/troy-ohio/` plus a page per service. Vandalia, Huber Heights, Dayton and
+Piqua still have a single page each and are the next to expand.
+
+**These pages are not templates with the town name swapped.** That approach is
+doorway-page territory, Google filters it, and it is the single most common way
+a set like this fails. Every page leads on something specific and different:
+
+| Page | Leads on |
+|---|---|
+| `/pressure-washing-troy-ohio/` | Three housing stocks and three pressure settings; hard water |
+| `/soft-washing-troy-ohio/` | The Great Miami river valley, the 1807 historic-district boundary, canopy shade |
+| `/window-cleaning-troy-ohio/` | Divided-light sash, triple-track storms, the Strawberry Festival booking rush |
+| `/troy-ohio/` | Coverage and routing, deliberately short |
+
+Measured pairwise similarity across all four Troy pages and the Tipp City
+originals: **highest pair 10%**, against the 60% line where a rewrite is
+needed. Re-run that check before adding a city — the script is in the commit
+history and takes a minute.
+
+Local detail was verified against troyohio.gov and the Strawberry Festival
+site, not written from memory. **Do not invent a neighborhood, a landmark or a
+drive time.** A wrong local detail is worse than a generic sentence, because
+the people reading it live there.
+
+Photos on the Troy pages are real gallery images, but not known to be shot in
+Troy, so their alt text says "Miami County, Ohio". See
+`docs/photos-needed-troy.md` for the nine shots that would replace them and
+why each one matters.
+
+### US spelling
+
+The site is US English throughout — aluminum, gray, center, two-story,
+itemized, neighbor. Several British spellings crept in across earlier passes
+and were cleaned up on 2026-08-14. Watch for it; the site reads as an Ohio
+contractor's and should.
 
 ### Conventions to keep
 

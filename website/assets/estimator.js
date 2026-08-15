@@ -200,7 +200,7 @@
   }
 
   // ---- "What we noticed" -------------------------------------------------
-  // Entirely optional colour on the estimate screen. It is deliberately
+  // Entirely optional color on the estimate screen. It is deliberately
   // impossible for this to hold up the estimate or the form: the note is
   // fetched in the background the moment a photo is chosen, and every failure
   // path just hides the card. The photo itself always rides along on the
