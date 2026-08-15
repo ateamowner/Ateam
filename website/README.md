@@ -63,7 +63,16 @@ After linking, every push to the connected branch redeploys automatically.
 /soft-washing-huber-heights-ohio/
 /window-cleaning-huber-heights-ohio/
 
-/house-washing-dayton-ohio/                single-page cities (Tier 2 next)
+/fairborn-ohio/                            Tier 2: Greene County sets
+/pressure-washing-fairborn-ohio/
+/soft-washing-fairborn-ohio/
+/window-cleaning-fairborn-ohio/
+/beavercreek-ohio/
+/pressure-washing-beavercreek-ohio/
+/soft-washing-beavercreek-ohio/
+/window-cleaning-beavercreek-ohio/
+
+/house-washing-dayton-ohio/                single-page cities
 /pressure-washing-piqua-ohio/
 
 /pressure-washing-cost-ohio/               price guide
@@ -345,9 +354,10 @@ any reviewer either — Google does not publish their town.
 ### The city pages
 
 **Tier 1 is complete**: Troy, Vandalia and Huber Heights each have a hub plus
-a page per service — 12 pages. Dayton and Piqua still have one page each and
-are Tier 2, along with the remaining services (roof, gutter, concrete,
-painting) in the Tier 1 cities.
+a page per service — 12 pages. **Tier 2 adds Greene County**: Fairborn and
+Beavercreek, same shape, 8 more pages. Dayton and Piqua still have one page
+each, as do the remaining services (roof, gutter, concrete, painting) in the
+city sets.
 
 `docs/scripts/city_build.py` is the generator. It lifts the head boilerplate,
 header, breadcrumb and footer from an existing page in the same city (set
@@ -370,21 +380,42 @@ a set like this fails. Every page leads on something specific and different:
 | `/pressure-washing-huber-heights-ohio/` | Seventy-year-old mortar, efflorescence, carports |
 | `/soft-washing-huber-heights-ohio/` | 10,700 Huber Homes 1956–1992, so a whole street streaks at once; roof granule loss |
 | `/window-cleaning-huber-heights-ohio/` | Identical houses, 36 years of different replacement windows; runoff staining the mortar under the sills |
-| The three hubs | Coverage and routing, deliberately short |
+| `/pressure-washing-fairborn-ohio/` | Two villages merged in 1950, so pre-1920 concrete and 1960s concrete on the same street |
+| `/soft-washing-fairborn-ohio/` | The base boom put up one twenty-year cohort of houses that are all reaching the same age together |
+| `/window-cleaning-fairborn-ohio/` | Original sash on the moved Osborn houses; triple-track storms over them |
+| `/pressure-washing-beavercreek-ohio/` | Dating a driveway by its finish; stamped and paver care |
+| `/soft-washing-beavercreek-ohio/` | No historic core — five decades of siding side by side, each wanting a different mix |
+| `/window-cleaning-beavercreek-ohio/` | Tall entry glass and transoms in the newer subdivisions |
+| The five hubs | Coverage and routing, deliberately short |
 
-Measured pairwise similarity across all 15 city pages — **105 pairs, highest
-22.5%, none over 60%.** Re-run that check before adding a city; it takes a
-minute and it is the one measurement that tells you whether the set will work.
+Measured pairwise similarity across all 31 city and service-area pages —
+**465 pairs, highest 23.5%, none over 30%** (7-word shingle overlap, measured
+as a share of the shorter page). Run `python3 ../docs/scripts/dup_check.py`
+from `website/` before adding a city — it exits non-zero if any pair goes over
+30%. It takes a minute and it is the one measurement that tells you whether
+the set will work.
 
-Local detail was verified against troyohio.gov and the Strawberry Festival
-site, not written from memory. **Do not invent a neighborhood, a landmark or a
-drive time.** A wrong local detail is worse than a generic sentence, because
-the people reading it live there.
+Local detail was verified by search against the cities' own sources, not
+written from memory: Troy's historic district and Strawberry Festival, Huber
+Homes' 1956–1992 build run, Fairborn's 1950 merger and the ~200 Osborn houses
+moved by mule and tractor from 1920, Beavercreek's 1980 incorporation and its
+~27 square miles. **Do not invent a neighborhood, a landmark or a drive time.**
+A wrong local detail is worse than a generic sentence, because the people
+reading it live there.
 
-Photos on the Troy pages are real gallery images, but not known to be shot in
-Troy, so their alt text says "Miami County, Ohio". See
-`docs/photos-needed-troy.md` for the nine shots that would replace them and
-why each one matters.
+**Greene County is honest about distance.** Fairborn and Beavercreek are a real
+drive from Tipp City, not the five minutes it is to Troy. Those pages say so
+plainly and explain that Greene County work gets scheduled in blocks. They
+deliberately **do not** repeat the "no travel charge" line the Miami County
+pages use, because Anthony's travel policy that far out has not been
+confirmed — if it should say something specific, ask him first and then change
+it. Do not fill it in.
+
+Photos on the city pages are real gallery images, but not known to be shot in
+any particular town, so their alt text says "Miami County, Ohio" or "Miami
+Valley, Ohio" rather than naming the city. See `docs/photos-needed-troy.md` for
+the nine shots that would replace them on the Troy pages and why each one
+matters; the other cities want the same treatment once Troy's are in.
 
 ### US spelling
 
