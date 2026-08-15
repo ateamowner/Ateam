@@ -25,7 +25,7 @@
  * -----
  * Netlify dashboard -> Site configuration -> Environment variables ->
  * ANTHROPIC_API_KEY. Until that is set the card is simply absent, which is
- * the correct behaviour, not a bug.
+ * the correct behavior, not a bug.
  */
 
 import Anthropic from "@anthropic-ai/sdk";
