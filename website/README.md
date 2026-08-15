@@ -50,14 +50,20 @@ After linking, every push to the connected branch redeploys automatically.
 /exterior-painting-tipp-city-ohio/         adjacent service
 /commercial-pressure-washing-dayton-ohio/  commercial
 
-/troy-ohio/                                Troy hub  (service x city set)
+/troy-ohio/                                Tier 1: full service x city sets
 /pressure-washing-troy-ohio/
 /soft-washing-troy-ohio/
 /window-cleaning-troy-ohio/
-
-/pressure-washing-vandalia-ohio/           city landing pages
+/vandalia-ohio/
+/pressure-washing-vandalia-ohio/
+/soft-washing-vandalia-ohio/
+/window-cleaning-vandalia-ohio/
+/huber-heights-ohio/
 /pressure-washing-huber-heights-ohio/
-/house-washing-dayton-ohio/
+/soft-washing-huber-heights-ohio/
+/window-cleaning-huber-heights-ohio/
+
+/house-washing-dayton-ohio/                single-page cities (Tier 2 next)
 /pressure-washing-piqua-ohio/
 
 /pressure-washing-cost-ohio/               price guide
@@ -338,9 +344,16 @@ any reviewer either — Google does not publish their town.
 
 ### The city pages
 
-Troy is the first city built out as a full **service x city set**: a hub at
-`/troy-ohio/` plus a page per service. Vandalia, Huber Heights, Dayton and
-Piqua still have a single page each and are the next to expand.
+**Tier 1 is complete**: Troy, Vandalia and Huber Heights each have a hub plus
+a page per service — 12 pages. Dayton and Piqua still have one page each and
+are Tier 2, along with the remaining services (roof, gutter, concrete,
+painting) in the Tier 1 cities.
+
+`docs/scripts/city_build.py` is the generator. It lifts the head boilerplate,
+header, breadcrumb and footer from an existing page in the same city (set
+`CHROME_SRC`) so the chrome cannot drift, and takes `CITY` from the
+environment. It writes nothing but `<main>` — the body copy is written by
+hand, per page, which is the point.
 
 **These pages are not templates with the town name swapped.** That approach is
 doorway-page territory, Google filters it, and it is the single most common way
@@ -348,15 +361,20 @@ a set like this fails. Every page leads on something specific and different:
 
 | Page | Leads on |
 |---|---|
-| `/pressure-washing-troy-ohio/` | Three housing stocks and three pressure settings; hard water |
-| `/soft-washing-troy-ohio/` | The Great Miami river valley, the 1807 historic-district boundary, canopy shade |
-| `/window-cleaning-troy-ohio/` | Divided-light sash, triple-track storms, the Strawberry Festival booking rush |
-| `/troy-ohio/` | Coverage and routing, deliberately short |
+| `/pressure-washing-troy-ohio/` | Three housing stocks, three pressure settings; hard water |
+| `/soft-washing-troy-ohio/` | Great Miami river valley, the 1807 historic-district boundary, canopy shade |
+| `/window-cleaning-troy-ohio/` | Divided-light sash, triple-track storms, the Strawberry Festival rush |
+| `/pressure-washing-vandalia-ohio/` | The 60s–70s ranch belt, flight-path grime, selling a house |
+| `/soft-washing-vandalia-ohio/` | Pressure washing voids new siding warranties; low ground between two rivers; no canopy on the new estates |
+| `/window-cleaning-vandalia-ohio/` | Construction film on builders' glass and how it has to come off |
+| `/pressure-washing-huber-heights-ohio/` | Seventy-year-old mortar, efflorescence, carports |
+| `/soft-washing-huber-heights-ohio/` | 10,700 Huber Homes 1956–1992, so a whole street streaks at once; roof granule loss |
+| `/window-cleaning-huber-heights-ohio/` | Identical houses, 36 years of different replacement windows; runoff staining the mortar under the sills |
+| The three hubs | Coverage and routing, deliberately short |
 
-Measured pairwise similarity across all four Troy pages and the Tipp City
-originals: **highest pair 10%**, against the 60% line where a rewrite is
-needed. Re-run that check before adding a city — the script is in the commit
-history and takes a minute.
+Measured pairwise similarity across all 15 city pages — **105 pairs, highest
+22.5%, none over 60%.** Re-run that check before adding a city; it takes a
+minute and it is the one measurement that tells you whether the set will work.
 
 Local detail was verified against troyohio.gov and the Strawberry Festival
 site, not written from memory. **Do not invent a neighborhood, a landmark or a
