@@ -7,15 +7,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>Before &amp; After Gallery | A Team Contracting | Tipp City, Ohio</title>
+<title>Before &amp; After Gallery | A Team Contracting, Tipp City OH</title>
 <meta name="description" content="Real before and after photos from A Team Contracting — pressure washing, soft washing and window cleaning jobs across Tipp City and the Dayton area.">
-<meta property="og:title" content="Before &amp; After Gallery | A Team Contracting | Tipp City, Ohio">
+<meta property="og:title" content="Before &amp; After Gallery | A Team Contracting, Tipp City OH">
 <meta property="og:description" content="Real before and after photos from A Team Contracting — pressure washing, soft washing and window cleaning jobs across Tipp City and the Dayton area.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ateamcontractings.com/gallery/">
 <meta property="og:image" content="https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Before &amp; After Gallery | A Team Contracting | Tipp City, Ohio">
+<meta name="twitter:title" content="Before &amp; After Gallery | A Team Contracting, Tipp City OH">
 <meta name="twitter:description" content="Real before and after photos from A Team Contracting — pressure washing, soft washing and window cleaning jobs across Tipp City and the Dayton area.">
 <meta name="twitter:image" content="https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp">
 <link rel="preload" href="/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -815,7 +815,7 @@ footer{background:#08243f;color:#8ea8c0;padding:40px 20px}
   <p>Every job in this gallery started with a free estimate. Text or call today &mdash; I answer my own phone.</p>
   <div class="cta-btns">
     <a href="/estimate/" class="btn-white">&#128248; Get an Instant Price</a>
-    <a href="tel:9379392936" class="btn-outline-white">&#128222; (937) 939-2936</a>
+    <a href="tel:+19379392936" class="btn-outline-white">&#128222; (937) 939-2936</a>
   </div>
 </section>
 
@@ -953,7 +953,7 @@ var galleryImgs = [
     "/images/gallery/gallery-gutter-1.webp"
 ];
 var galleryCaps = [
-    "Walkway &amp; Steps — Tipp City, Ohio",
+    "Walkway & Steps — Tipp City, Ohio",
     "Driveway Pressure Wash — Tipp City, Ohio",
     "Concrete Patio Clean — Tipp City, Ohio",
     "Sidewalk Pressure Wash — Tipp City, Ohio",
@@ -961,8 +961,8 @@ var galleryCaps = [
     "Siding Softwash — Tipp City, Ohio",
     "Under-Deck Softwash — Tipp City, Ohio",
     "Full House Softwash — Tipp City, Ohio",
-    "Roofline &amp; Panel Softwash — Tipp City, Ohio",
-    "Eave &amp; Soffit Softwash — Tipp City, Ohio",
+    "Roofline & Panel Softwash — Tipp City, Ohio",
+    "Eave & Soffit Softwash — Tipp City, Ohio",
     "Siding Softwash — Tipp City, Ohio",
     "Window Cleaning — Tipp City, Ohio",
     "Landscaping Area Wash — Centerville, Ohio",
@@ -994,7 +994,7 @@ var galleryCaps = [
     "Front Walkway Wash — Huber Heights, Ohio",
     "Decorative Walkway Clean — Centerville, Ohio",
     "House Siding Softwash — Tipp City, Ohio",
-    "Gutter Face &amp; Soffit Brightening — Tipp City, Ohio"
+    "Gutter Face & Soffit Brightening — Tipp City, Ohio"
 ];
 var currentIdx = 0;
 var visibleCards = [];
@@ -1011,6 +1011,7 @@ function showLightboxPhoto() {
   var card = visibleCards[currentIdx];
   var gi = parseInt(card.dataset.idx);
   document.getElementById('lightbox-img').src = galleryImgs[gi];
+  document.getElementById('lightbox-img').alt = galleryCaps[gi];
   document.getElementById('lightbox-caption').textContent = galleryCaps[gi];
   document.getElementById('lightbox-counter').textContent = (currentIdx + 1) + ' / ' + visibleCards.length;
 }
