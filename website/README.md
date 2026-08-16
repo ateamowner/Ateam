@@ -403,13 +403,15 @@ moved by mule and tractor from 1920, Beavercreek's 1980 incorporation and its
 A wrong local detail is worse than a generic sentence, because the people
 reading it live there.
 
-**Greene County is honest about distance.** Fairborn and Beavercreek are a real
-drive from Tipp City, not the five minutes it is to Troy. Those pages say so
-plainly and explain that Greene County work gets scheduled in blocks. They
-deliberately **do not** repeat the "no travel charge" line the Miami County
-pages use, because Anthony's travel policy that far out has not been
-confirmed — if it should say something specific, ask him first and then change
-it. Do not fill it in.
+**Greene County is honest about distance, and clear that it costs nothing.**
+Fairborn and Beavercreek are a real drive from Tipp City, not the five minutes
+it is to Troy, and those pages say so plainly rather than pretending to be
+local — that honesty is the point of the section. But Anthony confirmed he
+works Greene County regularly and charges the same there as anywhere, so every
+one of the eight pages now says there is **no travel charge and nothing added
+for the distance**. Keep both halves. Dropping the distance makes the pages
+sound like every other franchise; dropping the no-fee line makes a reader
+assume there is one.
 
 Photos on the city pages are real gallery images, but not known to be shot in
 any particular town, so their alt text says "Miami County, Ohio" or "Miami
