@@ -141,6 +141,15 @@ platform_rules:
     max_hashtags: 5
     max_emoji: 2
 
+generation:
+  model: claude-opus-5
+  # A draft that breaks a rule is sent back with the reason attached. Four
+  # tries, then the run fails loudly rather than publishing a violation.
+  max_attempts: 4
+  # Opt into the server-side refusal fallback. Degrades to a plain call if the
+  # API rejects the parameter, so an unexercised path cannot break a run.
+  refusal_fallback: true
+
 # Filled in by Ant. Validation fails loudly rather than posting to the wrong place.
 credentials:
   anthropic_api_key: env:ANTHROPIC_API_KEY
