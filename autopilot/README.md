@@ -2,8 +2,19 @@
 
 Plan and per-platform automation status: [`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md).
 
-**Steps 2 and 3 of 9.** Configuration, voice and brand rules, the rule engine
-that enforces them, and the photo pipeline. Nothing publishes yet.
+**Steps 2, 3 and 4 of 9.** Configuration, voice and brand rules, the rule engine
+that enforces them, the photo pipeline, and the copywriter. Nothing publishes yet.
+
+## Seeing real captions
+
+The API key lives in GitHub Actions secrets, so generation runs there rather
+than locally. Actions tab → **Caption preview** → Run workflow. The posts land
+in the run summary, readable on a phone. Nothing is published.
+
+**A manual workflow only appears in the Actions tab once its file is on the
+repository's default branch.** On a feature branch it exists but is unclickable,
+which is worth knowing before Step 5 adds the scheduled jobs: those will not
+fire on a branch either, no matter how correct the cron is.
 
 ## What is here
 

@@ -1,0 +1,68 @@
+name: Caption preview
+
+# Two triggers, deliberately different in what they do.
+#
+#   pull_request      validates config and runs every test suite. No API call,
+#                     so it costs nothing and runs on every push to a PR.
+#   workflow_dispatch the same checks, then five real captions written into the
+#                     run summary for Ant to read on his phone.
+#
+# The manual trigger only appears in the Actions tab once this file is on the
+# default branch. Until this PR merges, the button does not exist.
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r autopilot/requirements.txt
+
+      - name: Check the configuration before spending anything
+        run: python -m autopilot.check
+
+      - name: Run the rule tests
+        run: |
+          python autopilot/tests/test_lint.py
+          python autopilot/tests/test_images.py
+          python autopilot/tests/test_generate.py
+
+      - name: Generate sample captions
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::ANTHROPIC_API_KEY is not set on this repository."
+            exit 1
+          fi
+          python -m autopilot.generate --preview | tee captions.txt
+
+      - name: Put the captions in the run summary
+        if: github.event_name == 'workflow_dispatch' && always()
+        run: |
+          {
+            echo "# Caption preview"
+            echo
+            echo "Generated from real jobs in the Drive folder. Nothing was published."
+            echo
+            echo '```'
+            cat captions.txt 2>/dev/null || echo "no captions produced"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'workflow_dispatch' && always()
+        with:
+          name: captions
+          path: captions.txt
+          if-no-files-found: ignore
