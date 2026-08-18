@@ -1,8 +1,16 @@
 name: Caption preview
 
-# Run by hand from the Actions tab. Writes the generated posts into the run
-# summary so Ant can read them on his phone without opening a laptop.
+# Two triggers, deliberately different in what they do.
+#
+#   pull_request      validates config and runs every test suite. No API call,
+#                     so it costs nothing and runs on every push to a PR.
+#   workflow_dispatch the same checks, then five real captions written into the
+#                     run summary for Ant to read on his phone.
+#
+# The manual trigger only appears in the Actions tab once this file is on the
+# default branch. Until this PR merges, the button does not exist.
 on:
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -29,6 +37,7 @@ jobs:
           python autopilot/tests/test_generate.py
 
       - name: Generate sample captions
+        if: github.event_name == 'workflow_dispatch'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -39,7 +48,7 @@ jobs:
           python -m autopilot.generate --preview | tee captions.txt
 
       - name: Put the captions in the run summary
-        if: always()
+        if: github.event_name == 'workflow_dispatch' && always()
         run: |
           {
             echo "# Caption preview"
@@ -52,7 +61,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: github.event_name == 'workflow_dispatch' && always()
         with:
           name: captions
           path: captions.txt

@@ -11,6 +11,11 @@ The API key lives in GitHub Actions secrets, so generation runs there rather
 than locally. Actions tab → **Caption preview** → Run workflow. The posts land
 in the run summary, readable on a phone. Nothing is published.
 
+**A manual workflow only appears in the Actions tab once its file is on the
+repository's default branch.** On a feature branch it exists but is unclickable,
+which is worth knowing before Step 5 adds the scheduled jobs: those will not
+fire on a branch either, no matter how correct the cron is.
+
 ## What is here
 
     config/config.yaml   every ID, cadence, threshold and rule, verified against the live account
