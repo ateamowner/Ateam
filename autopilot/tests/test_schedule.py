@@ -119,6 +119,45 @@ def test_planning_is_deterministic() -> None:
     check(a == b, "the same week plans identically twice")
 
 
+def test_approval_texts_stay_out_of_family_time() -> None:
+    """The brief contradicted itself: a 6pm text inside a 5-7pm quiet window."""
+    import shutil
+    import tempfile
+
+    import yaml
+
+    approvals = SETTINGS.data["approvals"]
+    quiet_start, quiet_end = approvals["quiet_hours"]
+    offenders = [t for t in approvals["batch_times"] if quiet_start <= t < quiet_end]
+    check(not offenders, "no approval batch lands in quiet hours", f"{offenders}")
+
+    src = Path(cfg.CONFIG_DIR)
+    with tempfile.TemporaryDirectory() as td:
+        dst = Path(td)
+        for f in src.iterdir():
+            shutil.copy(f, dst / f.name)
+        data = yaml.safe_load((dst / "config.yaml").read_text())
+        data["approvals"]["batch_times"] = ["07:00", "18:00"]
+        (dst / "config.yaml").write_text(yaml.safe_dump(data))
+        try:
+            cfg.load(dst)
+        except cfg.ConfigError as exc:
+            check("family time" in str(exc),
+                  "restoring the 6pm text is rejected at load", str(exc))
+        else:
+            check(False, "a batch inside quiet hours must raise")
+
+
+def test_publish_times_may_sit_inside_quiet_hours() -> None:
+    """An automated post interrupts nobody. Only texts to Ant are restricted."""
+    planned = plan_week(MONDAY, SETTINGS)
+    quiet_start, quiet_end = SETTINGS.data["approvals"]["quiet_hours"]
+    inside = [p for p in planned
+              if quiet_start <= f"{p.slot.when:%H:%M}" < quiet_end]
+    check(bool(inside), "posts still publish during family time",
+          "expected Facebook 17:30 and Nextdoor 18:00 to remain")
+
+
 def test_week_start_snaps_to_monday() -> None:
     check(week_start(date(2026, 8, 27)) == date(2026, 8, 24),
           "a Thursday resolves to its Monday")
@@ -134,6 +173,8 @@ def run() -> int:
     test_stories_mirror_that_days_feed_post()
     test_wall_clock_survives_the_daylight_saving_change()
     test_planning_is_deterministic()
+    test_approval_texts_stay_out_of_family_time()
+    test_publish_times_may_sit_inside_quiet_hours()
     test_week_start_snaps_to_monday()
 
     failures = 0
