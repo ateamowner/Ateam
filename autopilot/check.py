@@ -61,6 +61,13 @@ def main() -> int:
         print(f"\ncredentials    {len(missing)} not yet set: {', '.join(missing)}")
         print("               expected at this stage, publishing is not wired up yet")
 
+    if settings.auto_approve:
+        hours = settings.data["approvals"]["auto_approve_after_hours"]
+        gated = settings.data["approvals"]["always_require_explicit_approval"]
+        print(f"approvals      auto-approve ON after {hours}h, except {', '.join(gated)}")
+    else:
+        print("approvals      auto-approve OFF, every post waits for Ant")
+
     blocked = settings.data.get("blocklist", [])
     if blocked:
         print(f"\nblocklist      {len(blocked)} asset(s) barred from publishing:")

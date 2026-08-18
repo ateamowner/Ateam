@@ -187,9 +187,11 @@ def generate(
                 platform=platform,
                 attempts=attempt,
                 anchors=spec.anchors,
-                # Offer posts always wait for Ant, and quoting a figure makes
-                # that non-negotiable rather than a matter of scheduling.
-                needs_explicit_approval=bucket.lower() == "offer" or carries_price(text),
+                # One rule, owned by the config, so the generator and the
+                # scheduler can never disagree about what may publish itself.
+                needs_explicit_approval=settings.needs_explicit_approval(
+                    bucket, has_price=carries_price(text)
+                ),
             )
 
         last_problems = problems

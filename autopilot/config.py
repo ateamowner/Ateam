@@ -64,6 +64,22 @@ class Settings:
     def platform_rules(self, platform: str) -> dict:
         return self.data.get("platform_rules", {}).get(platform, {})
 
+    @property
+    def auto_approve(self) -> bool:
+        return bool(self.data["approvals"].get("auto_approve", False))
+
+    def needs_explicit_approval(self, bucket: str, has_price: bool = False) -> bool:
+        """Whether this post must wait for Ant rather than publishing on a timer.
+
+        With auto-approve off, that is everything. The decision lives here rather
+        than in the generator or the scheduler so both answer to one rule and
+        turning auto-approve back on cannot loosen one path but not the other.
+        """
+        if not self.auto_approve:
+            return True
+        always = self.data["approvals"].get("always_require_explicit_approval", [])
+        return has_price or bucket.strip().lower() in {b.lower() for b in always}
+
     def weekly_post_counts(self) -> dict[str, int]:
         """Posts per week per platform, derived from the cadence block.
 

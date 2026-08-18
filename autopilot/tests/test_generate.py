@@ -143,20 +143,44 @@ def test_it_gives_up_rather_than_publishing_a_violation() -> None:
         check(False, "a permanently violating draft must raise, not return")
 
 
-def test_offer_posts_require_explicit_approval() -> None:
+def test_nothing_self_publishes_while_auto_approve_is_off() -> None:
+    """Ant turned auto-approve off on Aug 18. Every post waits for him."""
+    check(SETTINGS.auto_approve is False, "auto-approve is off in the config")
+
     offer = (
         "Window cleaning in Tipp City, booked Thursday. Homeowner had us out for "
         "glass and we bundled the driveway into one trip. One crew, one day."
     )
-    client = FakeClient([offer])
-    draft = generate(Job(city="Tipp City"), "Offer", "Facebook", SETTINGS, client=client)
-    check(draft.needs_explicit_approval,
-          "an offer post is flagged for Ant's explicit yes")
+    for text, bucket, platform in [
+        (offer, "Offer", "Facebook"),
+        (GOOD, "Local", "Nextdoor"),
+    ]:
+        draft = generate(
+            Job(city="Tipp City"), bucket, platform, SETTINGS,
+            client=FakeClient([text]),
+        )
+        check(draft.needs_explicit_approval,
+              f"a {bucket.lower()} post waits for Ant with auto-approve off")
 
-    client2 = FakeClient([GOOD])
-    local = generate(Job(city="Centerville"), "Local", "Nextdoor", SETTINGS, client=client2)
-    check(not local.needs_explicit_approval,
-          "a local post can ride the auto-approve path")
+
+def test_offer_stays_gated_if_auto_approve_returns() -> None:
+    """Turning auto-approve back on must not loosen offer or priced copy."""
+    import copy
+
+    from autopilot.config import Settings
+
+    data = copy.deepcopy(SETTINGS.data)
+    data["approvals"]["auto_approve"] = True
+    on = Settings(
+        data=data, voice=SETTINGS.voice, brand=SETTINGS.brand,
+        banned_phrases=SETTINGS.banned_phrases,
+    )
+
+    check(on.needs_explicit_approval("Offer"), "offer still needs an explicit yes")
+    check(on.needs_explicit_approval("Proof", has_price=True),
+          "any copy quoting a figure still needs an explicit yes")
+    check(not on.needs_explicit_approval("Local"),
+          "an ordinary local post could ride the timer again")
 
 
 def test_refusal_is_surfaced_not_swallowed() -> None:
@@ -194,7 +218,8 @@ def run() -> int:
     test_violation_triggers_a_rewrite_with_the_reason()
     test_thin_draft_is_rewritten_too()
     test_it_gives_up_rather_than_publishing_a_violation()
-    test_offer_posts_require_explicit_approval()
+    test_nothing_self_publishes_while_auto_approve_is_off()
+    test_offer_stays_gated_if_auto_approve_returns()
     test_refusal_is_surfaced_not_swallowed()
 
     failures = 0
