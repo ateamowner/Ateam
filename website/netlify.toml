@@ -1,2 +1,11 @@
 [build]
   publish = "."
+
+# The site itself is plain static HTML with no build step. The only server-side
+# code is netlify/functions/photo-note.mjs, which reads the photo on /estimate/.
+# It needs ANTHROPIC_API_KEY set in the Netlify dashboard; without it the
+# function returns { unavailable: true } and the page just doesn't show the
+# card. See website/README.md.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

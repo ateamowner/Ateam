@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Function source, not a page. Netlify serves the endpoint at
+# /.netlify/functions/photo-note — nothing here is meant to be indexed.
+Disallow: /netlify/
+
 Sitemap: https://ateamcontractings.com/sitemap.xml
