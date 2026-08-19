@@ -7,14 +7,18 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<title>A-Team Contracting | Exterior Cleaning — Tipp City, OH</title>
-<meta name="description" content="Dirty windows, algae-covered driveway, grimy siding? A-Team Contracting cleans it fast. Family-owned exterior cleaning in Tipp City, OH. Get an instant price in under a minute. Call (937) 939-2936.">
-<meta name="author" content="Anthony Leonard, A-Team Contracting">
+<title>Pressure Washing &amp; Window Cleaning | Tipp City, OH</title>
+<meta name="description" content="Pressure washing, soft washing and window cleaning in Tipp City, OH. Family-owned, fully insured, instant online pricing. Call (937) 939-2936.">
+<meta name="author" content="Anthony Leonard, A Team Contracting">
 <meta name="geo.placename" content="Tipp City, Ohio">
 <meta name="geo.region" content="US-OH">
-<meta property="og:title" content="A-Team Contracting | Window Cleaning, Pressure Washing &amp; Soft Washing">
-<meta property="og:description" content="Family-owned exterior cleaning in Tipp City, OH. Windows, pressure washing, soft washing. Get an instant price in under a minute.">
-<meta property="og:image" content="https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.jpg">
+<meta property="og:title" content="Pressure Washing &amp; Window Cleaning | Tipp City, OH">
+<meta property="og:description" content="Pressure washing, soft washing and window cleaning in Tipp City, OH. Family-owned, fully insured, instant online pricing. Call (937) 939-2936.">
+<meta property="og:image" content="https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pressure Washing &amp; Window Cleaning | Tipp City, OH">
+<meta name="twitter:description" content="Pressure washing, soft washing and window cleaning in Tipp City, OH. Family-owned, fully insured, instant online pricing. Call (937) 939-2936.">
+<meta name="twitter:image" content="https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ateamcontractings.com/">
 <link rel="canonical" href="https://ateamcontractings.com/">
@@ -134,7 +138,8 @@ section h2 em{font-style:normal;font-family:'Caveat',cursive;color:var(--orange)
 .work-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(8,36,63,.92) 0%,transparent 100%);color:#fff;padding:.65rem .75rem;font-size:.75rem}
 .work-caption strong{display:block;font-size:.82rem;margin-bottom:.1rem}
 .work-also{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
-.work-also-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;padding:.4rem .85rem;font-size:.82rem;font-weight:600}
+.work-also-item{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;padding:.4rem .85rem;font-size:.82rem;font-weight:600;transition:background .15s}
+a.work-also-item:hover{background:rgba(255,255,255,.2)}
 .gallery-link-wrap{text-align:center;margin-top:2rem}
 
 /* ABOUT */
@@ -179,6 +184,53 @@ section h2 em{font-style:normal;font-family:'Caveat',cursive;color:var(--orange)
 .final-cta p{color:rgba(255,255,255,.75);margin-bottom:1.75rem;font-size:.95rem}
 .final-cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 
+/* FINAL CTA — two columns: the estimator stays the headline act on the left,
+   the short form on the right catches everyone who won't do a quiz. */
+.cta-split{display:grid;grid-template-columns:1fr 400px;gap:3rem;align-items:center;text-align:left}
+.cta-split h2{margin-bottom:.65rem}
+.cta-split .final-cta-btns{justify-content:flex-start}
+.cta-or{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:1.5rem}
+.qq{background:#fff;border-radius:12px;padding:1.5rem;box-shadow:0 12px 34px rgba(0,0,0,.25);text-align:left}
+.qq h3{font-family:'Anton',sans-serif;font-size:1.3rem;color:var(--navy);margin-bottom:.3rem}
+.qq .qq-sub{font-size:.85rem;color:var(--text-muted);margin-bottom:1.1rem;line-height:1.55}
+.qq label{display:block;font-size:.8rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.qq input,.qq select{width:100%;font-family:inherit;font-size:.93rem;padding:.7rem .8rem;border:1.5px solid var(--border);border-radius:6px;margin-bottom:.8rem;background:#fff;color:var(--navy)}
+.qq input:focus,.qq select:focus{outline:none;border-color:var(--orange-dark);box-shadow:0 0 0 3px rgba(194,73,28,.15)}
+.qq button{width:100%;background:var(--orange-dark);color:#fff;font-family:inherit;font-size:.98rem;font-weight:800;padding:.9rem;border:none;border-radius:var(--radius);cursor:pointer;transition:background .15s}
+.qq button:hover{background:var(--orange-darker)}
+.qq .qq-fine{font-size:.74rem;color:var(--text-muted);text-align:center;margin-top:.7rem;line-height:1.5}
+.qq-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+@media(max-width:900px){
+  .cta-split{grid-template-columns:1fr;gap:2rem;text-align:center}
+  .cta-split .final-cta-btns{justify-content:center}
+}
+
+/* FOOTER TRUST — NAP, profile links and the BBB seal. Identical sitewide.
+   No street address: A Team is a service-area business, so the visible NAP
+   matches the schema, which carries locality/region/postal only. */
+.footer-trust{border-top:1px solid rgba(255,255,255,.12);margin-top:1.5rem;padding-top:1.5rem;text-align:center}
+.footer-nap{font-size:.86rem;color:rgba(255,255,255,.8);margin-bottom:1rem;line-height:1.7}
+.footer-nap strong{color:#fff}
+/* Keep the phone number on one line — a number broken across two lines
+   is hard to read and impossible to tap cleanly. */
+.footer-nap a{color:var(--orange-on-dark);font-weight:700;white-space:nowrap}
+.footer-nap strong{white-space:nowrap}
+.footer-social{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:0 0 1.25rem;padding:0}
+.footer-social li{margin:0}
+.footer-social a{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:.4rem .9rem;transition:background .15s,border-color .15s,color .15s}
+.footer-social a:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.55);color:#fff}
+/* The seal is a 293x61 white-text PNG, sized down for a footer. width/height
+   are on the img so it reserves space and does not shift layout on load. */
+.footer-seal{display:inline-block;line-height:0}
+.footer-seal img{width:200px;height:auto;max-width:100%}
+
+/* NEXTDOOR CALLOUT */
+.nd-home{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem;background:linear-gradient(135deg,rgba(240,90,34,.1),rgba(8,36,63,.08));border:1px solid var(--orange-dark);border-radius:12px;padding:1.4rem 1.6rem;margin-top:2rem}
+.nd-home h3{font-family:'Anton',sans-serif;font-size:1.2rem;color:var(--navy);margin-bottom:.35rem}
+.nd-home p{font-size:.9rem;color:var(--text-muted);line-height:1.6;max-width:46em;margin:0}
+.nd-home-btn{display:inline-block;flex-shrink:0;background:var(--navy);color:#fff;font-weight:700;font-size:.88rem;padding:.75rem 1.35rem;border-radius:var(--radius);white-space:nowrap}
+.nd-home-btn:hover{background:var(--navy-mid)}
+
 /* FOOTER */
 footer{background:var(--navy-mid);color:#fff;padding:2.75rem 0 1.25rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
@@ -214,31 +266,48 @@ footer ul li a:hover{color:#fff}
   .work-grid{grid-template-columns:1fr 1fr}
   .pain-grid{grid-template-columns:1fr}
 }
+
+@media(min-width:769px) and (max-width:1150px){nav a{font-size:.74rem;padding:.4rem .38rem}.header-cta{font-size:.75rem;padding:.5rem .7rem}}
+
+@media(max-width:960px){nav{display:none}.header-cta{display:none}.hamburger{display:flex}}
+
+.footer-cols a,.footer-cols span,.footer-col a{overflow-wrap:anywhere}
+
+.trust-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.15rem}
+.trust-chip{display:inline-flex;align-items:flex-start;gap:.45rem;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.28);border-radius:99px;padding:.45rem .9rem;font-size:.76rem;font-weight:700;color:#fff;line-height:1.35}
+.trust-chip.wide{border-radius:12px;max-width:34em}
+.club-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.25rem}
+.club-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.35rem 1.4rem;box-shadow:var(--shadow)}
+.club-card .club-off{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange-on-light);margin-bottom:.35rem}
+.club-card h3{font-family:'Anton',sans-serif;font-size:1.2rem;color:var(--navy);margin-bottom:.4rem}
+.club-card p{font-size:.87rem;color:var(--text-muted);line-height:1.6;margin:0}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"A-Team Contracting","url":"https://ateamcontractings.com","telephone":"(937) 939-2936","address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","addressCountry":"US"},"areaServed":["Tipp City OH","Dayton OH","Troy OH","Vandalia OH","Huber Heights OH"],"description":"Family-owned exterior cleaning in Tipp City, OH. Pressure washing, soft washing, and window cleaning.","priceRange":"$","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.jpg","sameAs":["https://www.bbb.org/us/oh/tipp-city/profile/contractor/a-team-contracting-0322-1440107933"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I get a price from A Team?","acceptedAnswer":{"@type":"Answer","text":"Use our instant estimator at ateamcontractings.com/estimate — answer a few questions, snap a photo of the area you need cleaned, and you'll see a ballpark price right away. No callback required. Or text Anthony directly at (937) 939-2936 and he'll get right back to you."}},{"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We're based in Tipp City, Ohio and serve the greater Dayton area including Troy, Vandalia, Huber Heights, Englewood, Fairborn, Beavercreek, Piqua, and surrounding communities. If you're not sure whether we come to you — just ask."}},{"@type":"Question","name":"What's the difference between pressure washing and soft washing?","acceptedAnswer":{"@type":"Answer","text":"Pressure washing uses high-force water to blast concrete, driveways, patios, and sidewalks clean. Soft washing uses low-pressure water plus a biodegradable cleaning solution to safely clean siding, roofs, and delicate surfaces. Using the wrong method can cause real damage — we use the right one for every surface. Learn more about soft washing →"}},{"@type":"Question","name":"Do I need to be home during the job?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. As long as we have access to a water spigot and the areas that need cleaning, we can complete most jobs while you're at work or out for the day. We'll send you before-and-after photos when we're done and check in before we leave."}},{"@type":"Question","name":"Are you insured?","acceptedAnswer":{"@type":"Answer","text":"Yes. A Team Contracting is fully insured. You can ask for proof of insurance any time — we're happy to provide it before the job starts. Peace of mind is part of what you're paying for."}},{"@type":"Question","name":"How quickly can you get out here?","acceptedAnswer":{"@type":"Answer","text":"Usually within a few days. In our busy season (spring and summer) we book up fast, so the sooner you reach out the better. Call or text (937) 939-2936 and we'll get you on the schedule."}},{"@type":"Question","name":"Do you offer discounts for bundling services?","acceptedAnswer":{"@type":"Answer","text":"Yes — bundling is the best deal we offer. Add window cleaning to a pressure wash or soft wash while we're already on-site and you'll save vs. booking each separately. We'll show you the full value and your A Team discount when we give you the price."}},{"@type":"Question","name":"What payment methods do you accept?","acceptedAnswer":{"@type":"Answer","text":"We accept cash, check, Venmo, Zelle, and card. Payment is due when the job is complete and you've done the walkthrough and are happy with the results. No payment upfront required."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://ateamcontractings.com/#business","name":"A Team Contracting","url":"https://ateamcontractings.com/","telephone":"(937) 939-2936","email":"Owner@ateamcontractings.com","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp","logo":"https://ateamcontractings.com/logo.webp","priceRange":"$","foundingDate":"2023-01-01","founder":{"@type":"Person","name":"Anthony Leonard"},"employee":{"@type":"Person","name":"Anthony Leonard"},"address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","postalCode":"45371","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.9581,"longitude":-84.1733},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"19:00"}],"areaServed":[{"@type":"City","name":"Tipp City","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Troy","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Vandalia","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Huber Heights","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Piqua","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Dayton","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Englewood","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Fairborn","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Beavercreek","addressRegion":"OH","addressCountry":"US"}],"sameAs":["https://g.page/r/CdoEOEshw5VUEAE/","https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933","https://www.facebook.com/Ateam937","https://www.instagram.com/ateamcontractings/","https://nextdoor.com/page/a-team-contracting-services","https://www.yelp.com/biz/a-team-contracting-tipp-city"]}</script>
 </head>
 <body>
 
 <div class="topbar">
   Serving Tipp City &amp; the Dayton Area &nbsp;·&nbsp;
   <a href="tel:+19379392936">(937) 939-2936</a>
-  &nbsp;·&nbsp; Mon–Sat 7am–7pm
+  &nbsp;·&nbsp; Mon–Sat 7am–7pm ET · Sun closed
 </div>
 
 <header>
   <div class="header-inner">
     <a class="logo" href="/">
-      <img src="/logo.webp" alt="A-Team Contracting" width="48" height="42">
+      <img src="/logo.webp" alt="A Team Contracting" width="48" height="42">
       <span class="logo-text">A-<span>TEAM</span></span>
     </a>
     <nav>
       <a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a>
       <a href="/soft-washing-tipp-city-ohio/">Soft Washing</a>
       <a href="/window-cleaning-tipp-city-ohio/">Window Cleaning</a>
-      <a href="/gallery/">Before &amp; After</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#reviews">Reviews</a>
+      <a href="/pressure-washing-cost-ohio/">Pricing</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
     </nav>
     <a class="header-cta" href="/estimate/">📸 Get an Instant Price</a>
     <button class="hamburger" aria-label="Open menu" onclick="toggleNav(this)">
@@ -249,10 +318,15 @@ footer ul li a:hover{color:#fff}
     <a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a>
     <a href="/soft-washing-tipp-city-ohio/">Soft Washing</a>
     <a href="/window-cleaning-tipp-city-ohio/">Window Cleaning</a>
+    <a href="/roof-cleaning-tipp-city-ohio/">Roof Cleaning</a>
+    <a href="/gutter-cleaning-tipp-city-ohio/">Gutter Cleaning</a>
+    <a href="/concrete-cleaning-tipp-city-ohio/">Concrete Cleaning</a>
+    <a href="/pressure-washing-cost-ohio/">Pricing Guide</a>
     <a href="/gallery/">Before &amp; After</a>
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#reviews">Reviews</a>
+    <a href="/reviews/">Reviews</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
     <a href="/estimate/" class="mob-cta">📸 Get an Instant Price</a>
   </div>
 </header>
@@ -265,19 +339,24 @@ footer ul li a:hover{color:#fff}
       <div class="hero-content">
         <span class="hero-badge">Family-Owned · Tipp City, OH</span>
         <h1>Dirty Windows?<br>Grimy Siding?<br><em>Gone By Friday.</em></h1>
-        <p class="hero-sub">A-Team makes your home look brand new — windows, driveways, and siding cleaned right the first time. Snap a photo, get a price in under a minute, and get on the schedule. No waiting on a callback.</p>
+        <p class="hero-sub">A Team makes your home look brand new — windows, driveways, and siding cleaned right the first time. Snap a photo, get a price in under a minute, and get on the schedule. No waiting on a callback.</p>
         <div class="hero-btns">
           <a href="/estimate/" class="btn btn-orange">SNAP A PIC. GET A PRICE →</a>
-          <a href="https://calendly.com/owner-ateamcontractings" class="btn btn-outline">Book a Time</a>
+          <a href="https://calendly.com/owner-ateamcontractings" class="btn btn-outline">Or talk it through</a>
         </div>
         <div class="hero-stats">
           <div><div class="stat-num">1 min</div><div class="stat-label">Instant pricing</div></div>
           <div><div class="stat-num">100%</div><div class="stat-label">Family-owned</div></div>
           <div><div class="stat-num">24hr</div><div class="stat-label">We get back fast</div></div>
         </div>
+        <div class="trust-chips" aria-label="What you can count on">
+          <span class="trust-chip wide">House wash: if algae is back in 12 months, we reclean that wall free. Roof: 24 months on organic streaks.</span>
+          <span class="trust-chip">COI before we start</span>
+          <span class="trust-chip">Owner on site.</span>
+        </div>
       </div>
       <div class="hero-img-wrap">
-        <img src="/images/hero-driveway.webp" alt="Tipp City driveway before and after pressure washing by A-Team Contracting" width="900" height="617" fetchpriority="high" srcset="/images/hero-driveway-400.webp 400w, /images/hero-driveway-560.webp 560w, /images/hero-driveway.webp 900w" sizes="(max-width:900px) 46vw, 520px">
+        <img src="/images/hero-driveway.webp" alt="Tipp City driveway before and after pressure washing by A Team Contracting" width="900" height="617" fetchpriority="high" srcset="/images/hero-driveway-400.webp 400w, /images/hero-driveway-560.webp 560w, /images/hero-driveway.webp 900w" sizes="(max-width:900px) 46vw, 520px">
       </div>
     </div>
   </div>
@@ -416,7 +495,7 @@ footer ul li a:hover{color:#fff}
   <div class="container">
     <div class="section-label">The Receipts</div>
     <h2>Before. After. <em>Proof.</em></h2>
-    <p class="section-sub">Every job photographed. Every transformation real. Here's a sample of A-Team's exterior work.</p>
+    <p class="section-sub">Every job photographed. Every transformation real. Here's a sample of A Team's exterior work.</p>
     <div class="work-grid">
       <div class="work-item">
         <img src="/images/hero-driveway.webp" alt="Driveway pressure wash before and after Tipp City" width="900" height="617" loading="lazy" srcset="/images/hero-driveway-400.webp 400w, /images/hero-driveway-560.webp 560w, /images/hero-driveway.webp 900w" sizes="(max-width:900px) 46vw, 520px">
@@ -444,13 +523,9 @@ footer ul li a:hover{color:#fff}
       </div>
     </div>
     <div class="work-also">
-      <span class="work-also-item">🎨 Painting</span>
-      <span class="work-also-item">🛁 Bathroom Remodels</span>
-      <span class="work-also-item">🪵 Fence Work</span>
-      <span class="work-also-item">🧱 Paver &amp; Landscape Edging</span>
-      <span class="work-also-item">🏚️ Shed Restoration</span>
-      <span class="work-also-item">✨ Hardwood Floor Refinishing</span>
-      <span class="work-also-item">❓ Don't see it? Just ask</span>
+      <a class="work-also-item" href="/exterior-painting-tipp-city-ohio/">🎨 Exterior Painting &amp; Staining</a>
+      <a class="work-also-item" href="/commercial-pressure-washing-dayton-ohio/">🏢 Commercial Property</a>
+      <a class="work-also-item" href="/estimate/">❓ Other Services — Just Ask</a>
     </div>
     <div class="gallery-link-wrap">
       <a href="/gallery/" class="btn btn-orange">See All Before &amp; After Photos →</a>
@@ -466,14 +541,15 @@ footer ul li a:hover{color:#fff}
         <span class="about-label">Show up. No matter what.</span>
         <h2>Family-Owned.<br>Built On Showing Up.</h2>
         <div style="margin-top:1rem">
-          <p><strong>I'm Anthony Leonard.</strong> I built A-Team Contracting from the ground up by showing up every single day and doing the work. No shortcuts — just me, my crew, our tools, and the promise that jobs are done best when you work with A-Team.</p>
+          <p><strong>I'm Anthony Leonard.</strong> I built A Team Contracting from the ground up by showing up every single day and doing the work. No shortcuts — just me, my crew, our tools, and the promise that jobs are done best when you work with A Team.</p>
           <p>We're a family-owned business right here in Tipp City. The guy who answers the phone is the same guy who runs the estimate and clears the quality check on every job. That's me. That's the standard.</p>
           <p>Your job done right, my family at the dinner table. That's the goal every single day.</p>
+          <p><a href="/about/" style="font-weight:700;color:var(--navy);text-decoration:underline">More about me and how we work →</a></p>
         </div>
-        <div class="signature">— Anthony<span class="sig-title">Owner · A-Team Contracting</span></div>
+        <div class="signature">— Anthony<span class="sig-title">Owner · A Team Contracting</span></div>
       </div>
       <div class="about-img">
-        <img src="/images/about-work.webp" alt="A-Team Contracting work" width="700" height="700" loading="lazy" srcset="/images/about-work-450.webp 450w, /images/about-work.webp 700w" sizes="(max-width:900px) 92vw, 460px">
+        <img src="/images/about-work.webp" alt="A Team Contracting work" width="700" height="700" loading="lazy" srcset="/images/about-work-450.webp 450w, /images/about-work.webp 700w" sizes="(max-width:900px) 92vw, 460px">
       </div>
     </div>
   </div>
@@ -493,7 +569,7 @@ footer ul li a:hover{color:#fff}
       <div class="step">
         <div class="step-num" aria-hidden="true">2</div>
         <h3>Pick Your Time</h3>
-        <p>Book a spot that works for you. We confirm the exact price on site — full value first, then your A-Team discount. No games.</p>
+        <p>Book a spot that works for you. We confirm the exact price on site — full value first, then your A Team discount. No games.</p>
       </div>
       <div class="step">
         <div class="step-num" aria-hidden="true">3</div>
@@ -507,40 +583,76 @@ footer ul li a:hover{color:#fff}
   </div>
 </section>
 
+<!-- CLEAN CLUB -->
+<section id="clean-club">
+  <div class="container">
+    <div class="section-label">Clean Club</div>
+    <h2>Two Memberships. Ten Percent Off.</h2>
+    <p class="section-sub">Not a mystery price. Not “ask Anthony.” Pick the one that matches your place — 10% off the regular price of that work, on a set schedule. Final price still confirmed on site.</p>
+    <div class="club-grid">
+      <div class="club-card">
+        <div class="club-off">10% off</div>
+        <h3>Windows 2× / year</h3>
+        <p>Exterior glass, twice a year. You stay on the calendar. We show up. Ten percent off the regular window price — no invented dollar amount, just the discount.</p>
+      </div>
+      <div class="club-card">
+        <div class="club-off">10% off</div>
+        <h3>House + driveway, annual</h3>
+        <p>One house wash and the driveway, once a year, 10% off the regular combined price. The lock-in so you don’t watch the algae come back and start over.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:1.75rem">
+      <a href="/estimate/" class="btn btn-orange">BOOK THE WASH →</a>
+    </div>
+  </div>
+</section>
+
 <!-- REVIEWS -->
 <section id="reviews">
   <div class="container">
-    <div class="section-label">Why People Hire A-Team</div>
+    <div class="section-label">Why People Hire A Team</div>
     <h2>The People We've Worked For</h2>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p class="review-text">"Anthony showed up exactly when he said he would. Our driveway looks brand new. He walked us through every step and answered all my questions. Easiest contractor I've ever worked with."</p>
+        <p class="review-text">"Anthony did a great job! We just tried to clean the mold off our siding, but couldn't reach up to the top. We were lucky enough that A team contracting was in the neighborhood and stopped by. The best part was the price included cleaning the windows! Even the windows on the upper story. The house looks great!"</p>
         <div class="reviewer">
-          <div class="reviewer-initial">M</div>
-          <div><div class="reviewer-name">Mike R.</div><div class="reviewer-loc">Tipp City Homeowner</div></div>
+          <div class="reviewer-initial">T</div>
+          <div><div class="reviewer-name">Tara Koenig</div><div class="reviewer-loc">Google review</div></div>
         </div>
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p class="review-text">"Found A-Team on Nextdoor and I'm so glad I did. They washed our whole driveway, sidewalk, and back patio in one afternoon. The neighbors keep asking who did it. Telling everyone."</p>
+        <p class="review-text">"Anthony washed my entire house exterior. The mold that was forming on my siding is gone. I am happy to support local entrepreneurs and families like Anthony with the A Team. They provide a broad range of services and I've asked for a quote to refinish my deck."</p>
         <div class="reviewer">
-          <div class="reviewer-initial">J</div>
-          <div><div class="reviewer-name">Jen K.</div><div class="reviewer-loc">Vandalia, OH</div></div>
+          <div class="reviewer-initial">D</div>
+          <div><div class="reviewer-name">Denver Rex</div><div class="reviewer-loc">Google review</div></div>
         </div>
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p class="review-text">"Our siding was covered in green algae and I thought we'd need it replaced. The soft wash brought it right back. Clear pricing, clean work, stayed on schedule. Already booked the next job."</p>
+        <p class="review-text">"Anthony Leonard, the owner of A-Team Contracting, washed the exterior of my home. It looks amazing! My front door had not been cleaned in a very long time and looks great after Anthony washed it. I highly recommend his company and plan to use his services again."</p>
         <div class="reviewer">
-          <div class="reviewer-initial">S</div>
-          <div><div class="reviewer-name">Sarah T.</div><div class="reviewer-loc">Troy, OH</div></div>
+          <div class="reviewer-initial">K</div>
+          <div><div class="reviewer-name">Kathleen Conrad</div><div class="reviewer-loc">Google review</div></div>
         </div>
       </div>
     </div>
     <p style="text-align:center;margin-top:1.5rem;font-size:.9rem">
-      <a href="https://search.google.com/local/reviews?placeid=ChIJ9WZxhfcBzYoR2gQ4SyHDlVQ" target="_blank" rel="noopener" style="font-weight:700;color:var(--navy);text-decoration:underline">Read all our Google reviews →</a>
+      <a href="/reviews/" style="font-weight:700;color:var(--navy);text-decoration:underline">More reviews, word for word →</a>
+      &nbsp;&nbsp;·&nbsp;&nbsp;
+      <a href="https://search.google.com/local/reviews?placeid=ChIJ9WZxhfcBzYoR2gQ4SyHDlVQ" target="_blank" rel="noopener" style="font-weight:700;color:var(--navy);text-decoration:underline">All 32 on Google →</a>
     </p>
+
+    <!-- Nextdoor callout. His strongest local channel and it was linked
+         nowhere on the site until now. -->
+    <div class="nd-home">
+      <div>
+        <h3>Ask your own street</h3>
+        <p>A lot of our work starts with one neighbor telling another. If you'd rather hear it from someone a few doors down than from us, we're on Nextdoor.</p>
+      </div>
+      <a class="nd-home-btn" href="https://nextdoor.com/page/a-team-contracting-services" target="_blank" rel="noopener">Find us on Nextdoor →</a>
+    </div>
   </div>
 </section>
 
@@ -548,18 +660,18 @@ footer ul li a:hover{color:#fff}
 <section class="faq-section bg-off" id="faq">
   <div class="container">
     <div class="section-label">Got Questions</div>
-    <h2>Common Questions About A-Team</h2>
+    <h2>Common Questions About A Team</h2>
     <p class="section-sub">Straight answers — no runaround. If you don't see your question here, just call or text and I'll pick up.</p>
     <div class="faq-grid">
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How do I get a price from A-Team?</button>
+        <button class="faq-q" onclick="toggleFaq(this)">How do I get a price from A Team?</button>
         <div class="faq-a">Use our instant estimator at <a href="/estimate/">ateamcontractings.com/estimate</a> — answer a few questions, snap a photo of the area you need cleaned, and you'll see a ballpark price right away. No callback required. Or text Anthony directly at <a href="tel:+19379392936">(937) 939-2936</a> and he'll get right back to you.</div>
       </div>
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">What areas do you serve?</button>
-        <div class="faq-a">We're based in Tipp City, Ohio and serve the greater Dayton area including Troy, Vandalia, Huber Heights, Englewood, Fairborn, Beavercreek, Piqua, Covington, and surrounding communities. If you're not sure whether we come to you — just ask.</div>
+        <div class="faq-a">We're based in Tipp City, Ohio and serve the greater Dayton area including Troy, Vandalia, Huber Heights, Englewood, Fairborn, Beavercreek, Piqua, and surrounding communities. If you're not sure whether we come to you — just ask.</div>
       </div>
 
       <div class="faq-item">
@@ -574,7 +686,7 @@ footer ul li a:hover{color:#fff}
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Are you insured?</button>
-        <div class="faq-a">Yes. A-Team Contracting is fully insured. You can ask for proof of insurance any time — we're happy to provide it before the job starts. Peace of mind is part of what you're paying for.</div>
+        <div class="faq-a">Yes. A Team Contracting is fully insured. You can ask for proof of insurance any time — we're happy to provide it before the job starts. Peace of mind is part of what you're paying for.</div>
       </div>
 
       <div class="faq-item">
@@ -584,7 +696,7 @@ footer ul li a:hover{color:#fff}
 
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Do you offer discounts for bundling services?</button>
-        <div class="faq-a">Yes — bundling is the best deal we offer. Add window cleaning to a pressure wash or soft wash while we're already on-site and you'll save vs. booking each separately. We'll show you the full value and your A-Team discount when we give you the price.</div>
+        <div class="faq-a">Yes — bundling is the best deal we offer. Add window cleaning to a pressure wash or soft wash while we're already on-site and you'll save vs. booking each separately. We'll show you the full value and your A Team discount when we give you the price.</div>
       </div>
 
       <div class="faq-item">
@@ -599,11 +711,77 @@ footer ul li a:hover{color:#fff}
 <!-- FINAL CTA -->
 <section class="final-cta">
   <div class="container">
-    <h2>Ready To See Your Home Brand New?</h2>
-    <p>Get your instant price in under a minute, or book a time that works for you. No high-pressure sales call. No waiting around. Just clear pricing and a crew that shows up.</p>
-    <div class="final-cta-btns">
-      <a href="/estimate/" class="btn btn-orange">📸 GET MY INSTANT PRICE →</a>
-      <a href="https://calendly.com/owner-ateamcontractings" class="btn btn-outline">Book a Time</a>
+    <div class="cta-split">
+      <div>
+        <h2>Ready To See Your Home Brand New?</h2>
+        <p>Get your instant price in under a minute and book the wash. Final price is confirmed on site. No high-pressure sales call. No 30-minute meeting required.</p>
+        <div class="final-cta-btns">
+          <a href="/estimate/" class="btn btn-orange">📸 GET MY INSTANT PRICE →</a>
+          <a href="https://calendly.com/owner-ateamcontractings" class="btn btn-outline">Prefer to talk first?</a>
+        </div>
+        <!-- No arrow: the form is beside this on desktop and below it on mobile. -->
+        <div class="cta-or">Or just leave your number</div>
+      </div>
+
+      <!--
+        Short capture form. The estimator is still the main event — this is
+        here for the people who won't tap through a quiz but will give you
+        three fields. Plain Netlify Forms, same as /estimate/ and
+        /free-quote/: no fetch, no JSON, nothing that can silently swallow a
+        lead if a script fails to load.
+      -->
+      <form
+        class="qq"
+        name="quick-quote"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/thanks/"
+        data-lead-form>
+
+        <input type="hidden" name="form-name" value="quick-quote">
+        <p class="qq-hp" aria-hidden="true">
+          <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+
+        <!-- Ad attribution, written by /assets/lead-form.js. -->
+        <input type="hidden" name="source" value="">
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="click_id" value="">
+        <input type="hidden" name="landing_page" value="">
+        <input type="hidden" name="referrer" value="">
+
+        <h3>Rather We Just Called You?</h3>
+        <p class="qq-sub">Three boxes and you're done. Anthony calls back the same day, Mon–Sat.</p>
+
+        <label for="qq-name">Your name</label>
+        <input type="text" id="qq-name" name="name" required autocomplete="name" placeholder="Jordan Smith">
+
+        <label for="qq-phone">Best phone number</label>
+        <input type="tel" id="qq-phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(937) 555-0143">
+
+        <label for="qq-service">What needs doing?</label>
+        <select id="qq-service" name="services" required>
+          <option value="">Choose one…</option>
+          <option>Window cleaning</option>
+          <option>Pressure washing (driveway, patio, concrete)</option>
+          <option>House washing / soft washing</option>
+          <option>Roof cleaning</option>
+          <option>Gutter cleaning</option>
+          <option>Clean Club — windows 2× / year (10% off)</option>
+          <option>Clean Club — house + driveway annual (10% off)</option>
+          <option>Exterior painting</option>
+          <option>Commercial property</option>
+          <option>Something else</option>
+        </select>
+
+        <button type="submit" data-submit>GET MY FREE QUOTE →</button>
+        <p class="qq-fine">We'll only use your number to quote this job. No spam, no selling your info, ever.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -614,12 +792,9 @@ footer ul li a:hover{color:#fff}
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="footer-logo" src="/logo.webp" alt="A-Team Contracting" width="52" height="46">
-        <p>Family-owned exterior cleaning &amp; contracting in Tipp City, Ohio. Window cleaning, pressure washing, and soft washing — done right by Anthony Leonard and the A-Team crew.</p>
-        <span class="footer-tagline">Jobs are done best with A-Team!</span>
-        <a href="https://www.bbb.org/us/oh/tipp-city/profile/contractor/a-team-contracting-0322-1440107933" target="_blank" rel="noopener" style="display:inline-block;margin-top:.75rem" aria-label="View A-Team Contracting BBB Accredited Business Profile">
-          <iframe title="A-Team Contracting BBB Accreditation Seal" border="0" frameborder="0" style="border: 0; height: 80px; width: 280px;" src="https://seal-dayton.bbb.org/frame/blue-seal-280-80-bbb-1440107933.png?chk=24DDBE2D4A"></iframe>
-        </a>
+        <img class="footer-logo" src="/logo.webp" alt="A Team Contracting" width="52" height="46">
+        <p>Family-owned exterior cleaning &amp; contracting in Tipp City, Ohio. Window cleaning, pressure washing, and soft washing — done right by Anthony Leonard and the A Team crew.</p>
+        <span class="footer-tagline">Jobs are done best with A Team!</span>
       </div>
       <div>
         <h3>Services</h3>
@@ -630,35 +805,58 @@ footer ul li a:hover{color:#fff}
           <li><a href="/gutter-cleaning-tipp-city-ohio/">Gutter Cleaning</a></li>
           <li><a href="/roof-cleaning-tipp-city-ohio/">Roof Cleaning</a></li>
           <li><a href="/concrete-cleaning-tipp-city-ohio/">Concrete Cleaning</a></li>
+          <li><a href="/exterior-painting-tipp-city-ohio/">Exterior Painting</a></li>
+          <li><a href="/commercial-pressure-washing-dayton-ohio/">Commercial</a></li>
           <li><a href="/gallery/">Before &amp; After</a></li>
-          <li><a href="#services">Painting</a></li>
-          <li><a href="#services">Bathroom Remodels</a></li>
-          <li><a href="#services">Hardwood Refinishing</a></li>
         </ul>
       </div>
       <div>
         <h3>Service Area</h3>
         <ul>
-          <li><span>Tipp City, OH</span></li>
-          <li><span>Troy, OH</span></li>
-          <li><span>Vandalia, OH</span></li>
-          <li><span>Huber Heights, OH</span></li>
-          <li><span>Dayton, OH</span></li>
-          <li><span>Piqua, OH</span></li>
-          <li><span>Beavercreek, OH</span></li>
+          <li><a href="/pressure-washing-tipp-city-ohio/">Tipp City, OH</a></li>
+          <li><a href="/troy-ohio/">Troy, OH</a></li>
+          <li><a href="/vandalia-ohio/">Vandalia, OH</a></li>
+          <li><a href="/huber-heights-ohio/">Huber Heights, OH</a></li>
+          <li><a href="/house-washing-dayton-ohio/">Dayton, OH</a></li>
+          <li><a href="/pressure-washing-piqua-ohio/">Piqua, OH</a></li>
+          <li><a href="/fairborn-ohio/">Fairborn, OH</a></li>
+          <li><a href="/beavercreek-ohio/">Beavercreek, OH</a></li>
+          <li><a href="/englewood-ohio/">Englewood, OH</a></li>
         </ul>
       </div>
       <div>
-        <h3>Get In Touch</h3>
+        <h3>Resources</h3>
         <ul>
+          <li><a href="/pressure-washing-cost-ohio/">Pressure Washing Prices</a></li>
+          <li><a href="/soft-washing-vs-pressure-washing/">Soft Wash vs. Pressure Wash</a></li>
+          <li><a href="/blog/">Blog &amp; Guides</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
           <li><a href="tel:+19379392936">(937) 939-2936</a></li>
           <li><a href="mailto:Owner@ateamcontractings.com">Owner@ateamcontractings.com</a></li>
-          <li><span>Mon–Sat: 7am – 7pm</span></li>
+          <li><span>Mon–Sat: 7am – 7pm ET · Sunday closed</span></li>
           <li style="margin-top:.75rem"><a href="/estimate/" style="background:var(--orange-dark);color:#fff;padding:.5rem .85rem;border-radius:5px;font-size:.82rem;font-weight:700;display:inline-block">Get a Price →</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 A-Team Contracting. All rights reserved. Built &amp; run by Anthony Leonard, Tipp City, OH</div>
+    <p style="font-size:.82rem;color:rgba(255,255,255,.6);margin-bottom:1rem">Bathroom remodels, hardwood refinishing, fence work, paver edging, shed restoration and other odd jobs — <a href="/estimate/" style="color:var(--orange-on-dark);font-weight:700">just ask</a>.</p>
+    <div class="footer-bottom">© 2026 A Team Contracting. All rights reserved. Built &amp; run by Anthony Leonard, Tipp City, OH</div>
+  </div>
+  <div class="container">
+    <div class="footer-trust">
+      <p class="footer-nap"><strong>A Team Contracting</strong> &middot; Tipp City, OH &middot; <a href="tel:+19379392936">(937) 939-2936</a></p>
+      <ul class="footer-social">
+        <li><a href="https://g.page/r/CdoEOEshw5VUEAE/" target="_blank" rel="noopener" aria-label="A Team Contracting on Google">Google</a></li>
+        <li><a href="https://www.facebook.com/Ateam937" target="_blank" rel="noopener" aria-label="A Team Contracting on Facebook">Facebook</a></li>
+        <li><a href="https://www.instagram.com/ateamcontractings/" target="_blank" rel="noopener" aria-label="A Team Contracting on Instagram">Instagram</a></li>
+        <li><a href="https://nextdoor.com/page/a-team-contracting-services" target="_blank" rel="noopener" aria-label="A Team Contracting on Nextdoor">Nextdoor</a></li>
+        <li><a href="https://www.yelp.com/biz/a-team-contracting-tipp-city" target="_blank" rel="noopener" aria-label="A Team Contracting on Yelp">Yelp</a></li>
+        <li><a href="https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933" target="_blank" rel="noopener" aria-label="A Team Contracting on BBB">BBB</a></li>
+      </ul>
+      <a class="footer-seal" href="https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933/#sealclick" target="_blank" rel="noopener nofollow">
+        <img src="https://seal-dayton.bbb.org/seals/blue-seal-293-61-whitetxt-bbb-1440107933.png" width="293" height="61" loading="lazy" alt="A Team Contracting is BBB Accredited with an A+ Rating">
+      </a>
+    </div>
   </div>
 </footer>
 
@@ -681,6 +879,7 @@ document.querySelectorAll('.mobile-drawer a').forEach(a=>{
   });
 });
 </script>
+<script src="/assets/lead-form.js" defer></script>
 
 <script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNmEzNThiNmUxYmU5NjA1MmZjZjg1MSIsImlzc3VlciI6Im5mc2VydmVyIn0._PWQ89AWXxGkKkQEcrxFQpPvqBiriXRhAlli0jacVao"></script>
 </body>
