@@ -175,6 +175,19 @@ def _validate(data: dict) -> None:
                 "Google suppresses those posts and Nextdoor reads them as ads."
             )
 
+    # Messages addressed to Ant must not land inside protected family time.
+    # The original brief contradicted itself here, asking for a 6pm text inside
+    # a 5-7pm quiet window, so this is checked rather than assumed. Publish
+    # times are deliberately not checked: an automated post interrupts nobody.
+    approvals = data["approvals"]
+    quiet_start, quiet_end = approvals["quiet_hours"]
+    for batch in approvals["batch_times"]:
+        if quiet_start <= batch < quiet_end:
+            raise ConfigError(
+                f"approval batch at {batch} falls inside quiet hours "
+                f"{quiet_start}-{quiet_end}; that window is Ant's family time"
+            )
+
     assets = data["assets"]
     if assets["logo_web_1200_id"] == assets["logo_master_id_DO_NOT_USE"]:
         raise ConfigError("logo_web_1200_id is pointing at the gray-background master")

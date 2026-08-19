@@ -99,8 +99,14 @@ content_mix:
 
 approvals:
   mode: tap_link                      # decided Aug 6. twilio_sms is the later addition.
-  batch_times: ["07:00", "18:00"]
-  # Protected family time. The system exists to defend this, not interrupt it.
+  # The brief asked for 07:00 and 18:00, but 18:00 sits inside the protected
+  # 17:00-19:00 window the same brief defines. Ant resolved it on Aug 18: the
+  # evening batch moves to 19:00, the moment family time ends.
+  #
+  # Publish times are untouched. Facebook still goes out at 17:30 and Nextdoor
+  # at 18:00 during that window, because those are automated and interrupt
+  # nobody. Only messages addressed to Ant have to respect quiet hours.
+  batch_times: ["07:00", "19:00"]
   quiet_hours: ["17:00", "19:00"]
 
   # OFF at Ant's request, Aug 18. Nothing publishes without his explicit yes.
