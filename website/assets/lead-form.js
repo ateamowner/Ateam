@@ -18,7 +18,7 @@
  *      trigger and copy the URL it gives you.
  *   2. Paste it into ZAPIER_WEBHOOK_URL below and redeploy.
  *   3. Add an SMS action (Twilio, ClickSend, or Zapier's own SMS) sending to
- *      (937) 939-2936. Useful fields: name, phone, city, services, timeline,
+ *      (937) 777-9093. Useful fields: name, phone, city, services, timeline,
  *      source.
  * Leaving it blank is fine and fully supported — see README.
  */
