@@ -1,3 +1,17 @@
 https://www.ateamcontractings.com/*  https://ateamcontractings.com/:splat  301!
 http://ateamcontractings.com/*       https://ateamcontractings.com/:splat  301!
 http://www.ateamcontractings.com/*   https://ateamcontractings.com/:splat  301!
+
+# Power washing is an alias of pressure washing — no empty duplicate pages.
+/power-washing/                              /pressure-washing-tipp-city-ohio/  301
+/power-washing-tipp-city-ohio/               /pressure-washing-tipp-city-ohio/  301
+/power-washing-troy-ohio/                    /pressure-washing-troy-ohio/  301
+/power-washing-vandalia-ohio/                /pressure-washing-vandalia-ohio/  301
+/power-washing-huber-heights-ohio/           /pressure-washing-huber-heights-ohio/  301
+/power-washing-fairborn-ohio/                /pressure-washing-fairborn-ohio/  301
+/power-washing-beavercreek-ohio/             /pressure-washing-beavercreek-ohio/  301
+/power-washing-englewood-ohio/               /pressure-washing-englewood-ohio/  301
+/power-washing-piqua-ohio/                   /pressure-washing-piqua-ohio/  301
+
+# Painting services is the searchable name for the existing Tipp painting page.
+/painting-services/                          /exterior-painting-tipp-city-ohio/  301
