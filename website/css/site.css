@@ -223,3 +223,17 @@ td strong{color:var(--navy)}
 .club-card p{font-size:.87rem;color:var(--text-muted);line-height:1.6}
 .est-club .club-grid{margin-top:.85rem}
 .est-club .club-card{box-shadow:none}
+
+/* SEAL COATING CALCULATOR — a real sqft x $2 live calculator, not the
+   tier-lookup pricing the /estimate/ quiz uses for its other add-ons. */
+.calc-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;box-shadow:var(--shadow);max-width:520px}
+.calc-field label{display:block;font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
+.calc-field input[type=number]{width:100%;font-family:inherit;font-size:1.1rem;font-weight:700;color:var(--navy);padding:.75rem .85rem;border:1.5px solid var(--border);border-radius:6px}
+.calc-field input[type=number]:focus{outline:none;border-color:var(--orange-dark);box-shadow:0 0 0 3px rgba(194,73,28,.15)}
+.calc-field input[type=range]{width:100%;margin-top:.6rem;accent-color:var(--orange-dark)}
+.calc-result{display:flex;justify-content:space-between;align-items:baseline;margin:1.25rem 0;padding-top:1.25rem;border-top:1px solid var(--border)}
+.calc-result-label{font-size:.85rem;color:var(--text-muted);font-weight:600}
+.calc-result-price{font-family:'Anton',sans-serif;font-size:2.1rem;color:var(--orange-on-light);line-height:1}
+.calc-note{font-size:.8rem;color:var(--text-muted);line-height:1.6;margin-bottom:1.25rem}
+.calc-cta{display:block;width:100%;text-align:center;background:var(--orange-dark);color:#fff;font-family:inherit;font-size:.98rem;font-weight:800;padding:.9rem;border:none;border-radius:var(--radius);cursor:pointer;transition:background .15s}
+.calc-cta:hover{background:var(--orange-darker)}

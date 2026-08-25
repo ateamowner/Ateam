@@ -15,3 +15,9 @@ http://www.ateamcontractings.com/*   https://ateamcontractings.com/:splat  301!
 
 # Painting services is the searchable name for the existing Tipp painting page.
 /painting-services/                          /exterior-painting-tipp-city-ohio/  301
+
+# Sealcoating was rebuilt with a real $2/sq ft calculator and a full 7-city
+# footprint at /seal-coating-*-ohio/ (hyphenated) — the old one-word URLs
+# redirect to the new Tipp City page.
+/sealcoating/                                /seal-coating-tipp-city-ohio/  301
+/sealcoating-tipp-city-ohio/                 /seal-coating-tipp-city-ohio/  301
