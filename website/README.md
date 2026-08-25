@@ -270,7 +270,7 @@ Past that it needs a paid forms plan — worth watching if the ads scale.
 Email is slow when someone is comparing three contractors. To get a text
 instead, open `assets/lead-form.js` and paste a Zapier **Catch Hook** URL into
 `ZAPIER_WEBHOOK_URL` at the top, then add an SMS action in Zapier pointing at
-(937) 939-2936. Useful fields: `name`, `phone`, `city`, `services`,
+(937) 777-9093. Useful fields: `name`, `phone`, `city`, `services`,
 `timeline`, `source`.
 
 This is strictly additive. If the webhook is never configured, fails, or is
@@ -443,7 +443,7 @@ contractor's and should.
   Nextdoor). Those are their URLs, not our name; never rewrite them.
   If Google Business Profile still shows the hyphen, that is the one
   remaining NAP mismatch and it needs changing there, not here.
-- **One phone number sitewide: (937) 939-2936.** NAP consistency is a local
+- **One phone number sitewide: (937) 777-9093.** NAP consistency is a local
   ranking signal; a second number anywhere (site, GBP, Nextdoor, Facebook,
   BBB, Yelp, invoices) actively suppresses Map Pack position.
 - **Profile URLs live in two places that must agree**: the `sameAs` array in

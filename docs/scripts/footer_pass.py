@@ -34,7 +34,7 @@ PROFILES = [
 ]
 
 TRUST = """  <div class="footer-trust">
-    <p class="footer-nap"><strong>A Team Contracting</strong> &middot; Tipp City, OH &middot; <a href="tel:+19379392936">(937) 939-2936</a></p>
+    <p class="footer-nap"><strong>A Team Contracting</strong> &middot; Tipp City, OH &middot; <a href="tel:+19377779093">(937) 777-9093</a></p>
     <ul class="footer-social">
 %s
     </ul>

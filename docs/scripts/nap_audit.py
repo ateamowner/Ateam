@@ -14,8 +14,8 @@ which is the single most common cause of a local pack ranking stalling.
 import re, json, pathlib, html as H, sys, collections
 
 NAME   = "A Team Contracting"
-PHONE  = "(937) 939-2936"
-TEL    = "tel:+19379392936"
+PHONE  = "(937) 777-9093"
+TEL    = "tel:+19377779093"
 EMAIL  = "Owner@ateamcontractings.com"
 CITY, REGION, ZIP = "Tipp City", "OH", "45371"
 

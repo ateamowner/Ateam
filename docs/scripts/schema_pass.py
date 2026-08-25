@@ -34,7 +34,7 @@ BUSINESS = {
     "@id": BUSINESS_ID,
     "name": "A Team Contracting",
     "url": "https://ateamcontractings.com/",
-    "telephone": "(937) 939-2936",
+    "telephone": "(937) 777-9093",
     "email": "Owner@ateamcontractings.com",
     "image": "https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp",
     "logo": "https://ateamcontractings.com/logo.webp",

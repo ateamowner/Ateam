@@ -69,7 +69,7 @@ point of the message.
 >
 > Thanks,
 > Anthony Leonard
-> A Team Contracting · (937) 939-2936
+> A Team Contracting · (937) 777-9093
 
 ---
 

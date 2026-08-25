@@ -9,7 +9,7 @@ const PLAN = {
     tagline: "Workflow Optimization · Automation · Growth Timeline",
     preparedFor: "Anthony Leonard, Owner",
     location: "Tipp City, Ohio · Serving Greater Dayton",
-    contact: "(937) 939-2936 · Owner@ateamcontractings.com · ateamcontractings.com",
+    contact: "(937) 777-9093 · Owner@ateamcontractings.com · ateamcontractings.com",
     quote: "“Jobs are done best when you work with A-Team!”",
     // Day 1 of the 90-day clock. Change this if the plan's start date shifts.
     startDate: "2026-07-26",
@@ -78,7 +78,7 @@ const PLAN = {
   automationTable: {
     headers: ["Automation / Zap", "Trigger", "Action", "Status"],
     rows: [
-      ["AI phone receptionist", "Inbound call to (937) 939-2936", "AIRA answers, qualifies, logs to Lead Tracker", "Live"],
+      ["AI phone receptionist", "Inbound call to (937) 777-9093", "AIRA answers, qualifies, logs to Lead Tracker", "Live"],
       ["Lead Tracker as system of record", "New lead from any source", "Row created in Google Sheet with source, contact, service requested", "Live"],
       ["Website/DM capture", "Form submit or social DM", "Auto-routed into Lead Tracker with source tag", "Build"],
       ["Zap 1 — Instant reply", "New row in Lead Tracker", "Auto-text/email within 5 minutes", "Confirm live"],
