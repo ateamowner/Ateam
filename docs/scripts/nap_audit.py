@@ -19,6 +19,14 @@ TEL    = "tel:+19377779093"
 EMAIL  = "Owner@ateamcontractings.com"
 CITY, REGION, ZIP = "Tipp City", "OH", "45371"
 
+# Derived from PHONE, never written out by hand. This pattern used to be a
+# literal, and when the number changed it kept matching the *old* one — so it
+# found nothing, `phone formats found:` printed "none", and the format-drift
+# check below silently never fired. Deriving it means one constant moves and
+# the scan follows.
+_D = re.sub(r'\D', '', PHONE)
+PHONE_RE = rf'\(?{_D[:3]}\)?[\s.\-]?\s?{_D[3:6]}[\s.\-]?{_D[6:]}'
+
 errors, warns = [], []
 def err(p, m):  errors.append((str(p), m))
 def warn(p, m): warns.append((str(p), m))
@@ -28,6 +36,7 @@ pages = sorted(p for p in pathlib.Path('.').rglob('index.html') if 'node_modules
 phone_formats = collections.Counter()
 name_variants = collections.Counter()
 biz_nodes     = []
+pages_showing_phone = 0   # ground truth for the PHONE_RE self-check below
 
 for p in pages:
     h = p.read_text()
@@ -55,7 +64,7 @@ for p in pages:
 
     # ---- PHONE ------------------------------------------------------
     display = re.sub(r'(href|src)="(tel|sms|mailto):[^"]*"', ' ', h)
-    for m in re.finditer(r'\(?937\)?[\s.\-]?\s?939[\s.\-]?2936', display):
+    for m in re.finditer(PHONE_RE, display):
         phone_formats[m.group(0)] += 1
     for m in re.finditer(r'href="tel:([^"]*)"', h):
         if m.group(1) != TEL.split(':', 1)[1]:
@@ -63,6 +72,8 @@ for p in pages:
     # a phone number that is displayed but not tappable on mobile
     if PHONE in h and 'tel:' not in h:
         warn(p, "displays the phone number but has no tel: link")
+    if PHONE in h:
+        pages_showing_phone += 1
 
     # ---- ADDRESS ----------------------------------------------------
     if 'streetAddress' in h:
@@ -112,6 +123,17 @@ if biz_nodes:
 print(f"{len(pages)} pages | {len(biz_nodes)} business nodes\n")
 print("phone formats found:", dict(phone_formats) or "none")
 print("name variants found:", dict(name_variants) or "none")
+
+# A detector that matches nothing must not read the same as a clean pass.
+# This exact failure shipped once: PHONE_RE was a literal, the number changed,
+# the scan quietly matched zero, and "phone formats found: none" sat in the
+# output looking like good news while the drift check below was dead.
+if not phone_formats and pages_showing_phone:
+    errors.append(("(sitewide)",
+                   f"phone-format scan matched 0 instances, but PHONE is displayed on "
+                   f"{pages_showing_phone} page(s) — PHONE_RE is not matching the real "
+                   f"number, so the format-drift check is not actually running"))
+
 if len(phone_formats) > 1:
     errors.append(("(sitewide)", f"phone rendered in {len(phone_formats)} different formats: {dict(phone_formats)}"))
 if len(name_variants) > 1:
