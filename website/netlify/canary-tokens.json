@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "token": "76238a35d247275ff230f462104611583457c4d119eba3c8e8bb31a11f00e990",
+    "label": "CANARY-01"
+  },
+  {
+    "id": 2,
+    "token": "e9945671f6f8aa7af88c457d00efedc0d71eb3f82f2061b1ab5382785d6f2dd9",
+    "label": "CANARY-02"
+  },
+  {
+    "id": 3,
+    "token": "00a88a83aa578d385f948ed414be20aa01850a76f0892c90a6aef16c98e70460",
+    "label": "CANARY-03"
+  },
+  {
+    "id": 4,
+    "token": "e9e9411a0bb36a22032a098075b70682ef9daffe7519698a79a9f0ec9ae164ee",
+    "label": "CANARY-04"
+  },
+  {
+    "id": 5,
+    "token": "de9b90d5b22c15ba4186e50dfad306b352ccdd1e6b548c57bc2fb9421546a1fe",
+    "label": "CANARY-05"
+  },
+  {
+    "id": 6,
+    "token": "b247809e1526244903de4e1253ca129f4002964fc18cc1df8d914834f0156434",
+    "label": "CANARY-06"
+  },
+  {
+    "id": 7,
+    "token": "ba31234220946473e5fd98eaecc57ab55f285a8d5c37a3fdaa4b4009b887cba0",
+    "label": "CANARY-07"
+  },
+  {
+    "id": 8,
+    "token": "9fc65b90d4a83350288e8bb9b0f9eaff834401e37aac2ffe91c8ad61ccd3dc2b",
+    "label": "CANARY-08"
+  },
+  {
+    "id": 9,
+    "token": "e84b26d5579d3c74a1a5305516c34b1400aa64d0b929fbc3f1ef416380964de0",
+    "label": "CANARY-09"
+  },
+  {
+    "id": 10,
+    "token": "5750b1bd29cdb6fc3737afefb985131827eceb80c85e1c6d0d5204aae1b0c5df",
+    "label": "CANARY-10"
+  }
+]
