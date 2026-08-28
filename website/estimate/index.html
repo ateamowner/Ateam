@@ -41,13 +41,13 @@
 .est-label{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-on-light);margin-bottom:.4rem}
 .est-card h2{font-family:'Archivo Black',sans-serif;font-size:clamp(1.35rem,3.2vw,1.75rem);margin-bottom:.4rem}
 .est-card p.est-hint{font-size:.88rem;color:var(--text-muted);line-height:1.6;margin-bottom:1.1rem}
-.est-opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:.95rem;font-weight:700;color:var(--navy);background:#fff;border:2px solid var(--border);border-radius:10px;padding:.9rem 1.1rem;margin-bottom:.6rem;cursor:pointer;transition:border-color .15s,background .15s,transform .1s}
+.est-opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:.95rem;font-weight:700;color:var(--navy);background:#fff;border:2px solid var(--border);border-radius:10px;padding:.9rem 1.1rem;margin-bottom:.6rem;cursor:pointer;transition:border-color .15s,background .15s,transform .1s;min-height:48px}
 .est-opt:hover{border-color:var(--cyan);background:var(--off-white)}
 .est-opt:active{transform:scale(.995)}
 .est-opt[aria-pressed=true],.est-opt.active{border-color:var(--cyan);background:#e8f7fa}
 .est-opt .est-row{display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .est-opt .est-price{font-family:'Archivo Black',sans-serif;font-size:1.05rem;color:var(--orange-on-light)}
-.est-go{width:100%;background:var(--orange-dark);color:#fff;font-family:inherit;font-size:1rem;font-weight:800;padding:.95rem;border:none;border-radius:var(--radius);cursor:pointer;margin-top:.5rem;transition:background .15s}
+.est-go{width:100%;background:var(--orange-dark);color:#fff;font-family:inherit;font-size:1rem;font-weight:800;padding:.95rem;border:none;border-radius:var(--radius);cursor:pointer;margin-top:.5rem;transition:background .15s;min-height:52px}
 .est-go:hover{background:var(--orange-darker)}
 .est-go[disabled]{opacity:.5;cursor:not-allowed}
 .est-back{width:100%;background:none;border:none;font-family:inherit;font-size:.85rem;font-weight:700;color:var(--text-muted);padding:.7rem;cursor:pointer;margin-top:.25rem}
@@ -60,7 +60,7 @@
 .est-preview{width:100%;border-radius:12px;border:2px solid var(--cyan);margin-bottom:.75rem}
 .est-field{margin-bottom:.9rem}
 .est-field label{display:block;font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
-.est-field input{width:100%;font-family:inherit;font-size:.95rem;padding:.75rem .85rem;border:1.5px solid var(--border);border-radius:6px}
+.est-field input{width:100%;font-family:inherit;font-size:16px;padding:.75rem .85rem;border:1.5px solid var(--border);border-radius:6px;min-height:48px}
 .est-field input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(43,184,208,.18)}
 .est-line{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;margin-top:.5rem}
 .est-line.total{border-top:1px solid var(--border);margin-top:1rem;padding-top:.85rem;font-weight:700}
@@ -82,6 +82,26 @@
 /* Shown only if JS is unavailable — the form still works, just without the quiz. */
 .est-nojs{background:var(--off-white);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-bottom:1.25rem}
 .est-nojs p{font-size:.9rem;color:var(--text-muted)}
+.est-floors{text-align:left;margin:1.15rem 0 0;padding:1rem 1.05rem;background:var(--off-white);border:1px solid var(--border);border-left:4px solid var(--cyan);border-radius:8px}
+.est-floors p{font-size:.8rem;color:var(--text-muted);line-height:1.6;margin:0}
+.est-floors p+p{margin-top:.55rem}
+.est-floors strong{color:var(--navy)}
+@media(max-width:768px){
+  .est-wrap{max-width:100%;overflow-x:hidden}
+  .est-card{padding:1.25rem 1rem;overflow-x:hidden}
+  .est-opt{min-height:52px;padding:1rem 1.05rem;font-size:1rem}
+  .est-opt .est-row{flex-wrap:wrap;gap:.35rem .75rem}
+  .est-go{
+    position:sticky;
+    bottom:calc(76px + env(safe-area-inset-bottom));
+    z-index:5;
+    min-height:52px;
+    box-shadow:0 -6px 16px rgba(0,0,0,.08)
+  }
+  .est-drop{padding:1.5rem .75rem;min-height:120px}
+  .est-field input,.est-field label{max-width:100%}
+  .est-line{flex-wrap:wrap}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Get an Instant Price","url":"https://ateamcontractings.com/estimate/","description":"Instant ballpark pricing for window cleaning, pressure washing and soft washing in Tipp City and the Dayton area.","provider":{"@id":"https://ateamcontractings.com/#business"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ateamcontractings.com/"},{"@type":"ListItem","position":2,"name":"Get an Instant Price","item":"https://ateamcontractings.com/estimate/"}]}</script>
@@ -215,6 +235,10 @@
             <h2 style="font-size:clamp(1.6rem,5vw,2.2rem)">Real pricing, right now</h2>
             <p class="est-hint">Four quick taps and an optional photo. You'll see an itemized ballpark before you give us a single detail about yourself.</p>
             <button type="button" class="est-go" data-go="1">START MY ESTIMATE →</button>
+            <div class="est-floors">
+              <p><strong>Published starting floors:</strong> windows / homes start at $99 · gutters start at $99 · roof washes start at $499.</p>
+              <p>Estimator windows: small $143 · medium $186 · large $244 · xl $330 (×1.45 if two-story). Driveway $143 / $215 / $287 / $388. Siding softwash $287 / $402 / $532 / $719. Roof $431 / $575 / $791 / $1,079. 12% bundle when a wash is added. Ballpark shown as 0.90–1.12 of the computed number. The on-site number is confirmed before work starts.</p>
+            </div>
             <p class="est-fine">Family-owned · We show up no matter what</p>
           </div>
         </div>

@@ -33,6 +33,7 @@
 .filter-btn{background:#f0f0f0;color:#555;border:2px solid transparent;padding:8px 18px;border-radius:100px;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
 .filter-btn:hover{background:#e0e0e0;color:#1a1a1a}
 .filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.filter-btn{min-height:40px}
 .gallery-section{padding:40px 20px 60px}
 .gallery-inner{max-width:1180px;margin:0 auto}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
@@ -154,6 +155,17 @@
     <button class="filter-btn" onclick="filterGallery(this,'window')">Window Cleaning</button>
     <button class="filter-btn" onclick="filterGallery(this,'gutter')">Gutter Cleaning</button>
     <button class="filter-btn" onclick="filterGallery(this,'other')">Other Services</button>
+    <span class="filter-label">City:</span>
+    <button class="filter-btn" onclick="filterGallery(this,'city','tipp-city')">Tipp City</button>
+    <button class="filter-btn" onclick="filterGallery(this,'city','centerville')">Centerville</button>
+    <button class="filter-btn" onclick="filterGallery(this,'city','dayton')">Dayton</button>
+    <button class="filter-btn" onclick="filterGallery(this,'city','huber-heights')">Huber Heights</button>
+    <button class="filter-btn" onclick="filterGallery(this,'city','beavercreek')">Beavercreek</button>
+    <button class="filter-btn" onclick="filterGallery(this,'city','fairborn')">Fairborn</button>
+    <button class="filter-btn" onclick="filterGallery(this,'city','troy')">Troy</button>
+    <button class="filter-btn" onclick="filterGallery(this,'city','vandalia')">Vandalia</button>
+    <button class="filter-btn" onclick="filterGallery(this,'city','springboro')">Springboro</button>
+    <button class="filter-btn" onclick="filterGallery(this,'city','miamisburg')">Miamisburg</button>
   </div>
 </div>
 
@@ -161,7 +173,7 @@
   <div class="gallery-inner">
     <div class="gallery-grid" id="gallery-grid">
 
-      <div class="gallery-card" data-cat="pressure" data-idx="0" onclick="openLightbox(0)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="pressure" data-idx="0" onclick="openLightbox(0)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-pressure-wash-1.webp" width="900" height="617" alt="Walkway &amp; Steps before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -175,7 +187,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="1" onclick="openLightbox(1)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="pressure" data-idx="1" onclick="openLightbox(1)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-pressure-wash-2.webp" width="900" height="617" alt="Driveway Pressure Wash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -189,7 +201,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="2" onclick="openLightbox(2)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="pressure" data-idx="2" onclick="openLightbox(2)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-pressure-wash-3.webp" width="900" height="617" alt="Concrete Patio Clean before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -203,7 +215,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="3" onclick="openLightbox(3)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="pressure" data-idx="3" onclick="openLightbox(3)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-pressure-wash-4.webp" width="900" height="617" alt="Sidewalk Pressure Wash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -217,7 +229,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="4" onclick="openLightbox(4)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="soft" data-idx="4" onclick="openLightbox(4)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-softwash-1.webp" width="900" height="617" alt="Vinyl Siding Softwash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -231,7 +243,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="5" onclick="openLightbox(5)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="soft" data-idx="5" onclick="openLightbox(5)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-softwash-2.webp" width="900" height="617" alt="Siding Softwash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -245,7 +257,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="6" onclick="openLightbox(6)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="soft" data-idx="6" onclick="openLightbox(6)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-softwash-3.webp" width="900" height="617" alt="Under-Deck Softwash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -259,7 +271,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="7" onclick="openLightbox(7)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="soft" data-idx="7" onclick="openLightbox(7)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-softwash-4.webp" width="900" height="617" alt="Full House Softwash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -273,7 +285,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="8" onclick="openLightbox(8)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="soft" data-idx="8" onclick="openLightbox(8)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-softwash-5.webp" width="900" height="617" alt="Roofline &amp; Panel Softwash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -287,7 +299,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="9" onclick="openLightbox(9)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="soft" data-idx="9" onclick="openLightbox(9)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-softwash-6.webp" width="900" height="617" alt="Eave &amp; Soffit Softwash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -301,7 +313,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="10" onclick="openLightbox(10)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="soft" data-idx="10" onclick="openLightbox(10)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-softwash-7.webp" width="900" height="617" alt="Siding Softwash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -315,7 +327,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="window" data-idx="11" onclick="openLightbox(11)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="window" data-idx="11" onclick="openLightbox(11)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-window-cleaning-1.webp" width="768" height="1431" alt="Window Cleaning before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Window Cleaning</span>
@@ -329,7 +341,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="12" onclick="openLightbox(12)">
+      <div class="gallery-card" data-city="centerville" data-cat="pressure" data-idx="12" onclick="openLightbox(12)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-1.webp" width="900" height="900" alt="Landscaping Area Wash before and after — Centerville, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -343,7 +355,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="13" onclick="openLightbox(13)">
+      <div class="gallery-card" data-city="dayton" data-cat="pressure" data-idx="13" onclick="openLightbox(13)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-2.webp" width="900" height="900" alt="Driveway Transformation before and after — Dayton, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -357,7 +369,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="14" onclick="openLightbox(14)">
+      <div class="gallery-card" data-city="huber-heights" data-cat="pressure" data-idx="14" onclick="openLightbox(14)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-3.webp" width="900" height="900" alt="Garage Driveway Clean before and after — Huber Heights, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -371,7 +383,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="15" onclick="openLightbox(15)">
+      <div class="gallery-card" data-city="beavercreek" data-cat="pressure" data-idx="15" onclick="openLightbox(15)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-4.webp" width="900" height="900" alt="Curved Walkway Clean before and after — Beavercreek, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -385,7 +397,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="16" onclick="openLightbox(16)">
+      <div class="gallery-card" data-city="fairborn" data-cat="pressure" data-idx="16" onclick="openLightbox(16)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-5.webp" width="900" height="900" alt="Pool Deck Pressure Wash before and after — Fairborn, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -399,7 +411,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="17" onclick="openLightbox(17)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="pressure" data-idx="17" onclick="openLightbox(17)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-6.webp" width="900" height="900" alt="Brick Paver Patio before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -413,7 +425,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="18" onclick="openLightbox(18)">
+      <div class="gallery-card" data-city="troy" data-cat="pressure" data-idx="18" onclick="openLightbox(18)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-7.webp" width="900" height="900" alt="Side Walkway Clean before and after — Troy, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -427,7 +439,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="19" onclick="openLightbox(19)">
+      <div class="gallery-card" data-city="vandalia" data-cat="pressure" data-idx="19" onclick="openLightbox(19)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-8.webp" width="900" height="900" alt="Driveway Full Clean before and after — Vandalia, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -441,7 +453,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="20" onclick="openLightbox(20)">
+      <div class="gallery-card" data-city="springboro" data-cat="soft" data-idx="20" onclick="openLightbox(20)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-9.webp" width="900" height="900" alt="Two-Story Siding Softwash before and after — Springboro, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -455,7 +467,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="21" onclick="openLightbox(21)">
+      <div class="gallery-card" data-city="miamisburg" data-cat="pressure" data-idx="21" onclick="openLightbox(21)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-10.webp" width="900" height="900" alt="Concrete Patio Wash before and after — Miamisburg, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -469,7 +481,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="22" onclick="openLightbox(22)">
+      <div class="gallery-card" data-city="centerville" data-cat="pressure" data-idx="22" onclick="openLightbox(22)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-11.webp" width="900" height="900" alt="Stone Pool Deck Clean before and after — Centerville, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -483,7 +495,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="23" onclick="openLightbox(23)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="pressure" data-idx="23" onclick="openLightbox(23)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-12.webp" width="900" height="900" alt="Brick House Driveway before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -497,7 +509,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="24" onclick="openLightbox(24)">
+      <div class="gallery-card" data-city="dayton" data-cat="pressure" data-idx="24" onclick="openLightbox(24)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-13.webp" width="900" height="900" alt="Neighborhood Driveway Wash before and after — Dayton, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -511,7 +523,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="25" onclick="openLightbox(25)">
+      <div class="gallery-card" data-city="beavercreek" data-cat="pressure" data-idx="25" onclick="openLightbox(25)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-14.webp" width="900" height="900" alt="Large Concrete Driveway before and after — Beavercreek, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -525,7 +537,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="26" onclick="openLightbox(26)">
+      <div class="gallery-card" data-city="huber-heights" data-cat="soft" data-idx="26" onclick="openLightbox(26)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-15.webp" width="900" height="900" alt="Commercial Siding Softwash before and after — Huber Heights, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -539,7 +551,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="27" onclick="openLightbox(27)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="soft" data-idx="27" onclick="openLightbox(27)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-16.webp" width="900" height="900" alt="Vinyl Siding Close-Up before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -553,7 +565,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="28" onclick="openLightbox(28)">
+      <div class="gallery-card" data-city="fairborn" data-cat="pressure" data-idx="28" onclick="openLightbox(28)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-17.webp" width="900" height="900" alt="Brick Home Driveway Wash before and after — Fairborn, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -567,7 +579,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="29" onclick="openLightbox(29)">
+      <div class="gallery-card" data-city="troy" data-cat="pressure" data-idx="29" onclick="openLightbox(29)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-18.webp" width="900" height="900" alt="Driveway Pressure Wash before and after — Troy, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -581,7 +593,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="30" onclick="openLightbox(30)">
+      <div class="gallery-card" data-city="centerville" data-cat="pressure" data-idx="30" onclick="openLightbox(30)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-19.webp" width="900" height="900" alt="Full Driveway Transformation before and after — Centerville, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -595,7 +607,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="31" onclick="openLightbox(31)">
+      <div class="gallery-card" data-city="vandalia" data-cat="pressure" data-idx="31" onclick="openLightbox(31)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-20.webp" width="900" height="900" alt="Long Driveway Clean before and after — Vandalia, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -609,7 +621,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="other" data-idx="32" onclick="openLightbox(32)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="other" data-idx="32" onclick="openLightbox(32)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-tt-21.webp" width="900" height="900" alt="Putting Green Pressure Wash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Other Services</span>
@@ -623,7 +635,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="33" onclick="openLightbox(33)">
+      <div class="gallery-card" data-city="centerville" data-cat="pressure" data-idx="33" onclick="openLightbox(33)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-j8-1.webp" width="900" height="900" alt="Outdoor Kitchen Pavers before and after — Centerville, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -637,7 +649,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="34" onclick="openLightbox(34)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="soft" data-idx="34" onclick="openLightbox(34)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-j8-2.webp" width="900" height="900" alt="Siding Softwash Transform before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -651,7 +663,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="35" onclick="openLightbox(35)">
+      <div class="gallery-card" data-city="centerville" data-cat="pressure" data-idx="35" onclick="openLightbox(35)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-j8-3.webp" width="900" height="900" alt="Driveway Clean Centerville before and after — Centerville, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -665,7 +677,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="36" onclick="openLightbox(36)">
+      <div class="gallery-card" data-city="centerville" data-cat="pressure" data-idx="36" onclick="openLightbox(36)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-j8-4.webp" width="900" height="900" alt="Sidewalk Pressure Wash before and after — Centerville, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -679,7 +691,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="37" onclick="openLightbox(37)">
+      <div class="gallery-card" data-city="centerville" data-cat="pressure" data-idx="37" onclick="openLightbox(37)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-j8-5.webp" width="900" height="900" alt="Basketball Court Driveway before and after — Centerville, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -693,7 +705,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="38" onclick="openLightbox(38)">
+      <div class="gallery-card" data-city="huber-heights" data-cat="pressure" data-idx="38" onclick="openLightbox(38)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-j8-6.webp" width="900" height="900" alt="Front Walkway Wash before and after — Huber Heights, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -707,7 +719,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="pressure" data-idx="39" onclick="openLightbox(39)">
+      <div class="gallery-card" data-city="centerville" data-cat="pressure" data-idx="39" onclick="openLightbox(39)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-j8-7.webp" width="900" height="900" alt="Decorative Walkway Clean before and after — Centerville, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Pressure Washing</span>
@@ -721,7 +733,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="soft" data-idx="40" onclick="openLightbox(40)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="soft" data-idx="40" onclick="openLightbox(40)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-j8-8.webp" width="900" height="900" alt="House Siding Softwash before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Soft Washing</span>
@@ -735,7 +747,7 @@
         </div>
       </div>
 
-      <div class="gallery-card" data-cat="gutter" data-idx="41" onclick="openLightbox(41)">
+      <div class="gallery-card" data-city="tipp-city" data-cat="gutter" data-idx="41" onclick="openLightbox(41)">
         <div class="gallery-img">
           <img src="/images/gallery/gallery-gutter-1.webp" width="900" height="1018" alt="Gutter face, soffit and fascia cleaning before and after — Tipp City, Ohio" loading="lazy">
           <span class="gallery-cat-badge">Gutter Cleaning</span>
@@ -993,11 +1005,12 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'ArrowLeft') prevPhoto(e);
   if (e.key === 'Escape') closeLightbox();
 });
-function filterGallery(btn, cat) {
+function filterGallery(btn, cat, city) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.gallery-card').forEach(card => {
-    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    var show = cat === 'all' || (cat === 'city' ? card.dataset.city === city : card.dataset.cat === cat);
+    card.style.display = show ? '' : 'none';
   });
 }
 function toggleNav(btn) {
