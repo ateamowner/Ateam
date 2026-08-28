@@ -9,8 +9,8 @@
   --navy-mid:#002050;
   --navy-card:#002050;
   --orange:#E86A12;
-  --orange-on-light:#E86A12;
-  --orange-on-dark:#E86A12;
+  --orange-on-light:#2BB8D0;
+  --orange-on-dark:#2BB8D0;
   --orange-dark:#E86A12;
   --orange-darker:#E86A12;
   --cyan:#2BB8D0;
@@ -53,7 +53,7 @@ header{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba
 nav{display:none}
 .header-actions{display:flex;align-items:center;gap:.85rem;margin-left:auto;flex-shrink:0}
 .header-phone{color:var(--ink);font-size:.88rem;font-weight:700;letter-spacing:.01em;white-space:nowrap;margin-left:auto}
-.header-phone:hover{color:var(--orange)}
+.header-phone:hover{color:var(--cyan)}
 .header-cta{background:var(--orange);color:#fff!important;font-size:.82rem;font-weight:800;padding:.55rem 1.15rem;border-radius:6px;white-space:nowrap;flex-shrink:0;border:none;box-shadow:none}
 .hamburger{display:flex;background:none;border:none;cursor:pointer;padding:.5rem;flex-direction:column;gap:5px;flex-shrink:0}
 .hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .2s}
@@ -161,7 +161,7 @@ nav{display:none}
 .trust-bar-social a{
   width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;
-  color:var(--orange);font-size:.72rem;font-weight:800
+  color:var(--cyan);font-size:.72rem;font-weight:800
 }
 .trust-bar-social a:hover{background:rgba(255,255,255,.12)}
 
@@ -228,7 +228,7 @@ section h2 em{font-style:italic;font-family:'Archivo Black',sans-serif;font-weig
 .pain-card p{font-size:.88rem;color:var(--text-muted);line-height:1.55}
 .pain-cta{color:var(--cyan);font-weight:800;margin-top:.5rem;font-size:.82rem;display:block}
 
-/* SERVICES GRID — screenshot 3: white square cards, 4px orange left border, on navy */
+/* SERVICES GRID — white square cards, 4px cyan left border, on navy */
 .services-grid,.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:1.75rem}
 .service-card,.svc-card{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
 .service-card:hover,.svc-card:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,32,80,.12)}
@@ -351,7 +351,7 @@ section#reviews:not(.reviews-band) .review-card{background:#fff;border:1px solid
 .review-text{font-size:.88rem;line-height:1.65;margin-bottom:.9rem;font-style:italic}
 .reviews-band .review-text{color:rgba(255,255,255,.88)}
 .reviewer{display:flex;align-items:center;gap:.65rem}
-.reviewer-initial{width:36px;height:36px;background:var(--orange);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0}
+.reviewer-initial{width:36px;height:36px;background:var(--cyan);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0}
 .reviewer-name{font-weight:800;font-size:.88rem}
 .reviewer-loc{font-size:.78rem;color:var(--text-muted)}
 .reviews-band .reviewer-loc{color:rgba(255,255,255,.55)}
@@ -381,7 +381,7 @@ section#reviews:not(.reviews-band) .review-card{background:#fff;border:1px solid
 .qq .qq-sub{font-size:.85rem;color:var(--text-muted);margin-bottom:1.1rem;line-height:1.55}
 .qq label{display:block;font-size:.8rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
 .qq input,.qq select{width:100%;font-family:inherit;font-size:.93rem;padding:.7rem .8rem;border:1.5px solid var(--border);border-radius:6px;margin-bottom:.8rem;background:#fff;color:var(--navy)}
-.qq input:focus,.qq select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,106,18,.18)}
+.qq input:focus,.qq select:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(43,184,208,.18)}
 .qq button{width:100%;background:var(--orange);color:#fff;font-family:inherit;font-size:.98rem;font-weight:800;padding:.9rem;border:2px solid var(--ink);border-radius:8px;cursor:pointer;box-shadow:6px 6px 0 var(--ink);transition:transform .12s,box-shadow .12s}
 .qq button:hover{background:var(--orange);transform:translate(2px,2px);box-shadow:4px 4px 0 var(--ink)}
 .qq .qq-fine{font-size:.74rem;color:var(--text-muted);text-align:center;margin-top:.7rem;line-height:1.5}
@@ -396,8 +396,8 @@ section#reviews:not(.reviews-band) .review-card{background:#fff;border:1px solid
 .bg-navy .area-tag,.reviews-band .area-tag{
   border-color:rgba(255,255,255,.22);color:#fff
 }
-a.area-tag:hover{border-color:var(--orange);color:var(--orange)}
-.bg-navy a.area-tag:hover{border-color:var(--orange);color:var(--orange)}
+a.area-tag:hover{border-color:var(--cyan);color:var(--cyan)}
+.bg-navy a.area-tag:hover{border-color:var(--cyan);color:var(--cyan)}
 
 .city-svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.5rem}
 .city-svc a{display:block;background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.25rem;box-shadow:var(--shadow)}
@@ -408,7 +408,7 @@ a.area-tag:hover{border-color:var(--orange);color:var(--orange)}
 .bg-navy .city-svc a{background:var(--navy-card);border-color:rgba(255,255,255,.1);box-shadow:none}
 .bg-navy .city-svc h3{color:#fff}
 .bg-navy .city-svc p{color:rgba(255,255,255,.68)}
-.bg-navy .city-svc .go{color:var(--orange)}
+.bg-navy .city-svc .go{color:var(--cyan)}
 
 /* BREADCRUMBS */
 .breadcrumb{background:var(--off-white);border-bottom:1px solid var(--border)}
@@ -479,7 +479,7 @@ footer{background:var(--navy);color:#fff;padding:2.75rem 0 1.25rem}
 .footer-brand .footer-logo{display:none}
 .footer-brand::before{content:'A Team Contracting';display:block;font-family:'Inter',sans-serif;font-weight:800;font-style:italic;font-size:1.35rem;color:#fff;letter-spacing:-.03em;margin-bottom:.6rem}
 .footer-brand p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.6;max-width:240px}
-.footer-tagline{font-family:'Caveat',cursive;font-size:1.05rem;color:var(--orange);margin-top:.65rem;display:block}
+.footer-tagline{font-family:'Caveat',cursive;font-size:1.05rem;color:var(--cyan);margin-top:.65rem;display:block}
 footer h3,.footer-cols h3{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem}
 footer ul,.footer-cols ul{list-style:none}
 footer ul li,.footer-cols li{margin-bottom:.4rem}
@@ -494,7 +494,7 @@ footer ul li a:hover,.footer-cols a:hover{color:#fff}
 .footer-trust{border-top:1px solid rgba(255,255,255,.12);margin-top:1.5rem;padding-top:1.5rem;text-align:center}
 .footer-nap{font-size:.86rem;color:rgba(255,255,255,.8);margin-bottom:1rem;line-height:1.7}
 .footer-nap strong{color:#fff;white-space:nowrap}
-.footer-nap a{color:var(--orange);font-weight:800;white-space:nowrap}
+.footer-nap a{color:var(--cyan);font-weight:800;white-space:nowrap}
 .footer-social{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:0 0 1.25rem;padding:0}
 .footer-social li{margin:0}
 .footer-social a{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:.4rem .9rem;transition:background .15s,border-color .15s,color .15s}
@@ -530,8 +530,8 @@ footer ul li a:hover,.footer-cols a:hover{color:#fff}
 .calc-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.75rem;box-shadow:var(--shadow);max-width:520px}
 .calc-field label{display:block;font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.4rem}
 .calc-field input[type=number]{width:100%;font-family:inherit;font-size:1.1rem;font-weight:700;color:var(--navy);padding:.75rem .85rem;border:1.5px solid var(--border);border-radius:6px}
-.calc-field input[type=number]:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(232,106,18,.18)}
-.calc-field input[type=range]{width:100%;margin-top:.6rem;accent-color:var(--orange)}
+.calc-field input[type=number]:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(43,184,208,.18)}
+.calc-field input[type=range]{width:100%;margin-top:.6rem;accent-color:var(--cyan)}
 .calc-result{display:flex;justify-content:space-between;align-items:baseline;margin:1.25rem 0;padding-top:1.25rem;border-top:1px solid var(--border)}
 .calc-result-label{font-size:.85rem;color:var(--text-muted);font-weight:600}
 .calc-result-price{font-family:'Archivo Black',sans-serif;font-size:2.1rem;color:var(--orange-on-light);line-height:1}
