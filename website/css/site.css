@@ -46,10 +46,9 @@ h1,h2,h3{line-height:1.15}
 /* HEADER — screenshot 1: light sticky bar (name + phone + Get Quote). Mobile: navy. */
 header{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(10,10,10,.08)}
 .header-inner{max-width:var(--container);margin:0 auto;padding:0 1.35rem;display:flex;align-items:center;gap:.85rem;height:72px}
-.logo{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
-.logo img{display:none}
-.logo-text{font-family:'Inter',sans-serif;font-weight:800;font-style:italic;font-size:1.12rem;color:var(--ink);letter-spacing:-.03em;line-height:1}
-.logo-text span{color:var(--ink);font-style:italic}
+.logo{display:flex;align-items:center;flex-shrink:0;padding:8px 12px 8px 0}
+.logo img{display:block;height:56px;width:auto;box-shadow:none;filter:none;background:none;border:none}
+.logo-text{display:none}
 nav{display:none}
 .header-actions{display:flex;align-items:center;gap:.85rem;margin-left:auto;flex-shrink:0}
 .header-phone{color:var(--ink);font-size:.88rem;font-weight:700;letter-spacing:.01em;white-space:nowrap;margin-left:auto}
@@ -476,8 +475,16 @@ td strong{color:var(--navy)}
 footer{background:var(--navy);color:#fff;padding:2.75rem 0 1.25rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;text-align:left}
 .footer-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;text-align:left;margin-bottom:1.5rem}
-.footer-brand .footer-logo{display:none}
-.footer-brand::before{content:'A Team Contracting';display:block;font-family:'Inter',sans-serif;font-weight:800;font-style:italic;font-size:1.35rem;color:#fff;letter-spacing:-.03em;margin-bottom:.6rem}
+.footer-brand .footer-logo{display:block;height:88px;width:auto;margin-bottom:.85rem;box-shadow:none;filter:none;background:none;border:none}
+.footer-brand::before{content:none}
+.footer-brand:not(:has(.footer-logo))::before{
+  content:'';display:block;height:88px;width:100px;
+  background:url('/logo.webp') left top/contain no-repeat;margin-bottom:.85rem
+}
+.footer-cols::before{
+  content:'';display:block;grid-column:1/-1;height:72px;width:82px;
+  background:url('/logo.webp') left center/contain no-repeat;margin-bottom:.35rem
+}
 .footer-brand p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.6;max-width:240px}
 .footer-tagline{font-family:'Caveat',cursive;font-size:1.05rem;color:var(--cyan);margin-top:.65rem;display:block}
 footer h3,.footer-cols h3{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:.75rem}
@@ -568,7 +575,8 @@ footer ul li a:hover,.footer-cols a:hover{color:#fff}
 }
 @media(max-width:768px){
   header{background:var(--navy);box-shadow:0 8px 24px rgba(0,0,0,.28)}
-  .logo-text,.logo-text span{color:#FAFAFA}
+  .logo{padding:6px 8px 6px 0}
+  .logo img{height:48px}
   .header-phone{display:none}
   .hamburger span{background:#fff}
   nav{display:none}
@@ -588,6 +596,5 @@ footer ul li a:hover,.footer-cols a:hover{color:#fff}
   .work-grid{grid-template-columns:1fr 1fr}
   .pain-grid{grid-template-columns:1fr}
   .header-cta{padding:.45rem .7rem;font-size:.72rem}
-  .logo-text{font-size:1.05rem}
   .hero-btns .btn{width:100%;text-align:center}
 }
