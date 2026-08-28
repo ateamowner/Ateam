@@ -22,122 +22,70 @@
 <meta name="twitter:image" content="https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp">
 <link rel="preload" href="/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css">
 <link rel="preload" href="/fonts/caveat-700-v2.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/montserrat-var.woff2') format('woff2-variations'),url('/fonts/montserrat-var.woff2') format('woff2')}
-@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/anton-400.woff2') format('woff2')}
-@font-face{font-family:'Caveat';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/caveat-700-v2.woff2') format('woff2')}
-
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Montserrat',sans-serif;background:#f8f8f8;color:#1a1a1a}
-a{text-decoration:none;color:inherit}
-header{background:#08243f;padding:0 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
-.logo-wrap{display:flex;align-items:center;gap:12px}
-.logo-wrap img{height:48px;width:48px;object-fit:contain;border-radius:50%}
-.logo-text{color:#fff;font-family:'Anton',sans-serif;font-size:1.4rem;letter-spacing:.04em;line-height:1.1}
-.logo-text span{display:block;font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:.12em;color:#f05a22;text-transform:uppercase}
-nav{display:flex;gap:6px;align-items:center}
-nav a{color:#ccc;font-size:.75rem;font-weight:600;padding:6px 10px;border-radius:4px;transition:color .2s}
-nav a:hover,nav a.active{color:#fff}
-.header-cta{background:#f05a22;color:#fff!important;padding:8px 16px!important;border-radius:6px!important;font-weight:700!important;font-size:.8rem!important}
-.header-cta:hover{background:#d44e1a!important}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;transition:all .3s}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-drawer{display:none;flex-direction:column;background:#0d3358;padding:16px 20px 20px}
-.mobile-drawer.open{display:flex}
-.mobile-drawer a{color:#ccc;font-size:.9rem;font-weight:600;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.mobile-drawer a:last-child{border-bottom:none}
-.mob-cta{background:#f05a22;color:#fff!important;text-align:center;border-radius:8px;margin-top:10px;padding:14px!important;border:none!important;font-size:1rem!important}
-@media(max-width:768px){nav{display:none}.header-cta{display:none}.hamburger{display:flex}}
-.page-hero{background:linear-gradient(135deg,#08243f 0%,#0d3358 100%);color:#fff;padding:60px 20px 50px;text-align:center}
-.page-hero h1{font-family:'Anton',sans-serif;font-size:clamp(2rem,6vw,3.5rem);letter-spacing:.03em;line-height:1.1}
-.page-hero h1 span{color:#f05a22}
-.page-hero p{margin-top:14px;font-size:1.05rem;color:#b0c8e0;max-width:600px;margin-left:auto;margin-right:auto}
-.hero-count{display:inline-block;margin-top:18px;background:rgba(240,90,34,.15);border:1px solid #f05a22;color:#f05a22;padding:8px 20px;border-radius:100px;font-weight:700;font-size:.9rem}
-.filter-bar{background:#fff;border-bottom:1px solid #e5e5e5;padding:16px 20px;position:sticky;top:70px;z-index:90}
-.filter-bar-inner{max-width:1200px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.filter-label{font-size:.75rem;font-weight:700;color:#666;text-transform:uppercase;letter-spacing:.08em;margin-right:4px}
+.hero-count{display:inline-block;margin-top:18px;background:rgba(255,115,42,.15);border:1px solid #ff732a;color:#ff732a;padding:8px 20px;border-radius:100px;font-weight:700;font-size:.9rem}
+.page-hero h1 span{color:var(--orange)}
+.filter-bar{background:#fff;border-bottom:1px solid var(--border);padding:16px 20px;position:sticky;top:72px;z-index:90}
+.filter-bar-inner{max-width:1180px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filter-label{font-size:.75rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-right:4px}
 .filter-btn{background:#f0f0f0;color:#555;border:2px solid transparent;padding:8px 18px;border-radius:100px;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Montserrat',sans-serif}
 .filter-btn:hover{background:#e0e0e0;color:#1a1a1a}
-.filter-btn.active{background:#08243f;color:#fff;border-color:#08243f}
+.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 .gallery-section{padding:40px 20px 60px}
-.gallery-inner{max-width:1200px;margin:0 auto}
+.gallery-inner{max-width:1180px;margin:0 auto}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-.gallery-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.gallery-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,box-shadow .2s}
 .gallery-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.14)}
 .gallery-img{position:relative;overflow:hidden;aspect-ratio:1/1}
 .gallery-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
 .gallery-card:hover .gallery-img img{transform:scale(1.05)}
-.gallery-cat-badge{position:absolute;top:10px;left:10px;background:rgba(8,36,63,.82);color:#fff;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:100px}
-.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,36,63,.7) 0%,transparent 50%);opacity:0;transition:opacity .25s}
+.gallery-cat-badge{position:absolute;top:10px;left:10px;background:rgba(15,23,42,.82);color:#fff;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:100px}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,.7) 0%,transparent 50%);opacity:0;transition:opacity .25s}
 .gallery-card:hover .gallery-overlay{opacity:1}
-.gallery-zoom{position:absolute;bottom:12px;right:12px;background:#f05a22;color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;opacity:0;transform:scale(.8);transition:all .25s}
+.gallery-zoom{position:absolute;bottom:12px;right:12px;background:var(--orange);color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;opacity:0;transform:scale(.8);transition:all .25s}
 .gallery-card:hover .gallery-zoom{opacity:1;transform:scale(1)}
 .gallery-body{padding:14px 16px 16px}
-.gallery-body h2{font-size:.9rem;font-weight:700;color:#08243f;margin-bottom:4px}
-.gallery-body p{font-size:.78rem;color:#666;line-height:1.5;margin-bottom:8px}
-.gallery-location{font-size:.72rem;color:#f05a22;font-weight:600}
+.gallery-body h2{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:4px;font-family:'Montserrat',sans-serif;text-transform:none}
+.gallery-body p{font-size:.78rem;color:var(--text-muted);line-height:1.5;margin-bottom:8px}
+.gallery-location{font-size:.72rem;color:var(--orange-on-light);font-weight:600}
 .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center}
 .lightbox.open{display:flex}
 .lightbox-inner{position:relative;max-width:95vw;max-height:95vh;display:flex;flex-direction:column;align-items:center}
 .lightbox-img{max-width:95vw;max-height:80vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.6)}
 .lightbox-caption{color:#fff;font-size:.85rem;margin-top:14px;text-align:center;padding:0 20px;opacity:.85}
-.lightbox-close{position:fixed;top:20px;right:24px;color:#fff;font-size:2rem;cursor:pointer;line-height:1;z-index:10000;opacity:.8;transition:opacity .2s}
+.lightbox-close{position:fixed;top:20px;right:24px;color:#fff;font-size:2rem;cursor:pointer;line-height:1;z-index:10000;opacity:.8}
 .lightbox-close:hover{opacity:1}
-.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.8rem;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10000}
+.lightbox-nav{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:none;color:#fff;font-size:1.8rem;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10000}
 .lightbox-nav:hover{background:rgba(255,255,255,.25)}
 .lightbox-prev{left:16px}
 .lightbox-next{right:16px}
 .lightbox-counter{position:fixed;top:22px;left:50%;transform:translateX(-50%);color:#fff;font-size:.8rem;opacity:.6;font-weight:600}
-.cta-strip{background:linear-gradient(135deg,#f05a22,#c94510);color:#fff;padding:56px 20px;text-align:center}
-.cta-strip h2{font-family:'Anton',sans-serif;font-size:clamp(1.8rem,5vw,2.8rem);letter-spacing:.03em;margin-bottom:10px}
+.cta-strip{background:linear-gradient(100deg,rgba(255,115,42,.94),rgba(210,70,16,.88)),url('/images/hero-driveway.webp') center/cover;color:#fff;padding:56px 20px;text-align:center}
+.cta-strip h2{font-family:'Anton',sans-serif;font-size:clamp(1.8rem,5vw,2.8rem);letter-spacing:.03em;margin-bottom:10px;color:#fff}
 .cta-strip p{font-size:1.05rem;opacity:.9;max-width:500px;margin:0 auto 28px}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-white{background:#fff;color:#f05a22;padding:14px 28px;border-radius:8px;font-weight:700;font-size:1rem;transition:transform .2s}
-.btn-white:hover{transform:scale(1.03)}
-.btn-outline-white{border:2px solid rgba(255,255,255,.6);color:#fff;padding:14px 28px;border-radius:8px;font-weight:700;font-size:1rem;transition:all .2s}
-.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-white{background:#fff;color:var(--navy);padding:14px 28px;border-radius:8px;font-weight:700;font-size:1rem}
+.btn-outline-white{border:2px solid rgba(255,255,255,.6);color:#fff;padding:14px 28px;border-radius:8px;font-weight:700;font-size:1rem}
 .faq-section{background:#fff;padding:60px 20px}
 .faq-inner{max-width:760px;margin:0 auto}
-.faq-inner h2{font-family:'Anton',sans-serif;font-size:clamp(1.6rem,4vw,2.2rem);color:#08243f;text-align:center;margin-bottom:8px}
-.faq-inner .sub{text-align:center;color:#666;margin-bottom:36px;font-size:.95rem}
-.faq-item{border:1px solid #e5e5e5;border-radius:10px;margin-bottom:12px;overflow:hidden}
-.faq-q{width:100%;background:#fff;border:none;text-align:left;padding:18px 20px;font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:700;color:#08243f;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .2s}
-.faq-q:hover{background:#f8f8f8}
-.faq-item.open .faq-q{background:#f0f5fa;color:#f05a22}
-.faq-icon{font-size:1.3rem;transition:transform .3s;flex-shrink:0;color:#f05a22}
+.faq-inner h2{font-family:'Anton',sans-serif;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--navy);text-align:center;margin-bottom:8px}
+.faq-inner .sub{text-align:center;color:var(--text-muted);margin-bottom:36px;font-size:.95rem}
+.faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:12px;overflow:hidden;background:#fff}
+.faq-q{width:100%;background:#fff;border:none;text-align:left;padding:18px 20px;font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:700;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q:hover{background:var(--off-white)}
+.faq-item.open .faq-q{background:#fff5ee;color:var(--orange-on-light)}
+.faq-icon{font-size:1.3rem;transition:transform .3s;flex-shrink:0;color:var(--orange)}
 .faq-item.open .faq-icon{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.faq-item.open .faq-a{max-height:300px}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;display:block;padding:0;border:none}
+.faq-item.open .faq-a{max-height:300px;display:block}
 .faq-a p{padding:0 20px 18px;color:#444;line-height:1.7;font-size:.9rem}
-footer{background:#08243f;color:#8ea8c0;padding:40px 20px}
-.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px}
-.footer-brand .logo-text{color:#fff}
-.footer-brand p{margin-top:10px;font-size:.82rem;line-height:1.6;color:#7090a8}
-.footer-col h3{color:#fff;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
-.footer-col a{display:block;color:#7090a8;font-size:.83rem;margin-bottom:8px;transition:color .2s}
-.footer-col a:hover{color:#f05a22}
-.footer-col p{font-size:.83rem;line-height:1.7;color:#7090a8}
-.footer-bottom{max-width:1200px;margin:30px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.75rem;color:#7c93a8}
-
-/* BREADCRUMBS */
-.breadcrumb{background:var(--off-white);border-bottom:1px solid var(--border)}
-.breadcrumb ol{max-width:var(--container);margin:0 auto;padding:.6rem 1.25rem;list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:.78rem;color:var(--text-muted)}
-.breadcrumb li{display:flex;align-items:center;gap:.4rem}
-.breadcrumb li+li::before{content:'\203A';color:var(--text-muted);opacity:.6}
-.breadcrumb a{color:var(--navy);font-weight:600}
-.breadcrumb a:hover{text-decoration:underline}
-.breadcrumb [aria-current='page']{color:var(--text-muted);font-weight:600}
-
-@media(min-width:769px) and (max-width:1150px){nav a{font-size:.74rem;padding:.4rem .38rem}.header-cta{font-size:.75rem;padding:.5rem .7rem}}
-
-@media(max-width:960px){nav{display:none}.header-cta{display:none}.hamburger{display:flex}}
-
-.footer-cols a,.footer-cols span,.footer-col a{overflow-wrap:anywhere}
+.footer-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;text-align:left}
+.footer-col h3{color:var(--orange);font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.footer-col a{display:block;color:rgba(255,255,255,.7);font-size:.83rem;margin-bottom:8px}
+.footer-col a:hover{color:#fff}
+.footer-col p{font-size:.83rem;line-height:1.7;color:rgba(255,255,255,.6)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's the difference between pressure washing and soft washing?","acceptedAnswer":{"@type":"Answer","text":"Pressure washing uses high-force water to blast off tough grime from hard surfaces like concrete, brick, and stone. Soft washing uses low pressure plus cleaning solutions to safely remove mold, algae, and buildup from siding, roofs, and other delicate surfaces. We use whichever method is right for the surface — no one-size-fits-all here."}},{"@type":"Question","name":"How long does a typical job take?","acceptedAnswer":{"@type":"Answer","text":"Most residential driveways and walkways take 1–2 hours. Full house soft washes run 2–4 hours depending on size. Window cleaning jobs are typically under 2 hours for most homes. We move fast but never cut corners."}},{"@type":"Question","name":"Do I need to be home during the job?","acceptedAnswer":{"@type":"Answer","text":"Our work is all exterior — driveways, siding, walkways, windows — so you don't need to be home. Just make sure we can reach the area and a water spigot. I'll text you before and after so you're never in the dark."}},{"@type":"Question","name":"Will you damage my landscaping or plants?","acceptedAnswer":{"@type":"Answer","text":"We always pre-wet plants and bushes before starting and rinse them after. Soft washing solutions are diluted to be safe for landscaping when applied correctly — and we've been doing this long enough to know how to protect what matters."}},{"@type":"Question","name":"Do you serve areas outside Tipp City?","acceptedAnswer":{"@type":"Answer","text":"Yes — we serve the entire Dayton metro area including Centerville, Huber Heights, Beavercreek, Fairborn, Troy, Vandalia, Springboro, and Miamisburg. If you're unsure if we come to your area, just call or text."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Before & After Gallery | A Team Contracting | Tipp City, Ohio","description":"See real before and after results from A Team Contracting — pressure washing, soft washing, and window cleaning jobs across Tipp City, Dayton, and surrounding Ohio communities.","url":"https://ateamcontractings.com/gallery/","isPartOf":{"@type":"WebSite","name":"A Team Contracting","url":"https://ateamcontractings.com"}}</script>
@@ -148,9 +96,9 @@ footer{background:#08243f;color:#8ea8c0;padding:40px 20px}
 
 <header>
   <div class="header-inner">
-    <a href="/" class="logo-wrap">
-      <img src="/logo.webp" alt="A Team Contracting logo" width="48" height="42">
-      <div class="logo-text">A-TEAM<span>Contracting</span></div>
+    <a class="logo" href="/">
+      <img src="/logo.webp" alt="A Team Contracting" width="48" height="42">
+      <span class="logo-text">A-<span>TEAM</span></span>
     </a>
     <nav>
       <a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a>
@@ -161,8 +109,9 @@ footer{background:#08243f;color:#8ea8c0;padding:40px 20px}
       <a href="/reviews/">Reviews</a>
       <a href="/about/">About</a>
       <a href="/contact/">Contact</a>
-      <a href="/estimate/" class="header-cta">&#128248; Get an Instant Price</a>
     </nav>
+    <a class="header-phone" href="tel:+19377779093">(937) 777-9093</a>
+    <a class="header-cta" href="/estimate/">Get Quote</a>
     <button class="hamburger" aria-label="Open menu" onclick="toggleNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -179,7 +128,7 @@ footer{background:#08243f;color:#8ea8c0;padding:40px 20px}
     <a href="/blog/">Blog</a>
     <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
-    <a href="/estimate/" class="mob-cta">&#128248; Get an Instant Price</a>
+    <a href="/estimate/" class="mob-cta">Get Quote</a>
   </div>
 </header>
 
