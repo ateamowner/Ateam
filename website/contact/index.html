@@ -23,9 +23,9 @@
 <meta name="twitter:description" content="Call (937) 777-9093, email Owner@ateamcontractings.com, or get an instant estimate. Mon–Sat 7–7 ET, Sunday closed. Tipp City, Ohio — we come to you.">
 <meta name="twitter:image" content="https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp">
 <link rel="canonical" href="https://ateamcontractings.com/contact/">
-<meta name="theme-color" content="#08243f">
-<link rel="preload" href="/fonts/montserrat-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#002050">
+<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/caveat-700-v2.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"Contact A Team Contracting","url":"https://ateamcontractings.com/contact/","description":"Call, text, email, or get an instant estimate from Anthony Leonard in Tipp City, Ohio.","mainEntity":{"@id":"https://ateamcontractings.com/#business"}}</script>
@@ -34,11 +34,11 @@
 .contact-grid{display:grid;grid-template-columns:1fr 400px;gap:2.5rem;align-items:start}
 @media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
 .qq{background:#fff;border-radius:12px;padding:1.5rem;box-shadow:var(--shadow);border:1px solid var(--border)}
-.qq h3{font-family:'Anton',sans-serif;font-size:1.3rem;color:var(--navy);margin-bottom:.3rem}
+.qq h3{font-family:'Archivo Black',sans-serif;font-size:1.3rem;color:var(--navy);margin-bottom:.3rem}
 .qq .qq-sub{font-size:.85rem;color:var(--text-muted);margin-bottom:1.1rem;line-height:1.55}
 .qq label{display:block;font-size:.8rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
 .qq input,.qq select{width:100%;font-family:inherit;font-size:.93rem;padding:.7rem .8rem;border:1.5px solid var(--border);border-radius:6px;margin-bottom:.8rem;background:#fff;color:var(--navy)}
-.qq input:focus,.qq select:focus{outline:none;border-color:var(--orange-dark);box-shadow:0 0 0 3px rgba(194,73,28,.15)}
+.qq input:focus,.qq select:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(43,184,208,.18)}
 .qq button{width:100%;background:var(--orange-dark);color:#fff;font-family:inherit;font-size:.98rem;font-weight:800;padding:.9rem;border:none;border-radius:var(--radius);cursor:pointer}
 .qq .qq-fine{font-size:.74rem;color:var(--text-muted);text-align:center;margin-top:.7rem;line-height:1.5}
 .qq-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
@@ -56,7 +56,7 @@
   <div class="header-inner">
     <a class="logo" href="/">
       <img src="/logo.webp" alt="A Team Contracting" width="48" height="42">
-      <span class="logo-text">A-<span>TEAM</span></span>
+      <span class="logo-text">A Team Contracting</span>
     </a>
     <nav>
       <a href="/pressure-washing-tipp-city-ohio/">Pressure Washing</a>
@@ -68,7 +68,8 @@
       <a href="/about/">About</a>
       <a href="/contact/" class="active">Contact</a>
     </nav>
-    <a class="header-cta" href="/estimate/">📸 Get an Instant Price</a>
+    <a class="header-phone" href="tel:+19377779093">(937) 777-9093</a>
+    <a class="header-cta" href="/estimate/">Get Quote</a>
     <button class="hamburger" aria-label="Open menu" onclick="toggleNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -86,7 +87,7 @@
     <a href="/blog/">Blog</a>
     <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
-    <a href="/estimate/" class="mob-cta">📸 Get an Instant Price</a>
+    <a href="/estimate/" class="mob-cta">Get Quote</a>
   </div>
 </header>
 
@@ -276,5 +277,11 @@ function toggleFaq(btn){const item=btn.closest('.faq-item');const wasOpen=item.c
 </script>
 <script src="/assets/lead-form.js" defer></script>
 <script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNmEzNThiNmUxYmU5NjA1MmZjZjg1MSIsImlzc3VlciI6Im5mc2VydmVyIn0._PWQ89AWXxGkKkQEcrxFQpPvqBiriXRhAlli0jacVao"></script>
+
+<div class="mobile-dock" role="navigation" aria-label="Call or get a quote">
+  <a class="mobile-dock-call" href="tel:+19377779093">Call</a>
+  <a class="mobile-dock-quote" href="/estimate/">Get Quote</a>
+</div>
+
 </body>
 </html>
