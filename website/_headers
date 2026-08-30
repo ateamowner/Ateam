@@ -6,6 +6,10 @@
   Strict-Transport-Security: max-age=31536000
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 
+/netlify/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
   X-Frame-Options: DENY

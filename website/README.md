@@ -87,7 +87,14 @@ After linking, every push to the connected branch redeploys automatically.
 /thanks/                                   homepage quick-quote thank-you
 /gallery/                                  before & after photos
 
-netlify/functions/photo-note.mjs           the only server-side code
+/qr/truck /qr/flyer /qr/invoice /qr/yard /qr/card
+                                           offline QR hops (log + 302)
+/c/:token                                  canary hops (not listed here
+                                           on purpose — see netlify/README.md)
+
+netlify/functions/photo-note.mjs           photo note on /estimate/
+netlify/functions/qr.mjs                   QR scan log + redirect
+netlify/functions/canary.mjs               canary log + redirect
 ```
 
 The three thank-you pages are all `noindex, nofollow` and none of them are in
@@ -259,8 +266,16 @@ it has registered a form — their *absence* on the live page is the success
 signal, not a problem.
 
 **Environment variables** live next door under Site configuration →
-Environment variables. Only one is used: `ANTHROPIC_API_KEY`, for the photo
-note. Nothing else on the site needs one.
+Environment variables. `ANTHROPIC_API_KEY` is the photo note. Optional:
+`CANARY_WEBHOOK_URL` (commented placeholder only — set it in the dashboard if
+you want a ping on a canary hit). Nothing else on the site needs one.
+
+### Offline QR + canary routes
+
+Printed QR codes and unguessable canary links are Netlify Functions that log
+the hit (function log + private Blobs store `scan-logs`) and then 302. There
+is no client beacon and no ad landing page. How to add a canary token, where
+the five `/qr/` slugs go, and how to read the log: `netlify/README.md`.
 
 Netlify's free tier covers 100 submissions/month including the photo uploads.
 Past that it needs a paid forms plan — worth watching if the ads scale.

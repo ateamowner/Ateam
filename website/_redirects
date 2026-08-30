@@ -2,6 +2,10 @@ https://www.ateamcontractings.com/*  https://ateamcontractings.com/:splat  301!
 http://ateamcontractings.com/*       https://ateamcontractings.com/:splat  301!
 http://www.ateamcontractings.com/*   https://ateamcontractings.com/:splat  301!
 
+# Token file and function source must not be fetchable as static URLs.
+# (/.netlify/functions/* is the platform endpoint and is not this path.)
+/netlify/*                                   /index.html                    404!
+
 # Power washing is an alias of pressure washing — no empty duplicate pages.
 /power-washing/                              /pressure-washing-tipp-city-ohio/  301
 /power-washing-tipp-city-ohio/               /pressure-washing-tipp-city-ohio/  301

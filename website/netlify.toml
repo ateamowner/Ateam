@@ -1,11 +1,35 @@
 [build]
   publish = "."
 
-# The site itself is plain static HTML with no build step. The only server-side
-# code is netlify/functions/photo-note.mjs, which reads the photo on /estimate/.
-# It needs ANTHROPIC_API_KEY set in the Netlify dashboard; without it the
+# The site itself is plain static HTML with no build step. Server-side code:
+#   netlify/functions/photo-note.mjs  — photo note on /estimate/
+#   netlify/functions/qr.mjs          — /qr/:slug log + 302
+#   netlify/functions/canary.mjs      — /c/:token log + 302
+# photo-note needs ANTHROPIC_API_KEY in the Netlify dashboard; without it the
 # function returns { unavailable: true } and the page just doesn't show the
 # card. See website/README.md.
+#
+# Optional canary alert (set in the dashboard, not here). On a known-token
+# hit the canary function POSTs JSON {token, label, time, ua, ip, referer}.
+# There is no default URL and no secret is committed.
+# CANARY_WEBHOOK_URL=
+# [build.environment]
+#   CANARY_WEBHOOK_URL = ""
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+  included_files = ["netlify/canary-tokens.json"]
+
+# Pretty URLs in case the function `path` config is ignored. force so a
+# static file cannot shadow a printed QR / canary link.
+[[redirects]]
+  from = "/qr/*"
+  to = "/.netlify/functions/qr/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/c/*"
+  to = "/.netlify/functions/canary/:splat"
+  status = 200
+  force = true
