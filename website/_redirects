@@ -18,6 +18,9 @@ http://www.ateamcontractings.com/*   https://ateamcontractings.com/:splat  301!
 /power-washing-piqua-ohio/                   /pressure-washing-piqua-ohio/  301
 
 # Painting services is the searchable name for the existing Tipp painting page.
+# Verified 2026-08-31: live URL returns HTTP 301 (not a 404). Keep this
+# redirect. Do not add a thin /painting-services/ page — a static file would
+# shadow this 301, and rel=canonical is a weaker consolidator than a 301.
 /painting-services/                          /exterior-painting-tipp-city-ohio/  301
 
 # Sealcoating was rebuilt with a real $2/sq ft calculator and a full 7-city
