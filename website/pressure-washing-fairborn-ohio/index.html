@@ -57,7 +57,7 @@
       <a href="/contact/">Contact</a>
     </nav>
     <a class="header-phone" href="tel:+19377779093">(937) 777-9093</a>
-    <a class="header-cta" href="/estimate/">Get Quote</a>
+    <a class="header-cta" href="/estimate/?service=pressure-washing&amp;city=fairborn">Get Quote</a>
     <button class="hamburger" aria-label="Open menu" onclick="toggleNav(this)">
       <span></span><span></span><span></span>
     </button>
@@ -75,7 +75,7 @@
     <a href="/blog/">Blog</a>
     <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
-    <a href="/estimate/" class="mob-cta">Get Quote</a>
+    <a href="/estimate/?service=pressure-washing&amp;city=fairborn" class="mob-cta">Get Quote</a>
   </div>
 </header>
 
@@ -94,7 +94,7 @@
     <h1>Concrete Poured in <em>One Twenty-Year Rush</em></h1>
     <p>Driveways, walks, patios and aprons across Fairborn &mdash; cleaned with a surface cleaner that works edge to edge, not a wand that leaves stripes. Same job people call power washing.</p>
     <div class="hero-btns">
-      <a href="/estimate/" class="btn btn-orange">&#128248; Get My Instant Price</a>
+      <a href="/estimate/?service=pressure-washing&amp;city=fairborn" class="btn btn-orange">&#128248; Get My Instant Price</a>
       <a href="tel:+19377779093" class="btn btn-outline">Call (937) 777-9093</a>
     </div>
     <div class="hero-stats">
@@ -139,7 +139,7 @@
     <div class="prose">
       <p>Driveways, walks and concrete run <strong>$150&ndash;$300</strong> for most Fairborn properties, by square footage and how bad it has got. A full house exterior is <strong>$300&ndash;$600</strong>, and doing both on one visit takes 12% off because we are already set up with water on site.</p>
       <p>We are based in Tipp City, so Fairborn is a genuine drive. You get the full number before we start.</p>
-      <p><a class="btn btn-orange" href="/estimate/">&#128248; Get My Instant Price</a> &nbsp; <a class="btn btn-outline" href="/pressure-washing-cost-ohio/" style="border-color:var(--navy);color:var(--navy)">See the full price guide</a></p>
+      <p><a class="btn btn-orange" href="/estimate/?service=pressure-washing&amp;city=fairborn">&#128248; Get My Instant Price</a> &nbsp; <a class="btn btn-outline" href="/pressure-washing-cost-ohio/" style="border-color:var(--navy);color:var(--navy)">See the full price guide</a></p>
     </div>
   </div>
 </section>
@@ -204,11 +204,66 @@
     <h2>See Your Fairborn Price in About a Minute</h2>
     <p>Four taps and a photo gives you an itemized ballpark.</p>
     <div class="hero-btns" style="justify-content:center">
-      <a href="/estimate/" class="btn btn-white">&#128248; Get My Instant Price</a>
+      <a href="/estimate/?service=pressure-washing&amp;city=fairborn" class="btn btn-white">&#128248; Get My Instant Price</a>
       <a href="tel:+19377779093" class="btn btn-outline">Call (937) 777-9093</a>
     </div>
     <p style="margin-top:1.25rem;font-size:.88rem;opacity:.85"><strong>A Team Contracting</strong> &middot; Tipp City, OH &middot; serving Fairborn and Greene County &middot; Mon&ndash;Sat 7am&ndash;7pm ET · Sun closed</p>
-  </div>
+  
+        <form
+          id="qq"
+          class="qq"
+          name="quick-quote"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/thanks/"
+          data-lead-form>
+
+        <input type="hidden" name="form-name" value="quick-quote">
+        <p class="qq-hp" aria-hidden="true">
+          <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+        <input type="hidden" name="city" value="Fairborn">
+
+        <input type="hidden" name="source" value="">
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="click_id" value="">
+        <input type="hidden" name="landing_page" value="">
+        <input type="hidden" name="referrer" value="">
+
+        <h3>Rather We Just Called You?</h3>
+        <p class="qq-sub">Three boxes and you're done. Anthony calls back the same day, Mon–Sat.</p>
+
+        <label for="qq-name">Your name</label>
+        <input type="text" id="qq-name" name="name" required autocomplete="name" placeholder="Jordan Smith">
+
+        <label for="qq-phone">Best phone number</label>
+        <input type="tel" id="qq-phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(937) 555-0143">
+
+        <label for="qq-service">What needs doing?</label>
+        <select id="qq-service" name="services" required>
+          <option value="">Choose one…</option>
+          <option>Window cleaning</option>
+          <option selected>Pressure washing / power washing (driveway, patio, concrete)</option>
+          <option>House washing / soft washing</option>
+          <option>Roof cleaning</option>
+          <option>Seal coating (concrete or roof)</option>
+          <option>Gutter cleaning</option>
+          <option>Clean Club — windows 2× / year (10% off)</option>
+          <option>Clean Club — house + driveway annual (10% off)</option>
+          <option>Exterior painting</option>
+          <option>Commercial property</option>
+          <option>Something else</option>
+        </select>
+
+        <button type="submit" data-submit>GET MY FREE QUOTE →</button>
+        <p class="qq-fine">We'll only use your number to quote this job. No spam, no selling your info, ever.</p>
+        </form>
+</div>
 </section>
 </main>
 
@@ -253,7 +308,7 @@
           <li><a href="/gallery/">Before &amp; After Gallery</a></li>
           <li><a href="/about/">About</a></li>
           <li><a href="/contact/">Contact</a></li>
-          <li><a href="/estimate/">Get an Instant Price</a></li>
+          <li><a href="/estimate/?service=pressure-washing&amp;city=fairborn">Get an Instant Price</a></li>
         </ul>
       </div>
       <div>
@@ -266,7 +321,7 @@
         </ul>
       </div>
     </div>
-    <p style="font-size:.85rem;color:rgba(255,255,255,.65)">Painting, fence work, paver edging, shed restoration and other odd jobs — <a href="/estimate/" style="color:#fa8c57;font-weight:700">just ask</a>.</p>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.65)">Painting, fence work, paver edging, shed restoration and other odd jobs — <a href="/estimate/?service=pressure-washing&amp;city=fairborn" style="color:#fa8c57;font-weight:700">just ask</a>.</p>
     <div class="footer-bottom">
       &copy; 2026 A Team Contracting &mdash; Tipp City, Ohio &mdash; (937) 777-9093<br>
       Jobs are done best when you work with A Team!
@@ -295,11 +350,12 @@ function toggleNav(btn){btn.classList.toggle('open');document.getElementById('mo
 function toggleFaq(btn){const item=btn.closest('.faq-item');const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));if(!wasOpen)item.classList.add('open')}
 </script>
 
+<script src="/assets/lead-form.js" defer></script>
 <script async id="netlify-rum-container" src="/.netlify/scripts/rum" data-netlify-rum-site-id="bd6d0e0f-f62f-4f5a-9734-0d555c735381" data-netlify-deploy-branch="" data-netlify-deploy-context="production" data-netlify-cwv-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaXRlX2lkIjoiYmQ2ZDBlMGYtZjYyZi00ZjVhLTk3MzQtMGQ1NTVjNzM1MzgxIiwiYWNjb3VudF9pZCI6IjY5ZjY0NzBjODgzNjVmNzg5ODc2ZGMxOCIsImRlcGxveV9pZCI6IjZhNmEzNThiNmUxYmU5NjA1MmZjZjg1MSIsImlzc3VlciI6Im5mc2VydmVyIn0._PWQ89AWXxGkKkQEcrxFQpPvqBiriXRhAlli0jacVao"></script>
 
 <div class="mobile-dock" role="navigation" aria-label="Call or get a quote">
   <a class="mobile-dock-call" href="tel:+19377779093">Call</a>
-  <a class="mobile-dock-quote" href="/estimate/">Get Quote</a>
+  <a class="mobile-dock-quote" href="/estimate/?service=pressure-washing&amp;city=fairborn">Get Quote</a>
 </div>
 
 </body>
