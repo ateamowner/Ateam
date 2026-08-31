@@ -43,6 +43,7 @@
   if (!form) return;
 
   var S = { step: 0, size: null, twoStory: null, addons: [] };
+  var seedService = "";
 
   var money = function (n) { return "$" + Math.round(n).toLocaleString(); };
 
@@ -87,7 +88,12 @@
   }
 
   function serviceList() {
-    return ["Window cleaning"].concat(S.addons.map(function (k) { return WASH[k].label; })).join(", ");
+    if (!S.size && seedService) return seedService;
+    var parts = ["Window cleaning"].concat(S.addons.map(function (k) { return WASH[k].label; }));
+    if (seedService && parts.indexOf(seedService) === -1) {
+      parts.unshift(seedService);
+    }
+    return parts.join(", ");
   }
 
   function syncFields() {
@@ -295,6 +301,81 @@
         ["catch"](function () { done("none", ""); });
     });
   }
+
+  // City×service pages pass ?service=&city=. Read them here so the quiz
+  // opens on that wash (not the Window cleaning default) without touching
+  // WINDOW_BASE / WASH / calc().
+  (function applyQuery() {
+    var params;
+    try { params = new URLSearchParams(window.location.search); }
+    catch (e) { return; }
+
+    var qService = (params.get("service") || params.get("svc") || "").toLowerCase().replace(/_/g, "-").trim();
+    var qCity = (params.get("city") || "").trim();
+
+    var SERVICE_TO_ADDON = {
+      "soft-washing": "siding",
+      "soft-wash": "siding",
+      "softwash": "siding",
+      "siding": "siding",
+      "house-washing": "siding",
+      "house-wash": "siding",
+      "pressure-washing": "driveway",
+      "pressure-wash": "driveway",
+      "power-washing": "driveway",
+      "driveway": "driveway",
+      "concrete": "driveway",
+      "concrete-cleaning": "driveway",
+      "roof": "roof",
+      "roof-cleaning": "roof"
+    };
+
+    var SERVICE_LABEL = {
+      "window-cleaning": "Window cleaning",
+      "windows": "Window cleaning",
+      "window": "Window cleaning",
+      "soft-washing": WASH.siding.label,
+      "soft-wash": WASH.siding.label,
+      "softwash": WASH.siding.label,
+      "siding": WASH.siding.label,
+      "house-washing": WASH.siding.label,
+      "house-wash": WASH.siding.label,
+      "pressure-washing": WASH.driveway.label,
+      "pressure-wash": WASH.driveway.label,
+      "power-washing": WASH.driveway.label,
+      "driveway": WASH.driveway.label,
+      "concrete": WASH.driveway.label,
+      "concrete-cleaning": WASH.driveway.label,
+      "roof": WASH.roof.label,
+      "roof-cleaning": WASH.roof.label,
+      "gutter-cleaning": "Gutter cleaning",
+      "gutters": "Gutter cleaning",
+      "gutter": "Gutter cleaning",
+      "seal-coating": "Seal coating",
+      "sealcoat": "Seal coating",
+      "exterior-painting": "Exterior painting",
+      "painting": "Exterior painting",
+      "commercial-pressure-washing": "Commercial property",
+      "commercial": "Commercial property"
+    };
+
+    if (qCity) {
+      var cityPretty = qCity.replace(/-/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+      set("city", cityPretty);
+      var addr = document.getElementById("est-address");
+      if (addr && !addr.value) {
+        addr.placeholder = "123 Main St, " + cityPretty + ", OH";
+      }
+    }
+
+    if (SERVICE_TO_ADDON.hasOwnProperty(qService)) {
+      S.addons = [SERVICE_TO_ADDON[qService]];
+    }
+    if (qService && SERVICE_LABEL[qService]) {
+      seedService = SERVICE_LABEL[qService];
+      set("services", seedService);
+    }
+  })();
 
   refreshAddonPrices();
   syncFields();

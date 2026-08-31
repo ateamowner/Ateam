@@ -393,6 +393,10 @@ section#reviews:not(.reviews-band) .review-card{background:#fff;border:1px solid
 .qq button:hover{background:var(--orange);transform:translate(2px,2px);box-shadow:4px 4px 0 var(--ink)}
 .qq .qq-fine{font-size:.74rem;color:var(--text-muted);text-align:center;margin-top:.7rem;line-height:1.5}
 .qq-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+#qq{scroll-margin-top:96px}
+.cta-band .qq{max-width:400px;margin:2rem auto 0;text-align:left}
+.cta-band .qq p{color:var(--text-muted);max-width:none;margin:0 0 1.1rem;font-size:.85rem;text-align:left}
+.cta-band .qq .qq-fine{margin:.7rem 0 0;text-align:center}
 
 /* SERVICE AREA CHIPS */
 .area-grid,.area-pills{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem;justify-content:center}
