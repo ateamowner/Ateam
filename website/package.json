@@ -5,7 +5,9 @@
   "description": "Static site for ateamcontractings.com. No build step — this file exists so Netlify installs dependencies for netlify/functions.",
   "type": "module",
   "scripts": {
-    "test": "node --test netlify/functions/_lib/routes.test.mjs"
+    "test": "node --test netlify/functions/_lib/routes.test.mjs",
+    "indexnow": "node scripts/indexnow-ping.mjs",
+    "indexnow:dry": "node scripts/indexnow-ping.mjs --dry-run"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.116.0",
