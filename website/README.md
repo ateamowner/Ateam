@@ -15,7 +15,9 @@ switch it to deploy from this repo:
 2. Pick this repo (`ateamowner/Ateam`) and the `claude/website-performance-images-yehsjh`
    branch (or `main`, once merged).
 3. Set **Base directory** to `website`.
-4. Build command: leave blank (no build step — this is a static site).
+4. Build command: `node scripts/indexnow-ping.mjs` (no compile — it only
+   pings IndexNow/Bing with sitemap URLs and exits 0 even if IndexNow is
+   down). A local plugin also re-runs that ping after a successful publish.
 5. Publish directory: `website` (or `.` if Netlify resolves it relative to the
    base directory — check whichever your dashboard version expects).
 
@@ -95,7 +97,30 @@ After linking, every push to the connected branch redeploys automatically.
 netlify/functions/photo-note.mjs           photo note on /estimate/
 netlify/functions/qr.mjs                   QR scan log + redirect
 netlify/functions/canary.mjs               canary log + redirect
+scripts/indexnow-ping.mjs                  post-deploy IndexNow / Bing ping
+/{key}.txt                                 public IndexNow key (see below)
 ```
+
+### IndexNow / Bing (no secrets)
+
+The IndexNow key is public by design. It lives in two places that must match:
+
+- Site root file `{key}.txt` — currently
+  `f598e3c2a8096aef342edeccf566e3989e6b23b7607bf201b788335a98713b1b.txt`
+  — contents are **only** the key. Served at
+  `https://ateamcontractings.com/f598e3c2a8096aef342edeccf566e3989e6b23b7607bf201b788335a98713b1b.txt`
+- `scripts/indexnow-ping.mjs` (`KEY` / `KEY_LOCATION`)
+
+On every Netlify deploy the build command and the local plugin
+(`netlify/plugins/indexnow`, `onSuccess`) read `sitemap.xml` and POST the
+URL list to `https://api.indexnow.org/indexnow`. Failures are logged; they
+do not fail the build. Sitemap trailing-slash canonicals are left as-is.
+
+**Bing Webmaster Tools is a follow-up for Anthony.** This repo does not
+include a fake `msvalidate.01` meta tag or `BingSiteAuth.xml`. After adding
+`ateamcontractings.com` in Bing Webmaster Tools, paste the real verification
+code in `index.html` `<head>` (there is an HTML comment marking the spot) or
+drop `BingSiteAuth.xml` in this folder.
 
 The three thank-you pages are all `noindex, nofollow` and none of them are in
 `sitemap.xml`. They stay separate URLs because that is how ad platforms count

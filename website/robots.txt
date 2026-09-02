@@ -5,4 +5,6 @@ Allow: /
 # /.netlify/functions/photo-note — nothing here is meant to be indexed.
 Disallow: /netlify/
 
+# /estimate/ and city / service pages stay Allow. Do not Disallow them.
+
 Sitemap: https://ateamcontractings.com/sitemap.xml

@@ -1,7 +1,15 @@
 [build]
   publish = "."
+  # No compile step. The command only pings IndexNow/Bing with sitemap URLs
+  # (soft-fail — IndexNow being down must not fail the deploy). The same
+  # script also runs after a successful publish via the local plugin below,
+  # so the public {key}.txt is already live when IndexNow fetches it.
+  command = "node scripts/indexnow-ping.mjs"
 
-# The site itself is plain static HTML with no build step. Server-side code:
+[[plugins]]
+  package = "./netlify/plugins/indexnow"
+
+# The site itself is plain static HTML with no compile step. Server-side code:
 #   netlify/functions/photo-note.mjs  — photo note on /estimate/
 #   netlify/functions/qr.mjs          — /qr/:slug log + 302
 #   netlify/functions/canary.mjs      — /c/:token log + 302
