@@ -1,3 +1,4 @@
-loop,date,conversion,local_seo,speed_technical,trust,copy_voice,mobile,total
-0,2026-09-02,19,15,13,11,8,8,68
-1,2026-09-02,25,17,14,11,9,8,76
+loop,date,score,conversion,local_seo,speed_technical,trust,copy_voice,mobile
+0,2026-09-02,68,19,15,13,11,8,8
+1,2026-09-02,76,23,16,13,11,9,8
+2,2026-09-02,80,24,18,13,11,9,8
