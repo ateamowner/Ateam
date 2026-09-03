@@ -2,10 +2,10 @@
 
 | Opportunity | Dim | Impact | Conf | Effort | Score | Status |
 |---|---|---:|---:|---:|---:|---|
-| Gutter cleaning: Vandalia, Dayton, Piqua, Englewood, Fairborn | SEO + Trust (recurring) | 5 | 0.7 | 4 | 0.88 | Ready — Troy/Beavercreek/Huber Heights shipped in Loop 3 |
-| `/window-cleaning-cost-ohio/` | SEO + Copy | 5 | 0.8 | 2.5 | 1.60 | Ready — reuses published $125–$300 figure, no new pricing risk |
-| `/piqua-ohio/` city hub + window/soft washing in Piqua | SEO | 5 | 0.7 | 3 | 1.17 | Ready |
-| Trim remaining over-60-char titles (5 pages, includes new `/` and `/clean-club/`) | SEO | 2 | 0.9 | 1 | 1.80 | Ready, cheap |
+| Gutter cleaning: Piqua, Englewood, Fairborn | SEO + Trust (recurring) | 4 | 0.7 | 4 | 0.70 | Ready — Troy/Beavercreek/Huber Heights (Loop 3), Dayton/Vandalia (Loop 4) shipped |
+| `/window-cleaning-cost-ohio/` | SEO + Copy | 5 | 0.5 | 3 | 0.83 | Downgraded in Loop 4 — only one real published number ($125–$300/home) exists; a full price-guide page would mean inventing structure. Ready only once more data points are published. |
+| Window/soft washing in Piqua (hub shipped Loop 4, services still fall back to Tipp City) | SEO | 4 | 0.6 | 3 | 0.80 | Ready |
+| Trim over-60-char titles (6 pages) | SEO | 1 | 0.6 | 1 | 0.60 | Downgraded in Loop 4 — 61–63 chars is inside Google's real truncation point; low value, minor brand-consistency risk |
 | A real photo of Anthony on the homepage | Trust | 6 | 0.8 | 4 | 1.20 | Blocked — needs Anthony's photo |
 | GA4 / GSC install | Measurement | 8 | 0.9 | 3 | 2.40 | Blocked — needs Anthony's accounts |
 | Review-count trust gap (32 vs. competitors' hundreds) | Trust | 6 | 0.6 | — | — | Blocked — not a code fix, needs a review-request push from Anthony |
