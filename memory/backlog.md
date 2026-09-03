@@ -2,7 +2,7 @@
 
 | Opportunity | Dim | Impact | Conf | Effort | Score | Status |
 |---|---|---:|---:|---:|---:|---|
-| Gutter cleaning: Troy, Beavercreek, Huber Heights, Dayton | SEO + Trust (recurring) | 6 | 0.7 | 4 | 1.05 | Ready — biggest remaining service gap |
+| Gutter cleaning: Vandalia, Dayton, Piqua, Englewood, Fairborn | SEO + Trust (recurring) | 5 | 0.7 | 4 | 0.88 | Ready — Troy/Beavercreek/Huber Heights shipped in Loop 3 |
 | `/window-cleaning-cost-ohio/` | SEO + Copy | 5 | 0.8 | 2.5 | 1.60 | Ready — reuses published $125–$300 figure, no new pricing risk |
 | `/piqua-ohio/` city hub + window/soft washing in Piqua | SEO | 5 | 0.7 | 3 | 1.17 | Ready |
 | Trim remaining over-60-char titles (5 pages, includes new `/` and `/clean-club/`) | SEO | 2 | 0.9 | 1 | 1.80 | Ready, cheap |
