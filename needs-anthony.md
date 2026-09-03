@@ -40,4 +40,16 @@ One line each. Everything here is blocked on you — the loop keeps running with
 
 - **A real photo of you** (and family/crew if you want) for the homepage. Right now trust rests on
   reviews and job photos — there's no face. This is the single biggest trust gap and I can't invent it.
-- **Piqua and Dayton** — worth full city hubs? Dayton is the biggest metro you serve and has no hub page.
+- **Piqua** — worth a full city hub? Dayton's is built now (Loop 2); Piqua still has 2 service
+  pages and no hub.
+
+## From the Loop 2 competitor teardown (`intel/competitors.md`)
+
+- **Review count reads small.** The site shows 5.0★/32 reviews — a strong rating, but some
+  competitors show hundreds (one shows 3,000+). The rating isn't the problem, the count is.
+  If you want this pushed, it's a review-request cadence fix, not a code fix — I can help
+  build the ask once you tell me how you want to request them.
+- **Certification badges.** A couple of competitors show SoftWash Systems or PWNA certification
+  badges and state their exact liability coverage (e.g. "$1M insured") instead of just "insured."
+  If you hold any certifications beyond BBB, or want the coverage amount stated, tell me and
+  I'll add it — I won't display a cert or a dollar figure I can't confirm you actually have.
