@@ -6,10 +6,15 @@
   actual score change matched the prediction.
 - Loop 2: predicted 76 → 80 for Dayton coverage, landed exactly on 80.
 - Loop 3: predicted 80 → 84 for gutter cleaning expansion, landed exactly on 84.
+- Loop 4: predicted 84 → 88 for the Piqua hub + Dayton/Vandalia gutter cleaning, landed exactly on 88.
 
 ## What didn't
-- Nothing has missed its prediction yet (2 loops in). Watch for over-confidence — recompute
+- Nothing has missed its prediction yet (4 loops in). Watch for over-confidence — recompute
   honestly next time a prediction misses, don't just declare victory by pattern-matching.
+- Loop 4's *plan* changed mid-loop: `/window-cleaning-cost-ohio/` was scored "ready" in the
+  Loop 3 backlog on the assumption that reusing one published number was enough to build a
+  full pricing-guide page. On closer look it wasn't — see the new lesson below. The final score
+  still hit its (revised) prediction, but the backlog entry itself was wrong when written.
 
 ## Patterns worth reusing
 - **Sitewide single-string bugs compound.** Three loops in a row found a feature (Clean Club,
@@ -34,6 +39,17 @@
   self-assessment of A Team's *own* site was wrong (undercounted pages) because it worked from
   live fetches instead of the repo — subagents researching this business from the outside will
   always be a weaker source on this site's own inventory than a direct repo crawl.
+
+- **A backlog entry marked "reuses a published number" isn't automatically safe** — check how
+  much content that one number actually supports before scoring the page ready. One data point
+  is enough for a sentence or an FAQ answer; it is not enough for a page structured like a full
+  price guide (per-size tables, per-unit math) without inventing the rest. Loop 4 caught this
+  before building, not after — write backlog entries for pricing/data pages with a note on how
+  many real data points back them, not just whether at least one exists.
+- **Not every "cheap, ready" backlog item is worth doing just because it's cheap.** The
+  over-60-char title trims scored high on cheapness (1.80) but were downgraded on inspection —
+  61-63 chars is still inside Google's real display cutoff, and trimming risked losing the
+  brand suffix for no measurable gain. Score cheapness as one input, not a green light on its own.
 
 ## What to stop trying
 - Nothing pruned yet.
