@@ -7,6 +7,13 @@
 - Loop 2: predicted 76 → 80 for Dayton coverage, landed exactly on 80.
 - Loop 3: predicted 80 → 84 for gutter cleaning expansion, landed exactly on 84.
 - Loop 4: predicted 84 → 88 for the Piqua hub + Dayton/Vandalia gutter cleaning, landed exactly on 88.
+- Loop 5: predicted 88 → 91 for closing the last gutter-cleaning gaps (Piqua/Englewood/Fairborn)
+  plus Piqua's remaining core services (soft washing, window cleaning). Landed on 91 — but this
+  loop also surfaced that Local SEO had already hit its 20/20 weight cap after Loop 4, so the
+  gain had to be booked under Conversion (more indexed landing pages) and Trust (cross-link
+  consistency) instead. Worth remembering: once a dimension caps out, keep shipping the same
+  category of work but re-derive which dimension actually absorbs the score, don't assume it's
+  the obviously-named one.
 
 ## What didn't
 - Nothing has missed its prediction yet (4 loops in). Watch for over-confidence — recompute
@@ -17,11 +24,19 @@
   still hit its (revised) prediction, but the backlog entry itself was wrong when written.
 
 ## Patterns worth reusing
-- **Sitewide single-string bugs compound.** Three loops in a row found a feature (Clean Club,
-  the Dayton footer link, gutter-cleaning link-cards on 6 pages) that was correctly built once
-  but never propagated to every page's shared chrome or cross-links. Before hunting new content
-  gaps, grep every shared-chrome and in-page link target against its correct destination,
-  sitewide, every loop. This has paid off 3/3 times so far — keep it as a permanent Sense step.
+- **Sitewide single-string bugs compound.** Four loops in a row found a feature (Clean Club,
+  the Dayton footer link, gutter-cleaning link-cards on 6 pages, Piqua's soft-washing/window-
+  cleaning cards) that was correctly built once but never propagated to every page's shared
+  chrome or cross-links. Before hunting new content gaps, grep every shared-chrome and in-page
+  link target against its correct destination, sitewide, every loop. This has paid off 4/4
+  times so far — keep it as a permanent Sense step.
+- **The canonical "hub" page for a service (e.g. `/gutter-cleaning-tipp-city-ohio/`) collects
+  its own stale links over time as sibling city pages get built.** Loop 5 found its area-grid
+  still pointing Troy/Vandalia/Huber Heights at pressure-washing pages (dead cross-link,
+  pre-existing) and Englewood/Beavercreek/Fairborn as plain unlinked `<span>` placeholders long
+  after those cities got gutter pages of their own in earlier loops. When retargeting a dead
+  link, also check whether the *canonical* version of that service page has drifted the same
+  way — it's touched less often than the city pages that link to it, so it drifts further.
 - **Reuse committed facts, never invent new ones — and check on-site first.** New pages should
   pull pricing from `/pressure-washing-cost-ohio/` or `/gutter-cleaning-tipp-city-ohio/`
   (already published), and city facts from that city's own existing hub/service page if one
