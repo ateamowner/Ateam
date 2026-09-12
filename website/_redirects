@@ -1,10 +1,48 @@
-https://www.ateamcontractings.com/*  https://ateamcontractings.com/:splat  301!
-http://ateamcontractings.com/*       https://ateamcontractings.com/:splat  301!
-http://www.ateamcontractings.com/*   https://ateamcontractings.com/:splat  301!
+https://www.ateamcontractings.com/index.html    https://ateamcontractings.com/           301!
+https://www.ateamcontractings.com/*/index.html  https://ateamcontractings.com/:splat/    301!
+http://www.ateamcontractings.com/index.html     https://ateamcontractings.com/           301!
+http://www.ateamcontractings.com/*/index.html   https://ateamcontractings.com/:splat/    301!
+http://ateamcontractings.com/index.html         https://ateamcontractings.com/           301!
+http://ateamcontractings.com/*/index.html       https://ateamcontractings.com/:splat/    301!
+
+https://www.ateamcontractings.com/              https://ateamcontractings.com/           301!
+https://www.ateamcontractings.com/*/            https://ateamcontractings.com/:splat/    301!
+https://www.ateamcontractings.com/*             https://ateamcontractings.com/:splat     301!
+http://ateamcontractings.com/*                  https://ateamcontractings.com/:splat     301!
+http://www.ateamcontractings.com/*              https://ateamcontractings.com/:splat     301!
 
 # Token file and function source must not be fetchable as static URLs.
 # (/.netlify/functions/* is the platform endpoint and is not this path.)
 /netlify/*                                   /index.html                    404!
+
+# /dir/index.html is a real static file, so Pretty URLs does not 301 it.
+# Live 2026-09-12: /index.html and /piqua-ohio/index.html both returned 200.
+# Force so the file cannot shadow the pretty-URL canonical.
+/index.html                                  /                              301!
+/*/index.html                                /:splat/                       301!
+
+# Bare service names 404 today. Send them to the existing hub, same pattern
+# as /power-washing/ → Tipp City pressure washing.
+/gutter-cleaning/                            /gutter-cleaning-tipp-city-ohio/  301
+/pressure-washing/                           /pressure-washing-tipp-city-ohio/  301
+/soft-washing/                               /soft-washing-tipp-city-ohio/  301
+/window-cleaning/                            /window-cleaning-tipp-city-ohio/  301
+/roof-cleaning/                              /roof-cleaning-tipp-city-ohio/  301
+/house-washing/                              /house-washing-dayton-ohio/  301
+/seal-coating/                               /seal-coating-tipp-city-ohio/  301
+/about-us/                                   /about/  301
+/contact-us/                                 /contact/  301
+
+# City name without the -ohio slug 404s (probed 2026-09-12).
+/piqua/                                      /piqua-ohio/  301
+/englewood/                                  /englewood-ohio/  301
+/troy/                                       /troy-ohio/  301
+/vandalia/                                   /vandalia-ohio/  301
+/dayton/                                     /dayton-ohio/  301
+/fairborn/                                   /fairborn-ohio/  301
+/beavercreek/                                /beavercreek-ohio/  301
+/tipp-city/                                  /tipp-city-ohio/  301
+/huber-heights/                              /huber-heights-ohio/  301
 
 # Power washing is an alias of pressure washing — no empty duplicate pages.
 /power-washing/                              /pressure-washing-tipp-city-ohio/  301
@@ -16,6 +54,7 @@ http://www.ateamcontractings.com/*   https://ateamcontractings.com/:splat  301!
 /power-washing-beavercreek-ohio/             /pressure-washing-beavercreek-ohio/  301
 /power-washing-englewood-ohio/               /pressure-washing-englewood-ohio/  301
 /power-washing-piqua-ohio/                   /pressure-washing-piqua-ohio/  301
+/power-washing-dayton-ohio/                  /pressure-washing-dayton-ohio/  301
 
 # Painting services is the searchable name for the existing Tipp painting page.
 # Verified 2026-08-31: live URL returns HTTP 301 (not a 404). Keep this
