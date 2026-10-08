@@ -24,17 +24,18 @@
 <meta name="twitter:image" content="https://ateamcontractings.com/images/gallery/gallery-softwash-4.webp">
 <link rel="canonical" href="https://ateamcontractings.com/house-washing-dayton-ohio/">
 <meta name="theme-color" content="#002050">
-<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* critical ATF — service page LCP (text in .page-hero) */
+/* critical ATF — Dayton service page (LCP round-2: mirrors site.css ATF rules exactly → no post-paint shift) */
 @font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/archivo-black-400.woff2') format('woff2')}
 @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/inter-var.woff2') format('woff2-variations'),url('/fonts/inter-var.woff2') format('woff2')}
-:root{--navy:#002050;--orange:#E86A12;--cyan:#2BB8D0;--cream:#F8F5F0;--ink:#111827;--text:#111827;--text-muted:#5c584f;--container:1180px;--dots:radial-gradient(rgba(0,32,80,.10) .9px,transparent .9px)}
+:root{--navy:#002050;--orange:#E86A12;--cyan:#2BB8D0;--paper:#F8F5F0;--cream:#F8F5F0;--ink:#111827;--text:#111827;--text-muted:#5c584f;--border:#e4dfd4;--container:1180px;--dots:radial-gradient(rgba(0,32,80,.10) .9px,transparent .9px)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
+h1,h2,h3{line-height:1.15}
 .container{max-width:var(--container);margin:0 auto;padding:0 1.35rem}
 .topbar{display:none}
 header{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(10,10,10,.08)}
@@ -43,29 +44,65 @@ header{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba
 .logo img{display:block;height:56px;width:auto}
 .logo-text{display:none}
 nav{display:none}
-.header-phone{color:var(--ink);font-size:.88rem;font-weight:700;white-space:nowrap;margin-left:auto}
-.header-cta{background:var(--orange);color:#fff!important;font-size:.82rem;font-weight:800;padding:.55rem 1.15rem;border-radius:6px;white-space:nowrap;border:none}
-.hamburger{display:flex;background:none;border:none;cursor:pointer;padding:.5rem;flex-direction:column;gap:5px}
+.header-phone{color:var(--ink);font-size:.88rem;font-weight:700;letter-spacing:.01em;white-space:nowrap;margin-left:auto}
+.header-cta{background:var(--orange);color:#fff!important;font-size:.82rem;font-weight:800;padding:.55rem 1.15rem;border-radius:6px;white-space:nowrap;flex-shrink:0;border:none}
+.hamburger{display:flex;background:none;border:none;cursor:pointer;padding:.5rem;flex-direction:column;gap:5px;flex-shrink:0}
 .hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
 .mobile-drawer{display:none}
-.btn{display:inline-block;padding:.95rem 1.55rem;border-radius:8px;font-weight:800;font-size:.92rem;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.btn{display:inline-block;padding:.95rem 1.55rem;border-radius:8px;font-weight:800;font-size:.92rem;letter-spacing:.01em;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
 .btn-orange{background:var(--orange);color:#fff}
 .btn-outline{background:#fff;color:var(--ink)}
+.stat-label{font-size:.76rem;margin-top:.15rem}
+section{padding:4.25rem 0}
+section h2{font-family:'Archivo Black',sans-serif;font-size:clamp(1.85rem,4.4vw,3rem);letter-spacing:.01em;margin-bottom:.55rem}
+.trust-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem;justify-content:center}
+.trust-chip{display:inline-flex;align-items:flex-start;gap:.45rem;background:#fff;border:1.5px solid var(--border);border-radius:99px;padding:.45rem .9rem;font-size:.78rem;font-weight:700;color:var(--navy);line-height:1.35;max-width:100%}
+.trust-chip.wide{border-radius:12px;max-width:36em}
+.mobile-dock{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--navy);border-top:1px solid rgba(255,255,255,.12);padding:.65rem .85rem calc(.65rem + env(safe-area-inset-bottom));gap:.65rem}
+.mobile-dock a{flex:1;text-align:center;font-weight:800;font-size:.88rem;padding:.85rem .5rem;border-radius:8px;letter-spacing:.02em}
+.mobile-dock-call{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);min-height:48px;display:flex;align-items:center;justify-content:center}
+.mobile-dock-quote{background:var(--orange);color:#fff;border:2px solid var(--orange);min-height:48px;display:flex;align-items:center;justify-content:center}
 .page-hero{background-color:var(--cream);background-image:var(--dots);background-size:18px 18px;color:var(--text);padding:3.75rem 1.35rem 3rem;text-align:center}
-.page-hero .section-label{font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:.45rem}
-.page-hero .section-label::before{content:'// '}
+.section-label{font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:.45rem}
+.section-label::before{content:'// '}
+.page-hero .section-label{color:var(--cyan)}
 .page-hero h1{font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,5.5vw,3.6rem);letter-spacing:.01em;margin-bottom:.75rem;text-transform:uppercase;color:var(--text)}
 .page-hero h1 em{font-style:italic;font-family:'Archivo Black',sans-serif;font-weight:400;color:var(--cyan);text-transform:none}
 .page-hero p{color:#4a463e;max-width:560px;margin:0 auto 1.5rem;font-size:.98rem;line-height:1.65}
-.page-hero .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.page-hero .btn-outline{border-color:var(--ink);color:var(--ink);background:#fff}
 .page-hero .hero-stats{display:flex;gap:2rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(0,32,80,.12);flex-wrap:wrap;justify-content:center}
 .page-hero .stat-num{font-family:'Archivo Black',sans-serif;font-size:1.65rem;color:var(--cyan);line-height:1}
 .page-hero .stat-label{font-size:.76rem;color:var(--text-muted);margin-top:.15rem}
-@media(max-width:768px){.logo img{height:48px}.page-hero .hero-btns .btn{width:100%;text-align:center}}
-
-@media(max-width:768px){header{background:var(--navy)}.header-phone{color:#FAFAFA}.hamburger span{background:#fff}.header-inner{height:64px}}
+.page-hero .trust-chip{background:#fff;border-color:rgba(0,32,80,.16);color:var(--text)}
+/* below-fold sections skip layout/paint until near viewport (cuts Style&Layout/TBT) */
+html:not(.cv-off) section:not(.hero):not(.page-hero),html:not(.cv-off) footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
+@media(max-width:768px){
+section{padding:2.75rem 0}
+header{background:var(--navy);box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.logo{padding:6px 8px 6px 0}.logo img{height:48px}
+.header-phone{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 .45rem;margin-left:auto;color:#FAFAFA;font-size:.72rem;letter-spacing:0}
+.hamburger span{background:#fff}.header-cta{padding:.5rem .8rem;font-size:.75rem}.header-inner{height:64px}
+.mobile-dock{display:flex}body{padding-bottom:76px}
+}
+@media(max-width:480px){
+.header-cta{padding:.45rem .65rem;font-size:.7rem}.header-phone{font-size:.65rem;padding:0 .3rem}.logo img{height:40px}.hero-btns .btn{width:100%;text-align:center}
+}
 </style>
-<link rel="preload" href="/css/site.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<script>
+/* content-visibility helper: in-page jumps (#qq, #faq, deep links) need real section heights,
+   so switch it off before the browser scrolls. Normal scrolling keeps the fast path. */
+(function(d){var r=d.documentElement;if(location.hash)r.classList.add('cv-off');
+d.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="#"]');if(a&&a.hash&&a.pathname===location.pathname)r.classList.add('cv-off');},true);
+window.addEventListener('hashchange',function(){r.classList.add('cv-off');});})(document);
+</script>
+<script>
+/* Round-2: inject site.css after first paint — no preload, so it cannot enter the
+   observed-LCP Lantern graph (preload+VeryHigh was dragging simulated LCP). */
+(function(){function apply(){if(window.__ateamCss)return;window.__ateamCss=1;var l=document.createElement('link');l.rel='stylesheet';l.href='/css/site.css';document.head.appendChild(l);}
+function kick(){if(window.requestAnimationFrame){requestAnimationFrame(function(){requestAnimationFrame(apply);});}else{setTimeout(apply,0);}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',kick);else kick();})();
+</script>
 <noscript><link rel="stylesheet" href="/css/site.css"></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"House Washing","name":"House Soft Washing in Dayton, Ohio","description":"Low-pressure soft wash for Dayton siding — removes algae and mildew without high pressure. Roofs soft-washed too. Call (937) 777-9093.","url":"https://ateamcontractings.com/house-washing-dayton-ohio/","areaServed":{"@type":"City","name":"Dayton","addressRegion":"OH","addressCountry":"US"},"provider":{"@id":"https://ateamcontractings.com/#business"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's the difference between house washing and pressure washing?","acceptedAnswer":{"@type":"Answer","text":"House washing is soft washing — under about 500 PSI, with a biodegradable detergent doing the cleaning and the water only rinsing. Pressure washing is high-force water and belongs on concrete, not on a wall. High pressure on siding forces water behind it and can strip paint."}},{"@type":"Question","name":"My house is in a historic district with old painted wood. Can you wash it?","acceptedAnswer":{"@type":"Answer","text":"Only by soft wash. Painted clapboard in South Park, St. Anne's Hill, Grafton Hill and the Oregon District is often over a century old, and anything built before 1978 may have lead-based paint underneath. We keep pressure minimal and control the rinse — and if a wall's paint is already failing, we will say so."}},{"@type":"Question","name":"Why is only one side of my house green?","acceptedAnswer":{"@type":"Answer","text":"Sun exposure. The north side gets the least direct light and stays damp longest, and the Great Miami and Mad River valleys keep summer humidity high, so green algae colonizes that side first."}},{"@type":"Question","name":"How long does a house wash last?","acceptedAnswer":{"@type":"Answer","text":"Typically 12 to 18 months in this climate before algae is visible again — closer to a year on a heavily shaded north wall, longer on an open sunny lot. Most customers settle into an annual spring wash."}},{"@type":"Question","name":"Will the detergent kill my landscaping?","acceptedAnswer":{"@type":"Answer","text":"Not if it is handled properly. We pre-wet plants before starting, cover what is sensitive, and rinse the beds again when we are done. Plants get hurt when someone sprays a concentrated mix onto dry foliage and leaves."}},{"@type":"Question","name":"Do you serve all of Dayton?","acceptedAnswer":{"@type":"Answer","text":"Yes — the city plus Belmont, Riverside, Harrison Township, Kettering, Oakwood, Trotwood, Moraine and Beavercreek. We are based in Tipp City, about twenty-five minutes north on I-75."}},{"@type":"Question","name":"Can you soft wash the house and pressure wash the driveway on the same visit?","acceptedAnswer":{"@type":"Answer","text":"Yes — that's a common Miami Valley booking. Soft wash siding (and roof if needed); pressure-wash concrete flatwork with a surface cleaner; add windows if you want them clear the same day. One setup beats three separate trips."}},{"@type":"Question","name":"Which surfaces get soft wash vs. pressure wash?","acceptedAnswer":{"@type":"Answer","text":"Soft wash: siding, roofs, brick/stone walls, painted wood, delicate surfaces. Pressure wash: driveways, sidewalks, patios, garage floors. Wrong method damages the house or leaves a weak concrete clean — we pick by surface, not by whatever machine is handy."}},{"@type":"Question","name":"Do you serve Dayton and the Miami Valley for house washing?","acceptedAnswer":{"@type":"Answer","text":"Yes. From Tipp City we work Dayton proper (including neighborhoods like South Park, Oregon District, Belmont, and the UD area) and the wider Miami Valley towns on our regular route. No franchise dispatcher — owner on site."}},{"@type":"Question","name":"Is pressure washing safe on older brick or vinyl siding?","acceptedAnswer":{"@type":"Answer","text":"Not at full pressure. Concrete and flatwork take the pressure path. Brick, siding, and roofs get soft washed so we don't force water behind the wall or chew mortar and paint."}}]}</script>
@@ -402,7 +439,9 @@ function toggleNav(btn){btn.classList.toggle('open');document.getElementById('mo
 function toggleFaq(btn){const item=btn.closest('.faq-item');const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));if(!wasOpen)item.classList.add('open')}
 </script>
 
-<script src="/assets/lead-form.js" defer></script>
+<script>
+window.addEventListener('load',function(){var s=document.createElement('script');s.src='/assets/lead-form.js';document.body.appendChild(s);});
+</script>
 
 <div class="mobile-dock" role="navigation" aria-label="Call or get a quote">
   <a class="mobile-dock-call" href="tel:+19377779093">Call</a>

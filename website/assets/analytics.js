@@ -8,7 +8,8 @@
  * from <head> as <script src="/assets/analytics.js"></script> (perf-tuned
  * pages use the same tag with `defer`; both work). It:
  *   1. Configs GA4 (automatic page_view on every page) and loads gtag.js
- *      right after window load so it never delays first paint / LCP.
+ *      on first interaction or 3.5 s after window load (whichever first) so
+ *      it never competes with first paint / LCP.
  *   2. Fires the recommended generate_lead event when a Netlify form named
  *      quick-quote or estimate-request is submitted (HTML5 validation has
  *      already passed). Beacon transport so the hit survives the redirect.
@@ -46,27 +47,43 @@
   gtag("js", new Date());
   gtag("config", MEASUREMENT_ID);
 
-  // Perf (Oct 8 LCP fix): inject gtag.js after window load so the 180 KB
-  // library never competes with the hero / LCP paint. Hits queued in
-  // dataLayer above (js + config → page_view) are sent once it arrives.
+  // Perf (Oct 8 LCP fix, round 2): inject gtag.js only after the page has
+  // painted and settled — on the visitor's first interaction (scroll, tap,
+  // click, key) or 3.5 s after window load, whichever comes first. Round 1
+  // loaded it right at `load`, which still landed before first paint on slow
+  // devices and dragged mobile LCP to ~4.8 s in Lighthouse. Hits queued in
+  // dataLayer above (js + config → page_view) are sent once it arrives, so
+  // every visitor who stays ~4 s or touches the page is still counted.
   var gtagLoaded = false;
+  var INTERACTION_EVENTS = ["scroll", "pointerdown", "touchstart", "keydown", "click"];
   function loadGtag() {
     if (gtagLoaded) return;
     gtagLoaded = true;
+    INTERACTION_EVENTS.forEach(function (ev) {
+      window.removeEventListener(ev, loadGtag, { passive: true, capture: true });
+    });
     var loader = document.createElement("script");
     loader.async = true;
     loader.src = "https://www.googletagmanager.com/gtag/js?id=" + MEASUREMENT_ID;
     document.head.appendChild(loader);
   }
-  if (document.readyState === "complete") {
-    setTimeout(loadGtag, 0);
-  } else {
-    window.addEventListener("load", function () {
-      setTimeout(loadGtag, 0);
-    });
+  INTERACTION_EVENTS.forEach(function (ev) {
+    window.addEventListener(ev, loadGtag, { passive: true, capture: true });
+  });
+  function scheduleAfterLoad() {
+    setTimeout(loadGtag, 3500);
   }
-  // A visitor who submits a form before load still needs gtag for the lead hit.
+  if (document.readyState === "complete") {
+    scheduleAfterLoad();
+  } else {
+    window.addEventListener("load", scheduleAfterLoad);
+  }
+  // A visitor who submits a form first still needs gtag for the lead hit.
   document.addEventListener("submit", loadGtag, true);
+  // Leaving early (tab hidden) — flush the queued page_view if we can.
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden") loadGtag();
+  });
 
   function storageKey(formName) {
     return "ateam_ga4_lead_" + formName;
@@ -126,4 +143,10 @@
     bindForms();
   }
   fireThanksIfNeeded();
+  // Thank-you pages carry the conversion — load gtag right away there.
+  (function () {
+    var path = window.location.pathname;
+    if (path.charAt(path.length - 1) !== "/") path += "/";
+    if (THANKS_PATHS[path]) loadGtag();
+  })();
 })();
