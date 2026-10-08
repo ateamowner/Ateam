@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="rx">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
 <meta name="twitter:image" content="https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp">
 <link rel="canonical" href="https://ateamcontractings.com/pressure-washing-dayton-ohio/">
 <meta name="theme-color" content="#002050">
-<link rel="preload" href="/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* critical ATF — Dayton service page (LCP round-2: mirrors site.css ATF rules exactly → no post-paint shift) */
@@ -89,6 +89,43 @@ header{background:var(--navy);box-shadow:0 8px 24px rgba(0,0,0,.28)}
 .header-cta{padding:.45rem .65rem;font-size:.7rem}.header-phone{font-size:.65rem;padding:0 .3rem}.logo img{height:40px}.hero-btns .btn{width:100%;text-align:center}
 }
 html.fg .hero .container,html.fg .page-hero .container,html.fg .header-cta,html.fg .header-phone{visibility:hidden}
+/* rx v1 (random.one-style) critical layer: html.rx-scoped so post-paint site.css cannot override it (no shift) */
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/anton-400.woff2') format('woff2')}
+html.rx{--rx-bg:#0a0b0f;--rx-panel:#12151c;--rx-panel2:#191d27;--rx-text:#f5f2ec;--rx-muted:#aaa59c;--rx-line:rgba(245,242,236,.14);--rx-or:#E86A12;--rx-or2:#ff8a3d;--rx-display:'Anton',sans-serif;--rx-mono:ui-monospace,monospace;background:#0a0b0f;color-scheme:dark}
+html.rx body{background:var(--rx-bg);color:var(--rx-text)}
+html.rx header{background:rgba(10,11,15,.94);box-shadow:0 1px 0 var(--rx-line)}
+html.rx .header-phone{color:var(--rx-text);font-family:var(--rx-mono);font-weight:500;letter-spacing:.02em}
+html.rx .header-cta{border-radius:3px;letter-spacing:.04em;text-transform:uppercase}
+html.rx .hamburger span{background:var(--rx-text)}
+html.rx .btn{border-radius:3px;box-shadow:none;border:1px solid var(--rx-or);text-transform:uppercase;letter-spacing:.06em;font-size:.84rem;padding:1.05rem 1.6rem}
+html.rx .btn-outline{background:transparent;color:var(--rx-text);border-color:rgba(245,242,236,.42)}
+html.rx .mobile-dock{background:var(--rx-bg);border-top-color:var(--rx-line)}
+html.rx .mobile-dock-quote{border-radius:3px;text-transform:uppercase;letter-spacing:.05em}
+html.rx .mobile-dock-call{border-radius:3px;text-transform:uppercase;letter-spacing:.05em;border-color:rgba(245,242,236,.35)}
+html.rx .hero-stats,html.rx .page-hero .hero-stats{justify-content:flex-start;gap:0;border-top:1px solid var(--rx-line);padding-top:0;margin-top:2rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+html.rx .hero-stats>div{padding:1.1rem 1rem 0 0;border-right:1px solid var(--rx-line);padding-left:1rem}
+html.rx .hero-stats>div:first-child{padding-left:0}
+html.rx .hero-stats>div:last-child{border-right:0}
+html.rx .hero .stat-num,html.rx .page-hero .stat-num{font-family:var(--rx-display);font-weight:400;font-size:clamp(2rem,7vw,3.4rem);line-height:1;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+html.rx .hero .stat-label,html.rx .page-hero .stat-label{font-family:var(--rx-mono);text-transform:uppercase;letter-spacing:.08em;font-size:.64rem;line-height:1.4;color:var(--rx-muted);margin-top:.45rem}
+html.rx .trust-chip,html.rx .hero .trust-chip,html.rx .page-hero .trust-chip{background:transparent;border-color:var(--rx-line);color:var(--rx-text);border-radius:3px}
+@media(max-width:768px){html.rx header{background:var(--rx-bg)}}
+html.rx .breadcrumb{background:var(--rx-bg);border-bottom:1px solid var(--rx-line)}
+html.rx .breadcrumb ol{max-width:var(--container);margin:0 auto;padding:.6rem 1.25rem;list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:.72rem;line-height:1.6;color:var(--rx-muted);font-family:var(--rx-mono);letter-spacing:.06em;text-transform:uppercase}
+html.rx .breadcrumb li{display:flex;align-items:center;gap:.4rem}
+html.rx .breadcrumb li+li::before{content:'/';color:var(--rx-muted);opacity:.6}
+html.rx .breadcrumb a{color:var(--rx-text);font-weight:500}
+html.rx .breadcrumb [aria-current='page']{color:var(--rx-or2);font-weight:500}
+html.rx .page-hero{background:var(--rx-bg);background-image:none;color:var(--rx-text);text-align:left;padding:3.25rem 0 3rem}
+html.rx main .section-label{font-family:var(--rx-mono);font-weight:500;font-size:.72rem;letter-spacing:.14em;line-height:1.5;color:var(--rx-or2);margin-bottom:1.1rem}
+html.rx main .section-label::before{content:'// ';color:var(--rx-text)}
+html.rx main .section-label[data-rx]::before{content:attr(data-rx) ' / '}
+html.rx .page-hero h1{font-family:var(--rx-display);font-weight:400;font-size:clamp(3.4rem,15.5vw,10.5rem);line-height:.86;letter-spacing:0;text-transform:uppercase;color:#fff;margin-bottom:1.6rem}
+html.rx .page-hero h1 em{font-family:var(--rx-display);font-style:normal;font-weight:400;text-transform:uppercase;color:var(--rx-or)}
+html.rx .page-hero p{color:var(--rx-muted);margin:0 0 1.75rem;max-width:36rem;font-size:1.02rem;line-height:1.65}
+html.rx .page-hero .hero-btns{justify-content:flex-start}
+html.rx .page-hero .btn-outline{background:transparent;color:var(--rx-text);border-color:rgba(245,242,236,.42)}
+@media(min-width:900px){html.rx .page-hero{padding:5rem 0 4rem}html.rx .page-hero p{font-size:1.15rem}}
 </style>
 <script>
 /* Round-3 font gate: hero text was laid out in fallback fonts at first paint, then Archivo/Inter
@@ -96,7 +133,7 @@ html.fg .hero .container,html.fg .page-hero .container,html.fg .header-cta,html.
    text box hidden (layout untouched, hero image still paints) until both preloaded fonts are
    ready, capped at 1s. Copy/markup unchanged; no-JS visitors never get the class. */
 (function(r,f){if(!f||!f.load)return;r.classList.add('fg');var done=function(){r.classList.remove('fg');};
-setTimeout(done,1000);try{Promise.all([f.load('400 1em "Archivo Black"'),f.load('400 1em Inter'),f.load('800 1em Inter')]).then(done,done);}catch(e){done();}})(document.documentElement,document.fonts);
+setTimeout(done,1000);try{Promise.all([f.load('400 1em Anton'),f.load('400 1em Inter'),f.load('800 1em Inter')]).then(done,done);}catch(e){done();}})(document.documentElement,document.fonts);
 </script>
 <script>
 /* content-visibility helper: in-page jumps (#qq, #faq, deep links) need real section heights,
@@ -108,11 +145,11 @@ window.addEventListener('hashchange',function(){r.classList.add('cv-off');});})(
 <script>
 /* Round-2: inject site.css after first paint — no preload, so it cannot enter the
    observed-LCP Lantern graph (preload+VeryHigh was dragging simulated LCP). */
-(function(){function apply(){if(window.__ateamCss)return;window.__ateamCss=1;var l=document.createElement('link');l.rel='stylesheet';l.href='/css/site.css';document.head.appendChild(l);}
+(function(){function apply(){if(window.__ateamCss)return;window.__ateamCss=1;var l=document.createElement('link');l.rel='stylesheet';l.href='/css/site.css';document.head.appendChild(l);var x=document.createElement('link');x.rel='stylesheet';x.href='/css/redesign.css';document.head.appendChild(x);}
 function kick(){if(window.requestAnimationFrame){requestAnimationFrame(function(){requestAnimationFrame(apply);});}else{setTimeout(apply,0);}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',kick);else kick();})();
 </script>
-<noscript><link rel="stylesheet" href="/css/site.css"></noscript>
+<noscript><link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/redesign.css"></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Pressure Washing","name":"Pressure Washing in Dayton, Ohio","description":"Driveway, walkway and patio pressure washing in Dayton, OH, plus brick-safe soft washing for the city's older masonry housing stock.","url":"https://ateamcontractings.com/pressure-washing-dayton-ohio/","areaServed":{"@type":"City","name":"Dayton","addressRegion":"OH","addressCountry":"US"},"provider":{"@id":"https://ateamcontractings.com/#business"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you pressure wash in the city of Dayton, not just the suburbs?","acceptedAnswer":{"@type":"Answer","text":"Yes — Dayton proper, not just the suburbs around it. Downtown, South Park, the Oregon District, Wright-Dunbar, Belmont, near the University of Dayton, and everywhere between. We're about sixteen miles up I-75 in Tipp City and we're down in Dayton most weeks."}},{"@type":"Question","name":"Is pressure washing safe on Dayton's older brick and stone homes?","acceptedAnswer":{"@type":"Answer","text":"Not at full pressure. A lot of Dayton's housing stock predates 1950, with brick, stone and old mortar that a high-pressure wand will damage. Concrete and flatwork get pressure washed. Brick, siding and anything painted get a low-pressure soft wash instead — see our soft washing page for how that works."}},{"@type":"Question","name":"How much does pressure washing cost in Dayton?","acceptedAnswer":{"@type":"Answer","text":"A standard driveway runs $150 to $300 depending on size, and a full exterior — house, driveway and walks in one visit — runs $300 to $600. Full breakdown and the per-square-foot math is on our pressure washing cost guide."}},{"@type":"Question","name":"Do you do rental properties and multi-family buildings in Dayton?","acceptedAnswer":{"@type":"Answer","text":"Regularly. Landlords and property managers book turnover cleaning between tenants and recurring exterior maintenance on multi-family buildings. See commercial pressure washing for scheduling."}},{"@type":"Question","name":"How far out do you book in Dayton?","acceptedAnswer":{"@type":"Answer","text":"Usually within a few days. Spring and summer are our busiest stretch across the whole Miami Valley, Dayton included, so the earlier you reach out the sooner you're on the schedule."}},{"@type":"Question","name":"Can you bundle pressure washing with window cleaning in Dayton?","acceptedAnswer":{"@type":"Answer","text":"Yes, and it's the best deal we offer. Once the crew and equipment are already at your Dayton address, adding windows costs a fraction of booking it as a separate visit. We'll quote both together."}},{"@type":"Question","name":"Can you soft wash the house and pressure wash the driveway on the same visit?","acceptedAnswer":{"@type":"Answer","text":"Yes — that's a common Miami Valley booking. Soft wash siding (and roof if needed); pressure-wash concrete flatwork with a surface cleaner; add windows if you want them clear the same day. One setup beats three separate trips."}},{"@type":"Question","name":"Which surfaces get soft wash vs. pressure wash?","acceptedAnswer":{"@type":"Answer","text":"Soft wash: siding, roofs, brick/stone walls, painted wood, delicate surfaces. Pressure wash: driveways, sidewalks, patios, garage floors. Wrong method damages the house or leaves a weak concrete clean — we pick by surface, not by whatever machine is handy."}},{"@type":"Question","name":"Do you serve Dayton and the Miami Valley for windows and washing?","acceptedAnswer":{"@type":"Answer","text":"Yes. From Tipp City we work Dayton proper (including neighborhoods like South Park, Oregon District, Belmont, and the UD area) and the wider Miami Valley towns on our regular route. No franchise dispatcher — owner on site."}},{"@type":"Question","name":"How do I get a price for windows plus a wash?","acceptedAnswer":{"@type":"Answer","text":"Use /estimate/, or call or text (937) 777-9093. Bundling windows with soft wash or driveway pressure wash while we're already there is usually the better deal than booking each alone."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://ateamcontractings.com/#business","name":"A Team Contracting","url":"https://ateamcontractings.com/","telephone":"(937) 777-9093","email":"Owner@ateamcontractings.com","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp","logo":"https://ateamcontractings.com/logo.webp","priceRange":"$","foundingDate":"2023-01-01","founder":{"@type":"Person","name":"Anthony Leonard"},"employee":{"@type":"Person","name":"Anthony Leonard"},"address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","postalCode":"45371","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.9581,"longitude":-84.1733},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"19:00"}],"areaServed":[{"@type":"City","name":"Tipp City","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Troy","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Vandalia","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Huber Heights","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Piqua","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Dayton","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Englewood","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Fairborn","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Beavercreek","addressRegion":"OH","addressCountry":"US"}],"sameAs":["https://g.page/r/CdoEOEshw5VUEAE/","https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933","https://www.facebook.com/Ateam937","https://www.instagram.com/ateamcontractings/","https://nextdoor.com/page/a-team-contracting-services","https://www.yelp.com/biz/a-team-contracting-tipp-city"]}</script>
@@ -180,7 +217,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <main>
 <section class="page-hero">
   <div class="container">
-    <div class="section-label">Dayton, Ohio &middot; Sixteen Miles Down I-75</div>
+    <div class="section-label" data-rx="01">Dayton, Ohio &middot; Sixteen Miles Down I-75</div>
     <h1>Pressure Washing <em>Dayton Actually Trusts</em></h1>
     <p>Driveways, walkways and patios cleaned right — plus a soft wash instead of a pressure wand anywhere the surface can't take it. Family-owned, based sixteen miles up the road in Tipp City, and in Dayton most weeks anyway.</p>
     <div class="hero-btns">
@@ -195,11 +232,29 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   </div>
 </section>
 
+<!-- rx v1: stat counters. Values only from on-site copy/schema: 5.0 + 39 reviews (aggregateRating), 9 towns (areaServed), same-day callback (quick-quote copy). Jobs done = TODO (no on-site figure). -->
+<div class="rx-stats">
+  <div class="container">
+    <ul class="rx-stats-grid">
+      <li class="rx-stat"><div class="rx-val"><span data-count="5.0">5.0</span><small class="rx-star" aria-hidden="true"></small></div><div class="rx-lab">Google rating · 39 reviews</div></li>
+      <li class="rx-stat rx-todo" data-todo="jobs-done"><div class="rx-val">TODO</div><div class="rx-lab">Jobs done</div></li>
+      <li class="rx-stat"><div class="rx-val"><span data-count="9">9</span></div><div class="rx-lab">Towns served</div></li>
+      <li class="rx-stat"><div class="rx-val rx-val-txt">Same day</div><div class="rx-lab">Callback · Mon–Sat</div></li>
+    </ul>
+  </div>
+</div>
+
 <section>
   <div class="container">
-    <div class="section-label">Recent Work</div>
+    <div class="section-label" data-rx="02">Recent Work</div>
     <h2>Recent Dayton-Area Jobs</h2>
     <p class="section-sub">Real Miami Valley concrete jobs — driveways and sidewalks, photographed on site.</p>
+    <div class="rx-ba">
+      <img class="rx-ba-before" src="/images/ba/ba-slider-driveway-pressure-wash-miami-valley-before-480.webp" srcset="/images/ba/ba-slider-driveway-pressure-wash-miami-valley-before-480.webp 480w, /images/ba/ba-slider-driveway-pressure-wash-miami-valley-before.webp 640w" sizes="(max-width:600px) 92vw, 520px" width="640" height="800" alt="Miami Valley concrete driveway before pressure washing" loading="lazy" decoding="async">
+      <img class="rx-ba-after" src="/images/ba/ba-slider-driveway-pressure-wash-miami-valley-after-480.webp" srcset="/images/ba/ba-slider-driveway-pressure-wash-miami-valley-after-480.webp 480w, /images/ba/ba-slider-driveway-pressure-wash-miami-valley-after.webp 640w" sizes="(max-width:600px) 92vw, 520px" width="640" height="800" alt="Miami Valley concrete driveway after pressure washing by A Team Contracting" loading="lazy" decoding="async">
+      <span class="rx-ba-line" aria-hidden="true"></span><span class="rx-ba-tag rx-ba-b" aria-hidden="true">Before</span><span class="rx-ba-tag rx-ba-a" aria-hidden="true">After</span>
+      <input class="rx-ba-range" type="range" min="0" max="100" value="50" aria-label="Before and after comparison: slide to reveal">
+    </div>
     <div class="gallery-strip">
       <a href="/gallery/" class="gallery-thumb"><img src="/images/gallery/pressure-wash-driveway-ba-kettering-1-800.webp" alt="Concrete driveway pressure washing before and after — Kettering, Ohio" width="1080" height="1188" srcset="/images/gallery/pressure-wash-driveway-ba-kettering-1-480.webp 480w, /images/gallery/pressure-wash-driveway-ba-kettering-1-800.webp 800w, /images/gallery/pressure-wash-driveway-ba-kettering-1.webp 1080w" sizes="(max-width:600px) 92vw, 280px" decoding="async" loading="lazy"></a>
       <a href="/gallery/" class="gallery-thumb"><img src="/images/gallery/pressure-wash-driveway-ba-centerville-1-800.webp" alt="Concrete driveway pressure washing before and after — Centerville, Ohio" width="1080" height="912" srcset="/images/gallery/pressure-wash-driveway-ba-centerville-1-480.webp 480w, /images/gallery/pressure-wash-driveway-ba-centerville-1-800.webp 800w, /images/gallery/pressure-wash-driveway-ba-centerville-1.webp 1080w" sizes="(max-width:600px) 92vw, 280px" decoding="async" loading="lazy"></a>
@@ -210,7 +265,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 <section>
   <div class="container prose">
-    <div class="section-label">Local Knowledge</div>
+    <div class="section-label" data-rx="03">Local Knowledge</div>
     <h2>Dayton Housing Isn't One Kind of Job</h2>
     <p class="lede">Downtown high-rises and rowhouses, century-old brick in South Park and the Oregon District, mid-century ranches further out, newer builds near the university — Dayton doesn't have one housing type, so it doesn't get one wash. We look at the surface first and pick the method that fits it, not the other way around.</p>
 
@@ -232,7 +287,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 <section class="bg-off">
   <div class="container">
-    <div class="section-label">Real Dayton Jobs</div>
+    <div class="section-label" data-rx="04">Real Dayton Jobs</div>
     <h2>Before &amp; After in Dayton</h2>
     <p class="section-sub">Residential and commercial, photographed on site.</p>
     <div class="gallery-strip">
@@ -246,7 +301,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 <section>
   <div class="container">
-    <div class="section-label">What We Clean in Dayton</div>
+    <div class="section-label" data-rx="05">What We Clean in Dayton</div>
     <h2>Concrete, Brick, Glass and Gutters</h2>
     <div class="link-grid">
       <a class="link-card" href="/house-washing-dayton-ohio/"><h3>House Washing</h3><p>Soft wash for siding, brick and stone — the full exterior, done safely.</p><span class="go">House washing in Dayton →</span></a>
@@ -261,50 +316,54 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 <section class="bg-off">
   <div class="container">
-    <div class="section-label">Dayton Questions</div>
+    <div class="rx-split">
+    <div class="rx-pin">
+    <div class="section-label" data-rx="06">Dayton Questions</div>
     <h2>Pressure Washing in Dayton — FAQ</h2>
     <p class="section-sub">Straight answers. If yours isn't here, call or text (937) 777-9093.</p>
+    </div>
     <div class="faq-grid">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do you pressure wash in the city of Dayton, not just the suburbs?</button>
+      <details class="faq-item">
+        <summary class="faq-q">Do you pressure wash in the city of Dayton, not just the suburbs?</summary>
         <div class="faq-a">Yes — Dayton proper, not just the suburbs around it. Downtown, South Park, the Oregon District, Wright-Dunbar, Belmont, near the University of Dayton, and everywhere between. We're about sixteen miles up I-75 in Tipp City and we're down in Dayton most weeks.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is pressure washing safe on Dayton's older brick and stone homes?</button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Is pressure washing safe on Dayton's older brick and stone homes?</summary>
         <div class="faq-a">Not at full pressure. A lot of Dayton's housing stock predates 1950, with brick, stone and old mortar that a high-pressure wand will damage. Concrete and flatwork get pressure washed. Brick, siding and anything painted get a low-pressure <a href="/soft-washing-dayton-ohio/">soft wash</a> instead.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How much does pressure washing cost in Dayton?</button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How much does pressure washing cost in Dayton?</summary>
         <div class="faq-a">A standard driveway runs $150 to $300 depending on size, and a full exterior — house, driveway and walks in one visit — runs $300 to $600. Full breakdown on our <a href="/pressure-washing-cost-ohio/">pressure washing cost guide</a>. Want the ranges before you book? See <a href="/pressure-washing-cost-ohio/">pressure washing prices &amp; rates in Ohio</a>, then <a href="/estimate/?service=pressure-washing&amp;city=dayton">get an Instant Price</a>.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do you do rental properties and multi-family buildings in Dayton?</button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Do you do rental properties and multi-family buildings in Dayton?</summary>
         <div class="faq-a">Regularly. Landlords and property managers book turnover cleaning between tenants and recurring exterior maintenance on multi-family buildings. See <a href="/commercial-pressure-washing-dayton-ohio/">commercial pressure washing</a> for scheduling.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How far out do you book in Dayton?</button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How far out do you book in Dayton?</summary>
         <div class="faq-a">Usually within a few days. Spring and summer are our busiest stretch across the whole Miami Valley, Dayton included, so the earlier you reach out the sooner you're on the schedule.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Can you bundle pressure washing with window cleaning in Dayton?</button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can you bundle pressure washing with window cleaning in Dayton?</summary>
         <div class="faq-a">Yes, and it's the best deal we offer. Once the crew and equipment are already at your Dayton address, adding windows costs a fraction of booking it as a separate visit. We'll quote both together.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Can you soft wash the house and pressure wash the driveway on the same visit?</button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Can you soft wash the house and pressure wash the driveway on the same visit?</summary>
         <div class="faq-a">Yes — that's a common <a href="/miami-valley/">Miami Valley</a> booking. Soft wash siding (and roof if needed); pressure-wash concrete flatwork with a surface cleaner; add windows if you want them clear the same day. One setup beats three separate trips.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Which surfaces get soft wash vs. pressure wash?</button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Which surfaces get soft wash vs. pressure wash?</summary>
         <div class="faq-a"><strong>Soft wash:</strong> siding, roofs, brick/stone walls, painted wood, delicate surfaces. <strong>Pressure wash:</strong> driveways, sidewalks, patios, garage floors. Wrong method damages the house or leaves a weak concrete clean — we pick by surface. Full breakdown: <a href="/soft-washing-vs-pressure-washing/">soft wash vs. pressure wash</a>. Dayton decision guide: <a href="/blog/soft-wash-vs-pressure-wash-dayton/">Soft Wash vs Pressure Wash</a>.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do you serve Dayton and the Miami Valley for windows and washing?</button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Do you serve Dayton and the Miami Valley for windows and washing?</summary>
         <div class="faq-a">Yes. From Tipp City we work Dayton proper (including neighborhoods like South Park, Oregon District, Belmont, and the UD area) and the wider <a href="/miami-valley/">Miami Valley</a> towns on our regular route. No franchise dispatcher — owner on site.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How do I get a price for windows plus a wash?</button>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">How do I get a price for windows plus a wash?</summary>
         <div class="faq-a">Use <a href="/estimate/?service=pressure-washing&amp;city=dayton">/estimate/</a>, or call or text <a href="tel:+19377779093">(937) 777-9093</a>. Bundling windows with soft wash or driveway pressure wash while we're already there is usually the better deal than booking each alone.</div>
-      </div>
+      </details>
+    </div>
     </div>
   </div>
 </section>
@@ -313,6 +372,13 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   <div class="container">
     <h2>Dayton Pressure Washing, Priced in a Minute</h2>
     <p>Snap a photo of the driveway or the wall and see your number right away.</p>
+    <ol class="rx-process" aria-label="How a job goes">
+      <li><span class="rx-pn" aria-hidden="true">01</span><span class="rx-pl">Photo</span></li>
+      <li><span class="rx-pn" aria-hidden="true">02</span><span class="rx-pl">Price</span></li>
+      <li><span class="rx-pn" aria-hidden="true">03</span><span class="rx-pl">Schedule</span></li>
+      <li><span class="rx-pn" aria-hidden="true">04</span><span class="rx-pl">Clean</span></li>
+      <li><span class="rx-pn" aria-hidden="true">05</span><span class="rx-pl">Before / After</span></li>
+    </ol>
     <a href="/estimate/?service=pressure-washing&amp;city=dayton" class="btn btn-orange" style="margin-right:.75rem">📸 Get My Instant Price →</a>
     <a href="tel:+19377779093" style="color:rgba(255,255,255,.9);font-weight:700;font-size:.9rem">or call (937) 777-9093</a>
 
@@ -469,5 +535,8 @@ window.addEventListener('load',function(){var s=document.createElement('script')
   <a class="mobile-dock-quote" href="/estimate/?service=pressure-washing&amp;city=dayton">Get Quote</a>
 </div>
 
+<script>
+window.addEventListener('load',function(){var s=document.createElement('script');s.src='/assets/rx.js';document.body.appendChild(s);});
+</script>
 </body>
 </html>

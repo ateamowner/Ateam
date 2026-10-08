@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="rx">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +28,7 @@
      Tools, then pastes the verification meta on the next line (name="msvalidate.01")
      — or drops BingSiteAuth.xml at the site root (this folder). Do not invent a
      verification code. This PR ships IndexNow only. -->
-<link rel="preload" href="/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="/images/hero-patio-ba-miami-valley-400.webp" fetchpriority="high">
 <style>
@@ -106,6 +106,43 @@ header{background:var(--navy);box-shadow:0 8px 24px rgba(0,0,0,.28)}
 .hero-proof{margin-top:.7rem}.hero-proof-link{min-height:36px;padding:.3rem .7rem;font-size:.72rem}
 }
 html.fg .hero .container,html.fg .page-hero .container,html.fg .header-cta,html.fg .header-phone{visibility:hidden}
+/* rx v1 (random.one-style) critical layer: html.rx-scoped so post-paint site.css cannot override it (no shift) */
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/anton-400.woff2') format('woff2')}
+html.rx{--rx-bg:#0a0b0f;--rx-panel:#12151c;--rx-panel2:#191d27;--rx-text:#f5f2ec;--rx-muted:#aaa59c;--rx-line:rgba(245,242,236,.14);--rx-or:#E86A12;--rx-or2:#ff8a3d;--rx-display:'Anton',sans-serif;--rx-mono:ui-monospace,monospace;background:#0a0b0f;color-scheme:dark}
+html.rx body{background:var(--rx-bg);color:var(--rx-text)}
+html.rx header{background:rgba(10,11,15,.94);box-shadow:0 1px 0 var(--rx-line)}
+html.rx .header-phone{color:var(--rx-text);font-family:var(--rx-mono);font-weight:500;letter-spacing:.02em}
+html.rx .header-cta{border-radius:3px;letter-spacing:.04em;text-transform:uppercase}
+html.rx .hamburger span{background:var(--rx-text)}
+html.rx .btn{border-radius:3px;box-shadow:none;border:1px solid var(--rx-or);text-transform:uppercase;letter-spacing:.06em;font-size:.84rem;padding:1.05rem 1.6rem}
+html.rx .btn-outline{background:transparent;color:var(--rx-text);border-color:rgba(245,242,236,.42)}
+html.rx .mobile-dock{background:var(--rx-bg);border-top-color:var(--rx-line)}
+html.rx .mobile-dock-quote{border-radius:3px;text-transform:uppercase;letter-spacing:.05em}
+html.rx .mobile-dock-call{border-radius:3px;text-transform:uppercase;letter-spacing:.05em;border-color:rgba(245,242,236,.35)}
+html.rx .hero-stats,html.rx .page-hero .hero-stats{justify-content:flex-start;gap:0;border-top:1px solid var(--rx-line);padding-top:0;margin-top:2rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+html.rx .hero-stats>div{padding:1.1rem 1rem 0 0;border-right:1px solid var(--rx-line);padding-left:1rem}
+html.rx .hero-stats>div:first-child{padding-left:0}
+html.rx .hero-stats>div:last-child{border-right:0}
+html.rx .hero .stat-num,html.rx .page-hero .stat-num{font-family:var(--rx-display);font-weight:400;font-size:clamp(2rem,7vw,3.4rem);line-height:1;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
+html.rx .hero .stat-label,html.rx .page-hero .stat-label{font-family:var(--rx-mono);text-transform:uppercase;letter-spacing:.08em;font-size:.64rem;line-height:1.4;color:var(--rx-muted);margin-top:.45rem}
+html.rx .trust-chip,html.rx .hero .trust-chip,html.rx .page-hero .trust-chip{background:transparent;border-color:var(--rx-line);color:var(--rx-text);border-radius:3px}
+@media(max-width:768px){html.rx header{background:var(--rx-bg)}}
+html.rx .hero{background:var(--rx-bg);background-image:none;color:var(--rx-text);text-align:left;padding:3.25rem 0 3rem}
+html.rx .hero-bg{opacity:.34}
+html.rx .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,15,.55) 0%,rgba(10,11,15,.7) 45%,#0a0b0f 100%)}
+html.rx .pow{display:none}
+html.rx .hero-inner{align-items:stretch;gap:2.5rem}
+html.rx .hero-content{max-width:none}
+html.rx .hero-badge{display:block;background:none;color:var(--rx-or2);padding:0;border-radius:0;font-family:var(--rx-mono);font-weight:500;font-size:.72rem;letter-spacing:.14em;margin-bottom:1.25rem}
+html.rx .hero h1{font-family:var(--rx-display);font-weight:400;font-size:clamp(4.1rem,19vw,12rem);line-height:.84;letter-spacing:0;text-transform:uppercase;color:#fff;margin-bottom:1.6rem}
+html.rx .hero h1 em{font-family:var(--rx-display);font-style:normal;font-weight:400;font-size:1em;color:var(--rx-or);-webkit-text-stroke:0;letter-spacing:0}
+html.rx .hero-sub{color:var(--rx-muted);margin:0 0 1.75rem;max-width:36rem;font-size:1.02rem}
+html.rx .hero-btns{justify-content:flex-start}
+html.rx .hero-proof{justify-content:flex-start;margin-top:1rem}
+html.rx .hero-proof-link{background:transparent;border:1px solid var(--rx-line);border-radius:3px;color:var(--rx-text);font-family:var(--rx-mono);font-weight:500;letter-spacing:.04em}
+html.rx .hero .trust-chips{justify-content:flex-start}
+html.rx .hero-img-wrap{width:100%;transform:none;border:0;border-radius:2px;box-shadow:none;outline:1px solid var(--rx-line)}
+@media(min-width:900px){html.rx .hero{padding:5rem 0 4rem}html.rx .hero-sub{font-size:1.15rem}}
 </style>
 <script>
 /* Round-3 font gate: hero text was laid out in fallback fonts at first paint, then Archivo/Inter
@@ -113,7 +150,7 @@ html.fg .hero .container,html.fg .page-hero .container,html.fg .header-cta,html.
    text box hidden (layout untouched, hero image still paints) until both preloaded fonts are
    ready, capped at 1s. Copy/markup unchanged; no-JS visitors never get the class. */
 (function(r,f){if(!f||!f.load)return;r.classList.add('fg');var done=function(){r.classList.remove('fg');};
-setTimeout(done,1000);try{Promise.all([f.load('400 1em "Archivo Black"'),f.load('400 1em Inter'),f.load('800 1em Inter')]).then(done,done);}catch(e){done();}})(document.documentElement,document.fonts);
+setTimeout(done,1000);try{Promise.all([f.load('400 1em Anton'),f.load('400 1em Inter'),f.load('800 1em Inter')]).then(done,done);}catch(e){done();}})(document.documentElement,document.fonts);
 </script>
 <script>
 /* content-visibility helper: in-page jumps (#qq, #faq, deep links) need real section heights,
@@ -125,11 +162,11 @@ window.addEventListener('hashchange',function(){r.classList.add('cv-off');});})(
 <script>
 /* Round-2: inject site.css after first paint — no preload, so it cannot enter the
    observed-LCP Lantern graph (preload+VeryHigh was dragging simulated LCP). */
-(function(){function apply(){if(window.__ateamCss)return;window.__ateamCss=1;var l=document.createElement('link');l.rel='stylesheet';l.href='/css/site.css';document.head.appendChild(l);}
+(function(){function apply(){if(window.__ateamCss)return;window.__ateamCss=1;var l=document.createElement('link');l.rel='stylesheet';l.href='/css/site.css';document.head.appendChild(l);var x=document.createElement('link');x.rel='stylesheet';x.href='/css/redesign.css';document.head.appendChild(x);}
 function kick(){if(window.requestAnimationFrame){requestAnimationFrame(function(){requestAnimationFrame(apply);});}else{setTimeout(apply,0);}}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',kick);else kick();})();
 </script>
-<noscript><link rel="stylesheet" href="/css/site.css"></noscript>
+<noscript><link rel="stylesheet" href="/css/site.css"><link rel="stylesheet" href="/css/redesign.css"></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I get a price from A Team?","acceptedAnswer":{"@type":"Answer","text":"Use our instant estimator at ateamcontractings.com/estimate — answer a few questions, snap a photo of the area you need cleaned, and you'll see a ballpark price right away. No callback required. Or text Anthony directly at (937) 777-9093 and he'll get right back to you."}},{"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We're based in Tipp City, Ohio and serve the Miami Valley and greater Dayton — Troy, Vandalia, Huber Heights, Englewood, Fairborn, Beavercreek, Piqua, and the towns around them. If you're not sure whether we come to you — just ask."}},{"@type":"Question","name":"What's the difference between pressure washing and soft washing?","acceptedAnswer":{"@type":"Answer","text":"Pressure washing uses high-force water to blast concrete, driveways, patios, and sidewalks clean. Soft washing uses low-pressure water plus a biodegradable cleaning solution to safely clean siding, roofs, and delicate surfaces. Using the wrong method can cause real damage — we use the right one for every surface. Learn more about soft washing →"}},{"@type":"Question","name":"Do I need to be home during the job?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. As long as we have access to a water spigot and the areas that need cleaning, we can complete most jobs while you're at work or out for the day. We'll send you before-and-after photos when we're done and check in before we leave."}},{"@type":"Question","name":"Are you insured?","acceptedAnswer":{"@type":"Answer","text":"Yes. A Team Contracting is fully insured. You can ask for proof of insurance any time — we're happy to provide it before the job starts. Peace of mind is part of what you're paying for."}},{"@type":"Question","name":"How quickly can you get out here?","acceptedAnswer":{"@type":"Answer","text":"Usually within a few days. In our busy season (spring and summer) we book up fast, so the sooner you reach out the better. Call or text (937) 777-9093 and we'll get you on the schedule."}},{"@type":"Question","name":"Do you offer discounts for bundling services?","acceptedAnswer":{"@type":"Answer","text":"Yes — bundling is the best deal we offer. Add window cleaning to a pressure wash or soft wash while we're already on-site and you'll save vs. booking each separately. We'll show you the full value and your A Team discount when we give you the price."}},{"@type":"Question","name":"What payment methods do you accept?","acceptedAnswer":{"@type":"Answer","text":"We accept cash, check, Venmo, Zelle, and card. Payment is due when the job is complete and you've done the walkthrough and are happy with the results. No payment upfront required."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://ateamcontractings.com/#business","name":"A Team Contracting","url":"https://ateamcontractings.com/","telephone":"(937) 777-9093","email":"Owner@ateamcontractings.com","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp","logo":"https://ateamcontractings.com/logo.webp","priceRange":"$","foundingDate":"2023-01-01","founder":{"@type":"Person","name":"Anthony Leonard"},"employee":{"@type":"Person","name":"Anthony Leonard"},"address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","postalCode":"45371","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.9581,"longitude":-84.1733},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"19:00"}],"areaServed":[{"@type":"City","name":"Tipp City","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Troy","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Vandalia","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Huber Heights","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Piqua","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Dayton","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Englewood","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Fairborn","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Beavercreek","addressRegion":"OH","addressCountry":"US"}],"sameAs":["https://g.page/r/CdoEOEshw5VUEAE/","https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933","https://www.facebook.com/Ateam937","https://www.instagram.com/ateamcontractings/","https://nextdoor.com/page/a-team-contracting-services","https://www.yelp.com/biz/a-team-contracting-tipp-city"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"39","bestRating":"5","worstRating":"1"}}</script>
 <script src="/assets/analytics.js" defer></script>
@@ -227,6 +264,18 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   </div>
 </section>
 
+<!-- rx v1: stat counters. Values only from on-site copy/schema: 5.0 + 39 reviews (aggregateRating), 9 towns (areaServed), same-day callback (quick-quote copy). Jobs done = TODO (no on-site figure). -->
+<div class="rx-stats">
+  <div class="container">
+    <ul class="rx-stats-grid">
+      <li class="rx-stat"><div class="rx-val"><span data-count="5.0">5.0</span><small class="rx-star" aria-hidden="true"></small></div><div class="rx-lab">Google rating · 39 reviews</div></li>
+      <li class="rx-stat rx-todo" data-todo="jobs-done"><div class="rx-val">TODO</div><div class="rx-lab">Jobs done</div></li>
+      <li class="rx-stat"><div class="rx-val"><span data-count="9">9</span></div><div class="rx-lab">Towns served</div></li>
+      <li class="rx-stat"><div class="rx-val rx-val-txt">Same day</div><div class="rx-lab">Callback · Mon–Sat</div></li>
+    </ul>
+  </div>
+</div>
+
 <!-- FEATURED WORK — Claystone 01/02 layout, live service copy -->
 <section class="bg-navy" id="featured-work">
   <div class="feat-row">
@@ -260,7 +309,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <!-- SERVICES -->
 <section id="services" class="bg-navy">
   <div class="container">
-    <div class="section-label">What We Do Best</div>
+    <div class="section-label" data-rx="01">What We Do Best</div>
     <h2>Three Ways to a Brand-New Home</h2>
     <p class="section-sub">We lead with the outside of your home — the part everyone sees. Start with windows, add the wash while we're there, and save.</p>
     <div class="services-grid">
@@ -360,7 +409,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 <section class="bg-navy" id="service-areas">
   <div class="container">
-    <div class="section-label">Where We Work</div>
+    <div class="section-label" data-rx="02">Where We Work</div>
     <h2>Tipp City Plus the Towns Around It</h2>
     <p class="section-sub">The homepage is the company. The <a href="/miami-valley/" style="text-decoration:underline">Miami Valley hub</a> is the region. Each town has its own hub and its own soft-wash, pressure / power-wash and window pages.</p>
     <div class="area-pills">
@@ -416,9 +465,15 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <!-- BEFORE/AFTER WORK -->
 <section id="work" class="bg-navy">
   <div class="container">
-    <div class="section-label">The Receipts</div>
+    <div class="section-label" data-rx="03">The Receipts</div>
     <h2>Before. After. <em>Proof.</em></h2>
     <p class="section-sub">Every job photographed. Every transformation real. Here's a sample of A Team's exterior work.</p>
+    <div class="rx-ba">
+      <img class="rx-ba-before" src="/images/ba/ba-slider-house-soft-wash-kettering-before-480.webp" srcset="/images/ba/ba-slider-house-soft-wash-kettering-before-480.webp 480w, /images/ba/ba-slider-house-soft-wash-kettering-before.webp 640w" sizes="(max-width:600px) 92vw, 520px" width="640" height="800" alt="Kettering house siding before soft washing" loading="lazy" decoding="async">
+      <img class="rx-ba-after" src="/images/ba/ba-slider-house-soft-wash-kettering-after-480.webp" srcset="/images/ba/ba-slider-house-soft-wash-kettering-after-480.webp 480w, /images/ba/ba-slider-house-soft-wash-kettering-after.webp 640w" sizes="(max-width:600px) 92vw, 520px" width="640" height="800" alt="Kettering house siding after soft washing by A Team Contracting" loading="lazy" decoding="async">
+      <span class="rx-ba-line" aria-hidden="true"></span><span class="rx-ba-tag rx-ba-b" aria-hidden="true">Before</span><span class="rx-ba-tag rx-ba-a" aria-hidden="true">After</span>
+      <input class="rx-ba-range" type="range" min="0" max="100" value="50" aria-label="Before and after comparison: slide to reveal">
+    </div>
     <div class="work-grid">
       <div class="work-item">
         <img src="/images/work-driveway-pressure-wash-ba-miami-valley.webp" alt="Driveway pressure wash before and after Miami Valley" width="900" height="617" loading="lazy" srcset="/images/work-driveway-pressure-wash-ba-miami-valley-400.webp 400w, /images/work-driveway-pressure-wash-ba-miami-valley-560.webp 560w, /images/work-driveway-pressure-wash-ba-miami-valley.webp 900w" sizes="(max-width:900px) 46vw, 520px">
@@ -482,8 +537,15 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <!-- HOW IT WORKS -->
 <section class="bg-off">
   <div class="container">
-    <div class="section-label">How It Works</div>
+    <div class="section-label" data-rx="04">How It Works</div>
     <h2>Simple. Honest. Done.</h2>
+    <ol class="rx-process" aria-label="How a job goes">
+      <li><span class="rx-pn" aria-hidden="true">01</span><span class="rx-pl">Photo</span></li>
+      <li><span class="rx-pn" aria-hidden="true">02</span><span class="rx-pl">Price</span></li>
+      <li><span class="rx-pn" aria-hidden="true">03</span><span class="rx-pl">Schedule</span></li>
+      <li><span class="rx-pn" aria-hidden="true">04</span><span class="rx-pl">Clean</span></li>
+      <li><span class="rx-pn" aria-hidden="true">05</span><span class="rx-pl">Before / After</span></li>
+    </ol>
     <div class="steps-grid">
       <div class="step">
         <div class="step-num" aria-hidden="true">1</div>
@@ -510,7 +572,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <!-- CLEAN CLUB -->
 <section id="clean-club">
   <div class="container">
-    <div class="section-label">Clean Club</div>
+    <div class="section-label" data-rx="05">Clean Club</div>
     <h2>Two Memberships. Ten Percent Off.</h2>
     <p class="section-sub">Not a mystery price. Not “ask Anthony.” Pick the one that matches your place — 10% off the regular price of that work, on a set schedule. Final price still confirmed on site.</p>
     <div class="club-grid">
@@ -534,7 +596,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <!-- REVIEWS -->
 <section id="reviews" class="reviews-band">
   <div class="container">
-    <div class="section-label">Why People Hire A Team</div>
+    <div class="section-label" data-rx="06">Why People Hire A Team</div>
     <h2>The People We've Worked For</h2>
     <div class="reviews-rating">
       <span>5.0</span>
@@ -588,51 +650,55 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <!-- Q&A SECTION -->
 <section class="faq-section bg-off" id="faq">
   <div class="container">
-    <div class="section-label">Got Questions</div>
+    <div class="rx-split">
+    <div class="rx-pin">
+    <div class="section-label" data-rx="07">Got Questions</div>
     <h2>Common Questions About A Team</h2>
     <p class="section-sub">Straight answers — no runaround. If you don't see your question here, just call or text and I'll pick up.</p>
+    </div>
     <div class="faq-grid">
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How do I get a price from A Team?</button>
+      <details class="faq-item">
+        <summary class="faq-q">How do I get a price from A Team?</summary>
         <div class="faq-a">Use our instant estimator at <a href="/estimate/">ateamcontractings.com/estimate</a> — answer a few questions, snap a photo of the area you need cleaned, and you'll see a ballpark price right away. No callback required. Or text Anthony directly at <a href="tel:+19377779093">(937) 777-9093</a> and he'll get right back to you.</div>
-      </div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What areas do you serve?</button>
+      <details class="faq-item">
+        <summary class="faq-q">What areas do you serve?</summary>
         <div class="faq-a">We're based in Tipp City, Ohio and serve the <a href="/miami-valley/">Miami Valley and greater Dayton</a> — Troy, Vandalia, Huber Heights, Englewood, Fairborn, Beavercreek, Piqua, and the towns around them. If you're not sure whether we come to you — just ask.</div>
-      </div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What's the difference between pressure washing and soft washing?</button>
+      <details class="faq-item">
+        <summary class="faq-q">What's the difference between pressure washing and soft washing?</summary>
         <div class="faq-a">Pressure washing uses high-force water to blast concrete, driveways, patios, and sidewalks clean. Soft washing uses low-pressure water plus a biodegradable cleaning solution to safely clean siding, roofs, and delicate surfaces. Using the wrong method can cause real damage — we use the right one for every surface. <a href="/soft-washing-tipp-city-ohio/">Learn more about soft washing →</a></div>
-      </div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do I need to be home during the job?</button>
+      <details class="faq-item">
+        <summary class="faq-q">Do I need to be home during the job?</summary>
         <div class="faq-a">Not necessarily. As long as we have access to a water spigot and the areas that need cleaning, we can complete most jobs while you're at work or out for the day. We'll send you before-and-after photos when we're done and check in before we leave.</div>
-      </div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Are you insured?</button>
+      <details class="faq-item">
+        <summary class="faq-q">Are you insured?</summary>
         <div class="faq-a">Yes. A Team Contracting is fully insured. You can ask for proof of insurance any time — we're happy to provide it before the job starts. Peace of mind is part of what you're paying for.</div>
-      </div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How quickly can you get out here?</button>
+      <details class="faq-item">
+        <summary class="faq-q">How quickly can you get out here?</summary>
         <div class="faq-a">Usually within a few days. In our busy season (spring and summer) we book up fast, so the sooner you reach out the better. Call or text <a href="tel:+19377779093">(937) 777-9093</a> and we'll get you on the schedule.</div>
-      </div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do you offer discounts for bundling services?</button>
+      <details class="faq-item">
+        <summary class="faq-q">Do you offer discounts for bundling services?</summary>
         <div class="faq-a">Yes — bundling is the best deal we offer. Add window cleaning to a pressure wash or soft wash while we're already on-site and you'll save vs. booking each separately. We'll show you the full value and your A Team discount when we give you the price.</div>
-      </div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept?</button>
+      <details class="faq-item">
+        <summary class="faq-q">What payment methods do you accept?</summary>
         <div class="faq-a">We accept cash, check, Venmo, Zelle, and card. Payment is due when the job is complete and you've done the walkthrough and are happy with the results. No payment upfront required.</div>
-      </div>
+      </details>
 
+    </div>
     </div>
     <p style="text-align:center;margin-top:1.5rem"><a href="/faq/" style="font-weight:700;color:var(--navy);text-decoration:underline">See every question on the FAQ page →</a></p>
   </div>
@@ -829,5 +895,8 @@ window.addEventListener('load',function(){var s=document.createElement('script')
   <a class="mobile-dock-quote" href="/estimate/">Get an Instant Price</a>
 </div>
 
+<script>
+window.addEventListener('load',function(){var s=document.createElement('script');s.src='/assets/rx.js';document.body.appendChild(s);});
+</script>
 </body>
 </html>
