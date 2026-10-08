@@ -105,7 +105,16 @@ header{background:var(--navy);box-shadow:0 8px 24px rgba(0,0,0,.28)}
 .header-cta{padding:.45rem .65rem;font-size:.7rem}.header-phone{font-size:.65rem;padding:0 .3rem}.logo img{height:40px}.hero-btns .btn{width:100%;text-align:center}
 .hero-proof{margin-top:.7rem}.hero-proof-link{min-height:36px;padding:.3rem .7rem;font-size:.72rem}
 }
+html.fg .hero .container,html.fg .page-hero .container,html.fg .header-cta,html.fg .header-phone{visibility:hidden}
 </style>
+<script>
+/* Round-3 font gate: hero text was laid out in fallback fonts at first paint, then Archivo/Inter
+   swapped in ~100ms later and re-wrapped the H1 + sub (CLS 0.10 on .hero-btns). Keep the hero
+   text box hidden (layout untouched, hero image still paints) until both preloaded fonts are
+   ready, capped at 1s. Copy/markup unchanged; no-JS visitors never get the class. */
+(function(r,f){if(!f||!f.load)return;r.classList.add('fg');var done=function(){r.classList.remove('fg');};
+Promise.all([f.load('400 1em "Archivo Black"'),f.load('400 1em Inter'),f.load('800 1em Inter')]).then(done,done);setTimeout(done,1000);})(document.documentElement,document.fonts);
+</script>
 <script>
 /* content-visibility helper: in-page jumps (#qq, #faq, deep links) need real section heights,
    so switch it off before the browser scrolls. Normal scrolling keeps the fast path. */
