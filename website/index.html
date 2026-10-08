@@ -128,8 +128,9 @@ html.rx .hero .stat-label,html.rx .page-hero .stat-label{font-family:var(--rx-mo
 html.rx .trust-chip,html.rx .hero .trust-chip,html.rx .page-hero .trust-chip{background:transparent;border-color:var(--rx-line);color:var(--rx-text);border-radius:3px}
 @media(max-width:768px){html.rx header{background:var(--rx-bg)}}
 html.rx .hero{background:var(--rx-bg);background-image:none;color:var(--rx-text);text-align:left;padding:3.25rem 0 3rem}
-html.rx .hero-bg{opacity:.34}
-html.rx .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,15,.55) 0%,rgba(10,11,15,.7) 45%,#0a0b0f 100%)}
+html.rx .hero-bg{opacity:.34;overflow:hidden}
+html.rx .hero-bg img{filter:blur(16px);transform:scale(1.12)}
+html.rx .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,15,.68) 0%,rgba(10,11,15,.78) 45%,#0a0b0f 100%)}
 html.rx .pow{display:none}
 html.rx .hero-inner{align-items:stretch;gap:2.5rem}
 html.rx .hero-content{max-width:none}
