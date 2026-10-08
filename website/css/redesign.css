@@ -56,15 +56,14 @@ html.rx .step-num{font-family:var(--rx-display);font-weight:400;font-size:3.6rem
 /* ---------- stats band (new) ---------- */
 html.rx .rx-stats{background:var(--rx-bg);border-top:1px solid var(--rx-line);border-bottom:1px solid var(--rx-line)}
 html.rx .rx-stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:0;padding:0;list-style:none}
-html.rx .rx-stat{padding:1.6rem 1rem 1.5rem;border-right:1px solid var(--rx-line);border-bottom:1px solid var(--rx-line);min-width:0}
-html.rx .rx-stat:nth-child(2n){border-right:0}
-html.rx .rx-stat:nth-child(n+3){border-bottom:0}
+html.rx .rx-stat{padding:1.6rem 1rem 1.5rem;border-right:1px solid var(--rx-line);min-width:0}
+html.rx .rx-stat:first-child{grid-column:1/-1;border-right:0;border-bottom:1px solid var(--rx-line)}
+html.rx .rx-stat:last-child{border-right:0}
 html.rx .rx-val{font-family:var(--rx-display);font-size:clamp(2.8rem,12vw,6rem);line-height:1;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
 html.rx .rx-star{display:inline-block;width:.42em;height:.42em;margin-left:.1em;vertical-align:.62em;background:var(--rx-or);clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
 html.rx .rx-val [data-count]{display:inline-block;text-align:left}
 html.rx .rx-lab{font-family:var(--rx-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--rx-muted);margin-top:.6rem;line-height:1.45}
-html.rx .rx-todo .rx-val{color:transparent;-webkit-text-stroke:1.5px var(--rx-or)}
-@media(min-width:900px){html.rx .rx-stats-grid{grid-template-columns:repeat(4,minmax(0,1fr))}html.rx .rx-stat{border-bottom:0;padding:2.25rem 1.5rem}html.rx .rx-stat:nth-child(2n){border-right:1px solid var(--rx-line)}html.rx .rx-stat:last-child{border-right:0}}
+@media(min-width:900px){html.rx .rx-stats-grid{grid-template-columns:repeat(3,minmax(0,1fr))}html.rx .rx-stat{padding:2.25rem 1.5rem}html.rx .rx-stat:first-child{grid-column:auto;border-bottom:0;border-right:1px solid var(--rx-line)}html.rx .rx-stat:last-child{border-right:0}}
 
 /* ---------- 5-step process rail (new) ---------- */
 html.rx .rx-process{list-style:none;margin:2.25rem 0 2.5rem;padding:0;display:grid;grid-template-columns:1fr;gap:0;position:relative;counter-reset:none}
