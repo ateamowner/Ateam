@@ -26,13 +26,52 @@
 <meta name="theme-color" content="#002050">
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/caveat-700-v2.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css">
+<style>
+/* critical ATF — service page LCP (text in .page-hero) */
+@font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/archivo-black-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/inter-var.woff2') format('woff2-variations'),url('/fonts/inter-var.woff2') format('woff2')}
+:root{--navy:#002050;--orange:#E86A12;--cyan:#2BB8D0;--cream:#F8F5F0;--ink:#111827;--text:#111827;--text-muted:#5c584f;--container:1180px;--dots:radial-gradient(rgba(0,32,80,.10) .9px,transparent .9px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:var(--container);margin:0 auto;padding:0 1.35rem}
+.topbar{display:none}
+header{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(10,10,10,.08)}
+.header-inner{max-width:var(--container);margin:0 auto;padding:0 1.35rem;display:flex;align-items:center;gap:.85rem;height:72px;min-width:0}
+.logo{display:flex;align-items:center;flex-shrink:0;padding:8px 12px 8px 0}
+.logo img{display:block;height:56px;width:auto}
+.logo-text{display:none}
+nav{display:none}
+.header-phone{color:var(--ink);font-size:.88rem;font-weight:700;white-space:nowrap;margin-left:auto}
+.header-cta{background:var(--orange);color:#fff!important;font-size:.82rem;font-weight:800;padding:.55rem 1.15rem;border-radius:6px;white-space:nowrap;border:none}
+.hamburger{display:flex;background:none;border:none;cursor:pointer;padding:.5rem;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+.mobile-drawer{display:none}
+.btn{display:inline-block;padding:.95rem 1.55rem;border-radius:8px;font-weight:800;font-size:.92rem;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-outline{background:#fff;color:var(--ink)}
+.page-hero{background-color:var(--cream);background-image:var(--dots);background-size:18px 18px;color:var(--text);padding:3.75rem 1.35rem 3rem;text-align:center}
+.page-hero .section-label{font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:.45rem}
+.page-hero .section-label::before{content:'// '}
+.page-hero h1{font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,5.5vw,3.6rem);letter-spacing:.01em;margin-bottom:.75rem;text-transform:uppercase;color:var(--text)}
+.page-hero h1 em{font-style:italic;font-family:'Archivo Black',sans-serif;font-weight:400;color:var(--cyan);text-transform:none}
+.page-hero p{color:#4a463e;max-width:560px;margin:0 auto 1.5rem;font-size:.98rem;line-height:1.65}
+.page-hero .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.page-hero .hero-stats{display:flex;gap:2rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(0,32,80,.12);flex-wrap:wrap;justify-content:center}
+.page-hero .stat-num{font-family:'Archivo Black',sans-serif;font-size:1.65rem;color:var(--cyan);line-height:1}
+.page-hero .stat-label{font-size:.76rem;color:var(--text-muted);margin-top:.15rem}
+@media(max-width:768px){.logo img{height:48px}.page-hero .hero-btns .btn{width:100%;text-align:center}}
+
+@media(max-width:768px){header{background:var(--navy)}.header-phone{color:#FAFAFA}.hamburger span{background:#fff}.header-inner{height:64px}}
+</style>
+<link rel="preload" href="/css/site.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/site.css"></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Soft Washing","name":"Soft Washing in Dayton, Ohio","description":"Soft washing in Dayton, OH — low-pressure clean for siding and roofs. Removes algae and mildew without high pressure. Call (937) 777-9093.","url":"https://ateamcontractings.com/soft-washing-dayton-ohio/","areaServed":["Tipp City OH","Dayton OH","Troy OH","Vandalia OH","Huber Heights OH"],"provider":{"@id":"https://ateamcontractings.com/#business"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is soft washing safe for my siding?","acceptedAnswer":{"@type":"Answer","text":"Yes — it's actually safer than pressure washing. The cleaning solution does the work, not water pressure. We apply it at garden-hose pressure and it won't lift paint, crack panels, or force water behind your siding. Most siding manufacturers actually recommend soft washing over power washing for this reason."}},{"@type":"Question","name":"What chemicals do you use? Are they safe?","acceptedAnswer":{"@type":"Answer","text":"We use a professional-grade sodium hypochlorite solution (similar to bleach, but diluted and applied correctly) combined with surfactants and a neutralizer. It's biodegradable, and we pre-wet all landscaping before applying, use appropriate dilutions for each surface, and rinse thoroughly afterward. I've done hundreds of jobs without plant damage."}},{"@type":"Question","name":"How long do soft wash results last?","acceptedAnswer":{"@type":"Answer","text":"3–5 years is typical for siding. That's 2–3 times longer than pressure washing alone, because softwash kills the mold and algae at the root rather than just blasting the surface. When the surface is treated properly, there's nothing alive left to regrow quickly."}},{"@type":"Question","name":"Can you soft wash a roof?","acceptedAnswer":{"@type":"Answer","text":"Yes — and soft washing is the only safe way to clean asphalt shingles. The black streaks you see are Gloeocapsa magma algae. High pressure blows off the granules that protect your shingles, voids your warranty, and accelerates roof wear. Soft washing removes the algae safely and the results last years. Get a quote here."}},{"@type":"Question","name":"My siding looks dark/stained. Does it need to be repainted?","acceptedAnswer":{"@type":"Answer","text":"Probably not. Most dark staining on siding is organic growth — algae, mold, and mildew that builds up over years. It looks like permanent discoloration but it usually isn't. I've had customers tell me they were getting quotes for new siding or paint, and a single softwash treatment brought the original color back completely. Worth a free estimate before spending thousands."}},{"@type":"Question","name":"Do I need to be home during the job?","acceptedAnswer":{"@type":"Answer","text":"No — you don't have to be home as long as I have access to the areas we're treating and a water spigot. Most customers are at work while we handle it. I'll text you when we start and when we finish, and send before and after photos so you can see exactly what we did."}},{"@type":"Question","name":"How much does soft washing cost?","acceptedAnswer":{"@type":"Answer","text":"It depends on the size of the home and what surfaces we're treating. A typical single-story home siding softwash starts around $200–$350. Two-story homes and larger jobs price accordingly. Send me a photo and I'll give you a real number same day — no runaround. Get your instant price here."}},{"@type":"Question","name":"Can I bundle soft washing with other services?","acceptedAnswer":{"@type":"Answer","text":"Yes, and I recommend it. Bundling a siding softwash with window cleaning or a driveway pressure wash saves you money — one trip, one quote, done. Just tell me everything on your list when you reach out and I'll put together a package price."}},{"@type":"Question","name":"What areas around Dayton do you serve?","acceptedAnswer":{"@type":"Answer","text":"We're based in Dayton and serve the greater Dayton / Miami Valley area — Troy, Vandalia, Huber Heights, Englewood, Fairborn, Beavercreek, Piqua, Dayton, and nearby towns like Centerville, Clayton, and West Milton when they fit the route. Not sure? Call or text (937) 777-9093 and ask."}},{"@type":"Question","name":"Do you soft wash or pressure wash a house in Dayton?","acceptedAnswer":{"@type":"Answer","text":"Siding and roofs get a soft wash (low pressure + cleaning solution). Driveways, sidewalks, and patios get pressure washed with a surface cleaner. We don't blast vinyl or shingles with high pressure, and we don't soft-wash concrete as the main driveway method."}},{"@type":"Question","name":"Is A Team a franchise or call center?","acceptedAnswer":{"@type":"Answer","text":"No. Family-owned, owner-on-site. Anthony answers the phone, runs the estimate, and clears the quality check. Same crew that shows up for Miami Valley and greater Dayton jobs."}},{"@type":"Question","name":"How do I book from Dayton?","acceptedAnswer":{"@type":"Answer","text":"Snap a photo in the instant estimator at /estimate/, or call or text (937) 777-9093. Ballpark online; price confirmed on site before we start."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ateamcontractings.com/"},{"@type":"ListItem","position":2,"name":"Soft Washing","item":"https://ateamcontractings.com/soft-washing-tipp-city-ohio/"},{"@type":"ListItem","position":3,"name":"Dayton, OH","item":"https://ateamcontractings.com/soft-washing-dayton-ohio/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://ateamcontractings.com/#business","name":"A Team Contracting","url":"https://ateamcontractings.com/","telephone":"(937) 777-9093","email":"Owner@ateamcontractings.com","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp","logo":"https://ateamcontractings.com/logo.webp","priceRange":"$","foundingDate":"2023-01-01","founder":{"@type":"Person","name":"Anthony Leonard"},"employee":{"@type":"Person","name":"Anthony Leonard"},"address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","postalCode":"45371","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.9581,"longitude":-84.1733},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"19:00"}],"areaServed":[{"@type":"City","name":"Tipp City","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Troy","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Vandalia","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Huber Heights","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Piqua","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Dayton","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Englewood","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Fairborn","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Beavercreek","addressRegion":"OH","addressCountry":"US"}],"sameAs":["https://g.page/r/CdoEOEshw5VUEAE/","https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933","https://www.facebook.com/Ateam937","https://www.instagram.com/ateamcontractings/","https://nextdoor.com/page/a-team-contracting-services","https://www.yelp.com/biz/a-team-contracting-tipp-city"]}</script>
-<script src="/assets/analytics.js"></script>
+<script src="/assets/analytics.js" defer></script>
 </head>
 <body>
 
@@ -45,7 +84,7 @@
 <header>
   <div class="header-inner">
     <a class="logo" href="/">
-      <img src="/logo.webp" alt="A Team Contracting" width="48" height="42">
+      <img src="/logo.webp" srcset="/logo-128.webp 128w, /logo.webp 256w" sizes="48px" alt="A Team Contracting" width="48" height="42" decoding="async">
       <span class="logo-text">A Team Contracting</span>
     </a>
     <nav>
@@ -115,10 +154,10 @@
     <h2>Recent Dayton-Area Jobs</h2>
     <p class="section-sub">Real Miami Valley soft-wash jobs — siding, photographed on site.</p>
     <div class="gallery-strip">
-      <a href="/gallery/" class="gallery-thumb"><img src="/images/gallery/soft-wash-siding-ba-beavercreek-1.webp" alt="Vinyl siding soft wash before and after — Beavercreek, Ohio" width="1200" height="563" loading="lazy"></a>
-      <a href="/gallery/" class="gallery-thumb"><img src="/images/gallery/soft-wash-siding-ba-fairborn-1.webp" alt="Vinyl siding soft wash before and after — Fairborn, Ohio" width="1200" height="563" loading="lazy"></a>
-      <a href="/gallery/" class="gallery-thumb"><img src="/images/gallery/soft-wash-siding-ba-tipp-city-1.webp" alt="Vinyl siding soft wash before and after — Tipp City, Ohio" width="1200" height="563" loading="lazy"></a>
-      <a href="/gallery/" class="gallery-thumb"><img src="/images/gallery/soft-wash-siding-ba-kettering-1.webp" alt="House soft wash siding before and after — Kettering, Ohio" width="1080" height="1188" loading="lazy"></a>
+      <a href="/gallery/" class="gallery-thumb"><img src="/images/gallery/soft-wash-siding-ba-beavercreek-1-800.webp" alt="Vinyl siding soft wash before and after — Beavercreek, Ohio" width="1200" height="563" srcset="/images/gallery/soft-wash-siding-ba-beavercreek-1-480.webp 480w, /images/gallery/soft-wash-siding-ba-beavercreek-1-800.webp 800w, /images/gallery/soft-wash-siding-ba-beavercreek-1.webp 1200w" sizes="(max-width:600px) 92vw, 280px" decoding="async" loading="lazy"></a>
+      <a href="/gallery/" class="gallery-thumb"><img src="/images/gallery/soft-wash-siding-ba-fairborn-1-800.webp" alt="Vinyl siding soft wash before and after — Fairborn, Ohio" width="1200" height="563" srcset="/images/gallery/soft-wash-siding-ba-fairborn-1-480.webp 480w, /images/gallery/soft-wash-siding-ba-fairborn-1-800.webp 800w, /images/gallery/soft-wash-siding-ba-fairborn-1.webp 1200w" sizes="(max-width:600px) 92vw, 280px" decoding="async" loading="lazy"></a>
+      <a href="/gallery/" class="gallery-thumb"><img src="/images/gallery/soft-wash-siding-ba-tipp-city-1-800.webp" alt="Vinyl siding soft wash before and after — Tipp City, Ohio" width="1200" height="563" srcset="/images/gallery/soft-wash-siding-ba-tipp-city-1-480.webp 480w, /images/gallery/soft-wash-siding-ba-tipp-city-1-800.webp 800w, /images/gallery/soft-wash-siding-ba-tipp-city-1.webp 1200w" sizes="(max-width:600px) 92vw, 280px" decoding="async" loading="lazy"></a>
+      <a href="/gallery/" class="gallery-thumb"><img src="/images/gallery/soft-wash-siding-ba-kettering-1-800.webp" alt="House soft wash siding before and after — Kettering, Ohio" width="1080" height="1188" srcset="/images/gallery/soft-wash-siding-ba-kettering-1-480.webp 480w, /images/gallery/soft-wash-siding-ba-kettering-1-800.webp 800w, /images/gallery/soft-wash-siding-ba-kettering-1.webp 1080w" sizes="(max-width:600px) 92vw, 280px" decoding="async" loading="lazy"></a>
     </div>
   </div>
 </section>

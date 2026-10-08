@@ -5,8 +5,10 @@
  * Do not invent or swap this ID. No GTM, Clarity, or other pixels live here.
  *
  * This file is the only analytics include. Every public HTML page loads it
- * from <head> as <script src="/assets/analytics.js"></script>. It:
- *   1. Loads gtag.js and configs GA4 (automatic page_view on every page).
+ * from <head> as <script src="/assets/analytics.js"></script> (perf-tuned
+ * pages use the same tag with `defer`; both work). It:
+ *   1. Configs GA4 (automatic page_view on every page) and loads gtag.js
+ *      right after window load so it never delays first paint / LCP.
  *   2. Fires the recommended generate_lead event when a Netlify form named
  *      quick-quote or estimate-request is submitted (HTML5 validation has
  *      already passed). Beacon transport so the hit survives the redirect.
@@ -44,10 +46,27 @@
   gtag("js", new Date());
   gtag("config", MEASUREMENT_ID);
 
-  var loader = document.createElement("script");
-  loader.async = true;
-  loader.src = "https://www.googletagmanager.com/gtag/js?id=" + MEASUREMENT_ID;
-  document.head.appendChild(loader);
+  // Perf (Oct 8 LCP fix): inject gtag.js after window load so the 180 KB
+  // library never competes with the hero / LCP paint. Hits queued in
+  // dataLayer above (js + config → page_view) are sent once it arrives.
+  var gtagLoaded = false;
+  function loadGtag() {
+    if (gtagLoaded) return;
+    gtagLoaded = true;
+    var loader = document.createElement("script");
+    loader.async = true;
+    loader.src = "https://www.googletagmanager.com/gtag/js?id=" + MEASUREMENT_ID;
+    document.head.appendChild(loader);
+  }
+  if (document.readyState === "complete") {
+    setTimeout(loadGtag, 0);
+  } else {
+    window.addEventListener("load", function () {
+      setTimeout(loadGtag, 0);
+    });
+  }
+  // A visitor who submits a form before load still needs gtag for the lead hit.
+  document.addEventListener("submit", loadGtag, true);
 
   function storageKey(formName) {
     return "ateam_ga4_lead_" + formName;

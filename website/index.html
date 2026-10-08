@@ -30,15 +30,64 @@
      verification code. This PR ships IndexNow only. -->
 <link rel="preload" href="/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/caveat-700-v2.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css">
+<link rel="preload" as="image" href="/images/hero-driveway-400.webp" fetchpriority="high">
 <style>
-/* Homepage extras live in /css/site.css */
+/* critical ATF — homepage LCP */
+@font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/archivo-black-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/inter-var.woff2') format('woff2-variations'),url('/fonts/inter-var.woff2') format('woff2')}
+:root{--navy:#002050;--orange:#E86A12;--cyan:#2BB8D0;--paper:#F8F5F0;--ink:#111827;--text:#111827;--text-muted:#5c584f;--border:#e4dfd4;--container:1180px;--dots:radial-gradient(rgba(0,32,80,.10) .9px,transparent .9px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:var(--container);margin:0 auto;padding:0 1.35rem}
+.topbar{display:none}
+header{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(10,10,10,.08)}
+.header-inner{max-width:var(--container);margin:0 auto;padding:0 1.35rem;display:flex;align-items:center;gap:.85rem;height:72px;min-width:0}
+.logo{display:flex;align-items:center;flex-shrink:0;padding:8px 12px 8px 0}
+.logo img{display:block;height:56px;width:auto}
+.logo-text{display:none}
+nav{display:none}
+.header-phone{color:var(--ink);font-size:.88rem;font-weight:700;white-space:nowrap;margin-left:auto}
+.header-cta{background:var(--orange);color:#fff!important;font-size:.82rem;font-weight:800;padding:.55rem 1.15rem;border-radius:6px;white-space:nowrap;border:none}
+.hamburger{display:flex;background:none;border:none;cursor:pointer;padding:.5rem;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+.mobile-drawer{display:none}
+.btn{display:inline-block;padding:.95rem 1.55rem;border-radius:8px;font-weight:800;font-size:.92rem;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-outline{background:#fff;color:var(--ink)}
+.hero{position:relative;background-color:var(--paper);background-image:var(--dots);background-size:18px 18px;color:var(--ink);padding:4.5rem 0 3.5rem;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.18}.hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-inner{display:flex;flex-direction:column;align-items:center;gap:1.75rem;position:relative;z-index:1}
+.hero-content{max-width:920px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;background:var(--ink);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .9rem;border-radius:99px;margin-bottom:1.15rem}
+.hero h1{font-family:'Archivo Black',sans-serif;font-size:clamp(2.5rem,7.6vw,5.4rem);letter-spacing:-.02em;line-height:.92;margin-bottom:1.15rem;text-transform:uppercase;color:var(--ink)}
+.hero h1 em{font-style:italic;font-family:'Archivo Black',sans-serif;font-weight:400;color:var(--cyan);font-size:.92em;-webkit-text-stroke:1.5px var(--ink);paint-order:stroke fill}
+.hero-sub{font-size:1.02rem;color:#4a463e;max-width:540px;margin:0 auto 1.6rem;line-height:1.65}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.hero-img-wrap{width:min(760px,100%);border:8px solid var(--ink);border-radius:4px;overflow:hidden;box-shadow:12px 12px 0 var(--ink);transform:rotate(-2.2deg);position:relative;z-index:1}
+.hero-img-wrap img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block}
+.pow{position:absolute;top:1.25rem;right:5%;width:118px;height:118px;display:flex;align-items:center;justify-content:center;transform:rotate(14deg);z-index:2;pointer-events:none}
+.pow-star{position:absolute;inset:0;background:var(--orange);clip-path:polygon(50% 0%,63% 18%,88% 12%,78% 35%,100% 50%,78% 65%,88% 88%,63% 78%,50% 100%,37% 78%,12% 88%,22% 65%,0 50%,22% 35%,12% 12%,37% 18%)}
+.pow span{position:relative;z-index:1;font-family:'Archivo Black',sans-serif;font-size:1.45rem;color:var(--ink)}
+@media(max-width:768px){.hero{padding:2.5rem 0 2rem}.hero-img-wrap{transform:rotate(-1.4deg)}.hero-btns .btn{width:100%;text-align:center}.logo img{height:48px}}
+
+.hero-proof{display:flex;flex-wrap:wrap;gap:.5rem .75rem;justify-content:center;margin:.85rem 0 0}
+.hero-proof-link{display:inline-flex;align-items:center;gap:.35rem;background:#fff;border:1.5px solid var(--border,#e4dfd4);border-radius:99px;padding:.4rem .85rem;font-size:.78rem;font-weight:800;color:var(--navy);min-height:40px}
+.hero-stats{display:flex;gap:2rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(0,32,80,.12);flex-wrap:wrap;justify-content:center}
+.hero .stat-num{color:var(--navy);font-family:'Archivo Black',sans-serif;font-size:1.65rem;line-height:1}
+.hero .stat-label{color:var(--text-muted);font-size:.76rem}
+.trust-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem;justify-content:center}
+.trust-chip{display:inline-flex;background:#fff;border:1.5px solid var(--border,#e4dfd4);border-radius:99px;padding:.45rem .9rem;font-size:.78rem;font-weight:700;color:var(--navy);line-height:1.35}
+.trust-chip.wide{border-radius:12px;max-width:36em}
+@media(max-width:768px){header{background:var(--navy)}.header-phone{color:#FAFAFA}.hamburger span{background:#fff}.header-inner{height:64px}}
 .hero .trust-chips{margin-top:1.35rem}
 </style>
+<link rel="preload" href="/css/site.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/site.css"></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I get a price from A Team?","acceptedAnswer":{"@type":"Answer","text":"Use our instant estimator at ateamcontractings.com/estimate — answer a few questions, snap a photo of the area you need cleaned, and you'll see a ballpark price right away. No callback required. Or text Anthony directly at (937) 777-9093 and he'll get right back to you."}},{"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We're based in Tipp City, Ohio and serve the Miami Valley and greater Dayton — Troy, Vandalia, Huber Heights, Englewood, Fairborn, Beavercreek, Piqua, and the towns around them. If you're not sure whether we come to you — just ask."}},{"@type":"Question","name":"What's the difference between pressure washing and soft washing?","acceptedAnswer":{"@type":"Answer","text":"Pressure washing uses high-force water to blast concrete, driveways, patios, and sidewalks clean. Soft washing uses low-pressure water plus a biodegradable cleaning solution to safely clean siding, roofs, and delicate surfaces. Using the wrong method can cause real damage — we use the right one for every surface. Learn more about soft washing →"}},{"@type":"Question","name":"Do I need to be home during the job?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. As long as we have access to a water spigot and the areas that need cleaning, we can complete most jobs while you're at work or out for the day. We'll send you before-and-after photos when we're done and check in before we leave."}},{"@type":"Question","name":"Are you insured?","acceptedAnswer":{"@type":"Answer","text":"Yes. A Team Contracting is fully insured. You can ask for proof of insurance any time — we're happy to provide it before the job starts. Peace of mind is part of what you're paying for."}},{"@type":"Question","name":"How quickly can you get out here?","acceptedAnswer":{"@type":"Answer","text":"Usually within a few days. In our busy season (spring and summer) we book up fast, so the sooner you reach out the better. Call or text (937) 777-9093 and we'll get you on the schedule."}},{"@type":"Question","name":"Do you offer discounts for bundling services?","acceptedAnswer":{"@type":"Answer","text":"Yes — bundling is the best deal we offer. Add window cleaning to a pressure wash or soft wash while we're already on-site and you'll save vs. booking each separately. We'll show you the full value and your A Team discount when we give you the price."}},{"@type":"Question","name":"What payment methods do you accept?","acceptedAnswer":{"@type":"Answer","text":"We accept cash, check, Venmo, Zelle, and card. Payment is due when the job is complete and you've done the walkthrough and are happy with the results. No payment upfront required."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://ateamcontractings.com/#business","name":"A Team Contracting","url":"https://ateamcontractings.com/","telephone":"(937) 777-9093","email":"Owner@ateamcontractings.com","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp","logo":"https://ateamcontractings.com/logo.webp","priceRange":"$","foundingDate":"2023-01-01","founder":{"@type":"Person","name":"Anthony Leonard"},"employee":{"@type":"Person","name":"Anthony Leonard"},"address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","postalCode":"45371","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.9581,"longitude":-84.1733},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"19:00"}],"areaServed":[{"@type":"City","name":"Tipp City","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Troy","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Vandalia","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Huber Heights","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Piqua","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Dayton","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Englewood","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Fairborn","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Beavercreek","addressRegion":"OH","addressCountry":"US"}],"sameAs":["https://g.page/r/CdoEOEshw5VUEAE/","https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933","https://www.facebook.com/Ateam937","https://www.instagram.com/ateamcontractings/","https://nextdoor.com/page/a-team-contracting-services","https://www.yelp.com/biz/a-team-contracting-tipp-city"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"39","bestRating":"5","worstRating":"1"}}</script>
-<script src="/assets/analytics.js"></script>
+<script src="/assets/analytics.js" defer></script>
 </head>
 <body class="home">
 
@@ -51,7 +100,7 @@
 <header>
   <div class="header-inner">
     <a class="logo" href="/">
-      <img src="/logo.webp" alt="A Team Contracting" width="64" height="56">
+      <img src="/logo.webp" srcset="/logo-128.webp 128w, /logo.webp 256w" sizes="64px" alt="A Team Contracting" width="64" height="56" decoding="async">
       <span class="logo-text">A Team Contracting</span>
     </a>
     <nav>
@@ -95,7 +144,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg" aria-hidden="true">
-    <img src="/images/hero-driveway.webp" alt="" width="900" height="617">
+    <img src="/images/hero-driveway-400.webp" alt="" width="400" height="274" fetchpriority="high" decoding="async">
   </div>
   <div class="pow" aria-hidden="true">
     <div class="pow-star"></div>
@@ -127,7 +176,7 @@
         </div>
       </div>
       <div class="hero-img-wrap">
-        <img src="/images/hero-driveway.webp" alt="Tipp City driveway before and after pressure washing by A Team Contracting" width="900" height="617" fetchpriority="high" srcset="/images/hero-driveway-400.webp 400w, /images/hero-driveway-560.webp 560w, /images/hero-driveway.webp 900w" sizes="(max-width:900px) 46vw, 520px">
+        <img src="/images/hero-driveway.webp" alt="Tipp City driveway before and after pressure washing by A Team Contracting" width="900" height="617" loading="lazy" decoding="async" srcset="/images/hero-driveway-400.webp 400w, /images/hero-driveway-560.webp 560w, /images/hero-driveway.webp 900w" sizes="(max-width:900px) 46vw, 520px">
       </div>
     </div>
   </div>
@@ -630,7 +679,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="footer-logo" src="/logo.webp" alt="A Team Contracting" width="100" height="88">
+        <img class="footer-logo" src="/logo.webp" srcset="/logo-128.webp 128w, /logo.webp 256w" sizes="100px" alt="A Team Contracting" width="100" height="88" decoding="async" loading="lazy">
         <p>Family-owned exterior cleaning &amp; contracting in Tipp City, Ohio. Window cleaning, pressure washing, and soft washing — done right by Anthony Leonard and the A Team crew.</p>
         <span class="footer-tagline">Jobs are done best with A Team!</span>
       </div>
