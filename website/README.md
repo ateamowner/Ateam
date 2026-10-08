@@ -106,9 +106,9 @@ scripts/indexnow-ping.mjs                  post-deploy IndexNow / Bing ping
 The IndexNow key is public by design. It lives in two places that must match:
 
 - Site root file `{key}.txt` — currently
-  `f598e3c2a8096aef342edeccf566e3989e6b23b7607bf201b788335a98713b1b.txt`
+  `30c69e2dd0054bb6abc83d3db873791f.txt`
   — contents are **only** the key. Served at
-  `https://ateamcontractings.com/f598e3c2a8096aef342edeccf566e3989e6b23b7607bf201b788335a98713b1b.txt`
+  `https://ateamcontractings.com/30c69e2dd0054bb6abc83d3db873791f.txt`
 - `scripts/indexnow-ping.mjs` (`KEY` / `KEY_LOCATION`)
 
 On every Netlify deploy the build command and the local plugin

@@ -16,7 +16,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const HOST = "ateamcontractings.com";
-const KEY = "f598e3c2a8096aef342edeccf566e3989e6b23b7607bf201b788335a98713b1b";
+const KEY = "30c69e2dd0054bb6abc83d3db873791f";
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 const ENDPOINT = "https://api.indexnow.org/indexnow";
 const LIVE_SITEMAP = `https://${HOST}/sitemap.xml`;
