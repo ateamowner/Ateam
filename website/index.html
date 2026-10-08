@@ -30,15 +30,109 @@
      verification code. This PR ships IndexNow only. -->
 <link rel="preload" href="/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/caveat-700-v2.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css">
+<link rel="preload" as="image" href="/images/hero-patio-ba-miami-valley-400.webp" fetchpriority="high">
 <style>
-/* Homepage extras live in /css/site.css */
+/* critical ATF — homepage (LCP round-2: mirrors site.css ATF rules exactly → no post-paint shift) */
+@font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/archivo-black-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/inter-var.woff2') format('woff2-variations'),url('/fonts/inter-var.woff2') format('woff2')}
+:root{--navy:#002050;--orange:#E86A12;--cyan:#2BB8D0;--paper:#F8F5F0;--cream:#F8F5F0;--ink:#111827;--text:#111827;--text-muted:#5c584f;--border:#e4dfd4;--container:1180px;--dots:radial-gradient(rgba(0,32,80,.10) .9px,transparent .9px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:#fff;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3{line-height:1.15}
+.container{max-width:var(--container);margin:0 auto;padding:0 1.35rem}
+.topbar{display:none}
+header{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(10,10,10,.08)}
+.header-inner{max-width:var(--container);margin:0 auto;padding:0 1.35rem;display:flex;align-items:center;gap:.85rem;height:72px;min-width:0}
+.logo{display:flex;align-items:center;flex-shrink:0;padding:8px 12px 8px 0}
+.logo img{display:block;height:56px;width:auto}
+.logo-text{display:none}
+nav{display:none}
+.header-phone{color:var(--ink);font-size:.88rem;font-weight:700;letter-spacing:.01em;white-space:nowrap;margin-left:auto}
+.header-cta{background:var(--orange);color:#fff!important;font-size:.82rem;font-weight:800;padding:.55rem 1.15rem;border-radius:6px;white-space:nowrap;flex-shrink:0;border:none}
+.hamburger{display:flex;background:none;border:none;cursor:pointer;padding:.5rem;flex-direction:column;gap:5px;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px}
+.mobile-drawer{display:none}
+.btn{display:inline-block;padding:.95rem 1.55rem;border-radius:8px;font-weight:800;font-size:.92rem;letter-spacing:.01em;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-outline{background:#fff;color:var(--ink)}
+.stat-label{font-size:.76rem;margin-top:.15rem}
+section{padding:4.25rem 0}
+section h2{font-family:'Archivo Black',sans-serif;font-size:clamp(1.85rem,4.4vw,3rem);letter-spacing:.01em;margin-bottom:.55rem}
+.trust-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem;justify-content:center}
+.trust-chip{display:inline-flex;align-items:flex-start;gap:.45rem;background:#fff;border:1.5px solid var(--border);border-radius:99px;padding:.45rem .9rem;font-size:.78rem;font-weight:700;color:var(--navy);line-height:1.35;max-width:100%}
+.trust-chip.wide{border-radius:12px;max-width:36em}
+.mobile-dock{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--navy);border-top:1px solid rgba(255,255,255,.12);padding:.65rem .85rem calc(.65rem + env(safe-area-inset-bottom));gap:.65rem}
+.mobile-dock a{flex:1;text-align:center;font-weight:800;font-size:.88rem;padding:.85rem .5rem;border-radius:8px;letter-spacing:.02em}
+.mobile-dock-call{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);min-height:48px;display:flex;align-items:center;justify-content:center}
+.mobile-dock-quote{background:var(--orange);color:#fff;border:2px solid var(--orange);min-height:48px;display:flex;align-items:center;justify-content:center}
+body.home .hamburger{display:none}
+.hero{position:relative;background-color:var(--paper);background-image:var(--dots);background-size:18px 18px;color:var(--ink);padding:4.5rem 0 3.5rem;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.18}
+.hero-bg img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-inner{display:flex;flex-direction:column;align-items:center;gap:1.75rem;position:relative;z-index:1}
+.hero-content{max-width:920px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--ink);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.4rem .9rem;border-radius:99px;margin-bottom:1.15rem}
+.hero h1{font-family:'Archivo Black',sans-serif;font-size:clamp(2.5rem,7.6vw,5.4rem);letter-spacing:-.02em;line-height:.92;margin-bottom:1.15rem;text-transform:uppercase;color:var(--ink)}
+.hero h1 em{font-style:italic;font-family:'Archivo Black',sans-serif;font-weight:400;color:var(--cyan);font-size:.92em;letter-spacing:0;text-transform:uppercase;-webkit-text-stroke:1.5px var(--ink);paint-order:stroke fill}
+.hero-sub{font-size:1.02rem;color:#4a463e;max-width:540px;margin:0 auto 1.6rem;line-height:1.65}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.hero-proof{display:flex;flex-wrap:wrap;gap:.5rem .75rem;justify-content:center;margin:.85rem 0 0}
+.hero-proof-link{display:inline-flex;align-items:center;gap:.35rem;background:#fff;border:1.5px solid var(--border);border-radius:99px;padding:.4rem .85rem;font-size:.78rem;font-weight:800;color:var(--navy);min-height:40px}
+.hero-stats{display:flex;gap:2rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(0,32,80,.12);flex-wrap:wrap;justify-content:center}
+.hero .stat-num{font-family:'Archivo Black',sans-serif;font-size:1.65rem;color:var(--navy);line-height:1}
+.hero .stat-label{color:var(--text-muted)}
+.hero .trust-chip{background:#fff;border-color:rgba(0,32,80,.16);color:var(--text)}
 .hero .trust-chips{margin-top:1.35rem}
+.hero-img-wrap{width:min(760px,100%);border:8px solid var(--ink);border-radius:4px;overflow:hidden;box-shadow:12px 12px 0 var(--ink);transform:rotate(-2.2deg);position:relative;z-index:1}
+.hero-img-wrap img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;display:block}
+.pow{position:absolute;top:1.25rem;right:5%;width:118px;height:118px;display:flex;align-items:center;justify-content:center;transform:rotate(14deg);z-index:2;pointer-events:none}
+.pow-star{position:absolute;inset:0;background:var(--orange);clip-path:polygon(50% 0%,63% 18%,88% 12%,78% 35%,100% 50%,78% 65%,88% 88%,63% 78%,50% 100%,37% 78%,12% 88%,22% 65%,0 50%,22% 35%,12% 12%,37% 18%)}
+.pow span{position:relative;z-index:1;font-family:'Archivo Black',sans-serif;font-size:1.45rem;color:var(--ink);letter-spacing:-.03em;transform:rotate(-8deg)}
+/* below-fold sections skip layout/paint until near viewport (cuts Style&Layout/TBT) */
+html:not(.cv-off) section:not(.hero):not(.page-hero),html:not(.cv-off) footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
+@media(max-width:768px){
+section{padding:2.75rem 0}
+header{background:var(--navy);box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.logo{padding:6px 8px 6px 0}.logo img{height:48px}
+.header-phone{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 .45rem;margin-left:auto;color:#FAFAFA;font-size:.72rem;letter-spacing:0}
+.hamburger span{background:#fff}.header-cta{padding:.5rem .8rem;font-size:.75rem}.header-inner{height:64px}
+.mobile-dock{display:flex}body{padding-bottom:76px}
+.hero{padding:2.5rem 0 2rem}.pow{width:78px;height:78px;top:.65rem;right:3%}.pow span{font-size:1rem}.hero-img-wrap{transform:rotate(-1.4deg)}
+}
+@media(max-width:480px){
+.header-cta{padding:.45rem .65rem;font-size:.7rem}.header-phone{font-size:.65rem;padding:0 .3rem}.logo img{height:40px}.hero-btns .btn{width:100%;text-align:center}
+.hero-proof{margin-top:.7rem}.hero-proof-link{min-height:36px;padding:.3rem .7rem;font-size:.72rem}
+}
+html.fg .hero .container,html.fg .page-hero .container,html.fg .header-cta,html.fg .header-phone{visibility:hidden}
 </style>
+<script>
+/* Round-3 font gate: hero text was laid out in fallback fonts at first paint, then Archivo/Inter
+   swapped in ~100ms later and re-wrapped the H1 + sub (CLS 0.10 on .hero-btns). Keep the hero
+   text box hidden (layout untouched, hero image still paints) until both preloaded fonts are
+   ready, capped at 1s. Copy/markup unchanged; no-JS visitors never get the class. */
+(function(r,f){if(!f||!f.load)return;r.classList.add('fg');var done=function(){r.classList.remove('fg');};
+setTimeout(done,1000);try{Promise.all([f.load('400 1em "Archivo Black"'),f.load('400 1em Inter'),f.load('800 1em Inter')]).then(done,done);}catch(e){done();}})(document.documentElement,document.fonts);
+</script>
+<script>
+/* content-visibility helper: in-page jumps (#qq, #faq, deep links) need real section heights,
+   so switch it off before the browser scrolls. Normal scrolling keeps the fast path. */
+(function(d){var r=d.documentElement;if(location.hash)r.classList.add('cv-off');
+d.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="#"]');if(a&&a.hash&&a.pathname===location.pathname)r.classList.add('cv-off');},true);
+window.addEventListener('hashchange',function(){r.classList.add('cv-off');});})(document);
+</script>
+<script>
+/* Round-2: inject site.css after first paint — no preload, so it cannot enter the
+   observed-LCP Lantern graph (preload+VeryHigh was dragging simulated LCP). */
+(function(){function apply(){if(window.__ateamCss)return;window.__ateamCss=1;var l=document.createElement('link');l.rel='stylesheet';l.href='/css/site.css';document.head.appendChild(l);}
+function kick(){if(window.requestAnimationFrame){requestAnimationFrame(function(){requestAnimationFrame(apply);});}else{setTimeout(apply,0);}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',kick);else kick();})();
+</script>
+<noscript><link rel="stylesheet" href="/css/site.css"></noscript>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I get a price from A Team?","acceptedAnswer":{"@type":"Answer","text":"Use our instant estimator at ateamcontractings.com/estimate — answer a few questions, snap a photo of the area you need cleaned, and you'll see a ballpark price right away. No callback required. Or text Anthony directly at (937) 777-9093 and he'll get right back to you."}},{"@type":"Question","name":"What areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"We're based in Tipp City, Ohio and serve the Miami Valley and greater Dayton — Troy, Vandalia, Huber Heights, Englewood, Fairborn, Beavercreek, Piqua, and the towns around them. If you're not sure whether we come to you — just ask."}},{"@type":"Question","name":"What's the difference between pressure washing and soft washing?","acceptedAnswer":{"@type":"Answer","text":"Pressure washing uses high-force water to blast concrete, driveways, patios, and sidewalks clean. Soft washing uses low-pressure water plus a biodegradable cleaning solution to safely clean siding, roofs, and delicate surfaces. Using the wrong method can cause real damage — we use the right one for every surface. Learn more about soft washing →"}},{"@type":"Question","name":"Do I need to be home during the job?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. As long as we have access to a water spigot and the areas that need cleaning, we can complete most jobs while you're at work or out for the day. We'll send you before-and-after photos when we're done and check in before we leave."}},{"@type":"Question","name":"Are you insured?","acceptedAnswer":{"@type":"Answer","text":"Yes. A Team Contracting is fully insured. You can ask for proof of insurance any time — we're happy to provide it before the job starts. Peace of mind is part of what you're paying for."}},{"@type":"Question","name":"How quickly can you get out here?","acceptedAnswer":{"@type":"Answer","text":"Usually within a few days. In our busy season (spring and summer) we book up fast, so the sooner you reach out the better. Call or text (937) 777-9093 and we'll get you on the schedule."}},{"@type":"Question","name":"Do you offer discounts for bundling services?","acceptedAnswer":{"@type":"Answer","text":"Yes — bundling is the best deal we offer. Add window cleaning to a pressure wash or soft wash while we're already on-site and you'll save vs. booking each separately. We'll show you the full value and your A Team discount when we give you the price."}},{"@type":"Question","name":"What payment methods do you accept?","acceptedAnswer":{"@type":"Answer","text":"We accept cash, check, Venmo, Zelle, and card. Payment is due when the job is complete and you've done the walkthrough and are happy with the results. No payment upfront required."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://ateamcontractings.com/#business","name":"A Team Contracting","url":"https://ateamcontractings.com/","telephone":"(937) 777-9093","email":"Owner@ateamcontractings.com","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp","logo":"https://ateamcontractings.com/logo.webp","priceRange":"$","foundingDate":"2023-01-01","founder":{"@type":"Person","name":"Anthony Leonard"},"employee":{"@type":"Person","name":"Anthony Leonard"},"address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","postalCode":"45371","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.9581,"longitude":-84.1733},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"19:00"}],"areaServed":[{"@type":"City","name":"Tipp City","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Troy","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Vandalia","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Huber Heights","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Piqua","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Dayton","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Englewood","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Fairborn","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Beavercreek","addressRegion":"OH","addressCountry":"US"}],"sameAs":["https://g.page/r/CdoEOEshw5VUEAE/","https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933","https://www.facebook.com/Ateam937","https://www.instagram.com/ateamcontractings/","https://nextdoor.com/page/a-team-contracting-services","https://www.yelp.com/biz/a-team-contracting-tipp-city"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"39","bestRating":"5","worstRating":"1"}}</script>
-<script src="/assets/analytics.js"></script>
+<script src="/assets/analytics.js" defer></script>
 </head>
 <body class="home">
 
@@ -51,7 +145,7 @@
 <header>
   <div class="header-inner">
     <a class="logo" href="/">
-      <img src="/logo.webp" alt="A Team Contracting" width="64" height="56">
+      <img src="/logo.webp" srcset="/logo-128.webp 128w, /logo.webp 256w" sizes="64px" alt="A Team Contracting" width="64" height="56" decoding="async">
       <span class="logo-text">A Team Contracting</span>
     </a>
     <nav>
@@ -95,7 +189,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg" aria-hidden="true">
-    <img src="/images/hero-driveway.webp" alt="" width="900" height="617">
+    <img src="/images/hero-patio-ba-miami-valley-400.webp" alt="" width="400" height="274" fetchpriority="high" decoding="async">
   </div>
   <div class="pow" aria-hidden="true">
     <div class="pow-star"></div>
@@ -127,7 +221,7 @@
         </div>
       </div>
       <div class="hero-img-wrap">
-        <img src="/images/hero-driveway.webp" alt="Tipp City driveway before and after pressure washing by A Team Contracting" width="900" height="617" fetchpriority="high" srcset="/images/hero-driveway-400.webp 400w, /images/hero-driveway-560.webp 560w, /images/hero-driveway.webp 900w" sizes="(max-width:900px) 46vw, 520px">
+        <img src="/images/hero-patio-ba-miami-valley.webp" alt="Miami Valley patio before and after pressure washing by A Team Contracting" width="900" height="617" loading="lazy" decoding="async" srcset="/images/hero-patio-ba-miami-valley-400.webp 400w, /images/hero-patio-ba-miami-valley-560.webp 560w, /images/hero-patio-ba-miami-valley.webp 900w" sizes="(max-width:900px) 46vw, 520px">
       </div>
     </div>
   </div>
@@ -137,7 +231,7 @@
 <section class="bg-navy" id="featured-work">
   <div class="feat-row">
     <div class="feat-media">
-      <img src="/images/svc-soft-washing.webp" alt="Soft washing siding before and after" width="600" height="411" loading="lazy">
+      <img src="/images/feat-house-soft-wash-ba-miami-valley.webp" alt="Soft washing siding before and after" width="600" height="411" loading="lazy">
       <span class="feat-num" aria-hidden="true">01</span>
     </div>
     <div class="feat-copy">
@@ -157,7 +251,7 @@
       <a href="/pressure-washing-tipp-city-ohio/">Pressure washing details</a>
     </div>
     <div class="feat-media">
-      <img src="/images/svc-pressure-washing.webp" alt="Paver pressure wash before and after" width="600" height="411" loading="lazy">
+      <img src="/images/feat-driveway-pressure-wash-ba-kettering.webp" alt="Driveway pressure wash before and after" width="600" height="411" loading="lazy">
       <span class="feat-num" aria-hidden="true">02</span>
     </div>
   </div>
@@ -183,7 +277,7 @@
         </div>
       </div>
       <div class="service-card">
-        <img src="/images/svc-pressure-washing.webp" alt="Paver pressure wash before and after" width="600" height="411" loading="lazy" srcset="/images/svc-pressure-washing-400.webp 400w, /images/svc-pressure-washing.webp 600w" sizes="(max-width:768px) 92vw, 340px">
+        <img src="/images/card-driveway-pressure-wash-ba-miami-valley.webp" alt="Driveway pressure wash before and after" width="600" height="411" loading="lazy" srcset="/images/card-driveway-pressure-wash-ba-miami-valley-400.webp 400w, /images/card-driveway-pressure-wash-ba-miami-valley.webp 600w" sizes="(max-width:768px) 92vw, 340px">
         <div class="svc-body">
           <div class="svc-badge">Most Popular</div>
           <h3>Pressure Washing / Power Washing</h3>
@@ -197,7 +291,7 @@
         </div>
       </div>
       <div class="service-card">
-        <img src="/images/svc-soft-washing.webp" alt="Soft washing siding before and after" width="600" height="411" loading="lazy" srcset="/images/svc-soft-washing-400.webp 400w, /images/svc-soft-washing.webp 600w" sizes="(max-width:768px) 92vw, 340px">
+        <img src="/images/card-house-soft-wash-ba-kettering.webp" alt="Soft washing siding before and after" width="600" height="411" loading="lazy" srcset="/images/card-house-soft-wash-ba-kettering-400.webp 400w, /images/card-house-soft-wash-ba-kettering.webp 600w" sizes="(max-width:768px) 92vw, 340px">
         <div class="svc-body">
           <div class="svc-badge">Gentle &amp; Safe</div>
           <h3>Soft Washing</h3>
@@ -327,11 +421,11 @@
     <p class="section-sub">Every job photographed. Every transformation real. Here's a sample of A Team's exterior work.</p>
     <div class="work-grid">
       <div class="work-item">
-        <img src="/images/hero-driveway.webp" alt="Driveway pressure wash before and after Tipp City" width="900" height="617" loading="lazy" srcset="/images/hero-driveway-400.webp 400w, /images/hero-driveway-560.webp 560w, /images/hero-driveway.webp 900w" sizes="(max-width:900px) 46vw, 520px">
+        <img src="/images/work-driveway-pressure-wash-ba-miami-valley.webp" alt="Driveway pressure wash before and after Miami Valley" width="900" height="617" loading="lazy" srcset="/images/work-driveway-pressure-wash-ba-miami-valley-400.webp 400w, /images/work-driveway-pressure-wash-ba-miami-valley-560.webp 560w, /images/work-driveway-pressure-wash-ba-miami-valley.webp 900w" sizes="(max-width:900px) 46vw, 520px">
         <div class="work-caption"><strong>Driveway Pressure Wash</strong>Brand new in an afternoon</div>
       </div>
       <div class="work-item">
-        <img src="/images/svc-soft-washing.webp" alt="Softwash Tipp City siding before and after" width="600" height="411" loading="lazy" srcset="/images/svc-soft-washing-400.webp 400w, /images/svc-soft-washing.webp 600w" sizes="(max-width:768px) 92vw, 340px">
+        <img src="/images/work-siding-soft-wash-ba-tipp-city.webp" alt="Softwash Tipp City siding before and after" width="600" height="411" loading="lazy" srcset="/images/work-siding-soft-wash-ba-tipp-city-400.webp 400w, /images/work-siding-soft-wash-ba-tipp-city.webp 600w" sizes="(max-width:768px) 92vw, 340px">
         <div class="work-caption"><strong>Siding Soft Wash — Tipp City</strong>Mold &amp; mildew gone</div>
       </div>
       <div class="work-item">
@@ -339,15 +433,15 @@
         <div class="work-caption"><strong>Window Cleaning</strong>Crystal clear results</div>
       </div>
       <div class="work-item">
-        <img src="/images/work-driveway-2.webp" alt="Concrete driveway before and after cleaning" width="500" height="500" loading="lazy" srcset="/images/work-driveway-2-260.webp 260w, /images/work-driveway-2.webp 500w" sizes="(max-width:480px) 46vw, 250px">
+        <img src="/images/work-driveway-cleanup-ba-miami-valley.webp" alt="Concrete driveway before and after cleaning" width="500" height="500" loading="lazy" srcset="/images/work-driveway-cleanup-ba-miami-valley-260.webp 260w, /images/work-driveway-cleanup-ba-miami-valley.webp 500w" sizes="(max-width:480px) 46vw, 250px">
         <div class="work-caption"><strong>Driveway Cleanup</strong>Stain-free finish</div>
       </div>
       <div class="work-item">
-        <img src="/images/svc-pressure-washing.webp" alt="Full pressure wash before and after" width="600" height="411" loading="lazy" srcset="/images/svc-pressure-washing-400.webp 400w, /images/svc-pressure-washing.webp 600w" sizes="(max-width:768px) 92vw, 340px">
+        <img src="/images/work-sidewalk-pressure-wash-ba-centerville.webp" alt="Full pressure wash before and after" width="600" height="411" loading="lazy" srcset="/images/work-sidewalk-pressure-wash-ba-centerville-400.webp 400w, /images/work-sidewalk-pressure-wash-ba-centerville.webp 600w" sizes="(max-width:768px) 92vw, 340px">
         <div class="work-caption"><strong>Full Pressure Wash</strong>Years of grime lifted</div>
       </div>
       <div class="work-item">
-        <img src="/images/work-deck.webp" alt="Pool deck transformation before and after" width="500" height="500" loading="lazy" srcset="/images/work-deck-260.webp 260w, /images/work-deck.webp 500w" sizes="(max-width:480px) 46vw, 250px">
+        <img src="/images/work-pool-deck-pressure-wash-ba-miami-valley.webp" alt="Pool deck transformation before and after" width="500" height="500" loading="lazy" srcset="/images/work-pool-deck-pressure-wash-ba-miami-valley-260.webp 260w, /images/work-pool-deck-pressure-wash-ba-miami-valley.webp 500w" sizes="(max-width:480px) 46vw, 250px">
         <div class="work-caption"><strong>Pool Deck Pressure Wash</strong>Years of grime blasted clean</div>
       </div>
     </div>
@@ -630,7 +724,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img class="footer-logo" src="/logo.webp" alt="A Team Contracting" width="100" height="88">
+        <img class="footer-logo" src="/logo.webp" srcset="/logo-128.webp 128w, /logo.webp 256w" sizes="100px" alt="A Team Contracting" width="100" height="88" decoding="async" loading="lazy">
         <p>Family-owned exterior cleaning &amp; contracting in Tipp City, Ohio. Window cleaning, pressure washing, and soft washing — done right by Anthony Leonard and the A Team crew.</p>
         <span class="footer-tagline">Jobs are done best with A Team!</span>
       </div>
@@ -726,7 +820,9 @@ document.querySelectorAll('.mobile-drawer a').forEach(a=>{
   });
 });
 </script>
-<script src="/assets/lead-form.js" defer></script>
+<script>
+window.addEventListener('load',function(){var s=document.createElement('script');s.src='/assets/lead-form.js';document.body.appendChild(s);});
+</script>
 
 <div class="mobile-dock" role="navigation" aria-label="Call or get a quote">
   <a class="mobile-dock-call" href="tel:+19377779093">Call</a>
