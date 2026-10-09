@@ -372,19 +372,23 @@ rule, same reason: don't mark up a price the visitor can't read.
 
 ### The reviews page (`/reviews/`)
 
-Six real Google reviews, quoted word for word, each with Anthony's reply. One
-more exists (Shanna Sturgill) whose text is still cut off by Google's "View
-full review" — it is **omitted rather than paraphrased**, and should be added
-only once the full wording is to hand.
+All 40 Google reviews as of Oct 8, 2026 (DataForSEO `business_data/google/reviews`,
+newest first), quoted word for word, each with Anthony's reply as posted on
+Google. Two are star-only ratings with no text and are shown as such. The raw
+pull and `reviews.json` live in the Content Engine workspace
+(`content-engine/reviews-oct8/`). Sync the count everywhere when it moves:
+`/reviews/` summary + schema, homepage hero chip / stats band / reviews band /
+schema, PW Dayton, the city hubs, `/miami-valley/` and `/clean-club/`. The
+`/reviews/` meta description is frozen through Nov 6 and still says 39.
 
-**Quoted review text is off limits to find-and-replace.** Three customers
+**Quoted review text is off limits to find-and-replace.** Several customers
 wrote "A-Team" with a hyphen. The business name on this site has no hyphen,
 but a quotation is the customer's words, not ours. There is a comment saying
-so in the markup; heed it before running any sitewide text pass.
+so in the markup; heed it before running any sitewide text pass. Runs of
+spaces are collapsed; nothing else in a quote is touched (typos included).
 
-No dates are shown on the reviews. Google publishes them as "3 days ago", not
-as a date, and an approximate `datePublished` would be a fabrication. Reviewer
-names are shown exactly as Google shows them, `havok smith` included.
+No dates are shown on the reviews. Reviewers are shown as first name + last
+initial (e.g. "Susan L."), per Anthony, on every page that quotes a review.
 
 The same real reviews replaced the invented "Mike R. / Jen K. / Sarah T."
 testimonials that used to appear on the homepage, `/free-quote/` and two city
