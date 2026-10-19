@@ -22,11 +22,14 @@
   var WASH = {
     driveway: { label: "Driveway / walkway pressure wash", small: 143, medium: 215, large: 287, xl: 388 },
     siding:   { label: "House siding softwash",            small: 287, medium: 402, large: 532, xl: 719 },
-    roof:     { label: "Roof softwash",                    small: 431, medium: 575, large: 791, xl: 1079 },
+    roof:     { label: "Roof softwash",                    small: 499, medium: 575, large: 791, xl: 1079 },
   };
   var SIZE_LABELS = { small: "Small / ranch", medium: "Average 2–3 bed", large: "Large home", xl: "Extra large / estate" };
   var BUNDLE_DISCOUNT = 0.12;   // applied to retail when any wash is added
   var RANGE_LOW = 0.90, RANGE_HIGH = 1.12;
+  // Roof washes start at $499 (Anthony, Oct 19 2026). Any ballpark that
+  // includes a roof is never shown below this, after the bundle discount.
+  var ROOF_FLOOR = 499;
 
   // "What we noticed" — see netlify/functions/photo-note.mjs. The key lives on
   // the server; this page never sees it. If the function is missing, the key
@@ -56,7 +59,11 @@
     return { windowPrice: windowPrice, retail: retail, discount: discount, yourPrice: retail - discount };
   }
 
-  function rangeText(n) { return money(n * RANGE_LOW) + "–" + money(n * RANGE_HIGH); }
+  function rangeText(n) {
+    var lo = n * RANGE_LOW, hi = n * RANGE_HIGH;
+    if (S.addons.indexOf("roof") !== -1) { lo = Math.max(lo, ROOF_FLOOR); hi = Math.max(hi, ROOF_FLOOR); }
+    return money(lo) + "–" + money(hi);
+  }
 
   // ---- steps -------------------------------------------------------------
   var steps = form.querySelectorAll(".est-step");
