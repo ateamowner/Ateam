@@ -141,12 +141,13 @@ lost when a drag-and-drop deploy dropped the file on 2026-07-12; see
 else. Edit those constants to reprice; nothing else needs touching.
 
 ```
-WINDOW_BASE      small $143   medium $186   large $244   xl $330
+WINDOW_BASE      small $125   medium $165   large $220   xl $300
 TWO_STORY_MULT   1.45
 driveway         $143 / $215 / $287 / $388
 siding           $287 / $402 / $532 / $719
-roof             $431 / $575 / $791 / $1079
+roof             $499 / $575 / $791 / $1079
 BUNDLE_DISCOUNT  0.12          RANGE  x0.90 – x1.12
+ROOF_FLOOR       $499 (no ballpark with a roof is shown below it)
 ```
 
 #### How it submits
