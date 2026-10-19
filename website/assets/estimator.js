@@ -17,7 +17,7 @@
 (function () {
   "use strict";
 
-  var WINDOW_BASE = { small: 143, medium: 186, large: 244, xl: 330 };
+  var WINDOW_BASE = { small: 125, medium: 165, large: 220, xl: 300 };
   var TWO_STORY_MULT = 1.45;
   var WASH = {
     driveway: { label: "Driveway / walkway pressure wash", small: 143, medium: 215, large: 287, xl: 388 },
