@@ -7,9 +7,6 @@ One line each. Everything here is blocked on you — the loop keeps running with
 - **Which branch does Netlify actually deploy?** Production is currently building from
   `claude/business-plans-daily-reminders-vw8oz1`, not `main`. Until that's confirmed or changed,
   merging this work to `main` ships nothing. (Netlify → Site configuration → Build & deploy → Branches)
-- **Phone number conflict — three different numbers are in play.** The site uses
-  **(937) 777-9093** on all 63 pages (685 mentions, 433 `tel:` links). The swarm brief says
-  (937) 270-2452. Your profile says (937) 939-2936. I changed nothing. Which is the number that rings?
 - **Brand palette + fonts have drifted from the written spec.** The brief says Orange `#F58220`,
   Blue `#1B5B98`, Charcoal `#333333`, Anton + Montserrat. The live site uses `#E86A12`, `#002050`,
   `#111827`, plus a cyan `#2BB8D0` that isn't in the spec, with Archivo Black + Inter. That came from
