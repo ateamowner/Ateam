@@ -44,7 +44,8 @@ Caveat is for a single human touch, never for a price or a service name.
 
 ## Phone number
 
-`(937) 939-2936` appears **in the image graphic only**.
+`(937) 777-9093` (the Quo line) appears **in the image graphic only**. The old
+numbers (939-2936, 770-8326, 270-2452) are retired and never appear anywhere.
 
 Never in Google Business Profile body text. Never in Nextdoor body text. Google
 suppresses posts carrying a 10-digit number and Nextdoor reads it as an ad. Every
