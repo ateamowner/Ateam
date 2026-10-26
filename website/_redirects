@@ -67,3 +67,9 @@ http://www.ateamcontractings.com/*              https://ateamcontractings.com/:s
 # redirect to the new Tipp City page.
 /sealcoating/                                /seal-coating-tipp-city-ohio/  301
 /sealcoating-tipp-city-ohio/                 /seal-coating-tipp-city-ohio/  301
+
+# Old quote-tool URL 404s (Bingbot 52.167.144.229, 2026-10-26 5:52 AM ET).
+# The quote page is /estimate/.
+/quote-tool.html                             /estimate/  301
+/quote-tool                                  /estimate/  301
+/quote-tool/                                 /estimate/  301
