@@ -1,0 +1,278 @@
+/* A Team "legend" skin for inner pages: same dark cinematic system as the homepage film.
+   Loaded after site.css. Content and markup untouched; this only restyles. */
+@font-face{font-family:Anton;src:url(/fonts/anton-400.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Instrument Serif";font-style:italic;src:url(/fonts/InstrumentSerif-italic.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(/fonts/JetBrainsMono-normal.woff2) format("woff2");font-weight:100 800;font-display:swap}
+html.lg{
+  --lg-bg:#0b0f14;--lg-bg2:#0d1117;--lg-navy:#0a1424;--lg-ink:#f1ece4;--lg-mute:rgba(241,236,228,.62);--lg-faint:rgba(241,236,228,.13);
+  --lg-or:#F58220;--lg-or2:#ff9a3d;--lg-blue:#1B5B98;
+  --lg-disp:Anton,"Arial Narrow",Impact,sans-serif;--lg-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--lg-serif:"Instrument Serif",Georgia,serif;
+  --navy:#f1ece4;--navy-mid:#f1ece4;--navy-card:#f1ece4;--orange:#F58220;--orange-dark:#F58220;--orange-darker:#F58220;--orange-on-light:#F58220;--orange-on-dark:#F58220;
+  --cyan:#F58220;--ice:#f1ece4;--white:#f1ece4;--off-white:#0d1117;--cream:#0d1117;--paper:#0d1117;--ink:#f1ece4;--text:#f1ece4;--text-muted:rgba(241,236,228,.62);
+  --gray-light:rgba(241,236,228,.13);--border:rgba(241,236,228,.13);--shadow:none;--radius:2px;--dots:none;
+  background:var(--lg-bg);color-scheme:dark;
+}
+html.lg body{background:var(--lg-bg);color:var(--lg-ink);font-family:Montserrat,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html.lg body::after{content:"";position:fixed;inset:-50%;z-index:9999;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+/* flatten every light surface to the dark system */
+html.lg main, html.lg section, html.lg article, html.lg aside, html.lg div, html.lg ul, html.lg ol, html.lg li, html.lg table, html.lg thead, html.lg tbody, html.lg tr, html.lg td, html.lg th, html.lg details, html.lg summary, html.lg figure, html.lg blockquote, html.lg fieldset, html.lg form, html.lg label, html.lg span, html.lg p{
+  background-color:transparent;box-shadow:none!important;border-color:var(--lg-faint)!important}
+html.lg section, html.lg main>div, html.lg .hero, html.lg .page-hero{background-image:none}
+html.lg section:nth-of-type(even){background-color:var(--lg-bg2)}
+html.lg .bg-navy, html.lg .cta-band, html.lg .final-cta, html.lg .estimate-strip{background:var(--lg-navy)!important}
+html.lg :where(h1,h2,h3,h4,h5,h6,p,li,td,th,dt,dd,span,strong,em,b,label,small,summary,figcaption,blockquote,div){color:inherit}
+html.lg *{text-shadow:none}
+
+/* type */
+html.lg h1, html.lg h2{font-family:var(--lg-disp)!important;font-weight:400!important;text-transform:uppercase;letter-spacing:-.005em!important;line-height:.92!important;color:var(--lg-ink)!important;-webkit-text-stroke:0!important}
+html.lg h1{font-size:clamp(46px,7.4vw,124px)!important}
+html.lg h2{font-size:clamp(36px,5.2vw,86px)!important}
+html.lg h1 em, html.lg h2 em, html.lg h1 span, html.lg h2 span{font-family:var(--lg-disp)!important;font-style:normal!important;color:transparent!important;-webkit-text-stroke:1.4px var(--lg-ink)!important;font-size:1em!important;text-transform:uppercase}
+html.lg h3, html.lg h4{font-family:Montserrat,system-ui,sans-serif!important;font-weight:700;letter-spacing:-.01em;color:var(--lg-ink)!important}
+html.lg p, html.lg li, html.lg td{color:var(--lg-mute)}
+html.lg strong, html.lg b{color:var(--lg-ink)}
+html.lg .section-label, html.lg .eyebrow, html.lg .hero-badge, html.lg .breadcrumb, html.lg .post-meta, html.lg .stat-label, html.lg .trust-chip, html.lg .badge, html.lg [class*="label"], html.lg [class*="kicker"], html.lg [class*="tag"]{
+  font-family:var(--lg-mono)!important;font-size:11px!important;letter-spacing:.16em!important;text-transform:uppercase;font-weight:400!important;color:var(--lg-mute)!important;background:none!important;border-radius:0!important}
+html.lg .section-label::before, html.lg .eyebrow::before{content:"/ ";color:var(--lg-or)}
+html.lg .section-sub, html.lg .lead, html.lg .hero-sub, html.lg .page-hero p{font-family:var(--lg-serif);font-style:italic;font-size:clamp(20px,1.9vw,28px)!important;line-height:1.2!important;color:var(--lg-ink)!important}
+
+/* links + buttons */
+html.lg main a:not([class]), html.lg .prose a, html.lg p a{color:var(--lg-ink)!important;text-decoration:none!important;border-bottom:1px solid var(--lg-or)}
+html.lg main a:not([class]):hover, html.lg p a:hover{color:var(--lg-or)!important}
+html.lg .btn, html.lg .btn-white, html.lg .header-cta, html.lg button[type=submit], html.lg input[type=submit], html.lg .mobile-dock-quote, html.lg [class*="cta-btn"], html.lg [class*="-btn"]:not(.hamburger), html.lg .qq button{
+  background:var(--lg-or)!important;color:#111!important;border:1px solid var(--lg-or)!important;border-radius:2px!important;box-shadow:none!important;
+  font-family:var(--lg-mono)!important;font-weight:500!important;font-size:12px!important;letter-spacing:.14em!important;text-transform:uppercase!important;transform:none!important}
+html.lg .btn:hover, html.lg .header-cta:hover, html.lg button[type=submit]:hover{background:var(--lg-or2)!important}
+html.lg .btn-outline, html.lg .btn-ghost, html.lg .btn-secondary, html.lg .mobile-dock-call{background:transparent!important;color:var(--lg-ink)!important;border:1px solid rgba(241,236,228,.35)!important}
+
+/* cards: hairline boxes */
+html.lg .service-card, html.lg .svc-card, html.lg .link-card, html.lg .pain-card, html.lg .club-card, html.lg .step, html.lg .faq-item, html.lg .city-svc, html.lg .callout, html.lg .review-card, html.lg .rv, html.lg .work-item, html.lg .calc-field, html.lg .feat-row, html.lg .toc, html.lg .qq, html.lg [class*="card"]{
+  background:rgba(241,236,228,.025)!important;border:1px solid var(--lg-faint)!important;border-radius:2px!important;box-shadow:none!important;color:var(--lg-ink)}
+html.lg [class*="card"] img, html.lg .work-item img{border-radius:0!important}
+html.lg table{border-collapse:collapse}
+html.lg th{font-family:var(--lg-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--lg-ink)!important;background:rgba(241,236,228,.05)!important}
+html.lg td, html.lg th{border:1px solid var(--lg-faint)!important}
+
+/* forms */
+html.lg input:not([type=hidden]):not([type=radio]):not([type=checkbox]):not([type=range]):not([type=submit]), html.lg select, html.lg textarea{
+  background:rgba(241,236,228,.04)!important;color:var(--lg-ink)!important;border:0!important;border-bottom:1px solid rgba(241,236,228,.3)!important;border-radius:0!important;font-family:Montserrat,system-ui,sans-serif}
+html.lg input::placeholder, html.lg textarea::placeholder{color:rgba(241,236,228,.35)}
+html.lg input:focus, html.lg select:focus, html.lg textarea:focus{outline:none;border-bottom-color:var(--lg-or)!important}
+html.lg select option{background:#151a21;color:var(--lg-ink)}
+html.lg label{color:var(--lg-mute)}
+
+/* header + drawer */
+html.lg header{background:rgba(11,15,20,.88)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:none!important;border-bottom:1px solid var(--lg-faint)}
+html.lg header nav a{font-family:var(--lg-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--lg-ink)!important;opacity:.8}
+html.lg header nav a:hover{opacity:1;color:var(--lg-or)!important}
+html.lg .header-phone{color:var(--lg-ink)!important;font-family:var(--lg-mono);font-weight:400;letter-spacing:.08em}
+html.lg .hamburger span{background:var(--lg-ink)!important}
+html.lg .mobile-drawer{background:var(--lg-bg)!important}
+html.lg .mobile-drawer a{color:var(--lg-ink)!important;font-family:var(--lg-disp);text-transform:uppercase;font-size:24px;letter-spacing:0}
+html.lg .topbar{background:#070a0e!important;color:var(--lg-mute)!important}
+
+/* footer */
+html.lg footer{background:#070a0e!important;border-top:1px solid var(--lg-faint);color:var(--lg-mute)}
+html.lg footer h3, html.lg footer h4{font-family:var(--lg-mono)!important;font-size:10px!important;letter-spacing:.16em;text-transform:uppercase;color:var(--lg-or)!important;font-weight:400}
+html.lg footer a{color:var(--lg-ink)!important;font-family:var(--lg-mono);font-size:11px;letter-spacing:.08em;border:0!important}
+html.lg footer a:hover{color:var(--lg-or)!important}
+html.lg footer p, html.lg footer div{color:var(--lg-mute)}
+html.lg .mobile-dock{background:rgba(11,15,20,.9)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--lg-faint)}
+
+/* misc */
+html.lg hr{border-color:var(--lg-faint)}
+html.lg ::selection{background:var(--lg-or);color:#111}
+html.lg .pow{display:none}
+html.lg .hero-img-wrap, html.lg .hero-frame{border:0!important;box-shadow:none!important;transform:none!important;outline:1px solid var(--lg-faint)}
+html.lg img{filter:none}
+
+html.lg [style*="background:#fff"], html.lg [style*="background:var(--off-white)"]{background:transparent!important}
+html.lg button{color:var(--lg-ink)}
+html.lg .faq-q{color:var(--lg-ink)!important;font-family:Montserrat,system-ui,sans-serif}
+html.lg .faq-q:hover{background:rgba(241,236,228,.04)!important}
+html.lg .faq-q::after{color:var(--lg-or)!important}
+html.lg .hero-btns, html.lg .final-cta-btns, html.lg [class*="btns"]{align-items:center!important}
+html.lg .btn, html.lg .header-cta{height:auto!important;display:inline-flex;align-items:center;justify-content:center;padding:15px 22px!important}
+html.lg [style*="color:#fa8c57"], html.lg [style*="color:rgba(255,165,0"], html.lg [style*="color:var(--orange"]{color:var(--lg-or)!important}
+html.lg a.btn[style*="background:#fff"], html.lg a.btn[style*="background: #fff"]{background:var(--lg-or)!important;color:#111!important}
+html.lg .btn, html.lg .header-cta{align-self:flex-start}
+html.lg :is(figure,li,article,a,[class*="card"],[class*="item"],[class*="thumb"],[class*="tile"],[class*="grid"]>*) h2{font-size:clamp(18px,1.7vw,28px)!important;line-height:1.02!important}
+html.lg h1 span[style], html.lg h2 span[style]{-webkit-text-stroke:0!important;color:var(--lg-or)!important}
+html.lg .filter-btn{background:transparent!important;color:var(--lg-ink)!important;border:1px solid rgba(241,236,228,.3)!important;font-size:10.5px!important;padding:9px 13px!important}
+html.lg .filter-btn.active, html.lg .filter-btn:hover{background:var(--lg-or)!important;color:#111!important;border-color:var(--lg-or)!important}
+html.lg .filter-bar{background:transparent!important}
+/* ---- auto overrides generated from site.css by tools/gen_overrides.py ---- */
+html.lg .hero-sub,
+html.lg .hero-proof-link,
+html.lg .hero-proof-link:hover,
+html.lg .hero .stat-num,
+html.lg .page-hero p,
+html.lg .pain-card h3,
+html.lg .service-card h3,
+html.lg .svc-card h3,
+html.lg .svc-links .link-more,
+html.lg .bg-navy .service-card h3,
+html.lg .bg-navy .svc-card h3,
+html.lg .signature,
+html.lg .faq-q,
+html.lg .qq h3,
+html.lg .qq label,
+html.lg .qq input,
+html.lg .qq select,
+html.lg .area-tag,
+html.lg .city-svc h3,
+html.lg .breadcrumb a,
+html.lg .prose h3,
+html.lg td strong,
+html.lg .yes,
+html.lg .no,
+html.lg .callout h3,
+html.lg .quote figcaption,
+html.lg .link-card h3,
+html.lg .toc a,
+html.lg .trust-chip,
+html.lg .club-card h3,
+html.lg .nd-home h3,
+html.lg .calc-field label,
+html.lg .calc-field input[type=number],
+html.lg .lp-field label,
+html.lg .lp-trust-inner,
+html.lg .lp-step h3,
+html.lg .lp-review cite,
+html.lg .lp-tag,
+html.lg .step h3,
+html.lg .rv-google,
+html.lg .rv-google:hover,
+html.lg .rv-name,
+html.lg .rv-where a,
+html.lg .nd-callout h3,
+html.lg .est-opt,
+html.lg .est-back:hover,
+html.lg .est-drop b,
+html.lg .est-field label,
+html.lg .est-club h3,
+html.lg .est-floors strong,
+html.lg .filter-btn,
+html.lg .filter-btn:hover,
+html.lg .gallery-body h2,
+html.lg .btn-white,
+html.lg .faq-inner h2,
+html.lg .faq-a p{color:var(--lg-ink)!important}
+html.lg body,
+html.lg header,
+html.lg .mobile-drawer a:hover,
+html.lg .btn-white,
+html.lg .btn-white:hover,
+html.lg .btn-outline,
+html.lg .btn-outline:hover,
+html.lg .btn-dark,
+html.lg .btn-dark:hover,
+html.lg .hero,
+html.lg .hero-proof-link,
+html.lg .trust-bar-list li::before,
+html.lg .trust-bar-social a,
+html.lg .trust-bar-social a:hover,
+html.lg .bg-off,
+html.lg .bg-cream,
+html.lg .page-hero,
+html.lg .page-hero .btn-outline,
+html.lg .page-hero .btn-outline:hover,
+html.lg .page-hero .trust-chip,
+html.lg .pain-card,
+html.lg .service-card,
+html.lg .svc-card,
+html.lg .bg-navy .service-card,
+html.lg .bg-navy .svc-card,
+html.lg .cta-band .btn-orange,
+html.lg .cta-band .btn-white,
+html.lg .work-also-item,
+html.lg a.work-also-item:hover,
+html.lg .step,
+html.lg section#reviews:not(.reviews-band) .review-card,
+html.lg .faq-item,
+html.lg .faq-q:hover,
+html.lg .qq,
+html.lg .qq input,
+html.lg .qq select,
+html.lg .city-svc a,
+html.lg .breadcrumb,
+html.lg table,
+html.lg tbody tr:nth-child(even),
+html.lg .callout,
+html.lg .quote,
+html.lg .link-card,
+html.lg .toc,
+html.lg .footer-social a:hover,
+html.lg .trust-chip,
+html.lg .trust-chips-on-dark .trust-chip,
+html.lg .page-hero .trust-chips-on-dark .trust-chip,
+html.lg .hero .trust-chip,
+html.lg .club-card,
+html.lg .reviews-band .nd-home,
+html.lg .calc-card,
+html.lg .hamburger span,
+html.lg .lp-card,
+html.lg .lp-field input[type=text],
+html.lg .lp-field input[type=tel],
+html.lg .lp-field input[type=email],
+html.lg .lp-field select,
+html.lg .lp-field textarea,
+html.lg .lp-field input[type=file],
+html.lg .lp-check:hover,
+html.lg .lp-check:has(input:checked),
+html.lg .lp-trust,
+html.lg .lp-step,
+html.lg .lp-review,
+html.lg .lp-area,
+html.lg .lp-tag,
+html.lg .links,
+html.lg .ba-fig img,
+html.lg .rv-summary,
+html.lg .rv-google,
+html.lg .rv-card,
+html.lg .rv-reply,
+html.lg .rv-where a:hover,
+html.lg .est-card,
+html.lg .est-opt,
+html.lg .est-opt:hover,
+html.lg .est-opt[aria-pressed=true],
+html.lg .est-opt.active,
+html.lg .est-drop,
+html.lg .est-note,
+html.lg .est-nojs,
+html.lg .est-floors,
+html.lg .filter-bar,
+html.lg .filter-btn,
+html.lg .filter-btn:hover,
+html.lg .gallery-card,
+html.lg .lightbox-nav,
+html.lg .lightbox-nav:hover,
+html.lg .faq-section,
+html.lg .faq-q,
+html.lg .faq-item.open .faq-q{background-color:transparent!important;background-image:none!important}
+html.lg .mobile-drawer,
+html.lg .trust-bar,
+html.lg .bg-navy,
+html.lg .feat-row,
+html.lg .reviews-band,
+html.lg .review-card,
+html.lg .final-cta,
+html.lg .bg-navy .city-svc a,
+html.lg thead th,
+html.lg footer,
+html.lg .nd-home-btn,
+html.lg .mobile-dock,
+html.lg header,
+html.lg .ty,
+html.lg .lp-bar,
+html.lg .lp-hero,
+html.lg .lp-card-head,
+html.lg .lp-final,
+html.lg .lp-foot,
+html.lg .rv-avatar,
+html.lg .nd-callout a.nd-btn,
+html.lg .nd-callout a.nd-btn:hover,
+html.lg .est-ball,
+html.lg .filter-btn.active{background-color:var(--lg-navy)!important}

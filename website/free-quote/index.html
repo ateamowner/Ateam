@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="lg">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
 <meta name="description" content="Get a free exterior cleaning quote in Tipp City and the Dayton area. Send a photo, get a real price back the same day. Family-owned, fully insured.">
 <!-- Ad landing page: kept out of the index so it never competes with the
      organic service pages. "follow" is deliberate so link equity still flows,
-     and no robots.txt Disallow is used — Google Ads must be able to crawl this
+     and no robots.txt Disallow is used, Google Ads must be able to crawl this
      page to score it. It is also intentionally absent from sitemap.xml. -->
 <meta name="robots" content="noindex, follow">
 <meta property="og:title" content="Free Pressure Washing Quote | Tipp City &amp; Dayton, OH">
@@ -28,7 +28,7 @@
 <link rel="preload" href="/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Self-contained on purpose: paid traffic always arrives with a cold cache,
-   so this page costs one request instead of two. Caveat lector — the shared
+   so this page costs one request instead of two. Caveat lector, the shared
    tokens below are a copy of /css/site.css, so brand changes need making in
    both places. */
 @font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/archivo-black-400.woff2') format('woff2')}
@@ -42,7 +42,7 @@ a{text-decoration:none;color:inherit}
 h1,h2,h3{line-height:1.15}
 .container{max-width:var(--container);margin:0 auto;padding:0 1.25rem}
 
-/* Trimmed header — logo and a tap-to-call only. An ad landing page has no
+/* Trimmed header, logo and a tap-to-call only. An ad landing page has no
    nav on purpose: every extra link is a way to leak a click you paid for. */
 .lp-bar{background:var(--navy);position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .lp-bar-inner{max-width:var(--container);margin:0 auto;padding:.6rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
@@ -55,8 +55,8 @@ h1,h2,h3{line-height:1.15}
 /* HERO + FORM */
 .lp-hero{background:var(--navy);color:#fff;padding:2.75rem 0 3rem}
 /* Named areas so the form can jump above the supporting copy on mobile
-   without duplicating any markup — see the 900px breakpoint. */
-/* rows: auto 1fr — without this the tall card, which spans both rows, has its
+   without duplicating any markup, see the 900px breakpoint. */
+/* rows: auto 1fr, without this the tall card, which spans both rows, has its
    height distributed across them and pushes the supporting copy way down. */
 .lp-grid{display:grid;grid-template-columns:1fr 460px;grid-template-areas:"intro card" "support card";grid-template-rows:auto 1fr;gap:0 3rem;align-items:start}
 .lp-intro{grid-area:intro}
@@ -94,7 +94,7 @@ h1,h2,h3{line-height:1.15}
 .lp-submit{width:100%;background:var(--orange-dark);color:#fff;font-family:inherit;font-size:1.02rem;font-weight:800;padding:.95rem;border:none;border-radius:var(--radius);cursor:pointer;transition:background .15s;letter-spacing:.01em}
 .lp-submit:hover{background:var(--orange-darker)}
 .lp-fineprint{font-size:.74rem;color:var(--text-muted);text-align:center;margin-top:.75rem;line-height:1.5}
-/* Honeypot — visually gone but not display:none, which some bots detect. */
+/* Honeypot, visually gone but not display:none, which some bots detect. */
 .lp-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
 
 /* TRUST STRIP */
@@ -131,7 +131,7 @@ h1,h2,h3{line-height:1.15}
 .lp-foot{background:var(--navy-mid);color:rgba(255,255,255,.65);text-align:center;padding:1.5rem 0;font-size:.78rem}
 .lp-foot a{color:rgba(255,255,255,.8);text-decoration:underline}
 
-/* Sticky mobile call bar — the highest-converting element on a phone. */
+/* Sticky mobile call bar, the highest-converting element on a phone. */
 .lp-sticky{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--orange-dark);color:#fff;text-align:center;padding:.9rem;font-weight:800;font-size:1rem;box-shadow:0 -2px 12px rgba(0,0,0,.25)}
 
 @media(max-width:900px){
@@ -153,6 +153,7 @@ h1,h2,h3{line-height:1.15}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":"https://ateamcontractings.com/#business","name":"A Team Contracting","url":"https://ateamcontractings.com/","telephone":"(937) 777-9093","email":"Owner@ateamcontractings.com","image":"https://ateamcontractings.com/images/gallery/gallery-pressure-wash-1.webp","logo":"https://ateamcontractings.com/logo.webp","priceRange":"$","foundingDate":"2023-01-01","founder":{"@type":"Person","name":"Anthony Leonard"},"employee":{"@type":"Person","name":"Anthony Leonard"},"address":{"@type":"PostalAddress","addressLocality":"Tipp City","addressRegion":"OH","postalCode":"45371","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.9581,"longitude":-84.1733},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"19:00"}],"areaServed":[{"@type":"City","name":"Tipp City","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Troy","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Vandalia","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Huber Heights","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Piqua","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Dayton","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Englewood","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Fairborn","addressRegion":"OH","addressCountry":"US"},{"@type":"City","name":"Beavercreek","addressRegion":"OH","addressCountry":"US"}],"sameAs":["https://g.page/r/CdoEOEshw5VUEAE/","https://www.bbb.org/us/oh/tipp-city/profile/window-cleaning/a-team-contracting-0322-1440107933","https://www.facebook.com/Ateam937","https://www.instagram.com/ateamcontractings/","https://nextdoor.com/page/a-team-contracting-services","https://www.yelp.com/biz/a-team-contracting-tipp-city"]}</script>
 <script src="/assets/analytics.js"></script>
+<link rel="stylesheet" href="/css/legend.css">
 </head>
 <body>
 
@@ -174,7 +175,7 @@ h1,h2,h3{line-height:1.15}
       <div class="lp-intro">
         <span class="lp-eyebrow">Tipp City &amp; the Dayton Area · Family-Owned</span>
         <h1>Send a Photo.<br>Get a Real Price <span>Today.</span></h1>
-        <p class="lp-sub">Driveways, siding, roofs and windows cleaned by a local crew that shows up when it says it will. Fill out the form and Anthony gets back to you personally — same day, with an actual number.</p>
+        <p class="lp-sub">Driveways, siding, roofs and windows cleaned by a local crew that shows up when it says it will. Fill out the form and Anthony gets back to you personally, same day, with an actual number.</p>
       </div>
 
       <div class="lp-card">
@@ -186,7 +187,7 @@ h1,h2,h3{line-height:1.15}
         <!-- Netlify Forms is the system of record: submissions are stored and
              emailed by Netlify with no server and no third-party dependency.
              assets/lead-form.js additionally POSTs a copy to Zapier for an SMS
-             alert, but that is strictly best-effort — if the webhook fails or
+             alert, but that is strictly best-effort, if the webhook fails or
              is never configured, the lead is still captured here. -->
         <form
           name="ad-quote"
@@ -225,7 +226,7 @@ h1,h2,h3{line-height:1.15}
           <div class="lp-field">
             <label for="q-phone">Cell phone</label>
             <input type="tel" id="q-phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(937) 555-0143">
-            <p class="lp-hint">Best way to reach you — most quotes go out by text.</p>
+            <p class="lp-hint">Best way to reach you, most quotes go out by text.</p>
           </div>
 
           <div class="lp-field">
@@ -236,7 +237,7 @@ h1,h2,h3{line-height:1.15}
           <div class="lp-field">
             <label for="q-city">Address or city</label>
             <input type="text" id="q-city" name="city" required autocomplete="address-level2" placeholder="Tipp City, OH 45371">
-            <p class="lp-hint">City or ZIP is enough — we just need to confirm you're in our area.</p>
+            <p class="lp-hint">City or ZIP is enough, we just need to confirm you're in our area.</p>
           </div>
 
           <div class="lp-field">
@@ -273,13 +274,13 @@ h1,h2,h3{line-height:1.15}
           </div>
 
           <button type="submit" class="lp-submit">Get My Free Quote →</button>
-          <p class="lp-fineprint">We'll only use your number to quote this job. No spam, no selling your info, no automated sales calls — ever.</p>
+          <p class="lp-fineprint">We'll only use your number to quote this job. No spam, no selling your info, no automated sales calls, ever.</p>
         </form>
       </div>
 
       <div class="lp-support">
         <ul class="lp-ticks">
-          <li>Same-day response — not "someone will call you"</li>
+          <li>Same-day response, not "someone will call you"</li>
           <li>Fully insured, BBB accredited, family-owned</li>
           <li>Free quote, no obligation, no pressure sales call</li>
           <li>Before-and-after photos on every single job</li>
@@ -319,7 +320,7 @@ h1,h2,h3{line-height:1.15}
       <div class="lp-step">
         <div class="lp-step-n">2</div>
         <h3>Anthony texts you back</h3>
-        <p>Same day, with a real number — not a callback to schedule a callback.</p>
+        <p>Same day, with a real number, not a callback to schedule a callback.</p>
       </div>
       <div class="lp-step">
         <div class="lp-step-n">3</div>
@@ -362,7 +363,7 @@ h1,h2,h3{line-height:1.15}
 <section class="lp-section lp-area">
   <div class="container">
     <h2>Where We Work</h2>
-    <p class="lead">Based in Tipp City, serving the greater Dayton area. Not sure if you're in range? Ask — the answer is usually yes.</p>
+    <p class="lead">Based in Tipp City, serving the greater Dayton area. Not sure if you're in range? Ask, the answer is usually yes.</p>
     <div class="lp-tags">
       <span class="lp-tag">📍 Tipp City</span>
       <span class="lp-tag">📍 Troy</span>
@@ -390,9 +391,8 @@ h1,h2,h3{line-height:1.15}
 
 <footer class="lp-foot">
   <div class="container">
-    &copy; 2026 A Team Contracting · Tipp City, Ohio · <a href="tel:+19377779093">(937) 777-9093</a><br>
-    Jobs are done best when you work with A Team!
-  </div>
+    &copy; 2026 A Team Contracting · Tipp City, Ohio · <a href="tel:+19377779093">(937) 777-9093</a>
+</div>
   <div class="container">
     <div class="footer-trust">
       <p class="footer-nap"><strong>A Team Contracting</strong> &middot; Tipp City, OH &middot; <a href="tel:+19377779093">(937) 777-9093</a></p>
