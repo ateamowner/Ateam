@@ -44,11 +44,11 @@ http://www.ateamcontractings.com/*              https://ateamcontractings.com/:s
 /tipp-city/                                  /tipp-city-ohio/  301
 /huber-heights/                              /huber-heights-ohio/  301
 
-# Old before/after image URLs 404 (Meta-ExternalAgent 57.141.0.24, 2026-10-30/31).
-# No bathroom or shed photo exists in the repo or its git history, so send
-# them to the gallery instead of an unrelated photo.
-/images/ba-bathroom-800.jpg                  /gallery/  301
-/images/ba-shed-800.jpg                      /gallery/  301
+# Old before/after image URLs 404 (Meta-ExternalAgent 57.141.0.24: bathroom and
+# shed on 2026-10-30/31; siding, sidewalk-2, fence and hardwood on 2026-11-01).
+# None of these photos exist in the repo or its history, so send them to the
+# gallery. Not forced (no !), so any real file at /images/ba-* still serves.
+/images/ba-*                                 /gallery/  301
 
 # Power washing is an alias of pressure washing — no empty duplicate pages.
 /power-washing/                              /pressure-washing-tipp-city-ohio/  301
