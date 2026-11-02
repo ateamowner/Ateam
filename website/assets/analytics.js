@@ -19,6 +19,9 @@
  * Event: generate_lead
  * Param: form_name = "quick-quote" | "estimate-request"
  *
+ * Click events (2026-11-01): phone_tap (tel:), email_tap (mailto:),
+ * cta_click (links to /estimate/, /free-quote/, /contact/). See below.
+ *
  * The ads landing form (ad-quote on /free-quote/) is intentionally not
  * converted here. Pageviews on that URL still count.
  */
@@ -142,6 +145,69 @@
   } else {
     bindForms();
   }
+  // Click tracking (added 2026-11-01). One delegated listener, so every
+  // page that loads this file is covered with no per-page markup.
+  //   phone_tap  - any tel: link       (params: link_location, page_path)
+  //   email_tap  - any mailto: link    (params: link_location, page_path)
+  //   cta_click  - links to /estimate/, /free-quote/ or /contact/
+  //                (params: cta_target, link_text, link_location, page_path)
+  // Beacon transport so the hit survives the dialer / navigation. The
+  // capture-phase click listener above has already started loading gtag.js;
+  // queued events are sent when it arrives.
+  var CTA_PATHS = ["/estimate/", "/free-quote/", "/contact/"];
+
+  function linkLocation(el) {
+    if (el.closest("header, nav")) return "header";
+    if (el.closest("footer")) return "footer";
+    if (el.closest(".lp-sticky, .sticky-cta, [data-cta-bar]")) return "sticky_bar";
+    return "body";
+  }
+
+  function normPath(href) {
+    try {
+      var u = new URL(href, window.location.href);
+      if (u.origin !== window.location.origin) return "";
+      var p = u.pathname;
+      if (p.charAt(p.length - 1) !== "/") p += "/";
+      return p;
+    } catch (e) {
+      return "";
+    }
+  }
+
+  document.addEventListener(
+    "click",
+    function (ev) {
+      var a = ev.target && ev.target.closest ? ev.target.closest("a[href]") : null;
+      if (!a) return;
+      var href = (a.getAttribute("href") || "").trim();
+      var lower = href.toLowerCase();
+      var base = {
+        link_location: linkLocation(a),
+        page_path: window.location.pathname,
+        transport_type: "beacon",
+      };
+      if (lower.indexOf("tel:") === 0) {
+        gtag("event", "phone_tap", base);
+        return;
+      }
+      if (lower.indexOf("mailto:") === 0) {
+        gtag("event", "email_tap", base);
+        return;
+      }
+      var path = normPath(href);
+      for (var i = 0; i < CTA_PATHS.length; i++) {
+        if (path === CTA_PATHS[i]) {
+          base.cta_target = CTA_PATHS[i];
+          base.link_text = (a.textContent || "").replace(/\s+/g, " ").trim().slice(0, 100);
+          gtag("event", "cta_click", base);
+          return;
+        }
+      }
+    },
+    true
+  );
+
   fireThanksIfNeeded();
   // Thank-you pages carry the conversion — load gtag right away there.
   (function () {
