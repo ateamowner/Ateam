@@ -25,6 +25,11 @@ http://www.ateamcontractings.com/*              https://ateamcontractings.com/:s
 # as /power-washing/ → Tipp City pressure washing.
 /gutter-cleaning/                            /gutter-cleaning-tipp-city-ohio/  301
 /pressure-washing/                           /pressure-washing-tipp-city-ohio/  301
+
+# Retarget cost URL to prices (Anthony request 2026-11-04). Force so old
+# static file cannot shadow the 301. Do not ship a second prices page.
+/pressure-washing-cost-ohio/                 /pressure-washing-prices/  301!
+/pressure-washing-cost-ohio                  /pressure-washing-prices/  301!
 /soft-washing/                               /soft-washing-tipp-city-ohio/  301
 /window-cleaning/                            /window-cleaning-tipp-city-ohio/  301
 /roof-cleaning/                              /roof-cleaning-tipp-city-ohio/  301
