@@ -55,6 +55,14 @@ http://www.ateamcontractings.com/*              https://ateamcontractings.com/:s
 # gallery. Not forced (no !), so any real file at /images/ba-* still serves.
 /images/ba-*                                 /gallery/  301
 
+# City hub URLs 404 (ClaudeBot/AhrefsBot/Googlebot 2026-11-05/06). Sitemap
+# lists them, but the town hubs are only in draft PR #93. Non-forced so real
+# hub pages shadow these if/when #93 (or similar) merges.
+/centerville-ohio/                           /pressure-washing-centerville-ohio/  301
+/kettering-ohio/                             /pressure-washing-kettering-ohio/  301
+/miamisburg-ohio/                            /miami-valley/  301
+/springboro-ohio/                            /miami-valley/  301
+
 # Power washing is an alias of pressure washing — no empty duplicate pages.
 /power-washing/                              /pressure-washing-tipp-city-ohio/  301
 /power-washing-tipp-city-ohio/               /pressure-washing-tipp-city-ohio/  301
