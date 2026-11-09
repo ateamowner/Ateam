@@ -92,3 +92,23 @@ http://www.ateamcontractings.com/*              https://ateamcontractings.com/:s
 /quote-tool.html                             /estimate/  301
 /quote-tool                                  /estimate/  301
 /quote-tool/                                 /estimate/  301
+
+# GSC 11/9 "Not found (404)" aliases (Anthony OK 2026-11-09 9:27 AM ET).
+# Confirmed live 404s from the Search Console triage. Targets are sitemap
+# pages that return 200. Do not force (!) — no static files at these paths.
+/services/                                   /                              301
+/home/                                       /                              301
+/quote/                                      /estimate/                     301
+/estimates/                                  /estimate/                     301
+/booking/                                    /estimate/                     301
+/book/                                       /estimate/                     301
+/pricing/                                    /pressure-washing-prices/      301
+/prices/                                     /pressure-washing-prices/      301
+/service-areas/                              /miami-valley/                 301
+/areas/                                      /miami-valley/                 301
+/testimonials/                               /reviews/                      301
+/gutter/                                     /gutter-cleaning-tipp-city-ohio/  301
+/windows/                                    /window-cleaning-tipp-city-ohio/  301
+/roof/                                       /roof-cleaning-tipp-city-ohio/ 301
+/soft-wash/                                  /soft-washing-tipp-city-ohio/  301
+/sitemap-0.xml                               /sitemap.xml                   301
