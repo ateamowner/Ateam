@@ -8,12 +8,12 @@ var clamp=function(v,a,b){return v<a?a:v>b?b:v}, lerp=function(a,b,t){return a+(
 var ss=function(a,b,v){var t=clamp((v-a)/(b-a),0,1);return t*t*(3-2*t)};
 var BG='#0b0f14';
 /* Bump this folder name whenever the footage changes. /assets is cached for a week, so reusing a path shows stale footage. */
-var FILM_BASE='/assets/film-lw4/';
+var FILM_BASE='/assets/film-lw5/'; /* lw5 = same lw4 footage re-encoded at 720 px, ~1.1 Mbps (under 1.3 MB) for the 2026-11-13 site audit (SPD-1) */
 var isMobile=function(){return Math.min(innerWidth,screen.width||innerWidth)<=900 && innerHeight>innerWidth*0.9};
 var MOB=isMobile();
 /* lw3+: the film is a real <video> (H.264 1080p 30fps, HEVC first where supported) that plays at native frame rate.
    No scroll-scrubbing currentTime and no frame preloading: iOS Safari stutters on both. Scroll only drives text, scrims and a light zoom. */
-var VID=MOB?{w:1080,h:1920,h264:'m-1080.mp4',hevc:'m-1080.hevc.mp4',poster:'m-poster.jpg'}:{w:1088,h:870,h264:'d-1088.mp4',hevc:'d-1088.hevc.mp4',poster:'d-poster.jpg'};
+var VID=MOB?{w:720,h:1280,h264:'m-720.mp4',hevc:'m-720.hevc.mp4',poster:'m-poster.jpg'}:{w:720,h:576,h264:'d-720.mp4',hevc:'d-720.hevc.mp4',poster:'d-poster.jpg'};
 var SRC=[VID.w,VID.h], CLIP_S=8.7, NS=261;
 var SHOT=/[?&]shot\b/.test(location.search);
 function pad(n,l){n=String(n);while(n.length<l)n='0'+n;return n}
@@ -53,7 +53,7 @@ function setupVideo(){
   var hv=document.createElement('source');hv.src=FILM_BASE+VID.hevc;hv.type='video/mp4; codecs="hvc1"';
   var av=document.createElement('source');av.src=FILM_BASE+VID.h264;av.type='video/mp4; codecs="avc1.640029"';
   /* HEVC only where the browser says it can play it (Safari/iOS); everyone else gets H.264 */
-  /* perf: attach the sources after window load so the ~5 MB video never competes with the first paint (poster shows until then) */
+  /* perf: attach the sources after window load so the video (~1.2 MB) never competes with the first paint (poster shows until then) */
   var attach=function(){if(vid.firstChild)return;if(hv.type&&vid.canPlayType(hv.type)==='probably')vid.appendChild(hv);vid.appendChild(av);vid.load();sync()};
   if(document.readyState==='complete')setTimeout(attach,0);else window.addEventListener('load',function(){setTimeout(attach,0)});
   vid.addEventListener('loadeddata',done);vid.addEventListener('canplay',done);
@@ -68,7 +68,16 @@ function setupVideo(){
   window.addEventListener('touchend',kick,{passive:true});window.addEventListener('click',kick);
   sync();
 }
-function sync(){if(!vid)return;var want=inView&&!document.hidden;
+/* A11Y-2 (WCAG 2.2.2): visible Pause motion control for the looping film, film grain and scroll cue; the choice is remembered */
+var motionOff=false, mt=$('.motion-toggle');
+try{motionOff=localStorage.getItem('at-motion')==='paused'}catch(e){}
+function setMotion(off){motionOff=off;doc.classList.toggle('motion-paused',off);
+  if(mt){mt.setAttribute('aria-pressed',off?'true':'false')}
+  try{localStorage.setItem('at-motion',off?'paused':'on')}catch(e){}
+  if(vid){vid.autoplay=!off;if(off){vid.removeAttribute('autoplay');if(!vid.paused)vid.pause()}}sync()}
+if(mt){mt.hidden=false;mt.addEventListener('click',function(e){e.stopPropagation();setMotion(!motionOff)})}
+if(motionOff)setMotion(true);
+function sync(){if(!vid)return;var want=inView&&!document.hidden&&!motionOff;
   if(want&&vid.paused){var p=vid.play();if(p&&p.catch)p.catch(function(){})}else if(!want&&!vid.paused){vid.pause()}}
 
 /* light zoom on scroll (GPU transform on the video; the camera move itself is in the clip) */

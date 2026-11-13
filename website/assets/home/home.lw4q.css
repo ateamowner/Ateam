@@ -410,3 +410,12 @@ section{position:relative}
   .wipe__frame{aspect-ratio:4/5}
   .quote__title{font-size:clamp(64px,19vw,120px)}
 }
+
+/* A11Y-2 (site audit 2026-11-13): visible Pause motion button (WCAG 2.2.2) */
+.motion-toggle{position:absolute;right:var(--pad);bottom:calc(12px + env(safe-area-inset-bottom));z-index:6;min-height:44px;min-width:44px;color:var(--ink);cursor:pointer}
+.motion-toggle:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.motion-paused .grain,.motion-paused .scrollcue__line{animation-play-state:paused}
+.rm .motion-toggle{display:none}
+
+.motion-toggle[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#111}
+@media (max-width:600px){.film__hudl .film__fr,.motion-toggle .mt-word{display:none}} /* make room for the Pause button on phones */
