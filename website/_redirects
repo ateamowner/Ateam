@@ -30,6 +30,18 @@ http://www.ateamcontractings.com/*              https://ateamcontractings.com/:s
 # static file cannot shadow the 301. Do not ship a second prices page.
 /pressure-washing-cost-ohio/                 /pressure-washing-prices/  301!
 /pressure-washing-cost-ohio                  /pressure-washing-prices/  301!
+
+# Gutter city pages merged (Anthony 2026-11-13 12:47 PM ET): Englewood and
+# Vandalia -> Dayton gutter page, Piqua and Troy -> Tipp City gutter page.
+# Old page files deleted; forced anyway so nothing can shadow the 301.
+/gutter-cleaning-englewood-ohio/             /gutter-cleaning-dayton-ohio/  301!
+/gutter-cleaning-englewood-ohio              /gutter-cleaning-dayton-ohio/  301!
+/gutter-cleaning-vandalia-ohio/              /gutter-cleaning-dayton-ohio/  301!
+/gutter-cleaning-vandalia-ohio               /gutter-cleaning-dayton-ohio/  301!
+/gutter-cleaning-piqua-ohio/                 /gutter-cleaning-tipp-city-ohio/  301!
+/gutter-cleaning-piqua-ohio                  /gutter-cleaning-tipp-city-ohio/  301!
+/gutter-cleaning-troy-ohio/                  /gutter-cleaning-tipp-city-ohio/  301!
+/gutter-cleaning-troy-ohio                   /gutter-cleaning-tipp-city-ohio/  301!
 /soft-washing/                               /soft-washing-tipp-city-ohio/  301
 /window-cleaning/                            /window-cleaning-tipp-city-ohio/  301
 /roof-cleaning/                              /roof-cleaning-tipp-city-ohio/  301
