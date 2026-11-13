@@ -77,8 +77,8 @@ section h2{font-family:'Archivo Black',sans-serif;font-size:clamp(1.85rem,4.4vw,
 .page-hero .stat-num{font-family:'Archivo Black',sans-serif;font-size:1.65rem;color:var(--cyan);line-height:1}
 .page-hero .stat-label{font-size:.76rem;color:var(--text-muted);margin-top:.15rem}
 .page-hero .trust-chip{background:#fff;border-color:rgba(0,32,80,.16);color:var(--text)}
-/* below-fold sections skip layout/paint until near viewport (cuts Style&Layout/TBT) */
-html:not(.cv-off) section:not(.hero):not(.page-hero),html:not(.cv-off) footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
+/* below-fold sections skip layout/paint until near viewport (cuts Style&Layout/TBT). Placeholder 2400px (was 900px): real mobile sections run to ~2270px, and a too-short placeholder let skipped content overlap the next section (A11Y-3 tap-target overlap, 2026-11-13) */
+html:not(.cv-off) section:not(.hero):not(.page-hero),html:not(.cv-off) footer{content-visibility:auto;contain-intrinsic-size:auto 2400px}
 @media(max-width:768px){
 section{padding:2.75rem 0}
 header{background:var(--navy);box-shadow:0 8px 24px rgba(0,0,0,.28)}

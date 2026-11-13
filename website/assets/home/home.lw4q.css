@@ -278,6 +278,8 @@ section{position:relative}
 .textlink:hover{color:var(--red)}
 .intro .textlink{margin-top:50px}
 .sec-title--sm{font-size:clamp(60px,9vw,160px)}
+/* A11Y-3/overflow 2026-11-13: under 390px the 60px floor made "PHOTOGRAPHED." 8px wider than a 360px screen */
+@media(max-width:389px){.sec-title--sm{font-size:clamp(44px,15.4vw,60px)}}
 .bigbtn--sm .disp{font-size:clamp(44px,7vw,120px)}
 .svc__row:hover .svc__n{color:var(--ink)}
 .svc__row:focus-visible{outline:1px solid var(--red);outline-offset:-1px}
