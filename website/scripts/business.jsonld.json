@@ -103,6 +103,30 @@
       "name": "Beavercreek",
       "addressRegion": "OH",
       "addressCountry": "US"
+    },
+    {
+      "@type": "City",
+      "name": "Kettering",
+      "addressRegion": "OH",
+      "addressCountry": "US"
+    },
+    {
+      "@type": "City",
+      "name": "Centerville",
+      "addressRegion": "OH",
+      "addressCountry": "US"
+    },
+    {
+      "@type": "City",
+      "name": "Miamisburg",
+      "addressRegion": "OH",
+      "addressCountry": "US"
+    },
+    {
+      "@type": "City",
+      "name": "Springboro",
+      "addressRegion": "OH",
+      "addressCountry": "US"
     }
   ],
   "sameAs": [
