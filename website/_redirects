@@ -25,6 +25,23 @@ http://www.ateamcontractings.com/*              https://ateamcontractings.com/:s
 # as /power-washing/ → Tipp City pressure washing.
 /gutter-cleaning/                            /gutter-cleaning-tipp-city-ohio/  301
 /pressure-washing/                           /pressure-washing-tipp-city-ohio/  301
+
+# Retarget cost URL to prices (Anthony request 2026-11-04). Force so old
+# static file cannot shadow the 301. Do not ship a second prices page.
+/pressure-washing-cost-ohio/                 /pressure-washing-prices/  301!
+/pressure-washing-cost-ohio                  /pressure-washing-prices/  301!
+
+# Gutter city pages merged (Anthony 2026-11-13 12:47 PM ET): Englewood and
+# Vandalia -> Dayton gutter page, Piqua and Troy -> Tipp City gutter page.
+# Old page files deleted; forced anyway so nothing can shadow the 301.
+/gutter-cleaning-englewood-ohio/             /gutter-cleaning-dayton-ohio/  301!
+/gutter-cleaning-englewood-ohio              /gutter-cleaning-dayton-ohio/  301!
+/gutter-cleaning-vandalia-ohio/              /gutter-cleaning-dayton-ohio/  301!
+/gutter-cleaning-vandalia-ohio               /gutter-cleaning-dayton-ohio/  301!
+/gutter-cleaning-piqua-ohio/                 /gutter-cleaning-tipp-city-ohio/  301!
+/gutter-cleaning-piqua-ohio                  /gutter-cleaning-tipp-city-ohio/  301!
+/gutter-cleaning-troy-ohio/                  /gutter-cleaning-tipp-city-ohio/  301!
+/gutter-cleaning-troy-ohio                   /gutter-cleaning-tipp-city-ohio/  301!
 /soft-washing/                               /soft-washing-tipp-city-ohio/  301
 /window-cleaning/                            /window-cleaning-tipp-city-ohio/  301
 /roof-cleaning/                              /roof-cleaning-tipp-city-ohio/  301
@@ -50,6 +67,10 @@ http://www.ateamcontractings.com/*              https://ateamcontractings.com/:s
 # gallery. Not forced (no !), so any real file at /images/ba-* still serves.
 /images/ba-*                                 /gallery/  301
 
+# City hub URLs 404 (ClaudeBot/AhrefsBot/Googlebot 2026-11-05/06). Sitemap
+# lists them, but the town hubs are only in draft PR #93. Non-forced so real
+# hub pages shadow these if/when #93 (or similar) merges.
+
 # Power washing is an alias of pressure washing — no empty duplicate pages.
 /power-washing/                              /pressure-washing-tipp-city-ohio/  301
 /power-washing-tipp-city-ohio/               /pressure-washing-tipp-city-ohio/  301
@@ -73,3 +94,29 @@ http://www.ateamcontractings.com/*              https://ateamcontractings.com/:s
 # redirect to the new Tipp City page.
 /sealcoating/                                /seal-coating-tipp-city-ohio/  301
 /sealcoating-tipp-city-ohio/                 /seal-coating-tipp-city-ohio/  301
+
+# Old quote-tool URL 404s (Bingbot 52.167.144.229, 2026-10-26 5:52 AM ET).
+# The quote page is /estimate/.
+/quote-tool.html                             /estimate/  301
+/quote-tool                                  /estimate/  301
+/quote-tool/                                 /estimate/  301
+
+# GSC 11/9 "Not found (404)" aliases (Anthony OK 2026-11-09 9:27 AM ET).
+# Confirmed live 404s from the Search Console triage. Targets are sitemap
+# pages that return 200. Do not force (!) — no static files at these paths.
+/services/                                   /                              301
+/home/                                       /                              301
+/quote/                                      /estimate/                     301
+/estimates/                                  /estimate/                     301
+/booking/                                    /estimate/                     301
+/book/                                       /estimate/                     301
+/pricing/                                    /pressure-washing-prices/      301
+/prices/                                     /pressure-washing-prices/      301
+/service-areas/                              /miami-valley/                 301
+/areas/                                      /miami-valley/                 301
+/testimonials/                               /reviews/                      301
+/gutter/                                     /gutter-cleaning-tipp-city-ohio/  301
+/windows/                                    /window-cleaning-tipp-city-ohio/  301
+/roof/                                       /roof-cleaning-tipp-city-ohio/ 301
+/soft-wash/                                  /soft-washing-tipp-city-ohio/  301
+/sitemap-0.xml                               /sitemap.xml                   301

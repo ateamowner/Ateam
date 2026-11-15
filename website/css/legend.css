@@ -1,8 +1,8 @@
 /* A Team "legend" skin for inner pages: same dark cinematic system as the homepage film.
    Loaded after site.css. Content and markup untouched; this only restyles. */
-@font-face{font-family:Anton;src:url(/fonts/anton-400.woff2) format("woff2");font-display:swap}
-@font-face{font-family:"Instrument Serif";font-style:italic;src:url(/fonts/InstrumentSerif-italic.woff2) format("woff2");font-display:swap}
-@font-face{font-family:"JetBrains Mono";src:url(/fonts/JetBrainsMono-normal.woff2) format("woff2");font-weight:100 800;font-display:swap}
+@font-face{font-family:Anton;src:url(/fonts/anton-400.woff2) format("woff2");font-display:optional}
+@font-face{font-family:"Instrument Serif";font-style:italic;src:url(/fonts/InstrumentSerif-italic.woff2) format("woff2");font-display:optional}
+@font-face{font-family:"JetBrains Mono";src:url(/fonts/JetBrainsMono-normal.woff2) format("woff2");font-weight:100 800;font-display:optional}
 html.lg{
   --lg-bg:#0b0f14;--lg-bg2:#0d1117;--lg-navy:#0a1424;--lg-ink:#f1ece4;--lg-mute:rgba(241,236,228,.62);--lg-faint:rgba(241,236,228,.13);
   --lg-or:#F58220;--lg-or2:#ff9a3d;--lg-blue:#1B5B98;
@@ -41,7 +41,7 @@ html.lg .section-sub, html.lg .lead, html.lg .hero-sub, html.lg .page-hero p{fon
 /* links + buttons */
 html.lg main a:not([class]), html.lg .prose a, html.lg p a{color:var(--lg-ink)!important;text-decoration:none!important;border-bottom:1px solid var(--lg-or)}
 html.lg main a:not([class]):hover, html.lg p a:hover{color:var(--lg-or)!important}
-html.lg .btn, html.lg .btn-white, html.lg .header-cta, html.lg button[type=submit], html.lg input[type=submit], html.lg .mobile-dock-quote, html.lg [class*="cta-btn"], html.lg [class*="-btn"]:not(.hamburger), html.lg .qq button{
+html.lg .btn, html.lg .btn-white, html.lg .header-cta, html.lg button[type=submit], html.lg input[type=submit], html.lg .mobile-dock-quote, html.lg [class*="cta-btn"], html.lg [class*="-btn"]:not(.hamburger):not(.hero-btns):not(.cta-btns), html.lg .qq button{
   background:var(--lg-or)!important;color:#111!important;border:1px solid var(--lg-or)!important;border-radius:2px!important;box-shadow:none!important;
   font-family:var(--lg-mono)!important;font-weight:500!important;font-size:12px!important;letter-spacing:.14em!important;text-transform:uppercase!important;transform:none!important}
 html.lg .btn:hover, html.lg .header-cta:hover, html.lg button[type=submit]:hover{background:var(--lg-or2)!important}
@@ -276,3 +276,20 @@ html.lg .nd-callout a.nd-btn,
 html.lg .nd-callout a.nd-btn:hover,
 html.lg .est-ball,
 html.lg .filter-btn.active{background-color:var(--lg-navy)!important}
+
+/* A11Y-1 (site audit 2026-11-13): orange buttons always get dark #111 text (about 7.5:1 on #F58220).
+   The [class*="-btn"] rule above used to paint the .hero-btns/.cta-btns wrappers orange, so the
+   cream "Call" and "Get My Instant Price" buttons sat on orange at 2.2:1. */
+html.lg .hero-btns, html.lg .cta-btns{background:transparent!important;border:0!important;padding:0!important;letter-spacing:normal!important;text-transform:none!important}
+html.lg .cta-band .btn-orange{background:var(--lg-or)!important;color:#111!important;border-color:var(--lg-or)!important}
+html.lg .est-go{color:#111!important}
+
+/* SPD-2 (site audit 2026-11-13): desktop CLS on the price, contact and soft-washing Dayton pages came from
+   Anton / Instrument Serif / JetBrains Mono swapping in late. Those 3 faces are now font-display:optional
+   (and preloaded in <head>), and the hero button row gets a fixed height so a font swap can't move the next section. */
+html.lg .hero-btns .btn{min-height:52px;line-height:20px;box-sizing:border-box}
+
+/* A11Y-3 (site audit 2026-11-13): footer links and city chips are real tap targets */
+html.lg footer a{display:inline-flex;align-items:center;min-height:24px}
+html.lg .area-tag{display:inline-flex;align-items:center;min-height:24px}
+@media (pointer:coarse){html.lg footer a,html.lg .area-tag{min-height:44px}}

@@ -1,7 +1,7 @@
 @font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/archivo-black-400.woff2') format('woff2')}
 @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/inter-var.woff2') format('woff2-variations'),url('/fonts/inter-var.woff2') format('woff2')}
 @font-face{font-family:'Montserrat';font-style:normal;font-weight:400 800;font-display:swap;src:url('/fonts/montserrat-var.woff2') format('woff2-variations'),url('/fonts/montserrat-var.woff2') format('woff2')}
-@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/anton-400.woff2') format('woff2')}
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:optional;src:url('/fonts/anton-400.woff2') format('woff2')}
 @font-face{font-family:'Caveat';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/caveat-700-v2.woff2') format('woff2')}
 
 :root{
@@ -50,10 +50,10 @@ header{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba
 .logo img{display:block;height:56px;width:auto;box-shadow:none;filter:none;background:none;border:none}
 .logo-text{display:none}
 nav{display:none}
-.header-actions{display:flex;align-items:center;gap:.85rem;margin-left:auto;flex-shrink:0}
+.header-actions{display:flex;align-items:center;gap:.85rem;margin-left:auto;flex-shrink:1;min-width:0}
 .header-phone{color:var(--ink);font-size:.88rem;font-weight:700;letter-spacing:.01em;white-space:nowrap;margin-left:auto}
 .header-phone:hover{color:var(--cyan)}
-.header-cta{background:var(--orange);color:#fff!important;font-size:.82rem;font-weight:800;padding:.55rem 1.15rem;border-radius:6px;white-space:nowrap;flex-shrink:0;border:none;box-shadow:none}
+.header-cta{background:var(--orange);color:#fff!important;font-size:.82rem;font-weight:800;padding:.55rem 1.15rem;border-radius:6px;white-space:nowrap;flex-shrink:1;min-width:0;overflow:hidden;text-overflow:ellipsis;border:none;box-shadow:none}
 .hamburger{display:flex;background:none;border:none;cursor:pointer;padding:.5rem;flex-direction:column;gap:5px;flex-shrink:0}
 .hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .2s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -68,7 +68,7 @@ nav{display:none}
 /* BUTTONS — 6px black offset shadow, matching the preview CTAs */
 .btn{display:inline-block;padding:.95rem 1.55rem;border-radius:8px;font-weight:800;font-size:.92rem;cursor:pointer;transition:transform .12s,box-shadow .12s;letter-spacing:.01em;border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}
 .btn:hover{transform:translate(2px,2px);box-shadow:4px 4px 0 var(--ink)}
-.btn-orange{background:var(--orange);color:#fff;border-color:var(--ink)}
+.btn-orange{background:var(--orange);color:#111;border-color:var(--ink)}
 .btn-orange:hover{background:var(--orange);border-color:var(--ink)}
 .btn-white{background:#fff;color:var(--ink);border-color:var(--ink)}
 .btn-white:hover{background:#fff}
@@ -620,4 +620,15 @@ footer ul li a:hover,.footer-cols a:hover{color:#fff}
   .hero-btns .btn{width:100%;text-align:center}
   .hero-proof{margin-top:.7rem}
   .hero-proof-link{min-height:36px;padding:.3rem .7rem;font-size:.72rem}
+}
+
+/* A11Y-3 (site audit 2026-11-13): touch targets. 24px minimum everywhere (WCAG 2.5.8),
+   44px on touch screens, with at least 8px between chips. */
+.area-grid,.area-pills{gap:.75rem}
+.area-tag{display:inline-flex;align-items:center;min-height:24px}
+footer ul li a,.footer-cols a,.footer-links a{display:inline-flex;align-items:center;min-height:24px}
+@media (pointer:coarse){
+  .area-tag{min-height:44px}
+  footer ul li a,.footer-cols a,.footer-links a{min-height:44px}
+  footer ul li,.footer-cols li{margin-bottom:0}
 }
