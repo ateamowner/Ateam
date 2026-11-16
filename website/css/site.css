@@ -573,6 +573,7 @@ footer ul li a:hover,.footer-cols a:hover{color:#fff}
 }
 .mobile-dock-call{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);min-height:48px;display:flex;align-items:center;justify-content:center}
 .mobile-dock-quote{background:var(--orange);color:#fff;border:2px solid var(--orange);min-height:48px;display:flex;align-items:center;justify-content:center}
+.mobile-dock a[href^="sms:"]{font-size:.78rem;padding:.85rem .3rem}
 
 .city-map{margin-top:1.5rem;border-radius:12px;overflow:hidden;border:1px solid var(--border);aspect-ratio:16/9;max-height:320px}
 .city-map iframe{display:block;width:100%;height:100%;border:0;min-height:240px}

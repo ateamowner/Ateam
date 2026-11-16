@@ -21,6 +21,8 @@
  *
  * Click events (2026-11-01): phone_tap (tel:), email_tap (mailto:),
  * cta_click (links to /estimate/, /free-quote/, /contact/). See below.
+ * 2026-11-16: text_tap on any sms: link. tel: stays phone_tap (already live);
+ * a second call_tap event was not added, so existing GA reports stay intact.
  *
  * The ads landing form (ad-quote on /free-quote/) is intentionally not
  * converted here. Pageviews on that URL still count.
@@ -148,6 +150,7 @@
   // Click tracking (added 2026-11-01). One delegated listener, so every
   // page that loads this file is covered with no per-page markup.
   //   phone_tap  - any tel: link       (params: link_location, page_path)
+  //   text_tap   - any sms: link       (params: link_location, page_path)
   //   email_tap  - any mailto: link    (params: link_location, page_path)
   //   cta_click  - links to /estimate/, /free-quote/ or /contact/
   //                (params: cta_target, link_text, link_location, page_path)
@@ -159,7 +162,7 @@
   function linkLocation(el) {
     if (el.closest("header, nav")) return "header";
     if (el.closest("footer")) return "footer";
-    if (el.closest(".lp-sticky, .sticky-cta, [data-cta-bar]")) return "sticky_bar";
+    if (el.closest(".lp-sticky, .sticky-cta, [data-cta-bar], .mobile-dock, .dock")) return "sticky_bar";
     return "body";
   }
 
@@ -189,6 +192,10 @@
       };
       if (lower.indexOf("tel:") === 0) {
         gtag("event", "phone_tap", base);
+        return;
+      }
+      if (lower.indexOf("sms:") === 0) {
+        gtag("event", "text_tap", base);
         return;
       }
       if (lower.indexOf("mailto:") === 0) {

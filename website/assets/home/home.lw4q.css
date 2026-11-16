@@ -380,8 +380,8 @@ section{position:relative}
   .faq__list{margin-right:calc(var(--pad) + 44px)}
   .foot__cols{grid-template-columns:1fr 1fr}
   .foot{padding-bottom:calc(90px + env(safe-area-inset-bottom))}
-  .dock{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:75;display:grid;grid-template-columns:1fr 1.6fr;gap:8px;opacity:0;transform:translateY(20px);transition:opacity .35s,transform .35s;pointer-events:none}
-  .dock a{text-align:center;padding:15px 10px;border:1px solid rgba(241,236,228,.3);background:rgba(11,15,20,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:10px}
+  .dock{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:75;display:grid;grid-template-columns:1fr 1.3fr 1.5fr;gap:8px;opacity:0;transform:translateY(20px);transition:opacity .35s,transform .35s;pointer-events:none}
+  .dock a{text-align:center;padding:15px 6px;border:1px solid rgba(241,236,228,.3);background:rgba(11,15,20,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:10px}
   .dock .dock__q{background:var(--red);border-color:var(--red);color:#111}
   html.dock-on .dock{opacity:1;transform:none;pointer-events:auto}
   html.dock-on .hud{bottom:calc(84px + env(safe-area-inset-bottom))}
