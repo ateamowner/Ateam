@@ -23,7 +23,7 @@
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/caveat-700-v2.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css?v=20261113">
+<link rel="stylesheet" href="/css/site.css?v=20261116">
 <style>
 .ty{background:var(--navy);color:#fff;text-align:center;padding:3.5rem 0 3rem}
 .ty-check{width:76px;height:76px;margin:0 auto 1.25rem;background:#1a7a3c;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.4rem}
@@ -154,6 +154,7 @@
         <ul>
           <li><a href="/faq/">FAQ</a></li>
           <li><a href="tel:+19377779093">(937) 777-9093</a></li>
+          <li><a href="sms:+19377779093">Text us a photo</a></li>
           <li><a href="mailto:Owner@ateamcontractings.com">Owner@ateamcontractings.com</a></li>
           <li><span>Mon–Sat: 7am – 7pm ET · Sunday closed</span></li>
         </ul>
@@ -183,8 +184,9 @@
 function toggleNav(btn){btn.classList.toggle('open');document.getElementById('mobile-drawer').classList.toggle('open')}
 </script>
 
-<div class="mobile-dock" role="navigation" aria-label="Call or get a quote">
+<div class="mobile-dock" role="navigation" aria-label="Call, text a photo, or get a quote">
   <a class="mobile-dock-call" href="tel:+19377779093">Call</a>
+  <a class="mobile-dock-call" href="sms:+19377779093">Text us a photo</a>
   <a class="mobile-dock-quote" href="/estimate/">Get Quote</a>
 </div>
 

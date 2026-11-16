@@ -27,7 +27,7 @@
 <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/archivo-black-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/caveat-700-v2.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/site.css?v=20261113">
+<link rel="stylesheet" href="/css/site.css?v=20261116">
 <style>
 /* ---- INSTANT ESTIMATOR ---- */
 .est-wrap{max-width:640px;margin:0 auto}
@@ -379,7 +379,7 @@
             </div>
             <div class="est-field">
               <label for="est-phone">Best phone number</label>
-              <input type="tel" id="est-phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(937) 555-0143">
+              <input type="tel" id="est-phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="Your phone number">
             </div>
             <div class="est-field">
               <label for="est-address">Service address</label>
@@ -490,6 +490,7 @@
         <h3>Get In Touch</h3>
         <ul>
           <li><a href="tel:+19377779093">(937) 777-9093</a></li>
+          <li><a href="sms:+19377779093">Text us a photo</a></li>
           <li><a href="mailto:Owner@ateamcontractings.com">Owner@ateamcontractings.com</a></li>
           <li><span>Mon–Sat: 7am – 7pm ET · Sunday closed</span></li>
           <li><span>Tipp City, Ohio</span></li>
@@ -525,8 +526,9 @@ function toggleFaq(btn){const item=btn.closest('.faq-item');const wasOpen=item.c
 <script src="/assets/lead-form.js" defer></script>
 
 
-<div class="mobile-dock" role="navigation" aria-label="Call or get a quote">
+<div class="mobile-dock" role="navigation" aria-label="Call, text a photo, or get a quote">
   <a class="mobile-dock-call" href="tel:+19377779093">Call</a>
+  <a class="mobile-dock-call" href="sms:+19377779093">Text us a photo</a>
   <a class="mobile-dock-quote" href="/estimate/">Get Quote</a>
 </div>
 
