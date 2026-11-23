@@ -120,3 +120,12 @@ http://www.ateamcontractings.com/*              https://ateamcontractings.com/:s
 /roof/                                       /roof-cleaning-tipp-city-ohio/ 301
 /soft-wash/                                  /soft-washing-tipp-city-ohio/  301
 /sitemap-0.xml                               /sitemap.xml                   301
+
+# ClaudeBot 404s (2026-11-22): crawlers that don't recognize the sms: URI
+# scheme treat href="sms:+19377779093" as a relative path and request
+# /<page>/sms:+19377779093. The links themselves are already absolute
+# sms: URIs; these 301s send the bad paths back to the parent page.
+# Root rule is first so an empty splat cannot send /sms:+... to //.
+# The colon is mid-segment, so it is literal, not a placeholder.
+/sms:+19377779093                            /                              301
+/*/sms:+19377779093                          /:splat/                       301
